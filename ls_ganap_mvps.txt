@@ -1,0 +1,19 @@
+MVP
+
+Org events
+School calendar
+Admin approves org event submission
+Event filtering
+Tags
+Event pages
+
+NICE TO HAVES
+
+Talks organized by independent offices
+No classes announcement
+Individual accounts to track specific org events
+Notification system
+Pre-registering for events
+Ticket buying?
+
+Paid Add-on: Event registration tracker
