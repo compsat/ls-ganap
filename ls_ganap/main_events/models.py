@@ -38,3 +38,7 @@ class TagSubscription(models.Model):
 class EventHostSubscription(models.Model):
 	# user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 	event_host_id = models.ForeignKey(EventHost, on_delete=models.CASCADE)
+	
+class FollowedEvents(models.Model):
+	# user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+	event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
