@@ -1,0 +1,6 @@
+# byte-compiled
+*.pyc
+
+# misc
+.DS_Store
+
