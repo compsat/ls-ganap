@@ -1,19 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Loadable from 'react-loadable';
+import Loading from './components/Loading';
+import MainNav from './components/MainNav';
+import PageContent from './components/PageContent';
+
+const Home = Loadable({
+  loader: () => import('./home/Home'),
+  loading: Loading,
+});
+
+const Browse = Loadable({
+  loader: () => import('./browse/Browse'),
+  loading: Loading,
+});
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div>
+          <MainNav />
+          {/* Temporary content width value */}
+          <PageContent width="1280px">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/browse" component={Browse} />
+            </Switch>
+          </PageContent>
+        </div>
+      </Router>
     );
   }
 }
