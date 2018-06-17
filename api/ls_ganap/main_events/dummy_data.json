@@ -1,0 +1,23 @@
+{
+	"start_time" : "03:00:00", 
+	"end_time" :  "05:00:00",
+	"host_id": 1,
+	"name" : "Blue Hacks", 
+	"description" : "BlueHacks is a two-day hackathon where...", 
+	"is_accepted":"False" , 
+	"poster_url" : "http://bluehacks.compsat.org/static/media/logo-big.3d72fc4b.png", 
+	"outside_venue_name" : "", 
+	"is_premium":"False", 
+	"event_url" : "http://bluehacks.compsat.org/"
+}
+
+{
+	"name" : "CompSAt",
+	"description" : "The Computer Society of the Ateneo envisions itself as a community of Ateneans.. passion for Information Technology",
+	"color" "#FFF":,
+	"logo_url": "https://pbs.twimg.com/profile_images/632167955564879878/NStAj53E_400x400.png" 
+
+
+
+
+}

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Event
+from .models import Event, EventHost
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
@@ -7,6 +7,7 @@ class EventSerializer(serializers.ModelSerializer):
         fields = ('id', 
         		'start_time', 
         		'end_time', 
+        		'host_id',
         		'name', 
         		'description', 
         		'is_accepted', 
@@ -14,3 +15,12 @@ class EventSerializer(serializers.ModelSerializer):
         		'outside_venue_name', 
         		'is_premium', 
         		'event_url')
+
+class HostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EventHost
+        fields = ('name',
+        		 'description',
+        		 'color',
+        		 'logo_url')
+

@@ -1,5 +1,5 @@
-from .models import Event
-from .serializers import EventSerializer
+from .models import Event, EventHost
+from .serializers import EventSerializer, HostSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -42,3 +42,22 @@ class EventDetail(APIView):
         event = self.get_object(pk)
         event.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class HostList(APIView):
+    def get(self, request, format=None):
+        hosts = EventHost.objects.all()
+        serializer = HostSerializer(hosts, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = HostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+
