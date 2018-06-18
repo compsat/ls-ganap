@@ -12,8 +12,8 @@ class Venue(models.Model):
 class Event(models.Model):
 	venue_id = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
 	host_id = models.ForeignKey(EventHost, on_delete=models.CASCADE)
-	start_time = models.TimeField()
-	end_time = models.TimeField()
+	start_time = models.DateTimeField()
+	end_time = models.DateTimeField()
 	name = models.CharField(max_length=200)
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
