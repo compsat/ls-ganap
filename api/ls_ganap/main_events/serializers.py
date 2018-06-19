@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Event, EventHost
+from .models import Event, EventHost, Tag
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,4 +23,9 @@ class HostSerializer(serializers.ModelSerializer):
         		 'description',
         		 'color',
         		 'logo_url')
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ('name')
 

@@ -8,6 +8,8 @@ urlpatterns = [
     path('events/<int:pk>/', views.EventDetail.as_view()),
     path('event_hosts/', views.HostList.as_view()),
     path('event_hosts/<int:pk>/', views.HostDetail.as_view()),
+    path('tags/', views.TagList.as_view()),
+    path('tags/<int:pk>/', views.TagDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
