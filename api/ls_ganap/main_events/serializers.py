@@ -4,7 +4,7 @@ from .models import Event, EventHost, Tag
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ('id', 
+        fields = ['id', 
         		'start_time', 
         		'end_time', 
         		'host_id',
@@ -14,18 +14,19 @@ class EventSerializer(serializers.ModelSerializer):
         		'poster_url', 
         		'outside_venue_name', 
         		'is_premium', 
-        		'event_url')
+        		'event_url']
 
 class HostSerializer(serializers.ModelSerializer):
     class Meta:
         model = EventHost
-        fields = ('name',
+        fields = ['name',
         		 'description',
         		 'color',
-        		 'logo_url')
+        		 'logo_url']
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ('name')
+        # fields = '__all__'
+        fields = ['name']
 
