@@ -1,15 +1,16 @@
 from django.contrib import admin
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from main_events import views
+from main_events.views import event_view, host_view, tag_view
+# import views
 
 urlpatterns = [
-    path('events/', views.EventList.as_view()),
-    path('events/<int:pk>/', views.EventDetail.as_view()),
-    path('event_hosts/', views.HostList.as_view()),
-    path('event_hosts/<int:pk>/', views.HostDetail.as_view()),
-    path('tags/', views.TagList.as_view()),
-    path('tags/<int:pk>/', views.TagDetail.as_view()),
+    path('events/', event_view.EventList.as_view()),
+    path('events/<int:pk>/', event_view.EventDetail.as_view()),
+    path('event_hosts/', host_view.HostList.as_view()),
+    path('event_hosts/<int:pk>/', host_view.HostDetail.as_view()),
+    path('tags/', tag_view.TagList.as_view()),
+    path('tags/<int:pk>/', tag_view.TagDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
