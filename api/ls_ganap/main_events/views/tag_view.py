@@ -19,20 +19,7 @@ class TagList(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = TagSerializer(queryset, many=True)
         return Response(serializer.data)
-
-# class TagList(APIView):
-#     def get(self, request, format=None):
-#         tags = Tag.objects.all()
-#         serializer = TagSerializer(tags, many=True)
-#         return Response(serializer.data)
-
-#     def post(self, request, format=None):
-#         serializer = TagSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        
 class TagDetail(APIView):
     def get_object(self, pk):
         try:
