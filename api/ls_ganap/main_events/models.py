@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class EventHost(models.Model):
 	name = models.CharField(max_length=200)
@@ -32,13 +33,13 @@ class TagToEvent(models.Model):
 	event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
 	
 class TagSubscription(models.Model):
-	# user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+	user_id = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 	tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
 	
 class EventHostSubscription(models.Model):
-	# user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+	user_id = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 	event_host_id = models.ForeignKey(EventHost, on_delete=models.CASCADE)
 	
 class FollowedEvents(models.Model):
-	# user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+	user_id = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 	event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
