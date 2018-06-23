@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Event, EventHost, Tag
+from .models import Event, EventHost, Tag, Venue
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
@@ -28,5 +28,10 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         # fields = '__all__'
+        fields = ['name']
+        
+class VenueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Venue
         fields = ['name']
 
