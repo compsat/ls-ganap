@@ -20,7 +20,7 @@ class HostSerializer(serializers.ModelSerializer):
     class Meta:
         model = EventHost
         fields = ['name',
-        		 'type',
+        		 'host_type',
         		 'description',
         		 'color',
         		 'logo_url']
