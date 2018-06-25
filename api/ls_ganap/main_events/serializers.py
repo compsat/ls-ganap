@@ -1,12 +1,13 @@
 from rest_framework import serializers
-from .models import Event, EventHost, Tag, Venue
+from .models import Event, EventHost, HostType, Tag, Venue
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ['id', 
         		'start_time', 
-        		'end_time', 
+        		'end_time',
+        		'venue_id', 
         		'host_id',
         		'name', 
         		'description', 
@@ -36,3 +37,7 @@ class VenueSerializer(serializers.ModelSerializer):
         model = Venue
         fields = ['name']
 
+class HostTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HostType
+        fields = ['host_type']
