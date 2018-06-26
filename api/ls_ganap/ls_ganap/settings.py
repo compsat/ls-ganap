@@ -24,6 +24,7 @@ SECRET_KEY = 'ogcbw*(&#4^d8_by(7n5u&4quk8hlge4z+=3rs)*2ffct323wj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+USE_TZ = False
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
@@ -43,6 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': "%Y-%m-%d%H:%M:%S"   
+}   
 
 
 MIDDLEWARE = [
