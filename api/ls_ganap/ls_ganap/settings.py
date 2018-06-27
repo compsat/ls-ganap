@@ -24,7 +24,6 @@ SECRET_KEY = 'ogcbw*(&#4^d8_by(7n5u&4quk8hlge4z+=3rs)*2ffct323wj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-USE_TZ = False
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
@@ -125,7 +124,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
