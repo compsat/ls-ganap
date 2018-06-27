@@ -27,7 +27,7 @@ class EventList(generics.ListCreateAPIView):
             queryset_list = queryset_list.filter(
                 Q(name__icontains=query)|
                 Q(venue_id__name__icontains=query)|
-                Q(host_id___name__incontains=query)
+                Q(host_id___name__icontains=query)
             ).distinct()
 
         return queryset_list
