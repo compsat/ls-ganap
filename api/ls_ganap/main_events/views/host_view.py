@@ -1,5 +1,5 @@
-from main_events.models import EventHost
-from main_events.serializers import HostSerializer
+from main_events.models import EventHost, Event
+from main_events.serializers import HostSerializer, EventSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -23,3 +23,18 @@ class HostList(generics.ListCreateAPIView):
 class HostDetail(generics.RetrieveUpdateDestroyAPIView):
 	queryset = EventHost.objects.all()
 	serializer_class = HostSerializer
+
+class HostEventsList(generics.ListAPIView):
+    serializer_class = EventSerializer
+    pagination_class = ObjectPageNumberPagination
+
+    def get_queryset(self):
+        host_id = self.kwargs['pk']
+        queryset = Event.objects.all()
+        
+        if EventHost.objects.filter(pk=host_id).exists():
+            queryset = queryset.filter(host_id=host_id)
+        else:
+            raise Http404
+
+        return queryset
