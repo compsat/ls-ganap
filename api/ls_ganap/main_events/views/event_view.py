@@ -9,12 +9,16 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 # import Query lookups
 from django.db.models import Q
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 class EventList(generics.ListCreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
+    serializer_class = EventSerializer
+    filter_backends = (SearchFilter, OrderingFilter,)
+    search_fields = ('host_id__host_type__type', 'description')
 
     # overwrite get_queryset() method
     def get_queryset(self, *args, **kwargs):
@@ -27,7 +31,7 @@ class EventList(generics.ListCreateAPIView):
             queryset_list = queryset_list.filter(
                 Q(name__icontains=query)|
                 Q(venue_id__name__icontains=query)|
-                Q(host_id___name__icontains=query)
+                Q(host_id__name__icontains=query)
             ).distinct()
 
         return queryset_list
@@ -39,7 +43,6 @@ class EventList(generics.ListCreateAPIView):
         
         serializer = EventSerializer(queryset, many=True)
         return Response(serializer.data)
-
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 	queryset = Event.objects.all()
