@@ -40,4 +40,4 @@ class VenueSerializer(serializers.ModelSerializer):
 class HostTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = HostType
-        fields = ['host_type']
+        fields = ['type']
