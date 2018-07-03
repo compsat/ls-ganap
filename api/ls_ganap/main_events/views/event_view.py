@@ -15,6 +15,7 @@ from datetime import datetime, timedelta
 
 class FilterEventsBetweenDates(generics.ListAPIView):
     serializer_class = EventSerializer
+    pagination_class = ObjectPageNumberPagination
     """
     sample usage http://localhost:8000/api/get_events_between/?start_date=2018-06-25&end_date=2018-07-03
     Note: range does not include the last element need to add 
@@ -35,6 +36,7 @@ class FilterEventsBetweenDates(generics.ListAPIView):
 
 class FilterEventByDate(generics.ListAPIView):
     serializer_class = EventSerializer
+    pagination_class = ObjectPageNumberPagination
 
     def get_queryset(self):
         date = self.kwargs['date']
