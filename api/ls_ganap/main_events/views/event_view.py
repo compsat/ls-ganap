@@ -18,7 +18,7 @@ class EventList(generics.ListCreateAPIView):
     pagination_class = ObjectPageNumberPagination
     serializer_class = EventSerializer
     filter_backends = (SearchFilter, OrderingFilter,)
-    search_fields = ('host_id__host_type__type', 'description')
+    search_fields = ('host_id__host_type__type_name',)
 
     # overwrite get_queryset() method
     def get_queryset(self, *args, **kwargs):
