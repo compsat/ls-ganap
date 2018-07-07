@@ -21,7 +21,6 @@ class App extends Component {
       <Router>
         <div>
           <MainNav />
-          {/* Temporary content width value */}
           <PageContent>
             <Switch>
               <Route exact path="/" component={Home} />
