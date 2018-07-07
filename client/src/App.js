@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <Router>
         <ThemeProvider theme={theme}>
-          <div>
+          <React.Fragment>
             <MainNav />
             <PageContent>
               <Switch>
@@ -30,7 +30,7 @@ class App extends Component {
                 <Route path="/browse" component={Browse} />
               </Switch>
             </PageContent>
-          </div>
+          </React.Fragment>
         </ThemeProvider>
       </Router>
     );
