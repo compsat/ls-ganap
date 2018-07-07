@@ -8,6 +8,8 @@ urlpatterns = [
     path('events/', event_view.EventList.as_view()),
     path('get_events_on/<str:date>', event_view.FilterEventByDate.as_view()),
     path('get_events_between/', event_view.FilterEventsBetweenDates.as_view()),
+    path('get_events_by_week/<str:date>', event_view.FilterEventByWeek.as_view()),
+    path('get_events_by_month/<str:date>', event_view.FilterEventByMonth.as_view()),
     path('events/<int:pk>/', event_view.EventDetail.as_view()),
     path('event_hosts/', host_view.HostList.as_view()),
     path('event_hosts/<int:pk>/', host_view.HostDetail.as_view()),

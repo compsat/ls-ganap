@@ -28,12 +28,16 @@ class FilterEventsBetweenDates(generics.ListAPIView):
 
         queryset = Event.objects.all()
 
-        if(start_date is not None) and (end_date is not None):
-           queryset = queryset.filter(start_time__range=[start_date, end_date])
-        else:
-            raise Http404
+        return get_dates_between(start_date, end_date, queryset, Event.start_time)
 
-        return queryset
+# helper method for getting date range
+def get_dates_between(start_date, end_date, queryset, start_time):
+    if(start_date is not None) and (end_date is not None):
+        queryset = queryset.filter(start_time__range=[start_date, end_date]).order_by('start_time')
+    else:
+        raise Http404
+
+    return queryset
 
 class FilterEventByDate(generics.ListAPIView):
     serializer_class = EventSerializer
@@ -45,6 +49,38 @@ class FilterEventByDate(generics.ListAPIView):
         
         if date is not None:
             queryset = queryset.filter(start_time__date=date)
+
+        return queryset
+
+class FilterEventByWeek(generics.ListAPIView):
+    serializer_class = EventSerializer
+    pagination_class = ObjectPageNumberPagination
+
+    def get_queryset(self):
+        date = self.kwargs['date']
+        get_date = datetime.strptime(date, '%Y-%m-%d')
+        get_day = get_date.weekday()
+        start_date = (get_date - timedelta(days=get_day))
+        end_date = (get_date + timedelta(days=(6-get_day)))
+        end_date = end_date + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
+
+        queryset = Event.objects.all()
+
+        return get_dates_between(start_date, end_date, queryset, Event.start_time)
+
+class FilterEventByMonth(generics.ListAPIView):
+    serializer_class = EventSerializer
+    pagination_class = ObjectPageNumberPagination
+
+    def get_queryset(self):
+        date = self.kwargs['date']
+        get_month = datetime.strptime(date, '%Y-%m-%d').date().month
+        get_year = datetime.strptime(date, '%Y-%m-%d').date().year
+
+        queryset = Event.objects.all()
+
+        if date is not None:
+            queryset = queryset.filter(start_time__month=get_month, start_time__year=get_year)
 
         return queryset
 
