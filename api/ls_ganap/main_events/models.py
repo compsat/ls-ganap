@@ -2,11 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class HostType(models.Model):
-	host_type = models.CharField(max_length=20)
+	type_name = models.CharField(max_length=20)
 
 class EventHost(models.Model):
 	name = models.CharField(max_length=200)
-	host_type = models.ForeignKey(HostType, null=True, on_delete=models.DO_NOTHING)
+	host_type = models.ForeignKey(HostType, on_delete=models.DO_NOTHING)
 	description = models.TextField()
 	color = models.CharField(max_length=20)
 	logo_url = models.URLField()

@@ -1,6 +1,6 @@
 {
-	"start_time" : "2018-02-12T15:40:00Z", 
-	"end_time" :  "2018-02-12T17:40:00Z",
+	"start_time" : "2018-06-26 14:30", 
+	"end_time" :  "2018-06-26 18:30",
 	"venue_id": 1,
 	"host_id": 1,
 	"name" : "Blue Hacks", 
@@ -12,8 +12,9 @@
 	"event_url" : "http://bluehacks.compsat.org/"
 }
 
-{
+{	
 	"name" : "CompSAt",
+	"host_type": 1,
 	"description" : "The Computer Society of the Ateneo envisions itself as a community of Ateneans.. passion for Information Technology",
 	"color" : "#FFF",
 	"logo_url": "https://pbs.twimg.com/profile_images/632167955564879878/NStAj53E_400x400.png" 
