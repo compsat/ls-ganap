@@ -45,8 +45,12 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
+<<<<<<< HEAD
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
     # 'DEFAULT_FILTER_BACKENDS': 'django_filters.rest_framework.DjangoFilterBackend'   
+=======
+    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S"   
+>>>>>>> master
 }   
 
 

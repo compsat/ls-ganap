@@ -11,6 +11,7 @@ urlpatterns = [
     path('events/<int:pk>/', event_view.EventDetail.as_view()),
     path('event_hosts/', host_view.HostList.as_view()),
     path('event_hosts/<int:pk>/', host_view.HostDetail.as_view()),
+    path('get_host_events/<int:pk>/', host_view.HostEventsList.as_view()),
     path('host_types/', host_type_view.HostTypeList.as_view()),
     path('host_types/<int:pk>/', host_type_view.HostTypeDetail.as_view()),
     path('tags/', tag_view.TagList.as_view()),

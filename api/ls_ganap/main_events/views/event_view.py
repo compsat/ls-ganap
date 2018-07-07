@@ -11,6 +11,7 @@ from rest_framework import status
 from django.db.models import Q
 from django.http import Http404
 from datetime import datetime, timedelta
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 
 class FilterEventsBetweenDates(generics.ListAPIView):
@@ -47,26 +48,25 @@ class FilterEventByDate(generics.ListAPIView):
 
         return queryset
 
-
-
 class EventList(generics.ListCreateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
+    serializer_class = EventSerializer
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ['name', 'venue_id__name', 'host_id__name']
 
     # overwrite get_queryset() method
     def get_queryset(self, *args, **kwargs):
         queryset_list = Event.objects.all()
-        query = self.request.GET.get("q")
+        query = self.request.GET.get("host_type_id")
         
         # only perform the filtering if the query has arguements
         # if not return all the events
         if query:
             queryset_list = queryset_list.filter(
-                Q(name__icontains=query)|
-                Q(venue_id__name__icontains=query)|
-                Q(host_id___name__icontains=query)
+                Q(host_id__host_type__id__contains=query)
             ).distinct()
 
         return queryset_list
@@ -78,7 +78,6 @@ class EventList(generics.ListCreateAPIView):
         
         serializer = EventSerializer(queryset, many=True)
         return Response(serializer.data)
-
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 	queryset = Event.objects.all()
