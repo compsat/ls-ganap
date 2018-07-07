@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Container = styled.main`
+const PageContent = styled.main`
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 
@@ -15,19 +15,9 @@ const Container = styled.main`
   }
 `;
 
-Container.defaultProps = {
+PageContent.defaultProps = {
   theme: {
     width: '1200px'
-  }
-}
-
-class PageContent extends Component {
-  render() {
-    return (
-      <Container width={this.props.width}>
-        {this.props.children}
-      </Container>
-    );
   }
 }
 
