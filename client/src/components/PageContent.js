@@ -5,19 +5,13 @@ const PageContent = styled.main`
   padding-right: 1.5rem;
 
   /* Consider removing calc from within media query */
-  @media screen and (min-width: calc(${props => props.theme.width} + 60px)) {
-    max-width: ${props => props.theme.width};
+  @media screen and (min-width: ${props => (parseInt(props.theme.maxSiteWidth) + 60 + 'px')}) {
+    max-width: ${props => props.theme.maxSiteWidth};
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
   }
 `;
-
-PageContent.defaultProps = {
-  theme: {
-    width: '1200px'
-  }
-}
 
 export default PageContent;
