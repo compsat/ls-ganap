@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
 import { ThemeProvider } from 'styled-components';
-import theme from './Theme';
+import theme from './style/style-theme';
 import MainNav from './components/MainNav';
 import PageContent from './components/PageContent';
 
