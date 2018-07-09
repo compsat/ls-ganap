@@ -1,14 +1,14 @@
 const theme = {
     sizes: {
-        maxSiteWidth: '75em',
-        minSiteWidth: '20em',
+        maxSiteWidth: '1200px',
+        minSiteWidth: '320px',
     },
     type: {
         maxFontSize: '21px',
         minFontSize: '16px',
     },
     breakpoints: {
-        mdScreen: '50em',
+        mdScreen: '800px',
     },
 };
 
