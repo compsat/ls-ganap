@@ -60,11 +60,17 @@ class HorizontalScroller extends Component {
       atStart: true,
       atEnd: false,
     }
+    this.setState({
+      atEnd: (this.scrollList.scrollWidth -
+        (this.scrollList.scrollLeft + this.scrollList.clientWidth)) === 0
+    });
   }
 
   componentDidMount() {
+    const scrollList = this.scrollList;
+
     this.animateScrollToOptions = {
-      element: this.scrollList,
+      element: scrollList,
       cancelOnUserAction: false,
       horizontal: true,
     }
