@@ -126,8 +126,8 @@ class HorizontalScroller extends Component {
 }
 
 const getHorizontalScrollerDisplay = (maxDisplay) => {
-  const maxSiteWidth = parseInt(theme.sizes.maxSiteWidth, 10);
-  const mdScreen = parseInt(theme.breakpoints.mdScreen, 10);
+  const maxSiteWidth = parseInt(theme.sizes.maxSiteWidth, 10)/16;
+  const mdScreen = parseInt(theme.breakpoints.mdScreen, 10)/16;
   const minDisplay = 3;
   const interval = (maxSiteWidth - mdScreen)/(maxDisplay - minDisplay);
 
