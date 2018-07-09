@@ -17,10 +17,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 class FilterEventsBetweenDates(generics.ListAPIView):
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
-    """
-    sample usage http://localhost:8000/api/get_events_between/?start_date=2018-06-25&end_date=2018-07-03
-    Note: range does not include the last element need to add 
-    """
+
     def get_queryset(self):
         start_date = self.request.query_params.get('start_date', None)
         end_date = self.request.query_params.get('end_date', None)
@@ -85,6 +82,20 @@ class FilterEventByMonth(generics.ListAPIView):
         return queryset
 
 class EventList(generics.ListCreateAPIView):
+    """
+    Get a list of events.
+    ---
+    
+    serializer: main_events.serializers.EventSerializer
+    omit_serializer: false
+    many: true
+
+    parameters:
+      - name: EventSerializer
+      - type: WriteEventSerializer
+      paramType: body   
+
+    """
     queryset = Event.objects.all()
     serializer_class = EventSerializer
     # specifies which pagination settings to follow
@@ -109,6 +120,9 @@ class EventList(generics.ListCreateAPIView):
 
 
     def list_items(self, request):
+        """
+        Return the list of events.
+        """
         # make sure to filter by event start_time
         queryset = self.get_queryset().order_by('start_time')
         
