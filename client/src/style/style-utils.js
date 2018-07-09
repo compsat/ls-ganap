@@ -26,9 +26,9 @@ export const interpolate = (property, minScreen, maxScreen, minValue, maxValue) 
 }
 
 export const calcInterpolation = (minScreen, minValue, maxScreen, maxValue) => {
-    minScreen = parseInt(minScreen, 10)*16;
+    minScreen = parseInt(minScreen, 10);
     minValue = parseInt(minValue, 10);
-    maxScreen = parseInt(maxScreen, 10)*16;
+    maxScreen = parseInt(maxScreen, 10);
     maxValue = parseInt(maxValue, 10);
 
     const a = (maxValue - minValue)/(maxScreen - minScreen);
