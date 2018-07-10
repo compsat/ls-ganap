@@ -3,3 +3,4 @@ psycopg2-binary==2.7.5
 pytz==2018.4
 djangorestframework==3.8.2
 django-rest-swagger==2.2.0
+PyYAML===3.13
