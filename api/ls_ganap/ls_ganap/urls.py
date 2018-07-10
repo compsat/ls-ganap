@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
 from rest_framework_swagger.views import get_swagger_view
+from .swagger_schema import SwaggerSchemaView
 
 schema_view = get_swagger_view(title='LS Ganap API')
 
@@ -25,4 +26,5 @@ urlpatterns = [
     path('/admin', admin.site.urls),
     path('', include('main_events.urls')),
     path('docs', schema_view)
+    # path('docs', SwaggerSchemaView.as_view())
 ]
