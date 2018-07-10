@@ -12,9 +12,12 @@ from django.db.models import Q
 from django.http import Http404
 from datetime import datetime, timedelta
 from rest_framework.filters import SearchFilter, OrderingFilter
-
+# from main_events.swagger import SimpleFilterBackend
 
 class FilterEventsBetweenDates(generics.ListAPIView):
+    """
+    get: Gets all events between a start_date and an end_date.
+    """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
 
@@ -83,19 +86,10 @@ class FilterEventByMonth(generics.ListAPIView):
 
 class EventList(generics.ListCreateAPIView):
     """
-    Get a list of events.
-    ---
-    
-    serializer: main_events.serializers.EventSerializer
-    omit_serializer: false
-    many: true
+    get: List all the events.
+    post: Create a new event.
+    """ 
 
-    parameters:
-      - name: EventSerializer
-      - type: WriteEventSerializer
-      paramType: body   
-
-    """
     queryset = Event.objects.all()
     serializer_class = EventSerializer
     # specifies which pagination settings to follow
@@ -130,5 +124,23 @@ class EventList(generics.ListCreateAPIView):
         return Response(serializer.data)
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = Event.objects.all()
-	serializer_class = EventSerializer
+    """
+    get: 
+    Returns an event given its id
+    
+    put:
+    Updates an event given its id
+
+    patch:
+    Updates an event given its id
+
+    delete:
+    Deletes an event given its id
+    """
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
+
+
+
+
+
