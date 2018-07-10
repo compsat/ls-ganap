@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '0.0.0.0',
-    'localhost'
+    'localhost',
+    '192.168.254.115'
 ]
 
 
@@ -45,7 +46,8 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S"   
+    'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
+
 }   
 
 
