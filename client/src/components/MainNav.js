@@ -6,22 +6,22 @@ import FullWidthContainer from './FullWidthContainer';
 import PageContent from './PageContent';
 
 const NavLink = ({className, route, children}) => (
-    <Link className={className} to={route}>{children}</Link>
-  )
-  
-  const Image = ({className, source, alt}) => (
-    <img className={className} src={source} alt={alt}/>
-  )
-  
-  const Nav = FullWidthContainer.extend`
-    width: 100%;
-    height: 100px;
-  
-    font-family: sans-serif;
-    text-transform: uppercase;
-  
-    @media all and (min-width: 480px) {
-      border-top: solid 10px #C5A478;
+  <Link className={className} to={route}>{children}</Link>
+)
+
+const Image = ({className, source, alt}) => (
+  <img className={className} src={source} alt={alt}/>
+)
+
+const Nav = FullWidthContainer.extend`
+  width: 100%;
+  height: 100px;
+
+  font-family: sans-serif;
+  text-transform: uppercase;
+
+  @media all and (min-width: 480px) {
+    border-top: solid 10px #C5A478;
   }
 `;
 
@@ -83,24 +83,24 @@ const DesktopLogo = DesktopLink.extend`
 class MainNav extends Component {
   render() {
     return (
-    <Nav>
-      <PageContent>
-        <NavList>
-          <NavListItem>
-            <MobileLink route="/">Home</MobileLink>
-            <DesktopLogo route="/"><Logo source={logo} alt='LS Ganap Logo' /></DesktopLogo>
-          </NavListItem>
-          <NavListItem>
-            <MobileLink route="/"><Logo source={logo} alt='LS Ganap Logo' /></MobileLink>
-            <DesktopLink route="/">Home</DesktopLink>
-          </NavListItem>
-          <NavListItem>
-            <MobileLink route="/">Browse</MobileLink>
-            <DesktopLink route="/browse">Browse</DesktopLink>
-          </NavListItem>
-        </NavList>
-      </PageContent>
-    </Nav>
+      <Nav>
+        <PageContent>
+          <NavList>
+            <NavListItem>
+              <MobileLink route="/">Home</MobileLink>
+              <DesktopLogo route="/"><Logo source={logo} alt='LS Ganap Logo' /></DesktopLogo>
+            </NavListItem>
+            <NavListItem>
+              <MobileLink route="/"><Logo source={logo} alt='LS Ganap Logo' /></MobileLink>
+              <DesktopLink route="/">Home</DesktopLink>
+            </NavListItem>
+            <NavListItem>
+              <MobileLink route="/">Browse</MobileLink>
+              <DesktopLink route="/browse">Browse</DesktopLink>
+            </NavListItem>
+          </NavList>
+        </PageContent>
+      </Nav>
     );
   }
 }
