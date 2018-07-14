@@ -1,0 +1,11 @@
+- model: main_events.hosttype
+  pk: 1
+  fields:
+    id: 1
+    type_name: Office
+- model: main_events.hosttype
+  pk: 2
+  fields:
+    id: 2
+    type_name: Organization
+
