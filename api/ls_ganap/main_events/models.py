@@ -7,6 +7,7 @@ class HostType(models.Model):
 class EventHost(models.Model):
 	name = models.CharField(max_length=200)
 	host_type = models.ForeignKey(HostType, on_delete=models.DO_NOTHING)
+	abreviation = models.CharField(max_length=10, blank=True)
 	description = models.TextField()
 	color = models.CharField(max_length=20)
 	logo_url = models.URLField()
