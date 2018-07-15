@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
+import { ThemeProvider } from 'styled-components';
+import theme from './style/style-theme';
 import MainNav from './components/MainNav';
 import PageContent from './components/PageContent';
 
@@ -19,15 +21,17 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <MainNav />
-          <PageContent>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/browse" component={Browse} />
-            </Switch>
-          </PageContent>
-        </div>
+        <ThemeProvider theme={theme}>
+          <React.Fragment>
+            <MainNav />
+            <PageContent>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/browse" component={Browse} />
+              </Switch>
+            </PageContent>
+          </React.Fragment>
+        </ThemeProvider>
       </Router>
     );
   }
