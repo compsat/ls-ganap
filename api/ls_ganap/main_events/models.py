@@ -66,6 +66,11 @@ class EventHost(models.Model):
 	def __str__(self):
 		return self.name
 
+class Cluster(models.Model):
+	name = models.CharField(max_length=200)
+	description = models.TextField()
+	logo_url = models.URLField()
+
 class Venue(SoftDeletionModel):
 	pass
 
