@@ -14,6 +14,7 @@ const Image = ({className, source, alt}) => (
 )
 
 const Nav = FullWidthContainer.extend`
+  position: fixed;
   width: 100%;
   height: 5em;
 
