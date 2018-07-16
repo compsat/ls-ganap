@@ -15,7 +15,7 @@ const Image = ({className, source, alt}) => (
 
 const Nav = FullWidthContainer.extend`
   width: 100%;
-  height: 100px;
+  height: 5em;
 
   font-family: sans-serif;
   text-transform: uppercase;
@@ -28,7 +28,7 @@ const Nav = FullWidthContainer.extend`
 const NavList = styled.ul`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 100px;
+  height: 100%;
   margin: 0; 
   padding: 0;
 
@@ -50,7 +50,7 @@ const NavListItem = styled.li`
 `;
 
 const Logo = styled(Image)`
-  max-height: 50px;
+  max-height: 2.4em;
 `;
 
 const MobileLink = styled(NavLink)`
