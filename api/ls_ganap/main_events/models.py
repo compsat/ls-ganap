@@ -55,21 +55,23 @@ class HostType(models.Model):
 	def __str__(self):
 		return self.type_name
 
+class Cluster(models.Model):
+	name = models.CharField(max_length=200)
+	description = models.TextField()
+	logo_url = models.URLField()
+
 class EventHost(models.Model):
 	name = models.CharField(max_length=200)
 	host_type = models.ForeignKey(HostType, on_delete=models.DO_NOTHING)
+	cluster = models.ForeignKey(Cluster, on_delete=models.DO_NOTHING)
 	abreviation = models.CharField(max_length=10, blank=True)
 	description = models.TextField()
+	accredited = models.BooleanField(default=False)
 	color = models.CharField(max_length=20)
 	logo_url = models.URLField()
 
 	def __str__(self):
 		return self.name
-
-class Cluster(models.Model):
-	name = models.CharField(max_length=200)
-	description = models.TextField()
-	logo_url = models.URLField()
 
 class Venue(SoftDeletionModel):
 	pass
