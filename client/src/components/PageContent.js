@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const PageContent = styled.main`
+  height: 100%;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 
