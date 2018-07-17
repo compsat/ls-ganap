@@ -20,6 +20,6 @@ class HostTypeList(generics.ListCreateAPIView):
         serializer = HostTypeSerializer(queryset, many=True)
         return Response(serializer.data)
         
-class HostTypeDetail(generics.RetrieveUpdateDestroyAPIView):
+class HostTypeDetail(generics.RetrieveAPIView):
 	queryset = HostType.objects.all()
 	serializer_class = HostTypeSerializer
