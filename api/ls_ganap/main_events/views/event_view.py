@@ -12,7 +12,7 @@ from django.db.models import Q
 from django.http import Http404
 from datetime import datetime, timedelta
 from rest_framework.filters import SearchFilter, OrderingFilter
-# from main_events.swagger import SimpleFilterBackend
+from main_events.swagger import SimpleFilterBackend
 
 class FilterEventsBetweenDates(generics.ListAPIView):
     """
@@ -40,6 +40,9 @@ def get_dates_between(start_date, end_date, queryset, start_time):
     return queryset
 
 class FilterEventByDate(generics.ListAPIView):
+    """
+    get: Gets all events given a specific date in YYYY-MM-DD format.
+    """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
 
@@ -53,6 +56,10 @@ class FilterEventByDate(generics.ListAPIView):
         return queryset
 
 class FilterEventByWeek(generics.ListAPIView):
+    """
+    get: Gets all the events happening in the week of the date input
+    in YYYY-MM-DD format, where the week starts on Monday and ends on Sunday.
+    """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
 
@@ -69,13 +76,21 @@ class FilterEventByWeek(generics.ListAPIView):
         return get_dates_between(start_date, end_date, queryset, Event.start_time)
 
 class FilterEventByMonth(generics.ListAPIView):
+    """
+    get: Gets all the events happening in the month of the date input in YYYY-MM-DD format.
+    """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
 
     def get_queryset(self):
         date = self.kwargs['date']
-        get_month = datetime.strptime(date, '%Y-%m-%d').date().month
-        get_year = datetime.strptime(date, '%Y-%m-%d').date().year
+        try:
+            get_month = datetime.strptime(date, '%Y-%m-%d').date().month
+            get_year = datetime.strptime(date, '%Y-%m-%d').date().year
+        except ValueError:
+            date_list = date.split("-")
+            get_month = date_list[0]
+            get_year = date_list[1]
 
         queryset = Event.objects.all()
 
@@ -95,7 +110,7 @@ class EventList(generics.ListCreateAPIView):
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
     serializer_class = EventSerializer
-    filter_backends = [SearchFilter, OrderingFilter]
+    filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
     search_fields = ['name', 'venue_id__name', 'host_id__name']
 
     # overwrite get_queryset() method
