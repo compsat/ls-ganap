@@ -10,6 +10,10 @@ from rest_framework import status
 
 
 class HostTypeList(generics.ListCreateAPIView):
+    """
+    get: List all the host types.
+    post: Create a new host type.
+    """
     queryset = HostType.objects.all()
     serializer_class = HostTypeSerializer
     # specifies which pagination settings to follow
@@ -21,5 +25,8 @@ class HostTypeList(generics.ListCreateAPIView):
         return Response(serializer.data)
         
 class HostTypeDetail(generics.RetrieveAPIView):
-	queryset = HostType.objects.all()
-	serializer_class = HostTypeSerializer
+    """
+    get: Returns a host type given its id
+    """
+    queryset = HostType.objects.all()
+    serializer_class = HostTypeSerializer

@@ -10,6 +10,10 @@ from rest_framework import status
 
 
 class VenueList(generics.ListCreateAPIView):
+    """
+    get: List all the venues.
+    post: Create a new venue.
+    """
     queryset = Venue.objects.all()
     serializer_class = VenueSerializer
     # specifies which pagination settings to follow
@@ -21,5 +25,18 @@ class VenueList(generics.ListCreateAPIView):
         return Response(serializer.data)
         
 class VenueDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = Venue.objects.all()
-	serializer_class = VenueSerializer
+    """
+    get: 
+    Returns a venue given its id
+    
+    put:
+    Updates a venue given its id
+
+    patch:
+    Updates a venue given its id
+
+    delete:
+    Deletes a venue given its id
+    """
+    queryset = Venue.objects.all()
+    serializer_class = VenueSerializer
