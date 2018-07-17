@@ -23,7 +23,7 @@ schema_view = get_swagger_view(title='LS Ganap API')
 
 
 urlpatterns = [
-    path('/admin', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', include('main_events.urls')),
     path('docs', schema_view)
     # path('docs', SwaggerSchemaView.as_view())
