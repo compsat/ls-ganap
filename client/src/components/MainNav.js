@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/ls-ganap-logo.png';
+import homeIcon from '../assets/icon-home.png';
+import searchIcon from '../assets/icon-search.png';
 import styled from 'styled-components';
 import FullWidthContainer from './FullWidthContainer';
 import PageContent from './PageContent';
@@ -53,6 +55,10 @@ const Logo = styled(Image)`
   max-height: 50px;
 `;
 
+const Icon = styled(Image)`
+  max-height: 25px;
+`;
+
 const MobileLink = styled(NavLink)`
   display: block;
   color: #E07B24;
@@ -87,15 +93,21 @@ class MainNav extends Component {
         <PageContent>
           <NavList>
             <NavListItem>
-              <MobileLink route="/">Home</MobileLink>
-              <DesktopLogo route="/"><Logo source={logo} alt='LS Ganap Logo' /></DesktopLogo>
+              <MobileLink route="/">
+                <Icon source={homeIcon} alt='Home Icon' />
+              </MobileLink>
+              <DesktopLogo route="/">
+                <Logo source={logo} alt='LS Ganap Logo' />
+              </DesktopLogo>
             </NavListItem>
             <NavListItem>
               <MobileLink route="/"><Logo source={logo} alt='LS Ganap Logo' /></MobileLink>
               <DesktopLink route="/">Home</DesktopLink>
             </NavListItem>
             <NavListItem>
-              <MobileLink route="/">Browse</MobileLink>
+              <MobileLink route="/">
+                <Icon source={searchIcon} alt='Search Icon' />
+              </MobileLink>
               <DesktopLink route="/browse">Browse</DesktopLink>
             </NavListItem>
           </NavList>
