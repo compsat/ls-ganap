@@ -1,0 +1,45 @@
+- model: main_events.cluster
+  pk: 1
+  fields:
+    name: Analysis & Discourse Cluster
+    description: The analysis and Discourse cluster is a community of 8 student organizations with diverse core competencies such as debate, economics, international relations and leadership, statistics development, non-traditional theater, and politics, that share a united vision of engaging individuals in critical analysis and informed discourse that create positive social impact geared towards nation-building.Believing in the power of discourse to create positive impact, ADC forwards the tagline &numThinkTalkTackle. First, “Think” involves finding issues that are relevant to the community, “Talk” forwards these issues and the information behind them through discourse and “Tackle” encourages the community to create positive impact.
+- model: main_events.cluster
+  pk: 2
+  fields:
+    name: Business Cluster
+    description: COA BC comprises of eight organizations with more than 4,000 members all working towards a goal of empowering the nation by engaging different passions and core competencies – integrated marketing communications, leadership development through exchange, marketing practice and education, entrepreneurship, business and law ethics, innovative consumer product development, corporate sustainability, strategic decision management, financial literacy and impact investing – to create positive impact inside and outside the Ateneo.
+- model: main_events.cluster
+  pk: 3
+  fields:
+    name: Faith Formation Cluster
+    description: “Go forth and set the world on fire.” These words of St. Ignatius of Loyola reflect the workings of the Spirit among the organizations of the Faith Formation Cluster. Members of these organizations grow to nurture a spirituality that is formed through experiences of faith and inspires them to be of greater service to God and the nation. They find a home among the Faith Formation Cluster’s five organizations—each one unique in service, yet all deeply rooted in the ever-burning love and faith in God.
+- model: main_events.cluster
+  pk: 4
+  fields:
+    name: Health & Environemnt Cluster
+    description: The Health and Environment Cluster is a community of four advocacy related student organizations that present avenues to foster logical and proactive environmentalism, medical career facilitation and peer counseling for both the individual and the community. We share one vision towards nation building through service provision, advocacy development and relevant collaborations with organizations and departments within and outside the Ateneo – towards reaching a more sustainable world with better peoples. We are composed of the Ateneo Environmental Science Society (AESS), Loyola Mountaineers (LM), Ateneo Peers (PEERS) and the Pre-Medical Society to the Ateneo (PMSA).
+- model: main_events.cluster
+  pk: 5
+  fields:
+    name: Intercultural Relations Cluster
+    description: Discover the world through the Intercultural Relations Cluster. Experience the world’s diverse cultures and our unique local heritage through the endless festivities of the IRC community. A community united in celebrating the world’s diversity.The Intercultural Relations Cluster is the avenue for Ateneans to explore different cultures and strengthen their sense of national identity. Celebrate the world’s cultures through the Intercultural Relations Cluster’s three organizations, namely Ateneo Celadon, Ateneo Lingua Ars Cultura (ALAC), and Ateneo Student Exchange Council (ASEC). Let our organizations take you places, literally and figuratively.The world is now within your reach.
+- model: main_events.cluster
+  pk: 6
+  fields:
+    name: Media & The Creative Arts Cluster
+    description: There’s no other set of organizations that can make you EXPERIENCE IDEAS like the Media and the Creative Arts Cluster.Through the Ateneo Association for Communications Majors (ACOMM), Ateneo Musicians Pool (AMP), Collegiate Society of Advertising (CoSA), and Loyola Film Circle (LFC), members hone their talents and skills toward positive social change in communicating their love of ideas through well-known events and projects that are sure to catch interest throughout the school year.Although diverse in media, music, advertising, and film, MCA finds commonality in generating and executing ideas with a degree of professionalism. Find whatever interests you in MCA!
+- model: main_events.cluster
+  pk: 7
+  fields:
+    name: Performing Arts Cluster
+    description: The Performing Arts Cluster is composed of five organizations whose passion lies in dance, music, and theatre. This cluster is diverse for its members come from different sectors of the university and yet we are drawn together because of this shared love for the performing arts. PAC allows its members to be formed in a deeper, more personal sense. We believe that it is through the arts that one can cultivate raw, undiscovered talent as well as build a sense of community and genuine companionship. As a group of performers, production team members, and creative artists alike, PAC constantly pushes for the relevance of performing arts within and beyond the Ateneo community for its ability to bring a different kind of impact.
+- model: main_events.cluster
+  pk: 8
+  fields:
+    name: Sector-Based Cluster
+    description: The Sector-Based Cluster is home to seven organizations catering to various sectors of society. Through proactive social advocacy and direct involvement, we aim to develop our communities towards self-sustainability. We work to empower youth and youth-oriented groups, public school students, Ateneo scholars, urban poor children, pediatric patients with chronic illnesses, persons with special needs, and abused girls and abandoned babies through the impact we create. By engaging everyone in our advocacies through practice of our core competencies, we aim to make ripples of positive change whilst aiming to form passionate leaders with a vision of a better society for others.
+- model: main_events.cluster
+  pk: 9
+  fields:
+    name: Science & Technology Cluster
+    description: The Science and Technology Cluster is more than just a community of nerds hanging out in the laboratories, coding in laptops, crunching numbers in calculators, among other things. In fact, that is one stereotype the cluster tries to transform. As students driven by passion for science and technology, each organization and its members aim to make to make an impact in society through promoting excellence and innovation in our own respective scientific disciplines. The eight organizations that comprise of STC and their members form a united community, driven by the scientific spirit of curiosity and the value of Cura Personalis.
