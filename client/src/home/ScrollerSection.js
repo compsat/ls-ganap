@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Card from './Card.js'
 import HorizontalScroller from '../components/HorizontalScroller.js';
 
-class CardsSection extends Component {
+class ScrollerSection extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
@@ -44,7 +44,7 @@ class CardsSection extends Component {
 			],
 		
 		  // SAMPLE DATA FOR EVENT CARDS			
-			items1: [
+			item1: [
         {
           id: 0,
           name: 'Arduino Workshop',
@@ -52,7 +52,7 @@ class CardsSection extends Component {
           time: '17:00-19:00'					,
           venue: 'Faura 323',
           org: 'AESES',
-          photo: require('../assets/aag.jpg')
+          photo: require('../assets/promos/harana_alac.jpg')
         }, {
           id: 1,
           name: 'Arduino Workshop',
@@ -60,7 +60,7 @@ class CardsSection extends Component {
           time: '17:00-19:00'					,
           venue: 'Faura 323',
           org: 'AESES',
-          photo: require('../assets/aag.jpg')
+          photo: require('../assets/promos/harana_alac.jpg')
         },{
           id: 2,
           name: 'Arduino Workshop',
@@ -68,7 +68,7 @@ class CardsSection extends Component {
           time: '17:00-19:00'					,
           venue: 'Faura 323',
           org: 'AESES',
-          photo: require('../assets/aag.jpg')
+          photo: require('../assets/promos/harana_alac.jpg')
         },{
           id: 3,
           name: 'Arduino Workshop',
@@ -76,7 +76,7 @@ class CardsSection extends Component {
           time: '17:00-19:00'					,
           venue: 'Faura 323',
           org: 'AESES',
-          photo: require('../assets/aag.jpg')
+          photo: require('../assets/promos/harana_alac.jpg')
         }
         ,{
           id: 4,
@@ -85,7 +85,7 @@ class CardsSection extends Component {
           time: '17:00-19:00'					,
           venue: 'Faura 323',
           org: 'AESES',
-          photo: require('../assets/aag.jpg')
+          photo: require('../assets/promos/harana_alac.jpg')
         }
         ,{
           id: 5,
@@ -94,7 +94,7 @@ class CardsSection extends Component {
           time: '17:00-19:00'					,
           venue: 'Faura 323',
           org: 'AESES',
-          photo: require('../assets/aag.jpg')
+          photo: require('../assets/promos/harana_alac.jpg')
         }
         ,{
           id: 6,
@@ -103,9 +103,9 @@ class CardsSection extends Component {
           time: '17:00-19:00'					,
           venue: 'Faura 323',
           org: 'AESES',
-          photo: require('../assets/aag.jpg')
+          photo: require('../assets/promos/harana_alac.jpg')
         }
-      ]
+      ],
       
     }
   }
@@ -125,4 +125,4 @@ class CardsSection extends Component {
   }
 }
 
-export default CardsSection;
+export default ScrollerSection;

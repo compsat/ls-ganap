@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import CardsSection from './CardsSection';
+import ScrollerSection from './ScrollerSection';
+import FeaturedSection from './FeaturedSection';
 import styled from 'styled-components';
 import FullWidthContainer from '../components/FullWidthContainer';
 import PageContent from '../components/PageContent';
 
 
-const Section = FullWidthContainer.extend`
+const CardsSection = FullWidthContainer.extend`
   background-color: ${props => props.color};
 `;
 
@@ -37,24 +38,25 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <Section color="red">
-        <PageContent>
-          <TitleSection name="Event" show_subtitle="false" />
-          <CardsSection api_url="" card_type="profile" cards_display="4"/>
-        </PageContent>
-      </Section>
-      <Section color="blue">
-        <PageContent>
-          <TitleSection name="Organization" />
-          <CardsSection api_url="" card_type="profile" cards_display="5"/>
-        </PageContent>
-      </Section>
-      <Section color="yellow">
-        <PageContent>
-          <TitleSection name="Office" />
-          <CardsSection api_url="" card_type="profile" cards_display="5"/>
-        </PageContent>
-      </Section>
+        <FeaturedSection />
+        <CardsSection color="#81C0BB">
+          <PageContent>
+            <TitleSection name="Upcoming Event" show_subtitle="false" />
+            <ScrollerSection api_url="" card_type="event" cards_display="4"/>
+          </PageContent>
+        </CardsSection>
+        <CardsSection color="#FFE5CB">
+          <PageContent>
+            <TitleSection name="Organization" />
+            <ScrollerSection api_url="" card_type="profile" cards_display="5"/>
+          </PageContent>
+        </CardsSection>
+        <CardsSection color="#945858">
+          <PageContent>
+            <TitleSection name="Office" />
+            <ScrollerSection api_url="" card_type="profile" cards_display="5"/>
+          </PageContent>
+        </CardsSection>
       </div>
     );
   }
