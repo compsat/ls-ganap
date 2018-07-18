@@ -13,6 +13,8 @@ from django.http import Http404
 from datetime import datetime, timedelta
 from rest_framework.filters import SearchFilter, OrderingFilter
 from main_events.swagger import SimpleFilterBackend
+from rest_framework.schemas import AutoSchema
+import coreapi, coreschema
 
 class FilterEventsBetweenDates(generics.ListAPIView):
     """
@@ -20,6 +22,23 @@ class FilterEventsBetweenDates(generics.ListAPIView):
     """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
+
+    schema = AutoSchema(manual_fields=[
+        coreapi.Field(
+            "start_date",
+            required=True,
+            location="query",
+            description='Specify a date in YYYY-MM-DD as the start of the range of dates.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "end_date",
+            required=True,
+            location="query",
+            description='Specify a date in YYYY-MM-DD as the end of the range of dates, inclusive.',
+            schema=coreschema.String()
+        ),
+    ])
 
     def get_queryset(self):
         start_date = self.request.query_params.get('start_date', None)
@@ -41,10 +60,20 @@ def get_dates_between(start_date, end_date, queryset, start_time):
 
 class FilterEventByDate(generics.ListAPIView):
     """
-    get: Gets all events given a specific date in YYYY-MM-DD format.
+    get: Gets all events given a specific date.
     """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
+
+    schema = AutoSchema(manual_fields=[
+        coreapi.Field(
+            "date",
+            required=True,
+            location="path",
+            description='Specify a date in YYYY-MM-DD to get all the events held on the same date.',
+            schema=coreschema.String()
+        ),
+    ])
 
     def get_queryset(self):
         date = self.kwargs['date']
@@ -57,11 +86,21 @@ class FilterEventByDate(generics.ListAPIView):
 
 class FilterEventByWeek(generics.ListAPIView):
     """
-    get: Gets all the events happening in the week of the date input
-    in YYYY-MM-DD format, where the week starts on Monday and ends on Sunday.
+    get: Gets all the events happening in the week of the date input, 
+    where the week is Monday-Sunday.
     """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
+
+    schema = AutoSchema(manual_fields=[
+        coreapi.Field(
+            "date",
+            required=True,
+            location="path",
+            description='Specify a date in YYYY-MM-DD to get all the events held in the same week.',
+            schema=coreschema.String()
+        ),
+    ])
 
     def get_queryset(self):
         date = self.kwargs['date']
@@ -77,10 +116,20 @@ class FilterEventByWeek(generics.ListAPIView):
 
 class FilterEventByMonth(generics.ListAPIView):
     """
-    get: Gets all the events happening in the month of the date input in YYYY-MM-DD format.
+    get: Gets all the events happening in the month of the input.
     """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
+
+    schema = AutoSchema(manual_fields=[
+        coreapi.Field(
+            "date",
+            required=True,
+            location="path",
+            description='Specify a date in YYYY-MM-DD or in MM-YYYY to get all the events held in the same month.',
+            schema=coreschema.String()
+        ),
+    ])
 
     def get_queryset(self):
         date = self.kwargs['date']
@@ -101,7 +150,7 @@ class FilterEventByMonth(generics.ListAPIView):
 
 class EventList(generics.ListCreateAPIView):
     """
-    get: List all the events.
+    get: List all the events, ordered by start_time.
     post: Create a new event.
     """ 
 
@@ -112,6 +161,17 @@ class EventList(generics.ListCreateAPIView):
     serializer_class = EventSerializer
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
     search_fields = ['name', 'venue_id__name', 'host_id__name']
+
+    schema = AutoSchema(manual_fields=[
+        coreapi.Field(
+            "search",
+            required=False,
+            location="query",
+            description='A search term for events with the given name, venue, or \
+            host given the host_id.',
+            schema=coreschema.String()
+        ),
+    ])
 
     # overwrite get_queryset() method
     def get_queryset(self, *args, **kwargs):
