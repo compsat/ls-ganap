@@ -63,8 +63,8 @@ class Cluster(models.Model):
 class EventHost(models.Model):
 	name = models.CharField(max_length=200)
 	host_type = models.ForeignKey(HostType, on_delete=models.DO_NOTHING)
-	cluster = models.ForeignKey(Cluster, on_delete=models.DO_NOTHING)
-	abreviation = models.CharField(max_length=10, blank=True)
+	cluster = models.ForeignKey(Cluster, blank=True, on_delete=models.DO_NOTHING)
+	abbreviation = models.CharField(max_length=10, blank=True)
 	description = models.TextField()
 	accredited = models.BooleanField(default=False)
 	color = models.CharField(max_length=20)
@@ -74,6 +74,9 @@ class EventHost(models.Model):
 		return self.name
 
 class Venue(SoftDeletionModel):
+	pass
+
+class Tag(SoftDeletionModel):
 	pass
 
 class Event(SoftDeletionModel):
@@ -89,13 +92,7 @@ class Event(SoftDeletionModel):
 	outside_venue_name = models.CharField(max_length=200, blank=True)
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField()
-        
-class Tag(SoftDeletionModel):
-	pass
-
-class TagToEvent(models.Model):
-	tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
-	event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
+	tags = models.ManyToManyField(Tag, related_name="event_list")
 	
 class TagSubscription(models.Model):
 	user_id = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
