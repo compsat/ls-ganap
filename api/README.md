@@ -4,7 +4,7 @@ LS Ganap Backend source code.
 LS Ganap Backend works with Python Django 
 
 ```
-https://github.com/compsat/ls-ganap.git
+git clone https://github.com/compsat/ls-ganap.git
 ```
 ### Prerequisites
 * Docker
