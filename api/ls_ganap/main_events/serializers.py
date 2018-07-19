@@ -1,36 +1,51 @@
 from rest_framework import serializers
-from .models import Event, EventHost, HostType, Tag, Venue
+from .models import Cluster, Event, EventHost, HostType, Tag, Venue
 
 class EventSerializer(serializers.ModelSerializer):
+    tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
+
     class Meta:
         model = Event
         fields = ['id', 
-        		'start_time', 
-        		'end_time',
-        		'venue_id', 
-        		'host_id',
-        		'name', 
-        		'description', 
-        		'is_accepted', 
-        		'poster_url', 
-        		'outside_venue_name', 
-        		'is_premium', 
-        		'event_url']
+                'start_time', 
+                'end_time',
+                'venue_id', 
+                'host_id',
+                'name', 
+                'description', 
+                'is_accepted', 
+                'poster_url', 
+                'outside_venue_name', 
+                'is_premium', 
+                'event_url',
+                'tags']
+
+class TagSerializer(serializers.ModelSerializer):
+    event_list = EventSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Tag
+        # fields = '__all__'
+        fields = ['name', 'event_list']
+
+class ClusterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cluster
+        fields = ['name', 
+                'description', 
+                'logo_url']
 
 class HostSerializer(serializers.ModelSerializer):
     class Meta:
         model = EventHost
         fields = ['name',
         		 'host_type',
+                 'cluster',
+                 'abbreviation',
         		 'description',
+                 'accredited',
         		 'color',
         		 'logo_url']
-
-class TagSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Tag
-        # fields = '__all__'
-        fields = ['name']
         
 class VenueSerializer(serializers.ModelSerializer):
     class Meta:
