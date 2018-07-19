@@ -167,8 +167,7 @@ class EventList(generics.ListCreateAPIView):
             "search",
             required=False,
             location="query",
-            description='A search term for events with the given name, venue, or \
-            host given the host_id.',
+            description='A search term for events with the given name, venue, or host.',
             schema=coreschema.String()
         ),
     ])
