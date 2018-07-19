@@ -41,5 +41,3 @@ docker-compose down
 ```
 
 **NOTE: DO NOT USE CTRL + C**
-er-compose down
-```
