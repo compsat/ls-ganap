@@ -16,7 +16,7 @@
 - model: main_events.cluster
   pk: 4
   fields:
-    name: Health & Environemnt Cluster
+    name: Health & Environment Cluster
     description: The Health and Environment Cluster is a community of four advocacy related student organizations that present avenues to foster logical and proactive environmentalism, medical career facilitation and peer counseling for both the individual and the community. We share one vision towards nation building through service provision, advocacy development and relevant collaborations with organizations and departments within and outside the Ateneo – towards reaching a more sustainable world with better peoples. We are composed of the Ateneo Environmental Science Society (AESS), Loyola Mountaineers (LM), Ateneo Peers (PEERS) and the Pre-Medical Society to the Ateneo (PMSA).
 - model: main_events.cluster
   pk: 5
