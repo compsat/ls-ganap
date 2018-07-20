@@ -3,7 +3,7 @@
   fields:
     host_type: 1
     name: Ateneo Debate Society
-    abreviation: ADS
+    abbreviation: ADS
     cluster: 1
     color: #0000EE
     accredited: True
@@ -13,7 +13,7 @@
   fields:
     host_type: 1
     name: Ateneo Economics Association
-    abreviation: AEA
+    abbreviation: AEA
     cluster: 1
     color: #0000EE
     accredited: True
@@ -23,7 +23,7 @@
   fields:
     host_type: 1
     name: Ateneo Statistics Circle
-    abreviation: AStat
+    abbreviation: AStat
     cluster: 1
     color: #0000EE
     accredited: True
@@ -33,7 +33,7 @@
   fields:
     host_type: 1
     name: Ateneo Association of European Studies Students
-    abreviation: AEuSS
+    abbreviation: AEuSS
     cluster: 1
     color: #0000EE
     accredited: True
@@ -43,7 +43,7 @@
   fields:
     host_type: 1
     name: Ateneo Project for Asian & International Relations
-    abreviation: APAIR
+    abbreviation: APAIR
     cluster: 1
     color: #0000EE
     accredited: True
@@ -53,7 +53,7 @@
   fields:
     host_type: 1
     name: The Ateneo Assembly
-    abreviation: Assembly
+    abbreviation: Assembly
     cluster: 1
     color: #0000EE
     accredited: True
@@ -63,7 +63,7 @@
   fields:
     host_type: 1
     name: Development Society of the Ateneo de Manila University
-    abreviation: DevSoc
+    abbreviation: DevSoc
     cluster: 1
     color: #0000EE
     accredited: True
@@ -73,7 +73,7 @@
   fields:
     host_type: 1
     name: Enterteynment Para sa Tao, Bayan, Lansangan at Diyos
-    abreviation: ENTABLADO
+    abbreviation: ENTABLADO
     cluster: 1
     color: #0000EE
     accredited: True
@@ -83,7 +83,7 @@
   fields:
     host_type: 1
     name: Association for Communications Technology Management
-    abreviation: ACTM
+    abbreviation: ACTM
     cluster: 2
     color: #0000EE
     accredited: True
@@ -93,7 +93,7 @@
   fields:
     host_type: 1
     name: AIESEC Ateneo de Manila
-    abreviation: AIESEC
+    abbreviation: AIESEC
     cluster: 2
     color: #0000EE
     accredited: True
@@ -103,7 +103,7 @@
   fields:
     host_type: 1
     name: Ateneo Junior Marketing Association
-    abreviation: AJMA
+    abbreviation: AJMA
     cluster: 2
     color: #0000EE
     accredited: True
@@ -113,7 +113,7 @@
   fields:
     host_type: 1
     name: Ateneo Management Association
-    abreviation: AMA
+    abbreviation: AMA
     cluster: 2
     color: #0000EE
     accredited: True
@@ -123,7 +123,7 @@
   fields:
     host_type: 1
     name: Ateneo Lex
-    abreviation: ALEX
+    abbreviation: ALEX
     cluster: 2
     color: #0000EE
     accredited: True
@@ -133,7 +133,7 @@
   fields:
     host_type: 1
     name: Ateneo Management of Applied Chemistry Association
-    abreviation: MACA
+    abbreviation: MACA
     cluster: 2
     color: #0000EE
     accredited: True
@@ -143,7 +143,7 @@
   fields:
     host_type: 1
     name: Ateneo Management Engineering Association
-    abreviation: MEA
+    abbreviation: MEA
     cluster: 2
     color: #0000EE
     accredited: True
@@ -153,7 +153,7 @@
   fields:
     host_type: 1
     name: Ateneo Management Economics Organization
-    abreviation: MECO
+    abbreviation: MECO
     cluster: 2
     color: #0000EE
     accredited: True
@@ -163,7 +163,7 @@
   fields:
     host_type: 1
     name: Ateneo Catechetical Instruction League
-    abreviation: ACIL
+    abbreviation: ACIL
     cluster: 3
     color: #0000EE
     accredited: True
@@ -173,7 +173,7 @@
   fields:
     host_type: 1
     name: Ateneo Christian Life Community
-    abreviation: ACLC
+    abbreviation: ACLC
     cluster: 3
     color: #0000EE
     accredited: True
@@ -183,7 +183,7 @@
   fields:
     host_type: 1
     name: Ateneo College Ministry Group
-    abreviation: ACMG
+    abbreviation: ACMG
     cluster: 3
     color: #0000EE
     accredited: True
@@ -193,7 +193,7 @@
   fields:
     host_type: 1
     name: Ateneo Student Catholic Action
-    abreviation: AtSCA
+    abbreviation: AtSCA
     cluster: 3
     color: #0000EE
     accredited: True
@@ -203,7 +203,7 @@
   fields:
     host_type: 1
     name: Youth for Christ – Ateneo
-    abreviation: YFA-A
+    abbreviation: YFA-A
     cluster: 3
     color: #0000EE
     accredited: True
@@ -213,7 +213,7 @@
   fields:
     host_type: 1
     name: Ateneo Lingua Arts Cultura
-    abreviation: ALAC
+    abbreviation: ALAC
     cluster: 5
     color: #0000EE
     accredited: True
@@ -223,7 +223,7 @@
   fields:
     host_type: 1
     name: Ateneo Student Exchange Council
-    abreviation: ASEC
+    abbreviation: ASEC
     cluster: 5
     color: #0000EE
     accredited: True
@@ -233,7 +233,7 @@
   fields:
     host_type: 1
     name: Ateneo Celadon
-    abreviation: Celadon
+    abbreviation: Celadon
     cluster: 5
     color: #0000EE
     accredited: True
@@ -243,7 +243,7 @@
   fields:
     host_type: 1
     name: Baybayin
-    abreviation: Baybayin
+    abbreviation: Baybayin
     cluster: 5
     color: #0000EE
     accredited: True
@@ -253,7 +253,7 @@
   fields:
     host_type: 1
     name: Loyola Mountaineers
-    abreviation: LM
+    abbreviation: LM
     cluster: 4
     color: #0000EE
     accredited: True
@@ -263,7 +263,7 @@
   fields:
     host_type: 1
     name: Ateneo Environmental Science Society
-    abreviation: AESS
+    abbreviation: AESS
     cluster: 4
     color: #0000EE
     accredited: True
@@ -273,7 +273,7 @@
   fields:
     host_type: 1
     name: Ateneo PEERS
-    abreviation: PEERS
+    abbreviation: PEERS
     cluster: 4
     color: #0000EE
     accredited: True
@@ -283,7 +283,7 @@
   fields:
     host_type: 1
     name: Pre-Medical Society of the Ateneo
-    abreviation: PMSA
+    abbreviation: PMSA
     cluster: 4
     color: #0000EE
     accredited: True
@@ -293,7 +293,7 @@
   fields:
     host_type: 1
     name: Ateneo Association of Communication Majors
-    abreviation: ACOMM
+    abbreviation: ACOMM
     cluster: 6
     color: #0000EE
     accredited: True
@@ -303,7 +303,7 @@
   fields:
     host_type: 1
     name: Ateneo Musicians’ Pool
-    abreviation: AMP
+    abbreviation: AMP
     cluster: 6
     color: #0000EE
     accredited: True
@@ -313,7 +313,7 @@
   fields:
     host_type: 1
     name: Collegiate Society of Advertising
-    abreviation: COSA
+    abbreviation: COSA
     cluster: 6
     color: #0000EE
     accredited: True
@@ -323,7 +323,7 @@
   fields:
     host_type: 1
     name: Loyola Film Circle
-    abreviation: LFC
+    abbreviation: LFC
     cluster: 6
     color: #0000EE
     accredited: True
@@ -333,7 +333,7 @@
   fields:
     host_type: 1
     name: Ateneo de Manila College Glee Club
-    abreviation: ACGC
+    abbreviation: ACGC
     cluster: 7
     color: #0000EE
     accredited: True
@@ -343,7 +343,7 @@
   fields:
     host_type: 1
     name: Ateneo Blue Repertory
-    abreviation: BlueREP
+    abbreviation: BlueREP
     cluster: 7
     color: #0000EE
     accredited: True
@@ -353,7 +353,7 @@
   fields:
     host_type: 1
     name: Ateneo Blue Symphony
-    abreviation: BlueSymph
+    abbreviation: BlueSymph
     cluster: 7
     color: #0000EE
     accredited: True
@@ -363,7 +363,7 @@
   fields:
     host_type: 1
     name: Company of Ateneo Dancers
-    abreviation: CADs
+    abbreviation: CADs
     cluster: 7
     color: #0000EE
     accredited: True
@@ -373,7 +373,7 @@
   fields:
     host_type: 1
     name: Tanghalang Ateneo
-    abreviation: TA
+    abbreviation: TA
     cluster: 7
     color: #0000EE
     accredited: True
@@ -383,7 +383,7 @@
   fields:
     host_type: 1
     name: Kythe Ateneo
-    abreviation: Kythe
+    abbreviation: Kythe
     cluster: 8
     color: #0000EE
     accredited: True
@@ -393,7 +393,7 @@
   fields:
     host_type: 1
     name: Ateneo Consultants for Organization Dev’t and Empowerment
-    abreviation: CODE
+    abbreviation: CODE
     cluster: 8
     color: #0000EE
     accredited: True
@@ -403,7 +403,7 @@
   fields:
     host_type: 1
     name: Ateneo EDGE
-    abreviation: EDGE
+    abbreviation: EDGE
     cluster: 8
     color: #0000EE
     accredited: True
@@ -413,7 +413,7 @@
   fields:
     host_type: 1
     name: Tugon
-    abreviation: Tugon
+    abbreviation: Tugon
     cluster: 8
     color: #0000EE
     accredited: True
@@ -423,7 +423,7 @@
   fields:
     host_type: 1
     name: Ateneo Gabay
-    abreviation: Gabay
+    abbreviation: Gabay
     cluster: 8
     color: #0000EE
     accredited: True
@@ -433,7 +433,7 @@
   fields:
     host_type: 1
     name: Musmos-Ateneo
-    abreviation: Musmos
+    abbreviation: Musmos
     cluster: 8
     color: #0000EE
     accredited: True
@@ -443,7 +443,7 @@
   fields:
     host_type: 1
     name: Ateneo Special Education Society
-    abreviation: SPEED
+    abbreviation: SPEED
     cluster: 8
     color: #0000EE
     accredited: True
@@ -453,7 +453,7 @@
   fields:
     host_type: 1
     name: Ateneo Chemistry Society
-    abreviation: ACheS
+    abbreviation: ACheS
     cluster: 9
     color: #0000EE
     accredited: True
@@ -463,7 +463,7 @@
   fields:
     host_type: 1
     name: Ateneo Electronics & Computer Engineering Society
-    abreviation: AECES
+    abbreviation: AECES
     cluster: 9
     color: #0000EE
     accredited: True
@@ -473,7 +473,7 @@
   fields:
     host_type: 1
     name: Ateneo Mathematics Society
-    abreviation: AMS
+    abbreviation: AMS
     cluster: 9
     color: #0000EE
     accredited: True
@@ -483,7 +483,7 @@
   fields:
     host_type: 1
     name: Ateneo Biological Organization – eXplore eXperience eXcel
-    abreviation: BOx
+    abbreviation: BOx
     cluster: 9
     color: #0000EE
     accredited: True
@@ -493,7 +493,7 @@
   fields:
     host_type: 1
     name: Computer Society of the Ateneo
-    abreviation: CompSAt
+    abbreviation: CompSAt
     cluster: 9
     color: #0000EE
     accredited: True
@@ -503,7 +503,7 @@
   fields:
     host_type: 1
     name: Ateneo League of Physicists
-    abreviation: LeaPs
+    abbreviation: LeaPs
     cluster: 9
     color: #0000EE
     accredited: True
@@ -513,7 +513,7 @@
   fields:
     host_type: 1
     name: Ateneo Management Information Systems Association
-    abreviation: MISA
+    abbreviation: MISA
     cluster: 9
     color: #0000EE
     accredited: True
@@ -523,7 +523,7 @@
   fields:
     host_type: 1
     name: Ateneo Psyche
-    abreviation: Psyche
+    abbreviation: Psyche
     cluster: 9
     color: #0000EE
     accredited: True
