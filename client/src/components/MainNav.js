@@ -17,10 +17,12 @@ const Image = ({className, source, alt}) => (
 
 const Nav = FullWidthContainer.extend`
   position: fixed;
+  top: 0;
   width: 100%;
   height: 5em;
+  background-color: #F9F9F9;
 
-  font-family: sans-serif;
+  font-family: 'Quatro', sans-serif;
   text-transform: uppercase;
 
   @media all and (min-width: 480px) {
@@ -77,13 +79,15 @@ const DesktopLink = styled(NavLink)`
 
   @media all and (min-width: 480px) {
     display: block;
+    width: 100%;
+    text-align: right;
   }
 `;
 
 const DesktopLogo = DesktopLink.extend`
   @media all and (min-width: 480px) {
     display:block;
-    text-align: right;
+    text-align: left;
   }
 `;
 

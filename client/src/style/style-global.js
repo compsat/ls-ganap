@@ -11,6 +11,11 @@ injectGlobal`
   html,
   body {
     overflow-x: hidden;
+    background-color: #F9F9F9;
+  }
+
+  body {
+    padding-top: 6em;
   }
 
   @font-face {
