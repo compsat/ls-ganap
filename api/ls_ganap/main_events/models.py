@@ -36,9 +36,12 @@ class Venue(SoftDeletionModel):
 
 	def __str__(self):
 		return self.name
-
+		
 class Tag(SoftDeletionModel):
-	pass
+	name = models.CharField(max_length=200)
+
+	def __str__(self):
+		return self.name
 
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
@@ -55,12 +58,6 @@ class Event(SoftDeletionModel):
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField()
 	tags = models.ManyToManyField(Tag, related_name="event_list")
-
-	def __str__(self):
-		return self.name
-        
-class Tag(SoftDeletionModel):
-	name = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.name
