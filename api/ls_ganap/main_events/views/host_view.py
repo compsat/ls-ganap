@@ -10,6 +10,10 @@ from rest_framework import status
 
 
 class HostList(generics.ListCreateAPIView):
+    """
+    get: List all the hosts.
+    post: Create a new host.
+    """
     queryset = EventHost.objects.all()
     serializer_class = HostSerializer
     # specifies which pagination settings to follow
@@ -21,10 +25,23 @@ class HostList(generics.ListCreateAPIView):
         return Response(serializer.data)
 
 class HostDetail(generics.RetrieveUpdateAPIView):
-	queryset = EventHost.objects.all()
-	serializer_class = HostSerializer
+    """
+    get: 
+    Returns a host given its id
+    
+    put:
+    Updates a host given its id
+
+    patch:
+    Updates a host given its id
+    """
+    queryset = EventHost.objects.all()
+    serializer_class = HostSerializer
 
 class HostEventsList(generics.ListAPIView):
+    """
+    get: List all the events of a host given its id.
+    """
     serializer_class = EventSerializer
     pagination_class = ObjectPageNumberPagination
 

@@ -10,6 +10,10 @@ from rest_framework import status
 
 
 class TagList(generics.ListCreateAPIView):
+    """
+    get: List all the tags.
+    post: Create a new tag.
+    """
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
     # specifies which pagination settings to follow
@@ -21,5 +25,18 @@ class TagList(generics.ListCreateAPIView):
         return Response(serializer.data)
         
 class TagDetail(generics.RetrieveUpdateDestroyAPIView):
-	queryset = Tag.objects.all()
-	serializer_class = TagSerializer
+    """
+    get: 
+    Returns a tag given its id
+    
+    put:
+    Updates a tag given its id
+
+    patch:
+    Updates a tag given its id
+
+    delete:
+    Deletes a tag given its id
+    """
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
