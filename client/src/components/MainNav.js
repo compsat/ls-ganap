@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { media } from '../style/style-utils';
 import logo from '../assets/ls-ganap-logo.png';
 import homeIcon from '../assets/icon-home.png';
 import searchIcon from '../assets/icon-search.png';
@@ -25,9 +26,9 @@ const Nav = FullWidthContainer.extend`
   font-family: 'Quatro', sans-serif;
   text-transform: uppercase;
 
-  @media all and (min-width: 480px) {
+  ${media.mdScreen`
     border-top: solid 10px #C5A478;
-  }
+  `}
 `;
 
 const NavList = styled.ul`
@@ -37,10 +38,10 @@ const NavList = styled.ul`
   margin: 0; 
   padding: 0;
 
-  @media all and (min-width: 480px) {
+  ${media.mdScreen`
     grid-template-columns: 1fr 150px 150px;
     width: 100%
-  }
+  `}
 `;
 
 const NavListItem = styled.li`
@@ -49,9 +50,9 @@ const NavListItem = styled.li`
   justify-content: center;
   list-style: none;
 
-  @media all and (min-width: 480px) {
+  ${media.mdScreen`
     justify-content: flex-start;
-  }
+  `}
 `;
 
 const Logo = styled(Image)`
@@ -67,9 +68,9 @@ const MobileLink = styled(NavLink)`
   color: #E07B24;
   text-decoration: none;
 
-  @media all and (min-width: 480px) {
+  ${media.mdScreen`
     display: none;
-  }
+  `}
 `;
 
 const DesktopLink = styled(NavLink)`
@@ -77,18 +78,18 @@ const DesktopLink = styled(NavLink)`
   color: #E07B24;
   text-decoration: none;
 
-  @media all and (min-width: 480px) {
+  ${media.mdScreen`
     display: block;
     width: 100%;
     text-align: right;
-  }
+  `}
 `;
 
 const DesktopLogo = DesktopLink.extend`
-  @media all and (min-width: 480px) {
+  ${media.mdScreen`
     display:block;
     text-align: left;
-  }
+  `}
 `;
 
 class MainNav extends Component {
