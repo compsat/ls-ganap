@@ -1,18 +1,37 @@
 import React from 'react';
 import MediaCard from '../components/MediaCard.js';
+import styled from 'styled-components';
+
+const CardTitle = styled.h1`
+    font-family: 'Nirmala Bold', sans-serif;
+    font-size: 0.8em;
+    color: #6A6A6A;
+`;
+
+const CardDetails = styled.h1`
+    font-family: 'Nirmala', sans-serif;
+    font-size: 0.8em;
+    color: #6A6A6A;
+`;
+
+const ProfileCardTitle = CardTitle.extend`
+    text-align: center;
+`;
 
 const EventCard = (props) => (
     <MediaCard imgSrc={props.item.photo} imgAlt={props.item.photo_alt}>
-        <h2>{props.item.name}</h2>
-        <span>{props.item.date}</span>; <span>{props.item.time}</span>
-        <p>{props.item.venue}</p>
-        <p>{props.item.org}</p>
+        <CardTitle>{props.item.name}</CardTitle>
+        <CardDetails>
+            <p>{props.item.date}; {props.item.time}</p>
+            <p>{props.item.venue}</p>
+            <p>{props.item.org}</p>
+        </CardDetails>
     </MediaCard>
 );
 
 const ProfileCard = (props) => (
     <MediaCard imgSrc={props.item.photo} imgAlt={props.item.photo_alt} imgSize='188px'>
-        <h2>{props.item.name}</h2>
+        <ProfileCardTitle>{props.item.name}</ProfileCardTitle>
     </MediaCard>
 );
 

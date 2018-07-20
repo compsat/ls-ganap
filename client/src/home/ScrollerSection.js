@@ -44,7 +44,7 @@ class ScrollerSection extends Component {
 			],
 		
 		  // SAMPLE DATA FOR EVENT CARDS			
-			item1: [
+			items1: [
         {
           id: 0,
           name: 'Arduino Workshop',
