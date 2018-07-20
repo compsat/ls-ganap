@@ -26,19 +26,23 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         # fields = '__all__'
-        fields = ['name', 'event_list']
+        fields = ['id',
+                  'name', 
+                  'event_list']
 
 class ClusterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cluster
-        fields = ['name', 
+        fields = ['id',
+                'name', 
                 'description', 
                 'logo_url']
 
 class HostSerializer(serializers.ModelSerializer):
     class Meta:
         model = EventHost
-        fields = ['name',
+        fields = ['id',
+                 'name',
         		 'host_type',
                  'cluster',
                  'abbreviation',
@@ -50,9 +54,11 @@ class HostSerializer(serializers.ModelSerializer):
 class VenueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Venue
-        fields = ['name']
+        fields = ['id',
+                  'name']
 
 class HostTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = HostType
-        fields = ['type_name']
+        fields = ['id',
+                  'type_name']
