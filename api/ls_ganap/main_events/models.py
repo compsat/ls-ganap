@@ -20,8 +20,8 @@ class Cluster(models.Model):
 
 class EventHost(models.Model):
 	name = models.CharField(max_length=200)
-	host_type = models.ForeignKey(HostType, on_delete=models.DO_NOTHING)
-	cluster = models.ForeignKey(Cluster, blank=True, on_delete=models.DO_NOTHING)
+	host_type = models.ForeignKey(HostType, related_name='host_list', on_delete=models.DO_NOTHING)
+	cluster = models.ForeignKey(Cluster, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
 	abbreviation = models.CharField(max_length=10, blank=True)
 	description = models.TextField()
 	accredited = models.BooleanField(default=False)
