@@ -9,10 +9,9 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class HostTypeList(generics.ListCreateAPIView):
+class HostTypeList(generics.ListAPIView):
     """
     get: List all the host types.
-    post: Create a new host type.
     """
     queryset = HostType.objects.all()
     serializer_class = HostTypeSerializer
@@ -23,10 +22,3 @@ class HostTypeList(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = HostTypeSerializer(queryset, many=True)
         return Response(serializer.data)
-        
-class HostTypeDetail(generics.RetrieveAPIView):
-    """
-    get: Returns a host type given its id
-    """
-    queryset = HostType.objects.all()
-    serializer_class = HostTypeSerializer
