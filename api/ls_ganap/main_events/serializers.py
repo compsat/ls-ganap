@@ -21,6 +21,12 @@ class EventSerializer(serializers.ModelSerializer):
                 'tags']
 
 class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tag
+        fields = ['id',
+                  'name']
+
+class TagDetailSerializer(serializers.ModelSerializer):
     event_list = EventSerializer(many=True, read_only=True)
 
     class Meta:
@@ -28,6 +34,19 @@ class TagSerializer(serializers.ModelSerializer):
         fields = ['id',
                   'name', 
                   'event_list']
+
+class HostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = EventHost
+        fields = ['id',
+                 'name',
+                 'host_type',
+                 'cluster',
+                 'abbreviation',
+                 'description',
+                 'accredited',
+                 'color',
+                 'logo_url']
 
 class ClusterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,18 +56,16 @@ class ClusterSerializer(serializers.ModelSerializer):
                 'description', 
                 'logo_url']
 
-class HostSerializer(serializers.ModelSerializer):
+class ClusterDetailSerializer(serializers.ModelSerializer):
+    org_list = HostSerializer(many=True, read_only=True)
+
     class Meta:
-        model = EventHost
+        model = Cluster
         fields = ['id',
-                 'name',
-        		 'host_type',
-                 'cluster',
-                 'abbreviation',
-        		 'description',
-                 'accredited',
-        		 'color',
-        		 'logo_url']
+                'name', 
+                'description', 
+                'logo_url',
+                'org_list']
         
 class VenueSerializer(serializers.ModelSerializer):
     class Meta:
@@ -61,3 +78,12 @@ class HostTypeSerializer(serializers.ModelSerializer):
         model = HostType
         fields = ['id',
                   'type_name']
+
+class HostTypeDetailSerializer(serializers.ModelSerializer):
+    host_list = HostSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = HostType
+        fields = ['id',
+                'type_name',
+                'host_list']
