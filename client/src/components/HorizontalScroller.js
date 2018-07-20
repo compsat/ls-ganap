@@ -56,6 +56,7 @@ const ScrollerButton = styled(ArrowButton)`
 class HorizontalScroller extends Component {
   constructor(props) {
     super(props);
+    this.scrollList = React.createRef();
     this.state = {
       atStart: true,
       atEnd: false,
