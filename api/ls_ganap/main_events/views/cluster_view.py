@@ -25,36 +25,3 @@ class ClusterList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-class ClusterDetail(APIView):
-    """
-    get: Returns a cluster given its id
-    """
-    def get_object(self, pk):
-        try:
-            return Cluster.objects.get(pk=pk)
-        except Cluster.DoesNotExist:
-            raise Http404
- 
-    def get(self, request, pk, format=None):
-        cluster = self.get_object(pk)
-        serializer = ClusterSerializer(cluster)
-        return Response(serializer.data)
-
-class ClusterOrgsList(generics.ListAPIView):
-    """
-    get: List all the orgs under a cluster given its id.
-    """
-    serializer_class = HostSerializer
-    pagination_class = ObjectPageNumberPagination
-
-    def get_queryset(self):
-        cluster_id = self.kwargs['pk']
-        queryset = EventHost.objects.all()
-        
-        if Cluster.objects.filter(pk=cluster_id).exists():
-            queryset = queryset.filter(cluster=cluster_id)
-        else:
-            raise Http404
-
-        return queryset
