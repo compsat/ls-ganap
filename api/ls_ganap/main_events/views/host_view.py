@@ -1,5 +1,5 @@
 from main_events.models import EventHost, Cluster, HostType
-from main_events.serializers import HostSerializer, HostTypeDetailSerializer, ClusterDetailSerializer
+from main_events.serializers import HostSerializer, HostDetailSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -26,48 +26,13 @@ class HostList(generics.ListAPIView):
 class HostDetail(generics.RetrieveUpdateAPIView):
     """
     get: 
-    Returns a host given its id
+    Returns a host given its id along with all its events.
     
     put:
-    Updates a host given its id
+    Updates a host given its id.
 
     patch:
-    Updates a host given its id
+    Updates a host given its id.
     """
     queryset = EventHost.objects.all()
-    serializer_class = HostSerializer
-
-class TypeHostList(generics.RetrieveAPIView):
-    """
-    get: Returns a host type given its id along with the hosts under it.
-    """
-    queryset = HostType.objects.all()
-    serializer_class = HostTypeDetailSerializer
-    pagination_class = ObjectPageNumberPagination
-
-class ClusterOrgsList(generics.RetrieveAPIView):
-    """
-    get: Returns a cluster given its id along with the orgs under it.
-    """
-    queryset = Cluster.objects.all()
-    serializer_class = ClusterDetailSerializer
-    pagination_class = ObjectPageNumberPagination
-
-
-class HostEventsList(generics.ListAPIView):
-    """
-    get: List all the events of a host given its id.
-    """
-    serializer_class = HostSerializer
-    pagination_class = ObjectPageNumberPagination
-
-    def get_queryset(self):
-        host_id = self.kwargs['pk']
-        queryset = Event.objects.all()
-        
-        if EventHost.objects.filter(pk=host_id).exists():
-            queryset = queryset.filter(host_id=host_id)
-        else:
-            raise Http404
-
-        return queryset
+    serializer_class = HostDetailSerializer
