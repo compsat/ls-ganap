@@ -1,5 +1,5 @@
 from main_events.models import Cluster, EventHost
-from main_events.serializers import ClusterSerializer, HostSerializer
+from main_events.serializers import ClusterSerializer, ClusterDetailSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -25,3 +25,11 @@ class ClusterList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ClusterDetail(generics.RetrieveAPIView):
+    """
+    get: Returns a cluster given its id along with the orgs under it.
+    """
+    queryset = Cluster.objects.all()
+    serializer_class = ClusterDetailSerializer
+    pagination_class = ObjectPageNumberPagination

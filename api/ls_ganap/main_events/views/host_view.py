@@ -52,3 +52,22 @@ class ClusterOrgsList(generics.RetrieveAPIView):
     queryset = Cluster.objects.all()
     serializer_class = ClusterDetailSerializer
     pagination_class = ObjectPageNumberPagination
+
+
+class HostEventsList(generics.ListAPIView):
+    """
+    get: List all the events of a host given its id.
+    """
+    serializer_class = HostSerializer
+    pagination_class = ObjectPageNumberPagination
+
+    def get_queryset(self):
+        host_id = self.kwargs['pk']
+        queryset = Event.objects.all()
+        
+        if EventHost.objects.filter(pk=host_id).exists():
+            queryset = queryset.filter(host_id=host_id)
+        else:
+            raise Http404
+
+        return queryset

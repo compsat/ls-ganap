@@ -1,5 +1,5 @@
 from main_events.models import Tag
-from main_events.serializers import TagSerializer
+from main_events.serializers import TagSerializer, TagDetailSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -23,3 +23,11 @@ class TagList(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = TagSerializer(queryset, many=True)
         return Response(serializer.data)
+
+class TagDetail(generics.RetrieveAPIView):
+    """
+    get: Returns a tag given its id along with the events associated with it.
+    """
+    queryset = Tag.objects.all()
+    serializer_class = TagDetailSerializer
+    pagination_class = ObjectPageNumberPagination
