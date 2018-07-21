@@ -15,7 +15,7 @@
   fields:
     host_type: 1
     name: Computer Society of the Ateneo
-    abreviation: CompSAt
+    abbreviation: CompSAt
     cluster: 9
     color: '#0000EE'
     accredited: True
@@ -36,7 +36,5 @@
     outside_venue_name: ""
     is_premium: False
     event_url: http://bluehacks.compsat.org/
-- model: main_events.tag
-  pk: 1
-  fields:
-    name: Information Technology
+    tags: [1]
+

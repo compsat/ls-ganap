@@ -1,5 +1,5 @@
-from main_events.models import EventHost, Event
-from main_events.serializers import HostSerializer, EventSerializer
+from main_events.models import EventHost, Cluster, HostType
+from main_events.serializers import HostSerializer, HostDetailSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -9,10 +9,9 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class HostList(generics.ListCreateAPIView):
+class HostList(generics.ListAPIView):
     """
     get: List all the hosts.
-    post: Create a new host.
     """
     queryset = EventHost.objects.all()
     serializer_class = HostSerializer
@@ -27,31 +26,13 @@ class HostList(generics.ListCreateAPIView):
 class HostDetail(generics.RetrieveUpdateAPIView):
     """
     get: 
-    Returns a host given its id
+    Returns a host given its id along with all its events.
     
     put:
-    Updates a host given its id
+    Updates a host given its id.
 
     patch:
-    Updates a host given its id
+    Updates a host given its id.
     """
     queryset = EventHost.objects.all()
-    serializer_class = HostSerializer
-
-class HostEventsList(generics.ListAPIView):
-    """
-    get: List all the events of a host given its id.
-    """
-    serializer_class = EventSerializer
-    pagination_class = ObjectPageNumberPagination
-
-    def get_queryset(self):
-        host_id = self.kwargs['pk']
-        queryset = Event.objects.all()
-        
-        if EventHost.objects.filter(pk=host_id).exists():
-            queryset = queryset.filter(host_id=host_id)
-        else:
-            raise Http404
-
-        return queryset
+    serializer_class = HostDetailSerializer

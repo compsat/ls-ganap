@@ -20,9 +20,9 @@ class Cluster(models.Model):
 
 class EventHost(models.Model):
 	name = models.CharField(max_length=200)
-	host_type = models.ForeignKey(HostType, on_delete=models.DO_NOTHING)
-	cluster = models.ForeignKey(Cluster, on_delete=models.DO_NOTHING)
-	abreviation = models.CharField(max_length=10, blank=True)
+	host_type = models.ForeignKey(HostType, related_name='host_list', on_delete=models.DO_NOTHING)
+	cluster = models.ForeignKey(Cluster, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
+	abbreviation = models.CharField(max_length=10, blank=True)
 	description = models.TextField()
 	accredited = models.BooleanField(default=False)
 	color = models.CharField(max_length=20)
@@ -36,11 +36,17 @@ class Venue(SoftDeletionModel):
 
 	def __str__(self):
 		return self.name
+		
+class Tag(SoftDeletionModel):
+	name = models.CharField(max_length=200)
+
+	def __str__(self):
+		return self.name
 
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
 	venue_id = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
-	host_id = models.ForeignKey(EventHost, on_delete=models.CASCADE)
+	host_id = models.ForeignKey(EventHost, related_name="host_events", on_delete=models.CASCADE)
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField()
 	description = models.TextField()
@@ -51,12 +57,7 @@ class Event(SoftDeletionModel):
 	outside_venue_name = models.CharField(max_length=200, blank=True)
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField()
-
-	def __str__(self):
-		return self.name
-        
-class Tag(SoftDeletionModel):
-	name = models.CharField(max_length=200)
+	tags = models.ManyToManyField(Tag, related_name="event_list")
 
 	def __str__(self):
 		return self.name

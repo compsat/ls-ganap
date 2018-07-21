@@ -1,5 +1,5 @@
-from main_events.models import Event
-from main_events.serializers import EventSerializer
+from main_events.models import Event, Tag, EventHost
+from main_events.serializers import EventSerializer, TagDetailSerializer, HostSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -13,6 +13,7 @@ from django.http import Http404
 from datetime import datetime, timedelta
 from rest_framework.filters import SearchFilter, OrderingFilter
 from main_events.swagger import SimpleFilterBackend
+from main_events.helper_methods import get_dates_between
 from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
 
@@ -48,15 +49,6 @@ class FilterEventsBetweenDates(generics.ListAPIView):
         queryset = Event.objects.all()
 
         return get_dates_between(start_date, end_date, queryset, Event.start_time)
-
-# helper method for getting date range
-def get_dates_between(start_date, end_date, queryset, start_time):
-    if(start_date is not None) and (end_date is not None):
-        queryset = queryset.filter(start_time__range=[start_date, end_date]).order_by('start_time')
-    else:
-        raise Http404
-
-    return queryset
 
 class FilterEventByDate(generics.ListAPIView):
     """
@@ -167,8 +159,7 @@ class EventList(generics.ListCreateAPIView):
             "search",
             required=False,
             location="query",
-            description='A search term for events with the given name, venue, or \
-            host given the host_id.',
+            description='A search term for events with the given name, venue, or host.',
             schema=coreschema.String()
         ),
     ])
@@ -214,8 +205,3 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-
-
-
-
-

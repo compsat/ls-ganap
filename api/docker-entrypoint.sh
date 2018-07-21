@@ -10,7 +10,9 @@ python3 ls_ganap/manage.py migrate
 
 echo "Run Fixtures"
 python3 ls_ganap/manage.py loaddata clusters.yaml
+python3 ls_ganap/manage.py loaddata tags.yaml
 python3 ls_ganap/manage.py loaddata test.yaml
+
 
 # Start server
 echo "Starting server"

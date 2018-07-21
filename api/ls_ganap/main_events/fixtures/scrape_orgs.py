@@ -53,13 +53,13 @@ for i, org in enumerate(html.findAll("div", {"class": "org-thumbnail"})):
 
 		org_link = org.p['onclick'].split("=")[1][1:-2]
 
-		#Abreviation
+		#Abbreviation
 		try: 
 			# print(org_link.split('organizations/')[1])
-			file.write('    abreviation: {}\n'.format(org_link.split('organizations/')[1]))	
+			file.write('    abbreviation: {}\n'.format(org_link.split('organizations/')[1]))	
 		except IndexError:
-			# print('    abreviation: FIX')
-			file.write('    abreviation: FIX\n')
+			# print('    abbreviation: FIX')
+			file.write('    abbreviation: FIX\n')
 
 		org_page_raw = simple_get(org_link)
 
