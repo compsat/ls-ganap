@@ -46,7 +46,7 @@ class Tag(SoftDeletionModel):
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
 	venue_id = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
-	host_id = models.ForeignKey(EventHost, on_delete=models.CASCADE)
+	host_id = models.ForeignKey(EventHost, related_name="host_events", on_delete=models.CASCADE)
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField()
 	description = models.TextField()
