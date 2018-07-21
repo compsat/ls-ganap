@@ -205,29 +205,3 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-
-class TagEventsList(generics.RetrieveAPIView):
-    """
-    get: Returns a tag given its id along with the events associated with it.
-    """
-    queryset = Tag.objects.all()
-    serializer_class = TagDetailSerializer
-    pagination_class = ObjectPageNumberPagination
-
-class HostEventsList(generics.ListAPIView):
-    """
-    get: List all the events of a host given its id.
-    """
-    serializer_class = HostSerializer
-    pagination_class = ObjectPageNumberPagination
-
-    def get_queryset(self):
-        host_id = self.kwargs['pk']
-        queryset = Event.objects.all()
-        
-        if EventHost.objects.filter(pk=host_id).exists():
-            queryset = queryset.filter(host_id=host_id)
-        else:
-            raise Http404
-
-        return queryset
