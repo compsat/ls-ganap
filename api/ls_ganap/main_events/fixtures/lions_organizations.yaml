@@ -1,0 +1,160 @@
+- model: main_events.eventhost
+  pk: 54
+  fields:
+    host_type: 1
+    accredited: False
+    name: ACE
+    abbreviation: ACE
+    description: In ACE, we gather those with the interest in cars to educate them in various automotive aspects. An organization that caters to people who express interest in automobiles and even motorcycles as well as people who express interest in learning about them.Educate people on automobiles in general (e.g maintenance, proper use etc.) as well as to encourage safe driving and to further develop their skills.ACE also caters to those who express interest in legal motorsports as it has members who have extensive experience in such.We aim to further educate people about automobiles in general as a lot of our members have extensive experience in both racing and mechanical aspects.While it is not required to own a motor vehicle to join, we think that owning and driving a motor vehicle is a big responsibility so we aim to teach the do's and don'ts in the automobile industry and how members can improve it. We can also serve as a guide for those who are interested in joining various motorsports.
+- model: main_events.eventhost
+  pk: 55
+  fields:
+    host_type: 1
+    accredited: False
+    name: AGILA
+    abbreviation: AGILA
+    description: AGILA is an organization is made up of Ateneans who wish to find an avenue for their passion for animals. Members have the opportunity to create a positive impact on the lives of animals. AGILA is an Atenean organization that seeks to promote and uphold the values of Animal Welfare.We hold shelter visits, talks and workshops so that members can live out what our org stands for.A love for animals (especially cats) and the drive to care for them is what AGILA stands for.
+- model: main_events.eventhost
+  pk: 56
+  fields:
+    host_type: 1
+    accredited: False
+    name: APO
+    abbreviation: Apo
+    description: Apo is an organization that is dedicated to serving the elderly. With this, the organization also forms Ateneans who are sensitive, passionate, and loving in all ways. Organization \#ForTheLolosAndLolasApo serves the elderlies especially those separated from their familiesWe visit homes and create projects that advocate for the welfare of the lolos and lolas.Apo creates families not bound by blood but by care, love, and respect. Being Filipinos, we strive to keep the value of family among people and hopefully try to create an environment that cares for the elderly instead of abandoning them.
+- model: main_events.eventhost
+  pk: 57
+  fields:
+    host_type: 1
+    accredited: False
+    name: Barefoot Philippines
+    abbreviation: Barefoot
+    description: Barefoot Philippines aims to promote, uphold, and protect children's rights. Student-led initiative for UNICEFHelps you become a \#ChampionForChildrenProvides sustainable contextualized assistance, both formative and structural, to children in rural communities.Rural communities are often overlooked when it comes to providing assistance. Barefoot will allow you to extend yourself outside of the urban setting. It celebrates culture as a means to form a better understanding of rural communities through monthly area engagements. Aside from this, you will be able to help in providing sustainable assistance to the community in order for the children to live a dignified life.
+- model: main_events.eventhost
+  pk: 58
+  fields:
+    host_type: 1
+    accredited: False
+    name: Blue Consulting Group
+    abbreviation: BCG
+    description: The Blue Consulting Group is celebrating its 10th year as the university's premiere management consulting organization. We advocate for empowering the Filipino entrepreneur and the personal growth of our student consultants. In BCG, we train students to become competent consultants and set them out on engagements with real firms to deal with legitemate problems. We believe that with each engagement, we can improve our consultants' skillset, empower our clients, and contribute to the growth of the nation.BCG molds students to make greater impact by offering skills training and consultancy opportunities. As such, BCG offers a 3-pillar package for its members.CONSULTANT TRAINING. BCG helps students develop their raw talents in an intensive and analytical training regiment to prepare them for real business development problems.NETWORKING. BCG connects trained student consultants to small and medium-sized Filipino businesses who need valuable insight.IMPACT. More than just giving training, BCG places its members on the field. There, students can make a real impact by helping SMEs scale larger and more competitively.
+- model: main_events.eventhost
+  pk: 59
+  fields:
+    host_type: 1
+    accredited: False
+    name: Blue Hanguk Society
+    abbreviation: BlueHan
+    description: Blue Hanguk Society is a student organization that seeks to promote Korean culture within the Ateneo community. The student arm of the Ateneo Korean Studies Program, BlueHan provides opportunities for students to discover more about and express their appreciation for Korean culture. Celebrating Korean culture and the coming together of its enthusiastsCreating various avenues for students to learn more about and experience different aspects of Korean culture such as Korean food, Korean pop music, and Korean dramasProviding opportunities for the students to gain exposure to and establish connections with offices and institutions promoting Korean culture such as the Ateneo Korean Studies Program and the Korean Cultural Center in the Philippines among othersAs the Philippines continues to embrace Koreans and their culture, which can be seen in the growing number of Koreans in the country and the warm reception of Filipinos towards Korean culture, learning more about Korean culture becomes important because it allows students to gain a better grasp of how open Filipinos are to foreign influences. BlueHan, then, provides the Ateneo community with projects that showcase the different forms of the Korean Wave. Moreover, members are given the opportunity to meet co-Korean culture enthusiasts who share the same passion for Korean culture.
+- model: main_events.eventhost
+  pk: 60
+  fields:
+    host_type: 1
+    accredited: False
+    name: Cuisina
+    abbreviation: Cuisina
+    description: Cuisina is home for people who share the same love and passion for food. As the premier food and culinary organization in Ateneo, Cuisina is home for people who share the same love and passion for food.Cuisina will provide avenues for people to develop a holistic understanding of food and everything about it.Cuisina aims to enrich each member’s experience of food and deepen their relationship with it.Food is undeniably a huge part of our lives. From your favorite handa of hotdog-and-marshmallow sticks at your 7th birthday party, to your sweet reunion with sinigang when you came home from Junior Term Abroad, to hearing your loved ones cheer as you make the first slice of your wedding cake, and to passing down your family’s treasured spaghetti recipe, we know that food isn’t just a meal–it’s an experience. This is why Cuisina exists.
+- model: main_events.eventhost
+  pk: 61
+  fields:
+    host_type: 1
+    accredited: False
+    name: Habitat for Humanity
+    abbreviation: HFH
+    description: Habitat for Humanity Blue Chapter is the official student arm of Habitat for Humanity Philippines which seeks to serve families in need of decent housing. Raise awareness of the Habitat for Humanity advocacy in the Ateneo community. Engage the Habitat for Humanity members, the Ateneo de Manila University community and non-Ateneans in its efforts. Create a lasting impact on Habitat communities. Habitat for Humanity Blue Chapter envisions a future where each Filipino belongs in a decent home. In order to achieve this, the organization wishes to engage the Ateneo community and raise awareness on the topic of poverty housing. Through continual volunteer work and efforts done in the Habitat communities, both Ateneans and the Habitat for Humanity members will work alongside those in need of housing to build a better future for the Philippine community.
+- model: main_events.eventhost
+  pk: 62
+  fields:
+    host_type: 1
+    accredited: False
+    name: Hinomoto
+    abbreviation: Hinomoto
+    description: Hinomoto, a student arm of the Japanese Studies Program, aims to enrich its members’ proficiency in the Japanese language and their experience of the Japanese culture. The organization also aids Japanese Exchange students during their stay within the University. Hinomoto aims to enrich its members’ proficiency in the Japanese language.Hinomoto aims to create an avenue for its members’ to be exposed to the Japanese Culture.Hinomoto aims to partner with Japanese institutions to aid in the building of the Philippine nation.Hinomoto is a student arm of the Japanese Studies department. The organisation would help its members through enriching their proficiency in the Japanese language, create an avenue for them to experience Japanese culture, and establish a network of partnerships with different Japanese institutions. In addition to that, the organisation have language tutorials that would help their members to study for their Japanese FLC class or if they want to learn the basics of the language. Hinomoto also offers different events, for example the Natsu Matsuri (Summer Festival), for their members to enjoy.
+- model: main_events.eventhost
+  pk: 63
+  fields:
+    host_type: 1
+    accredited: False
+    name: ISDA
+    abbreviation: ISDA
+    description: ISDA is a skin diving organization that aims to teach people how to skin dive while promoting safe tourism and the protection of the oceans. ISDA is a skin diving organization that aims to give people an up-close experience with the ocean so that more people see the environment that ISDA is protecting. The Philippines’ coastal areas are rich with marine life and they are accessible to us. ISDA is a community who shares a passion for skin diving, the environment and the people who live closest to these areas. If you want to create an impact on the efforts to help save the environment or simply enjoy the richness of our country’s oceans partnered with responsible travelling practices, then ISDA is the org for you! In ISDA, you not only learn new skills and go on amazing adventures- you become part of a community as well.
+- model: main_events.eventhost
+  pk: 64
+  fields:
+    host_type: 1
+    accredited: False
+    name: Junior Fellowship for Financial Literacy
+    abbreviation: JFeL
+    description: JFeL is an independent organization that promotes financial literacy within and beyond the university, covering topics such as mergers and acquisitions, personal finanace, investment banking, and etc. JFel offers talks and apprenticeshipprograms to help its members know more and deepen their knowledge of finance.JFeL offers it's members not only an in-depth understanding of financial topics but also provides an avenue of growth and development for its members in topics even beyond finance.
+- model: main_events.eventhost
+  pk: 65
+  fields:
+    host_type: 1
+    accredited: False
+    name: League of Atenean Historians
+    abbreviation: LAHi
+    description: Presenting History in more fun and approachable way to show the relevance and value of History. LAHi is a History organization, a home organization for History majors, but is also open to the enthusiasts! We try to bring History closer by showing that History is not something distant and detached but is very much part of the reality we go through every day. If you want to look at History in a diffrent dimension that how it was taught to you in History, LAHi is a place for you!Do you want to talk about history? Do you want to learn about history without being bored? Have you ever wondered why things ended up the way they are now? Then join LAHi and join us exploring History!
+- model: main_events.eventhost
+  pk: 66
+  fields:
+    host_type: 1
+    accredited: False
+    name: Microsoft Student Community
+    abbreviation: Microsoft
+    description: Microsoft Student Community, is a tech-empowered organization that wants to highlight the possibilities of technology for everyday life. We strive to make technology more accessible and approachable for both tech savvy and non-tech savvy people.Microsoft Student Community gives you the opportunity to improve your efficiency and effectivity in anything through the use of technology and some creativity.
+- model: main_events.eventhost
+  pk: 67
+  fields:
+    host_type: 1
+    accredited: False
+    name: Musikero
+    abbreviation: Musikero
+    description: Musikero is an organization that is composed of Ateneans who share a passion in music and teaching others how to play instruments. Musikero primarily deals with teaching members from our partner community how to play different instruments consisting of guitar, ukelele, etc.Musikero welcomes any individual who experiences a deep passion for music and community. Through our weekly areas, you will be given the opportunity to share this passion with others by teaching the members of our partner community how to play certain instruments. Whether you are already proficient in teaching an instrument or at the very least are willing to learn how to teach an instrument, Musikero will feel just like home.
+- model: main_events.eventhost
+  pk: 68
+  fields:
+    host_type: 1
+    accredited: False
+    name: Regnum Christi LIFE
+    abbreviation: RC LIFE
+    description: Regnum Christi\: Love Inspired by Faith and Encounter, or RC LIFE, is a Catholic organization that is made to encourage students to live an authentic Christian life through apostolic activities and personal encounters with Christ. RC LIFE is an international apostolic family that helps you strengthen and enrich your knowledge on faith. Regnum Christi: Love Inspired by Faith and Encounter, or RC LIFE, was created by and for college students with the hopes of inspiring fellow students to live an authentic Christian life through a deep and personal encounter with Christ.RC LIFE is an inter-university organization present in the Ateneo de Manila University and the De la Salle University, and is a subsidiary to the universal movement, Regnum Christi.Through its projects and apostolates, such as evangelization missions, camps, and Holy Hours, RC LIFE aims to mold members into Christian role models, who are of service to God and country.We offer Holistic formation for all, especially for those willing to go deeper in ChristRC LIFE offers you a holistic formation; spiritual, intellectual, human and apostolic. This approach allows for change, one that enables your faith to go deeper in every aspect of yourself, in order to live a more authentic life. This molds you into a well-rounded and passionate young Catholic professional.
+- model: main_events.eventhost
+  pk: 69
+  fields:
+    host_type: 1
+    accredited: False
+    name: THINC
+    abbreviation: THINC
+    description: THINC advocates the novelty and fun of playing tabletop games and brings people together through this shared passion. Whether you’re a hardcore enthusiast, a casual hobbyist, or a curious newcomer, there’s always room at our table for a new player. Here at THINC, we foster a community of hobbyists interested in tabletop activities such as card games, board games, wargaming, and tabletop role-playing games. We provide our members with a place where they can play games with their friends, exercise their brains by encouraging strategy and creativity, and take a break from the stressful motions of everyday life. Our goal is to keep the tradition of tabletop gaming alive and promote it as a fun, healthy, and productive activity for everyone.THINC is about fun and community. We do our best to give  our members activities to enjoy themselves and celebrate the value of gathering your friends to have a great time playing games together. It may seem simple, but every game you play is an opportunity for unforgettable memories.
+- model: main_events.eventhost
+  pk: 70
+  fields:
+    host_type: 1
+    accredited: False
+    name: Toushin
+    abbreviation: Toushin
+    description: A warm inclusive community that enriches people's passion for Japanese culture. We are a group of people that hangout and share our interests about Japanese arts and culture especially anime and manga. Toushin celebrates with its members the the fun and wonders that Japanese culture has to offer. We celebrate cultural festivals, conventions, and watch Japanese films together. We share our opinions and thoughts about Japanese culture.Toushin celebrates the wonders of Japanese culture and fosters a family-like environment amongst its members. We set aside out differences and encourage the holistic growth of our members in Japanese arts and culture. We are also a group of people with a pure passion for anime and manga.
+- model: main_events.eventhost
+  pk: 71
+  fields:
+    host_type: 1
+    accredited: False
+    name: UpStart
+    abbreviation: UpStart
+    description: UpStart-LS is a student organization that aims to empower students through career opportunities with Startups. We bridge between students and the local startup scene.We encourage appreciation and recognition for the local startup scene.We expose students to the innovation in the local startup scene.Upstart-LS provides exposure and appreciation of startups to the students. Our organization’s flat structure encourages students to step-up and make valuable changes to the organization.
+- model: main_events.eventhost
+  pk: 72
+  fields:
+    host_type: 1
+    accredited: False
+    name: User Experience Society
+    abbreviation: UXSoc
+    description: UX Society is a student organization that advocates usability, human-computer interaction, and effective design. As the premier design organization in the Ateneo de Manila University, we cultivate future product and UX design leaders. We teach students design thinking strategies through our series of talks and workshops, and host the biggest student web design conferences in Asia.We educate students to become design leaders and connect them to the biggest players in the industry.We ensure great usability, functional design, and delight in the products that we build.Our core members embrace the culture of the growth mindset and continuous learning and we will bring that kind of culture and mindset to you.We provide our members excellent mentorship and internship opportunities that would mold them as design leaders.We connect you to the biggest leaders of the design industry all around the country, Asia, and even up to the Silicon Valley.
+- model: main_events.eventhost
+  pk: 73
+  fields:
+    host_type: 1
+    accredited: False
+    name: WriterSkill
+    abbreviation: WriterSkill
+    description: Writerskill is a freelance writing organization that helps writers from all backgrounds betwix avenues for public performance, publication, as well as workshops. We are a writing organization that helps one another by introducing, then practicing, the workshop system. Outside of that, we give opportunities for writers to perform or to be published. WriterSkill's goal is to create a community of writers that supports one another alongside the workshop process. The organization also gives spaces for writers to be published (printed and online zines) as well as platforms for spoken word or for presentations. In helping with the formation of writers, we also hold genre talks made by prominent figures within the literary community.
