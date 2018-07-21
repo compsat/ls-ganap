@@ -37,7 +37,4 @@
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [1]
-- model: main_events.tag
-  pk: 1
-  fields:
-    name: Information Technology
+
