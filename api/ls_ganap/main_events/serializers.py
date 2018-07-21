@@ -48,6 +48,22 @@ class HostSerializer(serializers.ModelSerializer):
                  'color',
                  'logo_url']
 
+class HostDetailSerializer(serializers.ModelSerializer):
+    host_events = EventSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = EventHost
+        fields = ['id',
+                 'name',
+                 'host_type',
+                 'cluster',
+                 'abbreviation',
+                 'description',
+                 'accredited',
+                 'color',
+                 'logo_url',
+                 'host_events']
+
 class ClusterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cluster
