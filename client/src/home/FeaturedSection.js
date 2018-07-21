@@ -29,29 +29,50 @@ const Promo = styled.img`
 const TitleContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-`;
-
-const TitleSection = styled.div`
     margin-bottom: 1em;
 `;
 
+const TitleSection = styled.div`
+    font-family: 'Calluna', serif;
+`;
+
 const Title = styled.h1`
+    font-weight: 800;
     font-size: 2em;
+    color: #141414;
+
+    ${media.mdScreen`
+        font-size: 2.5em;
+        margin-top: 1em;
+    `}
 `;
 
 const Subtitle = styled.h2`
     font-size: 1em;
+    font-weight: 600;
+    font-style: italic;
+    color: #926C00;
+
+
+    ${media.mdScreen`
+        margin-top: 1em;
+        margin-bottom: 1em;
+    `}
 `;
 
 const LinksSection = styled.div`
+    font-family: 'Quatro', sans-serif;
     text-align: right;
+    text-transform: uppercase;
 `;
 
 const LinkContainer = styled.div`
     width: 100%;
     font-size: 0.7em;
+    margin-top: 0.5em;
 
     ${media.mdScreen`
+        font-family: 'Quatro', sans-serif;
         margin-top: 2.5em;
     `}
 `;
@@ -80,11 +101,12 @@ const DesktopLink = styled(Link)`
 `;
 
 const DesktopLink2 = DesktopLink.extend`
-    background-color: white;
+    background-color: transparent;
     color: #926C00;
 `;
 
 const DatesContainer = styled.div`
+    font-family: 'Nirmala', sans-serif;
     font-size: 1em;
 
     ${media.mdScreen`
@@ -101,6 +123,7 @@ const DesktopDetailsContainer = styled.div`
         display: grid;
         grid-template-rows: 1fr 1.5fr 1fr;
         height: 100%;
+        color: #141414;
     `}
 `;
 
@@ -146,7 +169,7 @@ const MobileDetails = () => (
                 <Subtitle>by blueREP</Subtitle>
             </TitleSection>
             <LinksSection>
-                <MobileLink route="">Export</MobileLink><br />
+                <MobileLink route="">Export</MobileLink>
                 <MobileLink route="">Read More</MobileLink>
             </LinksSection>
         </TitleContainer>
