@@ -1,10 +1,12 @@
 from django.contrib import admin
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from main_events.views import event_view, cluster_view, host_view, host_type_view, tag_view, venue_view
+from main_events.views import event_view, cluster_view, host_view, host_type_view, tag_view, venue_view, user_view
 # import views
 
 urlpatterns = [
+    path('users/', user_view.UserList.as_view()),
+    path('users/<int:pk>', user_view.UserDetail.as_view()),
     path('events/', event_view.EventList.as_view()),
     path('events/<int:pk>/', event_view.EventDetail.as_view()),
     path('events/on/<str:date>', event_view.FilterEventByDate.as_view()),
