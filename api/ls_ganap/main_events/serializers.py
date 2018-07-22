@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Cluster, Event, EventHost, HostType, Tag, Venue
+from django.contrib.auth.models import User
 
 class EventSerializer(serializers.ModelSerializer):
     tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
@@ -9,8 +10,8 @@ class EventSerializer(serializers.ModelSerializer):
         fields = ['id', 
                 'start_time', 
                 'end_time',
-                'venue_id', 
-                'host_id',
+                'venue', 
+                'host',
                 'name', 
                 'description', 
                 'is_accepted', 
@@ -49,7 +50,7 @@ class HostSerializer(serializers.ModelSerializer):
                  'logo_url']
 
 class HostDetailSerializer(serializers.ModelSerializer):
-    host_events = EventSerializer(many=True, read_only=True)
+    hosted_events = EventSerializer(many=True, read_only=True)
 
     class Meta:
         model = EventHost
@@ -62,7 +63,7 @@ class HostDetailSerializer(serializers.ModelSerializer):
                  'accredited',
                  'color',
                  'logo_url',
-                 'host_events']
+                 'hosted_events']
 
 class ClusterSerializer(serializers.ModelSerializer):
     class Meta:
@@ -103,3 +104,9 @@ class HostTypeDetailSerializer(serializers.ModelSerializer):
         fields = ['id',
                 'type_name',
                 'host_list']
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+
+        fields = '__all__'

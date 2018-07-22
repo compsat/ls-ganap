@@ -152,7 +152,7 @@ class EventList(generics.ListCreateAPIView):
     pagination_class = ObjectPageNumberPagination
     serializer_class = EventSerializer
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
-    search_fields = ['name', 'venue_id__name', 'host_id__name']
+    search_fields = ['name', 'venue__name', 'host__name']
 
     schema = AutoSchema(manual_fields=[
         coreapi.Field(

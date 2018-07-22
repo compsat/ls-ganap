@@ -45,8 +45,8 @@ class Tag(SoftDeletionModel):
 
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
-	venue_id = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
-	host_id = models.ForeignKey(EventHost, related_name="host_events", on_delete=models.CASCADE)
+	venue = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
+	host = models.ForeignKey(EventHost, related_name="hosted_events", on_delete=models.CASCADE)
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField()
 	description = models.TextField()
@@ -61,19 +61,3 @@ class Event(SoftDeletionModel):
 
 	def __str__(self):
 		return self.name
-
-class TagToEvent(models.Model):
-	tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
-	event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
-	
-class TagSubscription(models.Model):
-	user_id = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-	tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
-	
-class EventHostSubscription(models.Model):
-	user_id = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-	event_host_id = models.ForeignKey(EventHost, on_delete=models.CASCADE)
-	
-class FollowedEvents(models.Model):
-	user_id = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-	event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
