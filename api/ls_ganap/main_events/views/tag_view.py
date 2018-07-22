@@ -9,7 +9,7 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class TagList(generics.ListCreateAPIView):
+class TagList(generics.ListAPIView):
     """
     get: List all the tags.
     post: Create a new tag.
