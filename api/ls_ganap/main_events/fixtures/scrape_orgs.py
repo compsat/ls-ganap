@@ -31,7 +31,7 @@ def log_error(e):
 
 
 
-raw_html = simple_get("https://web.archive.org/web/20171029050715/http://coacentral.org:80/organizations/")
+raw_html = simple_get("http://coacentral.org/organizations/")
 
 html = bs(raw_html, 'html.parser')
 
@@ -93,6 +93,22 @@ for i, org in enumerate(html.findAll("div", {"class": "org-thumbnail"})):
 		except IndexError:
 			# print('    desciption: FIX')
 			file.write('    description: FIX\n')
+
+		#Description
+		try:
+			# description = org_page_data.select('#org-description-description')[0].p.text.strip()
+			images = org_page_data.find("div", {"id": "org-description"})
+
+			logo_url = images.find("img")['src']
+			file.write('    logo_url: {}\n'.format(logo_url))
+
+		except IndexError:
+			# print('    desciption: FIX')
+			file.write('    logo_url: FIX\n')
+
+		except AttributeError:
+			# print('    desciption: FIX')
+			file.write('    logo_url: FIX\n')
 
 		
 
