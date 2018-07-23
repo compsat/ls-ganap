@@ -82,9 +82,13 @@ for i, org in enumerate(html.findAll("a", {"class": "card-link"})):
 			# print(result)	
 			file.write('    description: {}\n'.format(" ".join(result.split('\n'))))
 
+			logo_url = description.find("img", {"class": "org-image"})['src']
+			file.write('    logo_url: {}\n'.format("lionshub.org/" + logo_url))
+
 		except IndexError:
 			# print('    desciption: FIX')
 			file.write('    description: FIX\n')
+			file.write('    logo_url: FIX\n')
 
 		
 
