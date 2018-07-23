@@ -13,6 +13,13 @@ python3 ls_ganap/manage.py loaddata clusters.yaml
 python3 ls_ganap/manage.py loaddata tags.yaml
 python3 ls_ganap/manage.py loaddata test.yaml
 
+# Create superuser
+echo "Create superuser"
+python ls_ganap/manage.py shell << END
+from django.contrib.auth.models import User
+if not User.objects.filter(username='ls_ganap'):
+    User.objects.create_superuser('ls_ganap', 'ls_ganap123@gmail.com', 'ilovecompsat')
+END
 
 # Start server
 echo "Starting server"
