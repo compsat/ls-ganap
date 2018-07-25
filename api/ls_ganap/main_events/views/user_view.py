@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from main_events.serializers import UserSerializer
+from main_events.serializers import user_serializer
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework.response import Response
@@ -8,11 +8,11 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class UserList(generics.ListAPIView):
+class UserList(generics.CreateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = user_serializer.UserCreateSerializer
 
 
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = user_serializer.UserSerializer
