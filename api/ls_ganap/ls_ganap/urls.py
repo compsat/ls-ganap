@@ -14,17 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.conf.urls import include, url
+from django.views.i18n import JavaScriptCatalog
 from rest_framework_swagger.views import get_swagger_view
 from .swagger_schema import SwaggerSchemaView
 
 schema_view = get_swagger_view(title='LS Ganap API')
 
+js_info_dict = {
+    'packages': ('recurrence', ),
+}
 
 urlpatterns = [
     path('admin', admin.site.urls),
     path('', include('main_events.urls')),
-    path('docs', schema_view)
+    path('docs', schema_view),
+    re_path(r'^jsi18n/$', JavaScriptCatalog.as_view(), js_info_dict),
     # path('docs', SwaggerSchemaView.as_view())
 ]
