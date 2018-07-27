@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from .models import Cluster, EventHost, Event, Tag, Venue
 
 class HostInline(admin.TabularInline):

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
 ]
 
+
 REST_FRAMEWORK = {
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
     'DEFAULT_PARSER_CLASSES': [
@@ -53,10 +54,8 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.JSONParser',
     ],
-
-}   
-
-
+}     
+     
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

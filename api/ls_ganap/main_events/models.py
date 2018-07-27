@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.query import QuerySet
 from django.utils import timezone
 from main_events.soft_deletion_model import SoftDeletionModel
+from django.contrib.auth.models import AbstractUser
+
 
 class HostType(models.Model):
 	type_name = models.CharField(max_length=20)
