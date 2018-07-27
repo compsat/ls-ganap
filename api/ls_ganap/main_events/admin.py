@@ -32,11 +32,16 @@ class HostInline(admin.TabularInline):
 class EventInline(admin.TabularInline):
     model = Event.tags.through
 
+class EventVenueInline(admin.TabularInline):
+	model = Event
+	readonly_fields = ('name', 'host', 'start_time', 'end_time')
+	exclude = ('deleted_at', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags')
+
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags',)
-	list_display = ('name', 'host_id', 'venue_id', 'start_time', 'is_accepted')
-	list_filter = ('host_id__name', 'is_accepted', 'start_time')
-	autocomplete_fields = ['host_id']
+	list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
+	list_filter = ('host__name', 'is_accepted', 'start_time')
+	autocomplete_fields = ['host']
 	actions = ['accept_events']
 
 	def accept_events(self, request, queryset):
@@ -64,8 +69,13 @@ class TagAdmin(admin.ModelAdmin):
 		EventInline,
 	]
 
+class VenueAdmin(admin.ModelAdmin):
+	inlines = [
+		EventVenueInline,
+	]
+
 admin.site.register(Cluster, ClusterAdmin)
 admin.site.register(EventHost, EventHostAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Tag, TagAdmin)
-admin.site.register(Venue)
+admin.site.register(Venue, VenueAdmin)
