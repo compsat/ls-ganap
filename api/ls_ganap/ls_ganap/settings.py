@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework_swagger',
+    'rest_framework_swagger'
 ]
+
+AUTH_USER_MODEL = 'main_events.User'
 
 
 REST_FRAMEWORK = {
