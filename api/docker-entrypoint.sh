@@ -8,6 +8,7 @@ python3 ls_ganap/manage.py makemigrations
 echo "Apply database migrations"
 python3 ls_ganap/manage.py migrate
 
+# Run fixtures
 echo "Run Fixtures"
 python3 ls_ganap/manage.py loaddata clusters.yaml
 python3 ls_ganap/manage.py loaddata tags.yaml
@@ -16,9 +17,10 @@ python3 ls_ganap/manage.py loaddata test.yaml
 # Create superuser
 echo "Create superuser"
 python ls_ganap/manage.py shell << END
-from django.contrib.auth.models import User
-if not User.objects.filter(username='ls_ganap'):
-    User.objects.create_superuser('ls_ganap', 'ls_ganap123@gmail.com', 'ilovecompsat')
+from django.contrib.auth import get_user_model
+User = get_user_model()
+if not User.objects.filter(email='ls_ganap123@gmail.com'):
+    User.objects.create_superuser('ls_ganap123@gmail.com', 'ilovecompsat')
 END
 
 # Start server
