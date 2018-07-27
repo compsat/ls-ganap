@@ -431,7 +431,7 @@
   pk: 40
   fields:
     host_type: 1
-    name: Ateneo Consultants for Organization Dev’t and Empowerment
+    name: Ateneo Consultants for Organization Development and Empowerment
     abbreviation: CODE
     cluster: 8
     color: #0000EE
@@ -442,7 +442,7 @@
   pk: 41
   fields:
     host_type: 1
-    name: Ateneo EDGE
+    name: Ateneo EDGE: Education Geared towards Empowerment
     abbreviation: EDGE
     cluster: 8
     color: #0000EE
@@ -475,7 +475,7 @@
   pk: 44
   fields:
     host_type: 1
-    name: Musmos-Ateneo
+    name: Musmos Ateneo
     abbreviation: Musmos
     cluster: 8
     color: #0000EE
