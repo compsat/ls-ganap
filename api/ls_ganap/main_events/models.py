@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.query import QuerySet
 from django.utils import timezone
 from main_events.soft_deletion_model import SoftDeletionModel
+from recurrence.fields import RecurrenceField
 
 class HostType(models.Model):
 	type_name = models.CharField(max_length=20)
@@ -49,6 +50,7 @@ class Event(SoftDeletionModel):
 	host = models.ForeignKey(EventHost, related_name="hosted_events", on_delete=models.CASCADE)
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField()
+	recurrence = RecurrenceField()
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
