@@ -2,7 +2,8 @@ from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup as bs
-
+from os.path import basename, splitext
+import requests
 
 def simple_get(url):
 
@@ -100,6 +101,10 @@ for i, org in enumerate(html.findAll("div", {"class": "org-thumbnail"})):
 			images = org_page_data.find("div", {"id": "org-description"})
 
 			logo_url = images.find("img")['src']
+			#file_path = os.path.join('/Users/djdelrio/Desktop/ls-ganap/api/ls_ganap/main_events/fixtures/Logos', os.path.basename(logo_url))
+			with open(org_link.split('organizations/')[1] + splitext(basename(logo_url))[1], "wb") as img:
+				img.write(requests.get(logo_url).content)
+
 			file.write('    logo_url: {}\n'.format(logo_url))
 
 		except IndexError:
