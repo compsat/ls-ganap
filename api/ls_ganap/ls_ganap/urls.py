@@ -20,6 +20,9 @@ from rest_framework_swagger.views import get_swagger_view
 from .swagger_schema import SwaggerSchemaView
 from django.contrib.auth import views as auth_views
 
+
+from rest_framework_jwt.views import obtain_jwt_token
+
 schema_view = get_swagger_view(title='LS Ganap API')
 
 
@@ -46,6 +49,7 @@ urlpatterns = [
         name='password_reset_complete',
     ),
     path('', include('main_events.urls')),
-    path('docs', schema_view)
+    path('docs', schema_view),
+    path('auth/token/', obtain_jwt_token),
     # path('docs', SwaggerSchemaView.as_view())
 ]
