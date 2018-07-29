@@ -6,12 +6,10 @@ from django.core.exceptions import ValidationError
 User = get_user_model()
 
 class UserCreateSerializer(serializers.ModelSerializer):
-    confirm_email = serializers.EmailField(label='Confirm email')
     class Meta:
         model = User
 
         fields = ['email', 
-                  'confirm_email',
         		  'password']
         
         # doesn't show the password on the request	  
