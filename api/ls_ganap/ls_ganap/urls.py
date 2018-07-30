@@ -21,6 +21,7 @@ from .swagger_schema import SwaggerSchemaView
 from django.contrib.auth import views as auth_views
 
 from rest_framework_jwt.views import ObtainJSONWebToken, RefreshJSONWebToken
+from rest_framework_jwt.views import refresh_jwt_token, verify_jwt_token
 
 obtain_jwt_token = ObtainJSONWebToken.as_view(
     user_model='main_events.User'
@@ -54,5 +55,7 @@ urlpatterns = [
     path('', include('main_events.urls')),
     path('docs', schema_view),
     path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
+    path('auth/token-reset', refresh_jwt_token, name='auth-jwt-refresh'),
+    path('auth/token-verify', verify_jwt_token, name='auth-jwt-verify'),
     # path('docs', SwaggerSchemaView.as_view())
 ]
