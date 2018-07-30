@@ -1,5 +1,7 @@
-curl -X POST --data "email=compsat.ls@obf.ateneo.edu&password=ilovecompsat" http://localhost:8000/auth/token/
+curl -X POST --data "email=test@obf.ateneo.edu&password=test123" http://localhost:8000/auth/token/
 
-curl -H "Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJ1c2VybmFtZSI6ImNvbXBzYXQubHNAb2JmLmF0ZW5lby5lZHUiLCJleHAiOjE1MzI4NzczNjEsImVtYWlsIjoiY29tcHNhdC5sc0BvYmYuYXRlbmVvLmVkdSJ9.FfydtmUEM4TrIx2yoRG-V9vBqyoFvfimQozzPjKVxTw" http://localhost:8000/events/
+curl -H "Authorization: JWT <token>" http://localhost:8000/events/
 
 curl http://0.0.0.0:8000/events
+
+
