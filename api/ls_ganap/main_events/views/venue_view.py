@@ -1,5 +1,5 @@
 from main_events.models import Venue
-from main_events.serializers import VenueSerializer
+from main_events.serializers import venue_serializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -15,7 +15,7 @@ class VenueList(generics.ListCreateAPIView):
     post: Create a new venue.
     """
     queryset = Venue.objects.all()
-    serializer_class = VenueSerializer
+    serializer_class = venue_serializer.VenueSerializer
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
 
@@ -39,4 +39,4 @@ class VenueDetail(generics.RetrieveUpdateDestroyAPIView):
     Deletes a venue given its id
     """
     queryset = Venue.objects.all()
-    serializer_class = VenueSerializer
+    serializer_class = venue_serializer.VenueSerializer

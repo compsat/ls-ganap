@@ -1,5 +1,5 @@
-from main_events.models import Event, Tag, EventHost
-from main_events.serializers import EventSerializer, TagDetailSerializer, HostSerializer
+from main_events.models import Event
+from main_events.serializers import event_serializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -17,11 +17,14 @@ from main_events.helper_methods import get_dates_between
 from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
 
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from main_events.jwt_authentication import MyJWTAuthentication
+
 class FilterEventsBetweenDates(generics.ListAPIView):
     """
     get: Gets all events between a start_date and an end_date.
     """
-    serializer_class = EventSerializer
+    serializer_class = event_serializer.EventSerializer
     pagination_class = ObjectPageNumberPagination
 
     schema = AutoSchema(manual_fields=[
@@ -54,7 +57,7 @@ class FilterEventByDate(generics.ListAPIView):
     """
     get: Gets all events given a specific date.
     """
-    serializer_class = EventSerializer
+    serializer_class = event_serializer.EventSerializer
     pagination_class = ObjectPageNumberPagination
 
     schema = AutoSchema(manual_fields=[
@@ -81,7 +84,7 @@ class FilterEventByWeek(generics.ListAPIView):
     get: Gets all the events happening in the week of the date input, 
     where the week is Monday-Sunday.
     """
-    serializer_class = EventSerializer
+    serializer_class = event_serializer.EventSerializer
     pagination_class = ObjectPageNumberPagination
 
     schema = AutoSchema(manual_fields=[
@@ -110,7 +113,7 @@ class FilterEventByMonth(generics.ListAPIView):
     """
     get: Gets all the events happening in the month of the input.
     """
-    serializer_class = EventSerializer
+    serializer_class = event_serializer.EventSerializer
     pagination_class = ObjectPageNumberPagination
 
     schema = AutoSchema(manual_fields=[
@@ -147,12 +150,12 @@ class EventList(generics.ListCreateAPIView):
     """ 
 
     queryset = Event.objects.all()
-    serializer_class = EventSerializer
+    serializer_class = event_serializer.EventSerializer
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
-    serializer_class = EventSerializer
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
     search_fields = ['name', 'venue__name', 'host__name']
+    authentication_classes = [MyJWTAuthentication,]
 
     schema = AutoSchema(manual_fields=[
         coreapi.Field(
@@ -186,7 +189,7 @@ class EventList(generics.ListCreateAPIView):
         # make sure to filter by event start_time
         queryset = self.get_queryset().order_by('start_time')
         
-        serializer = EventSerializer(queryset, many=True)
+        serializer = event_serializer.EventSerializer(queryset, many=True)
         return Response(serializer.data)
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -204,4 +207,4 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     Deletes an event given its id
     """
     queryset = Event.objects.all()
-    serializer_class = EventSerializer
+    serializer_class = event_serializer.EventSerializer

@@ -2,7 +2,8 @@ from requests import get
 from requests.exceptions import RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup as bs
-
+from os.path import basename
+import requests
 
 def simple_get(url):
 
@@ -82,9 +83,16 @@ for i, org in enumerate(html.findAll("a", {"class": "card-link"})):
 			# print(result)	
 			file.write('    description: {}\n'.format(" ".join(result.split('\n'))))
 
+			logo_url = description.find("img", {"class": "org-image"})['src']
+			#file_path = os.path.join('/Users/djdelrio/Desktop/ls-ganap/api/ls_ganap/main_events/fixtures/Logos', os.path.basename(logo_url))
+			with open(basename(logo_url), "wb") as img:
+				img.write(requests.get("http://lionshub.org/" + logo_url).content)
+			file.write('    logo_url: {}\n'.format("lionshub.org/" + logo_url))
+
 		except IndexError:
 			# print('    desciption: FIX')
 			file.write('    description: FIX\n')
+			file.write('    logo_url: FIX\n')
 
 		
 

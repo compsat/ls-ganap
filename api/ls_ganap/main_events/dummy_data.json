@@ -1,15 +1,16 @@
 {
 	"start_time" : "2018-06-26 14:30", 
 	"end_time" :  "2018-06-26 18:30",
-	"venue_id": 1,
-	"host_id": 1,
+	"venue": 1,
+	"host": 1,
 	"name" : "Blue Hacks", 
 	"description" : "BlueHacks is a two-day hackathon where...", 
 	"is_accepted":"False" , 
 	"poster_url" : "http://bluehacks.compsat.org/static/media/logo-big.3d72fc4b.png", 
 	"outside_venue_name" : "", 
 	"is_premium":"False", 
-	"event_url" : "http://bluehacks.compsat.org/"
+	"event_url" : "http://bluehacks.compsat.org/",
+	"tags":[1]
 }
 
 {	

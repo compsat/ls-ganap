@@ -1,0 +1,7 @@
+curl -X POST --data "email=test@obf.ateneo.edu&password=test123" http://localhost:8000/auth/token/
+
+curl -H "Authorization: JWT <token>" http://localhost:8000/events/
+
+curl http://0.0.0.0:8000/events
+
+

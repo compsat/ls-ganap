@@ -19,6 +19,14 @@ from django.conf.urls import include, url
 from django.views.i18n import JavaScriptCatalog
 from rest_framework_swagger.views import get_swagger_view
 from .swagger_schema import SwaggerSchemaView
+from django.contrib.auth import views as auth_views
+
+from rest_framework_jwt.views import ObtainJSONWebToken, RefreshJSONWebToken
+from rest_framework_jwt.views import refresh_jwt_token, verify_jwt_token
+
+obtain_jwt_token = ObtainJSONWebToken.as_view(
+    user_model='main_events.User'
+    )
 
 schema_view = get_swagger_view(title='LS Ganap API')
 
@@ -28,8 +36,31 @@ js_info_dict = {
 
 urlpatterns = [
     path('admin', admin.site.urls),
+    path(
+        'admin/password_reset/',
+        auth_views.PasswordResetView.as_view(),
+        name='admin_password_reset',
+    ),
+    path(
+        'admin/password_reset/done/',
+        auth_views.PasswordResetDoneView.as_view(),
+        name='password_reset_done',
+    ),
+    path(
+        'reset/<uidb64>/<token>/',
+        auth_views.PasswordResetConfirmView.as_view(),
+        name='password_reset_confirm',
+    ),
+    path(
+        'reset/done/',
+        auth_views.PasswordResetCompleteView.as_view(),
+        name='password_reset_complete',
+    ),
     path('', include('main_events.urls')),
     path('docs', schema_view),
     re_path(r'^jsi18n/$', JavaScriptCatalog.as_view(), js_info_dict),
+    path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
+    path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
+    path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),
     # path('docs', SwaggerSchemaView.as_view())
 ]
