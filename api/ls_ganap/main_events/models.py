@@ -1,10 +1,15 @@
 from django.db import models
+from django.db.models import fields
 from django.db.models.query import QuerySet
 from django.utils import timezone
 from main_events.soft_deletion_model import SoftDeletionModel
-from recurrence.fields import RecurrenceField
+#from recurrence.fields import RecurrenceField
+from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
+from multiselectfield import MultiSelectField
+from datetime import datetime, timedelta
+import calendar
 
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
@@ -90,13 +95,41 @@ class Tag(models.Model):
 	def __str__(self):
 		return self.name
 
+class RecurrenceField(fields.Field):
+	def value_to_string(self, obj):
+		return self.get_prep_value(self.value_from_object(obj))
+
+FREQUENCY = (
+	('None', 'None'),
+	('Daily', 'Daily'),
+	('Weekly', 'Weekly'),
+	('Monthly', 'Monthly'),
+)
+
+WEEKDAYS = (
+	('SUN', 'Sunday'),
+	('MON', 'Monday'),
+	('TUE', 'Tuesday'),
+	('WED', 'Wednesday'),
+	('THU', 'Thursday'),
+	('FRI', 'Friday'),
+	('SAT', 'Saturday'),
+)
+
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
 	venue = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
 	host = models.ForeignKey(EventHost, related_name="hosted_events", on_delete=models.CASCADE)
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField()
-	recurrence = RecurrenceField()
+	datetimes = ArrayField(models.DateTimeField(), default=list)
+	freq = models.CharField(max_length=50, choices=FREQUENCY, default='None')
+	# every __ days/weeks/months
+	repeats = models.IntegerField(default=1)
+	recur_days = MultiSelectField(choices=WEEKDAYS, default='SUN')
+	end_recur_date = models.DateTimeField(blank=True, default=timezone.now)
+	end_recur_times = models.IntegerField(blank=True, default=1)
+	#recurrence = RecurrenceField()
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
@@ -109,3 +142,30 @@ class Event(SoftDeletionModel):
 
 	def __str__(self):
 		return self.name
+
+	def recurrence_dates(self):
+		if self.end_recur_date:
+			start_time = self.start_time
+			current_startdate = datetime(start_time.year, start_time.month, start_time.day, start_time.hour, start_time.minute, start_time.second)
+			current_enddate = self.end_time
+
+			while current_startdate <= self.end_recur_date:
+				self.datetimes.append(current_startdate)
+				current_startdate = current_startdate + self.get_frequency(current_startdate)
+
+			return self.datetimes
+
+	def get_frequency(self, sourcedate):
+		reps = self.repeats
+		if self.freq == "Daily":
+			return timedelta(days=(reps))
+		elif self.freq == "Weekly":
+			return timedelta(days=7*reps)
+		elif self.freq == "Monthly":
+			day = 0
+			for counter in range(1, reps):
+				month = sourcedate.month
+				year = sourcedate.year + month // 12
+				month = month % 12 + 1
+				day += min(sourcedate.day,calendar.monthrange(year,month)[1])
+			return timedelta(days=day)
