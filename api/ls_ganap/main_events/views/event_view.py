@@ -1,5 +1,5 @@
 from main_events.models import Event
-from main_events.serializers import event_serializer
+from main_events.serializers import event_serializer, recurrence_serializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -16,6 +16,7 @@ from main_events.swagger import SimpleFilterBackend
 from main_events.helper_methods import get_dates_between
 from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
+from recurrence import Recurrence
 
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from main_events.jwt_authentication import MyJWTAuthentication
@@ -208,3 +209,26 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Event.objects.all()
     serializer_class = event_serializer.EventSerializer
+
+# class EventRecurrence(APIView):
+#     """
+#     Retrieve, update or delete a snippet instance.
+#     """
+#     def get_object(self, pk):
+#         try:
+#             return Event.objects.get(pk=pk)
+#         except Event.DoesNotExist:
+#             raise Http404
+
+#     def get(self, request, pk, format=None):
+#         event = self.get_object(pk)
+#         serializer = SnippetSerializer(snippet)
+#         return Response(serializer.data)
+
+#     def put(self, request, pk, format=None):
+#         snippet = self.get_object(pk)
+#         serializer = SnippetSerializer(snippet, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
