@@ -1,13 +1,13 @@
 from django.db import models
-from django.db.models import fields
+from django.db.models import fields, signals
 from django.db.models.query import QuerySet
 from django.utils import timezone
 from main_events.soft_deletion_model import SoftDeletionModel
-#from recurrence.fields import RecurrenceField
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from multiselectfield import MultiSelectField
+from annoying.fields import AutoOneToOneField
 from datetime import datetime, timedelta
 import calendar
 
@@ -107,13 +107,13 @@ FREQUENCY = (
 )
 
 WEEKDAYS = (
-	('SUN', 'Sunday'),
-	('MON', 'Monday'),
-	('TUE', 'Tuesday'),
-	('WED', 'Wednesday'),
-	('THU', 'Thursday'),
-	('FRI', 'Friday'),
-	('SAT', 'Saturday'),
+	('6', 'Sunday'),
+	('0', 'Monday'),
+	('1', 'Tuesday'),
+	('2', 'Wednesday'),
+	('3', 'Thursday'),
+	('4', 'Friday'),
+	('5', 'Saturday'),
 )
 
 class Event(SoftDeletionModel):
@@ -122,14 +122,8 @@ class Event(SoftDeletionModel):
 	host = models.ForeignKey(EventHost, related_name="hosted_events", on_delete=models.CASCADE)
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField()
+	recurrence_bool = models.BooleanField(help_text='Is the event recurring?',default=False)
 	datetimes = ArrayField(models.DateTimeField(), default=list)
-	freq = models.CharField(max_length=50, choices=FREQUENCY, default='None')
-	# every __ days/weeks/months
-	repeats = models.IntegerField(default=1)
-	recur_days = MultiSelectField(choices=WEEKDAYS, default='SUN')
-	end_recur_date = models.DateTimeField(blank=True, default=timezone.now)
-	end_recur_times = models.IntegerField(blank=True, default=1)
-	#recurrence = RecurrenceField()
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
@@ -140,27 +134,74 @@ class Event(SoftDeletionModel):
 	event_url = models.URLField()
 	tags = models.ManyToManyField(Tag, related_name="event_list")
 
+	def save(self, *args, **kwargs):
+		if not self.recurrence_bool:
+			self.datetimes.append(self.start_time)
+		super().save(*args, **kwargs)
+
 	def __str__(self):
 		return self.name
 
+	# @classmethod
+	# def get_new(cls):
+	# 	return cls.objects.create().id
+
+class Recurrence(models.Model):
+	event = models.OneToOneField(Event, on_delete=models.CASCADE, primary_key=True, related_name='recurrence')
+	# Is this event single-day or recurring?
+	freq = models.CharField(max_length=50, choices=FREQUENCY, default='None', help_text='How frequent is the recurrence?')
+	# every how many days/weeks/months
+	repeats = models.IntegerField(default=1, help_text='Every how many days/weeks/months?')
+	recur_days = MultiSelectField(choices=WEEKDAYS, blank=True, null=True, help_text='If recurrence is weekly, on what days will the event occur on?')
+
+	# Radio button for one of these two
+	end_recur_date = models.DateField(blank=True, null=True, help_text='Choose a date for when the recurrence will end')
+	end_recur_times = models.IntegerField(blank=True, null=True, help_text='Until how many occurrences for this event to end?')
+	#recurrence = RecurrenceField()
+	
+	datetimes = ArrayField(models.DateTimeField(), default=list)
+
 	def recurrence_dates(self):
+		datetimes = self.datetimes
+		start_time = self.event.start_time
+		current_startdate = datetime(start_time.year, start_time.month, start_time.day, start_time.hour, start_time.minute, start_time.second)
+		weekday_index = 0
+
 		if self.end_recur_date:
-			start_time = self.start_time
-			current_startdate = datetime(start_time.year, start_time.month, start_time.day, start_time.hour, start_time.minute, start_time.second)
-			current_enddate = self.end_time
+			while current_startdate <= event.end_recur_date:
+				datetimes.append(current_startdate)
+				current_startdate = current_startdate + self.get_frequency(current_startdate, 0)
+		elif self.end_recur_times:
+			for counter in range(0, self.end_recur_times):
+				current_startdate = current_startdate + self.get_frequency(current_startdate, weekday_index)
+				recur_days = self.recur_days
+				if weekday_index == len(recur_days):
+					weekday_index = 0
+				weekday_index = weekday_index + 1
+				datetimes.append(current_startdate)
 
-			while current_startdate <= self.end_recur_date:
-				self.datetimes.append(current_startdate)
-				current_startdate = current_startdate + self.get_frequency(current_startdate)
+	def get_weekday(self, sourcedate, index):
+		current_day = sourcedate.weekday()
+		recur_days = self.recur_days
+		if int(recur_days[index]) - current_day >= 0:
+			day_difference = int(recur_days[index]) - current_day
+			return timedelta(days=day_difference)
+		else:
+			return timedelta(days=0)
 
-			return self.datetimes
-
-	def get_frequency(self, sourcedate):
+	def get_frequency(self, sourcedate, index):
 		reps = self.repeats
 		if self.freq == "Daily":
-			return timedelta(days=(reps))
+			return timedelta(days=reps)
 		elif self.freq == "Weekly":
-			return timedelta(days=7*reps)
+			recur_days = self.recur_days
+			if len(recur_days) > 0 and index < len(recur_days):
+			# if len(recur_days) > 0:
+				return self.get_weekday(sourcedate, index)
+			elif index == len(recur_days):
+				temp = index-1
+				return timedelta(days=(7*reps+int(recur_days[0])-int(recur_days[temp])))
+			# return timedelta(days=2)
 		elif self.freq == "Monthly":
 			day = 0
 			for counter in range(1, reps):
@@ -169,3 +210,20 @@ class Event(SoftDeletionModel):
 				month = month % 12 + 1
 				day += min(sourcedate.day,calendar.monthrange(year,month)[1])
 			return timedelta(days=day)
+
+	def save(self, *args, **kwargs):
+		if self.event.recurrence_bool:
+			self.recurrence_dates()
+		super().save(*args, **kwargs)
+
+	# def __init__(self, *args, **kwargs):
+	# 	super(models.Model, self).__init__(*args, **kwargs)
+	# 	self.recurrence_dates()
+
+# def create_recurrence(sender, instance, created, **kwargs):
+#     """Create ModelB for every new ModelA."""
+#     if created:
+#         Recurrence.objects.create(pk=instance)
+
+# signals.post_save.connect(create_recurrence, sender=Event, weak=False,
+#                           dispatch_uid='models.create_recurrence')
