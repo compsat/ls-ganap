@@ -8,3 +8,4 @@ django-recurrence==1.6.0
 djangorestframework-jwt-custom-user==1.11.1
 six==1.11.0
 django-multiselectfield==0.1.8
+django-annoying==0.10.4

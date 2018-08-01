@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'recurrence',
     'rest_framework_jwt',
     'multiselectfield',
+    'annoying',
 ]
 
 AUTH_USER_MODEL = 'main_events.User'
