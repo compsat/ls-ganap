@@ -1,4 +1,5 @@
 from rest_framework import serializers, fields
+from multiselectfield import MultiSelectField
 from main_events.models import Event, Tag, Recurrence, WEEKDAYS
 
 class EventSerializer(serializers.ModelSerializer):
@@ -22,7 +23,7 @@ class EventSerializer(serializers.ModelSerializer):
                 'tags']
 
 class EventDetailSerializer(serializers.ModelSerializer):
-    datetimes = serializers.ListField(child=serializers.DateTimeField())
+    # datetimes = serializers.ListField(child=serializers.DateTimeField())
     tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
 
     class Meta:
@@ -35,18 +36,18 @@ class EventDetailSerializer(serializers.ModelSerializer):
                 'start_time', 
                 'end_time',
                 'recurrence_bool',
-                'datetimes',
+                # 'datetimes',
                 'is_accepted', 
                 'poster_url', 
                 'outside_venue_name', 
                 'is_premium', 
                 'event_url',
                 'tags']
-
+                
 class RecurrenceSerializer(serializers.ModelSerializer):
     recur_days = fields.MultipleChoiceField(choices=WEEKDAYS)
     # datetimes = serializers.ListField(child=serializers.DateTimeField())
-    event = EventDetailSerializer(required=True)
+    event = EventDetailSerializer(read_only=True)
 
     class Meta:
         model = Recurrence
