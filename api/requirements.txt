@@ -4,8 +4,6 @@ pytz==2018.4
 djangorestframework==3.8.2
 django-rest-swagger==2.2.0
 PyYAML===3.13
-django-recurrence==1.6.0
 djangorestframework-jwt-custom-user==1.11.1
 six==1.11.0
 django-multiselectfield==0.1.8
-django-annoying==0.10.4
