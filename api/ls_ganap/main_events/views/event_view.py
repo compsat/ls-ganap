@@ -57,7 +57,7 @@ class FilterEventByDate(generics.ListAPIView):
     """
     get: Gets all events given a specific date.
     """
-    serializer_class = event_serializer.EventSerializer
+    serializer_class = event_serializer.EventDetailSerializer
     pagination_class = ObjectPageNumberPagination
 
     schema = AutoSchema(manual_fields=[
@@ -72,10 +72,11 @@ class FilterEventByDate(generics.ListAPIView):
 
     def get_queryset(self):
         date = self.kwargs['date']
+        date = datetime.strptime(date, '%Y-%m-%d')
         queryset = Event.objects.all()
         
         if date is not None:
-            queryset = queryset.filter(start_time__date=date)
+            queryset = queryset.filter(Q(start_time__date=date) | (Q(recurrence_bool=True) & Q(recurrence__datetimes__contains=[date])))
 
         return queryset
 
@@ -84,7 +85,7 @@ class FilterEventByWeek(generics.ListAPIView):
     get: Gets all the events happening in the week of the date input, 
     where the week is Monday-Sunday.
     """
-    serializer_class = event_serializer.EventSerializer
+    serializer_class = event_serializer.EventDetailSerializer
     pagination_class = ObjectPageNumberPagination
 
     schema = AutoSchema(manual_fields=[
@@ -113,7 +114,7 @@ class FilterEventByMonth(generics.ListAPIView):
     """
     get: Gets all the events happening in the month of the input.
     """
-    serializer_class = event_serializer.EventSerializer
+    serializer_class = event_serializer.EventDetailSerializer
     pagination_class = ObjectPageNumberPagination
 
     schema = AutoSchema(manual_fields=[
@@ -139,7 +140,17 @@ class FilterEventByMonth(generics.ListAPIView):
         queryset = Event.objects.all()
 
         if date is not None:
-            queryset = queryset.filter(start_time__month=get_month, start_time__year=get_year)
+
+            Qr = None
+            for x in range(0, 40):
+                q = Q(**{"recurrence__datetimes__%s__month" % x: get_month })
+                r = Q(**{"recurrence__datetimes__%s__year" % x: get_year })
+                if Qr:
+                    Qr = Qr | (q & r) # or & for filtering
+                else:
+                    Qr = q
+
+            queryset = queryset.filter((Q(start_time__month=get_month) & Q(start_time__year=get_year)) | Qr)
 
         return queryset
 
