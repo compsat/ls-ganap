@@ -1,5 +1,7 @@
 from django.db import models
-from django.db.models import fields, signals
+from django.db.models import fields
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.db.models.query import QuerySet
 from django.utils import timezone
 from main_events.soft_deletion_model import SoftDeletionModel
@@ -113,7 +115,7 @@ WEEKDAYS = (
 	('2', 'Wednesday'),
 	('3', 'Thursday'),
 	('4', 'Friday'),
-	('5', 'Saturday'),
+	('5', 'Saturday')
 )
 
 class Event(SoftDeletionModel):
@@ -123,7 +125,7 @@ class Event(SoftDeletionModel):
 	start_time = models.DateTimeField()
 	end_time = models.DateTimeField()
 	recurrence_bool = models.BooleanField(help_text='Is the event recurring?',default=False)
-	datetimes = ArrayField(models.DateTimeField(), default=list)
+	# datetimes = ArrayField(models.DateTimeField(), default=list)
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
@@ -135,16 +137,13 @@ class Event(SoftDeletionModel):
 	tags = models.ManyToManyField(Tag, related_name="event_list")
 
 	def save(self, *args, **kwargs):
-		if not self.recurrence_bool:
-			self.datetimes.append(self.start_time)
 		super().save(*args, **kwargs)
+		if self.recurrence_bool:
+			# self.datetimes.append(self.start_time)
+			create_recurrence(self.id, self)
 
 	def __str__(self):
 		return self.name
-
-	# @classmethod
-	# def get_new(cls):
-	# 	return cls.objects.create().id
 
 class Recurrence(models.Model):
 	event = models.OneToOneField(Event, on_delete=models.CASCADE, primary_key=True, related_name='recurrence')
@@ -153,11 +152,9 @@ class Recurrence(models.Model):
 	# every how many days/weeks/months
 	repeats = models.IntegerField(default=1, help_text='Every how many days/weeks/months?')
 	recur_days = MultiSelectField(choices=WEEKDAYS, blank=True, null=True, help_text='If recurrence is weekly, on what days will the event occur on?')
-
 	# Radio button for one of these two
 	end_recur_date = models.DateField(blank=True, null=True, help_text='Choose a date for when the recurrence will end')
 	end_recur_times = models.IntegerField(blank=True, null=True, help_text='Until how many occurrences for this event to end?')
-	#recurrence = RecurrenceField()
 	
 	datetimes = ArrayField(models.DateTimeField(), default=list)
 
@@ -166,64 +163,90 @@ class Recurrence(models.Model):
 		start_time = self.event.start_time
 		current_startdate = datetime(start_time.year, start_time.month, start_time.day, start_time.hour, start_time.minute, start_time.second)
 		weekday_index = 0
+		recur_days_list = self.sorted_recur_days(self.get_recur_days_list())
 
 		if self.end_recur_date:
-			while current_startdate <= event.end_recur_date:
-				datetimes.append(current_startdate)
-				current_startdate = current_startdate + self.get_frequency(current_startdate, 0)
+			while current_startdate.date() <= self.end_recur_date:
+				if self.freq == 'Weekly' and current_startdate.weekday() not in recur_days_list:
+					pass
+				else:
+					datetimes.append(current_startdate)
+				next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
+				while not next_day:
+					weekday_index = weekday_index+1
+					next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
+				current_startdate = current_startdate + next_day
 		elif self.end_recur_times:
-			for counter in range(0, self.end_recur_times):
-				current_startdate = current_startdate + self.get_frequency(current_startdate, weekday_index)
-				recur_days = self.recur_days
-				if weekday_index == len(recur_days):
+			end_recur_times = self.end_recur_times
+			for counter in range(0, end_recur_times):
+				if self.freq == 'Weekly' and current_startdate.weekday() not in recur_days_list:
+					end_recur_times += 1
+				else:
+					datetimes.append(current_startdate)
+				next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
+				while not next_day:
+					weekday_index = weekday_index+1
+					next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
+				current_startdate = current_startdate + next_day
+				if weekday_index == len(recur_days_list):
 					weekday_index = 0
 				weekday_index = weekday_index + 1
-				datetimes.append(current_startdate)
 
-	def get_weekday(self, sourcedate, index):
+	def get_weekday(self, sourcedate, index, recur_days_list):
 		current_day = sourcedate.weekday()
-		recur_days = self.recur_days
-		if int(recur_days[index]) - current_day >= 0:
-			day_difference = int(recur_days[index]) - current_day
+		day_chosen = recur_days_list[index]
+		if day_chosen - current_day >= 0:
+			day_difference = day_chosen - current_day
 			return timedelta(days=day_difference)
-		else:
-			return timedelta(days=0)
 
-	def get_frequency(self, sourcedate, index):
+	def get_frequency(self, sourcedate, index, recur_days_list):
 		reps = self.repeats
 		if self.freq == "Daily":
 			return timedelta(days=reps)
 		elif self.freq == "Weekly":
-			recur_days = self.recur_days
-			if len(recur_days) > 0 and index < len(recur_days):
-			# if len(recur_days) > 0:
-				return self.get_weekday(sourcedate, index)
-			elif index == len(recur_days):
+			if len(recur_days_list) > 0 and index < len(recur_days_list):
+				return self.get_weekday(sourcedate, index, recur_days_list)
+			elif index == len(recur_days_list):
 				temp = index-1
-				return timedelta(days=(7*reps+int(recur_days[0])-int(recur_days[temp])))
-			# return timedelta(days=2)
+				return timedelta(days=(7*reps+recur_days_list[0]-recur_days_list[temp]))
 		elif self.freq == "Monthly":
 			day = 0
-			for counter in range(1, reps):
+			for counter in range(0, reps):
 				month = sourcedate.month
 				year = sourcedate.year + month // 12
 				month = month % 12 + 1
 				day += min(sourcedate.day,calendar.monthrange(year,month)[1])
+				sourcedate = sourcedate + timedelta(days=day)
 			return timedelta(days=day)
 
-	def save(self, *args, **kwargs):
-		if self.event.recurrence_bool:
-			self.recurrence_dates()
-		super().save(*args, **kwargs)
+	def get_day_repr(self, day_chosen):
+		if day_chosen == 'Sunday':
+			return 6
+		elif day_chosen == 'Monday':
+			return 0
+		elif day_chosen == 'Tuesday':
+			return 1
+		elif day_chosen == 'Wednesday':
+			return 2
+		elif day_chosen == 'Thursday':
+			return 3
+		elif day_chosen == 'Friday':
+			return 4
+		elif day_chosen == 'Saturday':
+			return 5
 
-	# def __init__(self, *args, **kwargs):
-	# 	super(models.Model, self).__init__(*args, **kwargs)
-	# 	self.recurrence_dates()
+	def sorted_recur_days(self, recur_days_list):
+		int_list = []
+		for day in recur_days_list:
+			int_list.append(self.get_day_repr(day))
+		int_list.sort()
+		return int_list
 
-# def create_recurrence(sender, instance, created, **kwargs):
-#     """Create ModelB for every new ModelA."""
-#     if created:
-#         Recurrence.objects.create(pk=instance)
+def save_dates(sender, instance, **kwargs):
+	instance.recurrence_dates()
 
-# signals.post_save.connect(create_recurrence, sender=Event, weak=False,
-#                           dispatch_uid='models.create_recurrence')
+post_save.connect(save_dates, sender=Recurrence)
+
+def create_recurrence(id, Event):
+	r = Recurrence.objects.create(pk=id, event=Event, freq='Daily', repeats=1, recur_days='6', end_recur_times=1)
+	return r
