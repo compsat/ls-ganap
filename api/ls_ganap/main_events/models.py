@@ -9,7 +9,6 @@ from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from multiselectfield import MultiSelectField
-from annoying.fields import AutoOneToOneField
 from datetime import datetime, timedelta, date
 import calendar
 
@@ -139,8 +138,10 @@ class Event(SoftDeletionModel):
 	def save(self, *args, **kwargs):
 		super().save(*args, **kwargs)
 		if self.recurrence_bool:
-			# self.datetimes.append(self.start_time)
-			create_recurrence(self.id, self)
+			call_create_recurrence(self.id, self)
+		elif not self.recurrence_bool and self.recurrence:
+			self.recurrence = None
+			delete_recurrence(self.id)
 
 	def __str__(self):
 		return self.name
@@ -164,21 +165,25 @@ class Recurrence(models.Model):
 		current_startdate = date(start_time.year, start_time.month, start_time.day)
 		weekday_index = 0
 		recur_days_list = self.sorted_recur_days(self.get_recur_days_list(), current_startdate)
+		end_recur_times = self.end_recur_times
 
-		if self.end_recur_date:
-			if self.freq == 'Weekly' and current_startdate.weekday() not in recur_days_list:
+		if self.freq == 'Weekly' and current_startdate.weekday() not in recur_days_list:
+			next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
+			while not next_day:
 				next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
-				while not next_day:
-					next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
-					weekday_index = weekday_index+1
-					if weekday_index == len(recur_days_list):
-						current_startdate = current_startdate + timedelta(days=(7*self.repeats+recur_days_list[0]-current_startdate.weekday()))
-						print(current_startdate)
-						weekday_index = 0
-						break
-			else:
-				datetimes.append(current_startdate)
+				weekday_index = weekday_index+1
+				if weekday_index == len(recur_days_list):
+					current_startdate = current_startdate + timedelta(days=(7*self.repeats+recur_days_list[0]-current_startdate.weekday()))
+					weekday_index = 0
+					break
+		else:
+			datetimes.append(current_startdate)
+			if self.freq == 'Weekly':
 				weekday_index = recur_days_list.index(current_startdate.weekday())+1
+			if end_recur_times:
+				end_recur_times = end_recur_times - 1
+		
+		if self.end_recur_date:
 			while current_startdate <= self.end_recur_date:
 				next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
 				current_startdate = current_startdate + next_day
@@ -187,17 +192,10 @@ class Recurrence(models.Model):
 					weekday_index = 0
 				weekday_index = weekday_index + 1
 		elif self.end_recur_times:
-			end_recur_times = self.end_recur_times
 			for counter in range(0, end_recur_times):
-				if self.freq == 'Weekly' and current_startdate.weekday() not in recur_days_list:
-					end_recur_times += 1
-				else:
-					datetimes.append(current_startdate)
 				next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
-				# while not next_day:
-				# 	weekday_index = weekday_index+1
-				# 	next_day = self.get_frequency(current_startdate, weekday_index, recur_days_list)
 				current_startdate = current_startdate + next_day
+				datetimes.append(current_startdate)
 				if weekday_index == len(recur_days_list):
 					weekday_index = 0
 				weekday_index = weekday_index + 1
@@ -258,6 +256,7 @@ class Recurrence(models.Model):
 		return int_list
 
 	def save(self, *args, **kwargs):
+		del self.datetimes[:]
 		self.recurrence_dates()
 		super(Recurrence, self).save(*args, **kwargs)
 
@@ -265,3 +264,15 @@ class Recurrence(models.Model):
 def create_recurrence(id, Event):
 	r = Recurrence.objects.create(pk=id, event=Event, freq='Daily', repeats=1, recur_days='6', end_recur_times=1)
 	return r
+
+def delete_recurrence(id):
+	r = Recurrence.objects.get(pk=id)
+	r.delete()
+
+def call_create_recurrence(id, Event):
+	try:
+		if not Event.recurrence:
+			create_recurrence(id, Event)
+	except Recurrence.DoesNotExist:
+		create_recurrence(id, Event)
+				
