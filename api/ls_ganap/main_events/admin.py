@@ -40,12 +40,6 @@ class EventVenueInline(admin.TabularInline):
 class RecurrenceInline(admin.StackedInline):
 	model = Recurrence
 
-	# def get_queryset(self, request):
-	# 	qs = super().get_queryset(request)
-	# 	# if self.event.recurrence_bool:
-	# 	# 	return qs
-	# 	return qs.filter(event__recurrence_bool=True)
-
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags',)
 	list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
