@@ -45,10 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
-    'recurrence',
     'rest_framework_jwt',
     'multiselectfield',
-    'annoying',
 ]
 
 AUTH_USER_MODEL = 'main_events.User'
