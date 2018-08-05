@@ -51,7 +51,7 @@ class FilterEventsBetweenDates(generics.ListAPIView):
 
         queryset = Event.objects.all()
 
-        return get_dates_between(start_date, end_date, queryset, Event.start_time)
+        return get_dates_between(start_date, end_date, queryset, Event.event_logistics)
 
 class FilterEventByDate(generics.ListAPIView):
     """
@@ -75,7 +75,7 @@ class FilterEventByDate(generics.ListAPIView):
         queryset = Event.objects.all()
         
         if date is not None:
-            queryset = queryset.filter(start_time__date=date)
+            queryset = queryset.filter(event_logistics__start_time__date=date)
 
         return queryset
 
@@ -107,7 +107,7 @@ class FilterEventByWeek(generics.ListAPIView):
 
         queryset = Event.objects.all()
 
-        return get_dates_between(start_date, end_date, queryset, Event.start_time)
+        return get_dates_between(start_date, end_date, queryset, Event.event_logistics)
 
 class FilterEventByMonth(generics.ListAPIView):
     """
@@ -139,7 +139,7 @@ class FilterEventByMonth(generics.ListAPIView):
         queryset = Event.objects.all()
 
         if date is not None:
-            queryset = queryset.filter(start_time__month=get_month, start_time__year=get_year)
+            queryset = queryset.filter(event_logistics__start_time__month=get_month, event_logistics__start_time__year=get_year)
 
         return queryset
 
