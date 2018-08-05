@@ -23,11 +23,8 @@
 - model: main_events.event
   pk: 1
   fields:
-    # start_time: 2018-06-26 14:30
-    # end_time: 2018-06-26 18:30
     created_at: 2018-07-16 23:36
     updated_at: 2018-07-16 23:36
-    # venue: 1
     host: 1
     name: Blue Hacks
     description: BlueHacks is a two-day hackathon where...
@@ -37,9 +34,10 @@
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [1]
--- model: main_events.eventlogistic
+- model: main_events.eventlogistic
   pk: 1
   fields:
+    event: 1
     start_time: 2018-06-26 14:30
     end_time: 2018-06-26 18:30
     venue: 1
