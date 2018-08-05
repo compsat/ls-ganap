@@ -6,3 +6,4 @@ django-rest-swagger==2.2.0
 PyYAML===3.13
 djangorestframework-jwt-custom-user==1.11.1
 six==1.11.0
+django-multiselectfield==0.1.8

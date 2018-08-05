@@ -31,6 +31,7 @@
     host: 1
     name: Blue Hacks
     description: BlueHacks is a two-day hackathon where...
+    recurrence_bool: False
     is_accepted: False
     poster_url: http://bluehacks.compsat.org/static/media/logo-big.3d72fc4b.png
     outside_venue_name: ""

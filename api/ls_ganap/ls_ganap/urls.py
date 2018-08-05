@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.conf.urls import include, url
+from django.views.i18n import JavaScriptCatalog
 from rest_framework_swagger.views import get_swagger_view
 from .swagger_schema import SwaggerSchemaView
 from django.contrib.auth import views as auth_views
@@ -29,9 +30,12 @@ obtain_jwt_token = ObtainJSONWebToken.as_view(
 
 schema_view = get_swagger_view(title='LS Ganap API')
 
+js_info_dict = {
+    'packages': ('recurrence', ),
+}
 
 urlpatterns = [
-    path('admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path(
         'admin/password_reset/',
         auth_views.PasswordResetView.as_view(),
@@ -54,6 +58,7 @@ urlpatterns = [
     ),
     path('', include('main_events.urls')),
     path('docs', schema_view),
+    re_path(r'^jsi18n/$', JavaScriptCatalog.as_view(), js_info_dict),
     path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
     path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
     path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),

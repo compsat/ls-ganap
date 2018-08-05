@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cluster, EventHost, Event, Tag, Venue
+from .models import Cluster, EventHost, Event, Recurrence, Tag, Venue
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 from .models import User
@@ -37,12 +37,43 @@ class EventVenueInline(admin.TabularInline):
 	readonly_fields = ('name', 'host', 'start_time', 'end_time')
 	exclude = ('deleted_at', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags')
 
+class RecurrenceInline(admin.StackedInline):
+	model = Recurrence
+
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags',)
 	list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
 	list_filter = ('host__name', 'is_accepted', 'start_time')
 	autocomplete_fields = ['host']
 	actions = ['accept_events']
+	inlines = [RecurrenceInline,]
+
+	def get_inline_instances(self, request, obj=None):
+		inline_instances = []
+
+		try:
+			if obj.recurrence:
+				inlines = self.inlines
+			else:
+				inlines = []
+		except Recurrence.DoesNotExist:
+			inlines = []
+
+		for inline_class in inlines:
+			inline = inline_class(self.model, self.admin_site)
+			if request:
+				if not (inline.has_add_permission(request) or
+						inline.has_change_permission(request) or
+                        inline.has_delete_permission(request)):
+					continue
+				if not inline.has_add_permission(request):
+					inline.max_num = 0
+			inline_instances.append(inline)
+		return inline_instances
+
+	def get_formsets(self, request, obj=None):
+		for inline in self.get_inline_instances(request, obj):
+			yield inline.get_formset(request, obj)
 
 	def accept_events(self, request, queryset):
 		events_updated = queryset.update(is_accepted=True)
