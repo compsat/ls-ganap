@@ -1,4 +1,4 @@
-from main_events.models import Event
+from main_events.models import Event, EventLogistic
 from main_events.serializers import event_serializer
 from django.http import Http404
 from rest_framework.views import APIView
@@ -208,3 +208,10 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Event.objects.all()
     serializer_class = event_serializer.EventSerializer
+
+class EventLogisticCreate(generics.CreateAPIView):
+    """
+    post: Create a detail for one event (start_time, end_time, venue)
+    """
+    queryset = EventLogistic.objects.all()
+    serializer_class = event_serializer.EventLogisticSerializer

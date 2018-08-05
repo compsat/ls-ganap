@@ -5,9 +5,9 @@ from main_events.views import event_view, cluster_view, host_view, host_type_vie
 # import views
 
 urlpatterns = [
-    path('users/<int:pk>', user_view.UserDetail.as_view()),
     path('events/', event_view.EventList.as_view()),
     path('events/<int:pk>/', event_view.EventDetail.as_view()),
+    path('events/logistics', event_view.EventLogisticCreate.as_view()),
     path('events/on/<str:date>', event_view.FilterEventByDate.as_view()),
     path('events/between/', event_view.FilterEventsBetweenDates.as_view()),
     path('events/week/<str:date>', event_view.FilterEventByWeek.as_view()),
