@@ -31,7 +31,7 @@ schema_view = get_swagger_view(title='LS Ganap API')
 
 
 urlpatterns = [
-    path('admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path(
         'admin/password_reset/',
         auth_views.PasswordResetView.as_view(),
@@ -53,9 +53,9 @@ urlpatterns = [
         name='password_reset_complete',
     ),
     path('', include('main_events.urls')),
-    path('docs', schema_view),
+    path('docs/', schema_view),
     path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
-    path('auth/token-reset', refresh_jwt_token, name='auth-jwt-refresh'),
-    path('auth/token-verify', verify_jwt_token, name='auth-jwt-verify'),
+    path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
+    path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),
     # path('docs', SwaggerSchemaView.as_view())
 ]
