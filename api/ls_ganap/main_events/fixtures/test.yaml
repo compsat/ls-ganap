@@ -38,6 +38,7 @@
   pk: 1
   fields:
     event: 1
-    start_time: 2018-06-26 14:30
-    end_time: 2018-06-26 18:30
+    date: '2018-06-26'
+    start_time: '14:30:00'
+    end_time: '18:30:00'
     venue: 1
