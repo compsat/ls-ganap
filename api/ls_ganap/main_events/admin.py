@@ -49,6 +49,8 @@ class EventAdmin(admin.ModelAdmin):
 	# list_filter = ('host__name', 'is_accepted', 'start_time')
 	list_filter = ('host__name', 'is_accepted')
 	autocomplete_fields = ['host']
+	fields = ('deleted_at', 'name', 'host', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags')
+	readonly_fields = ('deleted_at',)
 	actions = ['accept_events']
 	inlines = [EventLogisticInline]
 
