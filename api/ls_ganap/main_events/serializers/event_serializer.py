@@ -4,7 +4,8 @@ from main_events.models import Event, EventLogistic, Tag
 class EventLogisticSerializer(serializers.ModelSerializer):
     class Meta:
         model = EventLogistic
-        fields = ['event', 
+        fields = ['event',
+                'date',
                 'start_time', 
                 'end_time',
                 'venue']

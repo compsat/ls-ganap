@@ -111,6 +111,7 @@ class Event(SoftDeletionModel):
 
 class EventLogistic(models.Model):
 	event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_logistics')
-	start_time = models.DateTimeField()
-	end_time = models.DateTimeField()
+	date = models.DateField()
+	start_time = models.TimeField()
+	end_time = models.TimeField()
 	venue = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
