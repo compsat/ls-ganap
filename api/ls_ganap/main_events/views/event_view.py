@@ -75,7 +75,7 @@ class FilterEventByDate(generics.ListAPIView):
         queryset = Event.objects.all()
         
         if date is not None:
-            queryset = queryset.filter(event_logistics__start_time__date=date)
+            queryset = queryset.filter(event_logistics__date=date)
 
         return queryset
 
@@ -139,7 +139,7 @@ class FilterEventByMonth(generics.ListAPIView):
         queryset = Event.objects.all()
 
         if date is not None:
-            queryset = queryset.filter(event_logistics__start_time__month=get_month, event_logistics__start_time__year=get_year)
+            queryset = queryset.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year)
 
         return queryset
 
