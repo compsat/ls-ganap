@@ -93,10 +93,9 @@ class Tag(models.Model):
 
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
-	venue = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
 	host = models.ForeignKey(EventHost, related_name="hosted_events", on_delete=models.CASCADE)
-	start_time = models.DateTimeField()
-	end_time = models.DateTimeField()
+	# start_time = models.DateTimeField()
+	# end_time = models.DateTimeField()
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
@@ -109,3 +108,10 @@ class Event(SoftDeletionModel):
 
 	def __str__(self):
 		return self.name
+
+class EventLogistic(models.Model):
+	event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_logistics')
+	date = models.DateField()
+	start_time = models.TimeField()
+	end_time = models.TimeField()
+	venue = models.ForeignKey(Venue, null=True, on_delete=models.SET_NULL)
