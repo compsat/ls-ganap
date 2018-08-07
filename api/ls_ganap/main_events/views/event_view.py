@@ -17,6 +17,9 @@ from main_events.helper_methods import get_dates_between
 from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
 
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from main_events.jwt_authentication import MyJWTAuthentication
+
 class FilterEventsBetweenDates(generics.ListAPIView):
     """
     get: Gets all events between a start_date and an end_date.
@@ -152,6 +155,7 @@ class EventList(generics.ListCreateAPIView):
     pagination_class = ObjectPageNumberPagination
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
     search_fields = ['name', 'venue__name', 'host__name']
+    authentication_classes = [MyJWTAuthentication,]
 
     schema = AutoSchema(manual_fields=[
         coreapi.Field(

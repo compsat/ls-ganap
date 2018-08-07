@@ -5,8 +5,6 @@ from main_events.views import event_view, cluster_view, host_view, host_type_vie
 # import views
 
 urlpatterns = [
-    path('users/', user_view.UserList.as_view()),
-    path('users/<int:pk>', user_view.UserDetail.as_view()),
     path('events/', event_view.EventList.as_view()),
     path('events/<int:pk>/', event_view.EventDetail.as_view()),
     path('events/on/<str:date>', event_view.FilterEventByDate.as_view()),

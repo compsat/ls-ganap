@@ -20,6 +20,13 @@ from rest_framework_swagger.views import get_swagger_view
 from .swagger_schema import SwaggerSchemaView
 from django.contrib.auth import views as auth_views
 
+from rest_framework_jwt.views import ObtainJSONWebToken, RefreshJSONWebToken
+from rest_framework_jwt.views import refresh_jwt_token, verify_jwt_token
+
+obtain_jwt_token = ObtainJSONWebToken.as_view(
+    user_model='main_events.User'
+    )
+
 schema_view = get_swagger_view(title='LS Ganap API')
 
 
@@ -46,10 +53,17 @@ urlpatterns = [
         name='password_reset_complete',
     ),
     path('', include('main_events.urls')),
+<<<<<<< HEAD
     path('docs/', schema_view),
     path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
     path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
     path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+=======
+    path('docs', schema_view),
+    path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
+    path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
+    path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),
+>>>>>>> b0d59e615bb2095829d6364a2773acdb03de4ab4
     # path('docs', SwaggerSchemaView.as_view())
 ]
