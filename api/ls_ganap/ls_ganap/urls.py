@@ -53,17 +53,10 @@ urlpatterns = [
         name='password_reset_complete',
     ),
     path('', include('main_events.urls')),
-<<<<<<< HEAD
     path('docs/', schema_view),
     path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
     path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
     path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-=======
-    path('docs', schema_view),
-    path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
-    path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
-    path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),
->>>>>>> b0d59e615bb2095829d6364a2773acdb03de4ab4
     # path('docs', SwaggerSchemaView.as_view())
 ]
