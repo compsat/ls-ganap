@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import cloudinary
 import os
 from datetime import datetime, timedelta
 
@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
-    'rest_framework_jwt',   
+    'rest_framework_jwt',  
+    'cloudinary', 
 ]
 
 AUTH_USER_MODEL = 'main_events.User'
@@ -186,3 +187,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+cloudinary.config( 
+  cloud_name = "dj3kdihst", 
+  api_key = "754783492635919", 
+  api_secret = "VpXxn90G434iwhcjxrHMMRwbPMY" 
+)

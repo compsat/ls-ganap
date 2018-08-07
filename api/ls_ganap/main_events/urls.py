@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from main_events.views import event_view, cluster_view, host_view, host_type_view, tag_view, venue_view, user_view
+from main_events.views import event_view, cluster_view, host_view, host_type_view, tag_view, venue_view, user_view, cloudinary_view
 # import views
 
 urlpatterns = [
@@ -21,6 +21,7 @@ urlpatterns = [
     path('clusters/<int:pk>', cluster_view.ClusterDetail.as_view()),
     path('venues/', venue_view.VenueList.as_view()),
     path('venues/<int:pk>/', venue_view.VenueDetail.as_view()),
+    path('upload_image/', cloudinary_view.upload)
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
