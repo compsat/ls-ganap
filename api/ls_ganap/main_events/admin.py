@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cluster, EventHost, Event, Tag, Venue
+from .models import Cluster, EventHost, Event, EventLogistic, Tag, Venue
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 from .models import User
@@ -32,17 +32,27 @@ class HostInline(admin.TabularInline):
 class EventInline(admin.TabularInline):
     model = Event.tags.through
 
+class EventLogisticInline(admin.TabularInline):
+    model = EventLogistic
+
 class EventVenueInline(admin.TabularInline):
-	model = Event
-	readonly_fields = ('name', 'host', 'start_time', 'end_time')
-	exclude = ('deleted_at', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags')
+	model = EventLogistic
+	readonly_fields = ('event', 'event_host', 'start_time', 'end_time')
+
+	def event_host(self, obj):
+		return obj.event.host
 
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags',)
-	list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
-	list_filter = ('host__name', 'is_accepted', 'start_time')
+	# list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
+	list_display = ('name', 'host', 'is_accepted')
+	# list_filter = ('host__name', 'is_accepted', 'start_time')
+	list_filter = ('host__name', 'is_accepted')
 	autocomplete_fields = ['host']
+	fields = ('deleted_at', 'name', 'host', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags')
+	readonly_fields = ('deleted_at',)
 	actions = ['accept_events']
+	inlines = [EventLogisticInline]
 
 	def accept_events(self, request, queryset):
 		events_updated = queryset.update(is_accepted=True)
@@ -79,3 +89,4 @@ admin.site.register(EventHost, EventHostAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Venue, VenueAdmin)
+# admin.site.register(Venue)
