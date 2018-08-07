@@ -66,7 +66,7 @@ class Cluster(models.Model):
 		return self.name
 
 class EventHost(models.Model):
-	# user = models.OneToOneField(User, on_delete=models.CASCADE)
+	user_id = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 	host_type = models.ForeignKey(HostType, related_name='host_list', on_delete=models.DO_NOTHING)
 	cluster = models.ForeignKey(Cluster, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
