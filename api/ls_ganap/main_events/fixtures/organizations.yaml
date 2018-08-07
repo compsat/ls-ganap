@@ -2,6 +2,7 @@
 - model: main_events.eventhost
   pk: 1
   fields:
+    user_id: 8
     host_type: 1
     name: Ateneo Debate Society
     abbreviation: ADS
@@ -13,6 +14,7 @@
 - model: main_events.eventhost
   pk: 2
   fields:
+    user_id: 9
     host_type: 1
     name: Ateneo Economics Association
     abbreviation: AEA
@@ -24,6 +26,7 @@
 - model: main_events.eventhost
   pk: 3
   fields:
+    user_id: 23
     host_type: 1
     name: Ateneo Statistics Circle
     abbreviation: AStat
@@ -35,6 +38,7 @@
 - model: main_events.eventhost
   pk: 4
   fields:
+    user_id: 12
     host_type: 1
     name: Ateneo Association of European Studies Students
     abbreviation: AEuSS
@@ -46,6 +50,7 @@
 - model: main_events.eventhost
   pk: 5
   fields:
+    user_id: 20
     host_type: 1
     name: Ateneo Project for Asian & International Relations
     abbreviation: APAIR
@@ -57,6 +62,7 @@
 - model: main_events.eventhost
   pk: 6
   fields:
+    user_id: 22
     host_type: 1
     name: The Ateneo Assembly
     abbreviation: Assembly
@@ -68,6 +74,7 @@
 - model: main_events.eventhost
   pk: 7
   fields:
+    user_id: 35
     host_type: 1
     name: Development Society of the Ateneo de Manila University
     abbreviation: DevSoc
@@ -79,6 +86,7 @@
 - model: main_events.eventhost
   pk: 8
   fields:
+    user_id: 37
     host_type: 1
     name: Enterteynment Para sa Tao, Bayan, Lansangan at Diyos
     abbreviation: ENTABLADO
@@ -90,6 +98,7 @@
 - model: main_events.eventhost
   pk: 9
   fields:
+    user_id: 7
     host_type: 1
     name: Association for Communications Technology Management
     abbreviation: ACTM
@@ -101,6 +110,7 @@
 - model: main_events.eventhost
   pk: 10
   fields:
+    user_id: 13
     host_type: 1
     name: AIESEC Ateneo de Manila
     abbreviation: AIESEC
@@ -112,17 +122,19 @@
 - model: main_events.eventhost
   pk: 11
   fields:
+    user_id: 14
     host_type: 1
     name: Ateneo Junior Marketing Association
     abbreviation: AJMA
     cluster: 2
     color: '#0000EE'
     accredited: True
-    description: "The Ateneo Junior Marketing Association is the Ateneo de Manila University’s premiere Marketing organization. AJMA is known for its groundbreaking events and initiatives that make an impact not only within the four walls of the Ateneo, but definitely beyond it. Through its members, who are well equipped with skills learned through marketing education and practice, AJMA continues to provide the biggest and most anticipated projects and events held inside and outside the Ateneo. Furthermore, the Ateneo Junior Marketing Association recognizes its role as a student organization bringing into focus the principles of marketing, integrating what we have learned to better serve the community. AJMA has also secured its place in the college scene as one of Metro Manila’s top Marketing organizations. Some of AJMA’s accomplishments include: having been recognized by the Philippine Marketing Association as one of the Three Outstanding Student Marketing Association of the Philippines (TOSMA), besting 60 other schools for 3 consecutive years, being the first and only business organization in the Ateneo to be included in the Dean’s Awards for Service and Excellence (VP’s Awards), and winning the Best Student Marketing Association in the Philippines for five years in a row from the Agora Youth Awards."
+    description: The Ateneo Junior Marketing Association is the Ateneo de Manila University’s premiere Marketing organization. AJMA is known for its groundbreaking events and initiatives that make an impact not only within the four walls of the Ateneo, but definitely beyond it. Through its members, who are well equipped with skills learned through marketing education and practice, AJMA continues to provide the biggest and most anticipated projects and events held inside and outside the Ateneo. Furthermore, the Ateneo Junior Marketing Association recognizes its role as a student organization bringing into focus the principles of marketing, integrating what we have learned to better serve the community. AJMA has also secured its place in the college scene as one of Metro Manila’s top Marketing organizations. Some of AJMA’s accomplishments include: having been recognized by the Philippine Marketing Association as one of the Three Outstanding Student Marketing Association of the Philippines (TOSMA), besting 60 other schools for 3 consecutive years, being the first and only business organization in the Ateneo to be included in the Dean’s Awards for Service and Excellence (VP’s Awards), and winning the Best Student Marketing Association in the Philippines for five years in a row from the Agora Youth Awards.
     logo_url: http://coacentral.org/wp-content/uploads/2015/08/AJMA-Solid-e1439622364616.png
 - model: main_events.eventhost
   pk: 12
   fields:
+    user_id: 17
     host_type: 1
     name: Ateneo Management Association
     abbreviation: AMA
@@ -134,6 +146,7 @@
 - model: main_events.eventhost
   pk: 13
   fields:
+    user_id: 16
     host_type: 1
     name: Ateneo Lex
     abbreviation: ALEX
@@ -145,28 +158,31 @@
 - model: main_events.eventhost
   pk: 14
   fields:
+    user_id: 43
     host_type: 1
     name: Ateneo Management of Applied Chemistry Association
     abbreviation: MACA
     cluster: 2
     color: '#0000EE'
     accredited: True
-    description: 'The Ateneo Management of Applied Chemistry Association (Ateneo MACA) is the home organization of BS MAC majors, but it is also open to anyone with the desire to innovate on ideas and products. What sets MACA apart from other organizations is its core competency: Innovative Consumer Product Development. Through the organizationâ€™s projects, members can generate innovative ideas and create products that are not only interesting and exciting, but are also socially relevant. Innovation entails impactful improvements, and whether it is by coming up with an incredible new ice cream flavor, or a novel idea to make a less harmful pesticide out of mangoes, it can be found in MACA. At its heart, MACA is an inclusive family where members can enjoy the company of other MACA members. By providing academic support and community building projects, the organization ensures that each member has an opportunity to be the best that they can be.'
+    description: The Ateneo Management of Applied Chemistry Association (Ateneo MACA) is the home organization of BS MAC majors, but it is also open to anyone with the desire to innovate on ideas and products. What sets MACA apart from other organizations is its core competency: Innovative Consumer Product Development. Through the organizationâ€™s projects, members can generate innovative ideas and create products that are not only interesting and exciting, but are also socially relevant. Innovation entails impactful improvements, and whether it is by coming up with an incredible new ice cream flavor, or a novel idea to make a less harmful pesticide out of mangoes, it can be found in MACA. At its heart, MACA is an inclusive family where members can enjoy the company of other MACA members. By providing academic support and community building projects, the organization ensures that each member has an opportunity to be the best that they can be.
     logo_url: http://coacentral.org/wp-content/uploads/2015/08/MACA-e1439626045993.png
 - model: main_events.eventhost
   pk: 15
   fields:
+    user_id: 44
     host_type: 1
     name: Ateneo Management Engineering Association
     abbreviation: MEA
     cluster: 2
     color: '#0000EE'
     accredited: True
-    description: 'Since its establishment in 1968, Ateneo Management Engineering Association (MEA) has been home to the past and present Management Engineering majors. The organization aims to develop its members by providing academic assistance, leadership training, peer support, and avenues for project implementation. MEA’s brand as both a home and business organization is displayed in its vast array of projects offered to its members. Its activities aim to cultivate important business and managerial skills, as well as enable holistic growth among MEAns. MEA’s vision lies in forming competent and socially responsible business leaders of the future. Integral to the organization’s identity is MEA’s core competency of Strategic Decision Management which goes hand in hand with its core advocacy of Corporate Sustainability. United as an organization, MEA works toward inculcating the spirit of MEAmore in each of its members: the hunger for excellence, drive for improvement, and a bond that allows MEAns to achieve more together.'
+    description: Since its establishment in 1968, Ateneo Management Engineering Association (MEA) has been home to the past and present Management Engineering majors. The organization aims to develop its members by providing academic assistance, leadership training, peer support, and avenues for project implementation. MEA’s brand as both a home and business organization is displayed in its vast array of projects offered to its members. Its activities aim to cultivate important business and managerial skills, as well as enable holistic growth among MEAns. MEA’s vision lies in forming competent and socially responsible business leaders of the future. Integral to the organization’s identity is MEA’s core competency of Strategic Decision Management which goes hand in hand with its core advocacy of Corporate Sustainability. United as an organization, MEA works toward inculcating the spirit of MEAmore in each of its members: the hunger for excellence, drive for improvement, and a bond that allows MEAns to achieve more together.
     logo_url: http://coacentral.org/wp-content/uploads/2015/08/MEA-White-Text-e1439627056861.png
 - model: main_events.eventhost
   pk: 16
   fields:
+    user_id: 45
     host_type: 1
     name: Ateneo Management Economics Organization
     abbreviation: MECO
@@ -178,6 +194,7 @@
 - model: main_events.eventhost
   pk: 17
   fields:
+    user_id: 3
     host_type: 1
     name: Ateneo Catechetical Instruction League
     abbreviation: ACIL
@@ -189,6 +206,7 @@
 - model: main_events.eventhost
   pk: 18
   fields:
+    user_id: 4
     host_type: 1
     name: Ateneo Christian Life Community
     abbreviation: ACLC
@@ -200,17 +218,19 @@
 - model: main_events.eventhost
   pk: 19
   fields:
+    user_id: 5
     host_type: 1
     name: Ateneo College Ministry Group
     abbreviation: ACMG
     cluster: 3
     color: '#0000EE'
     accredited: True
-    description: '“One thing I ask: to dwell in the house of the Lord all my days!” The Ateneo College Ministry Group is an organization that seeks to provide authentic self-giving service in the celebration of the Holy Eucharist, leading individuals and communities closer towards God as well as communal growth. Aside from a regular Mass Service Training and Music Rehearsals, ACMG offers a Eucharistic-centered Formation Program aimed to nurture members spiritually through the Prayer and Formation Sessions that vary from talks to Mass celebrations within and outside of the Loyola Schools. Moreover, ACMG offers opportunities for leadership through its departments and projects geared towards bringing the Eucharist in light of the relevant social issues we experience as a community.On its 36th year, ACMG welcomes you to be a “Kabarkada kay Kristo,” to a family that unconditionally sings and serves together and seeks to enrich a faith experience shared with our fellow Catholic communities.'
+    description: “One thing I ask: to dwell in the house of the Lord all my days!” The Ateneo College Ministry Group is an organization that seeks to provide authentic self-giving service in the celebration of the Holy Eucharist, leading individuals and communities closer towards God as well as communal growth. Aside from a regular Mass Service Training and Music Rehearsals, ACMG offers a Eucharistic-centered Formation Program aimed to nurture members spiritually through the Prayer and Formation Sessions that vary from talks to Mass celebrations within and outside of the Loyola Schools. Moreover, ACMG offers opportunities for leadership through its departments and projects geared towards bringing the Eucharist in light of the relevant social issues we experience as a community.On its 36th year, ACMG welcomes you to be a “Kabarkada kay Kristo,” to a family that unconditionally sings and serves together and seeks to enrich a faith experience shared with our fellow Catholic communities.
     logo_url: http://coacentral.org/wp-content/uploads/2015/08/ACMG-log.png
 - model: main_events.eventhost
   pk: 20
   fields:
+    user_id: 24
     host_type: 1
     name: Ateneo Student Catholic Action
     abbreviation: AtSCA
@@ -222,6 +242,7 @@
 - model: main_events.eventhost
   pk: 21
   fields:
+    user_id: 63
     host_type: 1
     name: Youth for Christ – Ateneo
     abbreviation: YFC-A
@@ -233,6 +254,7 @@
 - model: main_events.eventhost
   pk: 22
   fields:
+    user_id: 15
     host_type: 1
     name: Ateneo Lingua Arts Cultura
     abbreviation: ALAC
@@ -244,6 +266,7 @@
 - model: main_events.eventhost
   pk: 23
   fields:
+    user_id: 21
     host_type: 1
     name: Ateneo Student Exchange Council
     abbreviation: ASEC
@@ -255,6 +278,7 @@
 - model: main_events.eventhost
   pk: 24
   fields:
+    user_id: 30
     host_type: 1
     name: Ateneo Celadon
     abbreviation: Celadon
@@ -266,6 +290,7 @@
 - model: main_events.eventhost
   pk: 25
   fields:
+    user_id: 25
     host_type: 1
     name: Baybayin
     abbreviation: Baybayin
@@ -277,28 +302,31 @@
 - model: main_events.eventhost
   pk: 26
   fields:
+    user_id: 42
     host_type: 1
     name: Loyola Mountaineers
     abbreviation: LM
     cluster: 4
     color: '#0000EE'
     accredited: True
-    description: '“The mountains are calling and I must go.” -John MuirFounded in 1993 by a small group of friends, the Loyola Mountaineers has been answering that call for more than 20 years.We commit ourselves to upholding and promoting responsible mountaineering, and advocating for environmental conservation, and the indigenous minority. We believe that we cannot separate our sport from our love of nature, and those whose way of life, culture, and identity is at stake.We offer you two things: Weekends deprived of personal comfort in exchange for summits, sunrises, and starry nights, and the life-long friendship of people across all disciplines, personalities, and generations, from nature lover to radical eco-warrior. Join us in our 25th year and become a Loyola Mountaineer. Be a part of Batch 28.See you at the peak!'
+    description: “The mountains are calling and I must go.” -John MuirFounded in 1993 by a small group of friends, the Loyola Mountaineers has been answering that call for more than 20 years.We commit ourselves to upholding and promoting responsible mountaineering, and advocating for environmental conservation, and the indigenous minority. We believe that we cannot separate our sport from our love of nature, and those whose way of life, culture, and identity is at stake.We offer you two things: Weekends deprived of personal comfort in exchange for summits, sunrises, and starry nights, and the life-long friendship of people across all disciplines, personalities, and generations, from nature lover to radical eco-warrior. Join us in our 25th year and become a Loyola Mountaineer. Be a part of Batch 28.See you at the peak!
     logo_url: http://coacentral.org/wp-content/uploads/2015/08/LM-logo-e1439968986706.png
 - model: main_events.eventhost
   pk: 27
   fields:
+    user_id: 11
     host_type: 1
     name: Ateneo Environmental Science Society
     abbreviation: AESS
     cluster: 4
     color: '#0000EE'
     accredited: True
-    description: 'The Ateneo Environmental Science Society is the pioneer environmental organization of the Ateneo de Manila University.  Known as EcoWarriors, members fight for the four main advocacies: sustainability, forest and wildlife conservation, energy conservation, and marine conservation. The projects and events include immersions, community engagements, talks, seminars, and more. Grounded on the principles of logical environmentalism and ecological interrelationship, the organization aims to instill within the members the importance of environment in each discipline, and the importance of lifestyle change, and eventually to the rest of the nation.'
+    description: The Ateneo Environmental Science Society is the pioneer environmental organization of the Ateneo de Manila University.  Known as EcoWarriors, members fight for the four main advocacies: sustainability, forest and wildlife conservation, energy conservation, and marine conservation. The projects and events include immersions, community engagements, talks, seminars, and more. Grounded on the principles of logical environmentalism and ecological interrelationship, the organization aims to instill within the members the importance of environment in each discipline, and the importance of lifestyle change, and eventually to the rest of the nation.
     logo_url: http://coacentral.org/wp-content/uploads/2015/08/AESS-whitecircle-bluegreentext-1-e1439969740846.png
 - model: main_events.eventhost
   pk: 28
   fields:
+    user_id: 48
     host_type: 1
     name: Ateneo PEERS
     abbreviation: PEERS
@@ -310,6 +338,7 @@
 - model: main_events.eventhost
   pk: 29
   fields:
+    user_id: 49
     host_type: 1
     name: Pre-Medical Society of the Ateneo
     abbreviation: PMSA
@@ -321,6 +350,7 @@
 - model: main_events.eventhost
   pk: 30
   fields:
+    user_id: 6
     host_type: 1
     name: Ateneo Association of Communication Majors
     abbreviation: ACOMM
@@ -332,6 +362,7 @@
 - model: main_events.eventhost
   pk: 31
   fields:
+    user_id: 18
     host_type: 1
     name: Ateneo Musicians’ Pool
     abbreviation: AMP
@@ -343,6 +374,7 @@
 - model: main_events.eventhost
   pk: 32
   fields:
+    user_id: 34
     host_type: 1
     name: Collegiate Society of Advertising
     abbreviation: COSA
@@ -354,6 +386,7 @@
 - model: main_events.eventhost
   pk: 33
   fields:
+    user_id: 41
     host_type: 1
     name: Loyola Film Circle
     abbreviation: LFC
@@ -365,17 +398,19 @@
 - model: main_events.eventhost
   pk: 34
   fields:
+    user_id: 1
     host_type: 1
     name: Ateneo de Manila College Glee Club
     abbreviation: ACGC
     cluster: 7
     color: '#0000EE'
     accredited: True
-    description: 'The ACGC is the oldest university chorale in the Philippines. It started in 1921 under Jose Mossesgeld Santiago and was further honed by great conductors who all contributed to the glee club’s illustrious history. Throughout the years, ACGC experimented with its sound, playing with different genres until it achieved its present choral quality.          The ACGC gained popularity through competition.  It won the first prize in the 1980 NAMCYA college division and continued its upward spiral by embarking on a world tour wherein ACGC garnered many notable firsts: it was the first Filipino choir to sing at St. Patrick’s Cathedral, the first non-Italian choir to sing at the General Assembly of the Pope, and the first Asian group to perform at the Cologne Cathedral. In 2015, the ACGC embarked on a Visayas tour to fund scholarships for Dumaguete students and to aid the victims of the 2013 Bohol earthquake.          In its 96th year, the ACGC is headed by its principal conductor, Dr. Beverly Shangkuan-Cheng.'
+    description: The ACGC is the oldest university chorale in the Philippines. It started in 1921 under Jose Mossesgeld Santiago and was further honed by great conductors who all contributed to the glee club’s illustrious history. Throughout the years, ACGC experimented with its sound, playing with different genres until it achieved its present choral quality.          The ACGC gained popularity through competition.  It won the first prize in the 1980 NAMCYA college division and continued its upward spiral by embarking on a world tour wherein ACGC garnered many notable firsts: it was the first Filipino choir to sing at St. Patrick’s Cathedral, the first non-Italian choir to sing at the General Assembly of the Pope, and the first Asian group to perform at the Cologne Cathedral. In 2015, the ACGC embarked on a Visayas tour to fund scholarships for Dumaguete students and to aid the victims of the 2013 Bohol earthquake.          In its 96th year, the ACGC is headed by its principal conductor, Dr. Beverly Shangkuan-Cheng.
     logo_url: http://coacentral.org/wp-content/uploads/2015/08/Logo_ACGC2016.png
 - model: main_events.eventhost
   pk: 35
   fields:
+    user_id: 26
     host_type: 1
     name: Ateneo Blue Repertory
     abbreviation: BlueREP
@@ -387,6 +422,7 @@
 - model: main_events.eventhost
   pk: 36
   fields:
+    user_id: 27
     host_type: 1
     name: Ateneo Blue Symphony
     abbreviation: BlueSymph
@@ -398,6 +434,7 @@
 - model: main_events.eventhost
   pk: 37
   fields:
+    user_id: 29
     host_type: 1
     name: Company of Ateneo Dancers
     abbreviation: CADs
@@ -409,17 +446,19 @@
 - model: main_events.eventhost
   pk: 38
   fields:
+    user_id: 61
     host_type: 1
     name: Tanghalang Ateneo
     abbreviation: TA
     cluster: 7
     color: '#0000EE'
     accredited: True
-    description: 'Since its founding in 1972, Tanghalang Ateneo has grown from a fledgling band of student players to one of the country’s leading school-based theatre companies. Its repertoire of plays is daunting: world classics, Filipino originals, and documentary texts turned into theatre pieces. Its productions are noted for their thought, generosity and energy, while its lingua franca on stage is Filipino and English. Tanghalang Ateneo productions educate and delight while stimulating the imagination and provoking thought. Jesuit pedagogy fuses with theatre arts to interrogate the Filipino social world so students can invent themselves as critical Filipinos–sharp in thought, expressive in action, deep in faith, and attuned to others, fellow players and audiences whose lives intersect with their own. In its 37th season, Tanghalang Ateneo takes on the theme of Staging Revolutions to be one with the nation’s issues and raise awareness towards society’s controversies that simultaneously envelope us.'
+    description: Since its founding in 1972, Tanghalang Ateneo has grown from a fledgling band of student players to one of the country’s leading school-based theatre companies. Its repertoire of plays is daunting: world classics, Filipino originals, and documentary texts turned into theatre pieces. Its productions are noted for their thought, generosity and energy, while its lingua franca on stage is Filipino and English. Tanghalang Ateneo productions educate and delight while stimulating the imagination and provoking thought. Jesuit pedagogy fuses with theatre arts to interrogate the Filipino social world so students can invent themselves as critical Filipinos–sharp in thought, expressive in action, deep in faith, and attuned to others, fellow players and audiences whose lives intersect with their own. In its 37th season, Tanghalang Ateneo takes on the theme of Staging Revolutions to be one with the nation’s issues and raise awareness towards society’s controversies that simultaneously envelope us.
     logo_url: http://coacentral.org/wp-content/uploads/2015/08/Logo_TA2016.png
 - model: main_events.eventhost
   pk: 39
   fields:
+    user_id: 39
     host_type: 1
     name: Kythe Ateneo
     abbreviation: Kythe
@@ -431,6 +470,7 @@
 - model: main_events.eventhost
   pk: 40
   fields:
+    user_id: 32
     host_type: 1
     name: Ateneo Consultants for Organization Development and Empowerment
     abbreviation: CODE
@@ -442,8 +482,9 @@
 - model: main_events.eventhost
   pk: 41
   fields:
+    user_id: 36
     host_type: 1
-    name: 'Ateneo EDGE: Education Geared towards Empowerment'
+    name: Ateneo EDGE: Education Geared towards Empowerment
     abbreviation: EDGE
     cluster: 8
     color: '#0000EE'
@@ -453,6 +494,7 @@
 - model: main_events.eventhost
   pk: 42
   fields:
+    user_id: 62
     host_type: 1
     name: Tugon
     abbreviation: Tugon
@@ -464,17 +506,19 @@
 - model: main_events.eventhost
   pk: 43
   fields:
+    user_id: 38
     host_type: 1
     name: Ateneo Gabay
     abbreviation: Gabay
     cluster: 8
     color: '#0000EE'
     accredited: True
-    description: 'Gabay is one of the oldest organizations in the Ateneo, and is now in its 40th year of championing its advocacy of education and scholarship. From our daily kumustahan in the org room to our weekly tutoring sessions, we Gabayanos dedicate our org life to a mutual cause: Pagtataya.Contrary to the widespread belief that Gabay is exclusive to scholars, the organization also consists of non-scholars who play a vital role in serving the Ateneo scholars and public elementary school students, or Erya kids. With our projects geared toward the holistic formation of our members, we believe we can respond to the call of nation-building.Beyond being an active organization because it serves a diverse set of people, Gabay is also a family. There is an enduring bond among us that helps us accomplish our goal to serve, and by the grace of God, we are guided by our mantra: Pinili kong magtaya. Nangangako akong magtaya. Malaya akong nagtataya.'
+    description: Gabay is one of the oldest organizations in the Ateneo, and is now in its 40th year of championing its advocacy of education and scholarship. From our daily kumustahan in the org room to our weekly tutoring sessions, we Gabayanos dedicate our org life to a mutual cause: Pagtataya.Contrary to the widespread belief that Gabay is exclusive to scholars, the organization also consists of non-scholars who play a vital role in serving the Ateneo scholars and public elementary school students, or Erya kids. With our projects geared toward the holistic formation of our members, we believe we can respond to the call of nation-building.Beyond being an active organization because it serves a diverse set of people, Gabay is also a family. There is an enduring bond among us that helps us accomplish our goal to serve, and by the grace of God, we are guided by our mantra: Pinili kong magtaya. Nangangako akong magtaya. Malaya akong nagtataya.
     logo_url: http://coacentral.org/wp-content/uploads/2017/08/Gabay_Logo.png
 - model: main_events.eventhost
   pk: 44
   fields:
+    user_id: 47
     host_type: 1
     name: Musmos Ateneo
     abbreviation: Musmos
@@ -486,6 +530,7 @@
 - model: main_events.eventhost
   pk: 45
   fields:
+    user_id: 60
     host_type: 1
     name: Ateneo Special Education Society
     abbreviation: SPEED
@@ -497,6 +542,7 @@
 - model: main_events.eventhost
   pk: 46
   fields:
+    user_id: 2
     host_type: 1
     name: Ateneo Chemistry Society
     abbreviation: ACheS
@@ -508,6 +554,7 @@
 - model: main_events.eventhost
   pk: 47
   fields:
+    user_id: 10
     host_type: 1
     name: Ateneo Electronics & Computer Engineering Society
     abbreviation: AECES
@@ -519,6 +566,7 @@
 - model: main_events.eventhost
   pk: 48
   fields:
+    user_id: 19
     host_type: 1
     name: Ateneo Mathematics Society
     abbreviation: AMS
@@ -530,6 +578,7 @@
 - model: main_events.eventhost
   pk: 49
   fields:
+    user_id: 28
     host_type: 1
     name: Ateneo Biological Organization – eXplore eXperience eXcel
     abbreviation: BOx
@@ -541,6 +590,7 @@
 - model: main_events.eventhost
   pk: 50
   fields:
+    user_id: 33
     host_type: 1
     name: Computer Society of the Ateneo
     abbreviation: CompSAt
@@ -552,6 +602,7 @@
 - model: main_events.eventhost
   pk: 51
   fields:
+    user_id: 40
     host_type: 1
     name: Ateneo League of Physicists
     abbreviation: LeaPs
@@ -563,6 +614,7 @@
 - model: main_events.eventhost
   pk: 52
   fields:
+    user_id: 46
     host_type: 1
     name: Ateneo Management Information Systems Association
     abbreviation: MISA
@@ -574,6 +626,7 @@
 - model: main_events.eventhost
   pk: 53
   fields:
+    user_id: 50
     host_type: 1
     name: Ateneo Psyche
     abbreviation: Psyche

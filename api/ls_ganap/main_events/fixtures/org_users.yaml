@@ -1,378 +1,315 @@
-- model: main_events.orguser
+- model: main_events.user
   pk: 1
   fields:
     email: acgc.ls@obf.ateneo.edu
     password: acgc.ls
-    event_host: 34
-- model: main_events.orguser
+- model: main_events.user
   pk: 2
   fields:
     email: aches.ls@obf.ateneo.edu
     password: aches.ls
-    event_host: 46
-- model: main_events.orguser
+- model: main_events.user
   pk: 3
   fields:
     email: acil.ls@obf.ateneo.edu
     password: acil.ls
-    event_host: 17
-- model: main_events.orguser
+- model: main_events.user
   pk: 4
   fields:
     email: aclc.ls@obf.ateneo.edu
     password: aclc.ls
-    event_host: 18
-- model: main_events.orguser
+- model: main_events.user
   pk: 5
   fields:
     email: acmg.ls@obf.ateneo.edu
     password: acmg.ls
-    event_host: 19
-- model: main_events.orguser
+- model: main_events.user
   pk: 6
   fields:
     email: acomm.ls@obf.ateneo.edu
     password: acomm.ls
-    event_host: 30
-- model: main_events.orguser
+- model: main_events.user
   pk: 7
   fields:
     email: actm.ls@obf.ateneo.edu
     password: actm.ls
-    event_host: 9
-- model: main_events.orguser
+- model: main_events.user
   pk: 8
   fields:
     email: ads.ls@obf.ateneo.edu
     password: ads.ls
-    event_host: 1
-- model: main_events.orguser
+- model: main_events.user
   pk: 9
   fields:
     email: aea.ls@obf.ateneo.edu
     password: aea.ls
-    event_host: 2
-- model: main_events.orguser
+- model: main_events.user
   pk: 10
   fields:
     email: aeces.ls@obf.ateneo.edu
     password: aeces.ls
-    event_host: 47
-- model: main_events.orguser
+- model: main_events.user
   pk: 11
   fields:
     email: aess.ls@obf.ateneo.edu
     password: aess.ls
-    event_host: 27
-- model: main_events.orguser
+- model: main_events.user
   pk: 12
   fields:
     email: aeuss.ls@obf.ateneo.edu
     password: aeuss.ls
-    event_host: 4
-- model: main_events.orguser
+- model: main_events.user
   pk: 13
   fields:
     email: aiesec.ls@obf.ateneo.edu
     password: aiesec.ls
-    event_host: 10
-- model: main_events.orguser
+- model: main_events.user
   pk: 14
   fields:
     email: ajma.ls@obf.ateneo.edu
     password: ajma.ls
-    event_host: 11
-- model: main_events.orguser
+- model: main_events.user
   pk: 15
   fields:
     email: alac.ls@obf.ateneo.edu
     password: alac.ls
-    event_host: 22
-- model: main_events.orguser
+- model: main_events.user
   pk: 16
   fields:
     email: alex.ls@obf.ateneo.edu
     password: alex.ls
-    event_host: 13
-- model: main_events.orguser
+- model: main_events.user
   pk: 17
   fields:
     email: ama.ls@obf.ateneo.edu
     password: ama.ls
-    event_host: 12
-- model: main_events.orguser
+- model: main_events.user
   pk: 18
   fields:
     email: amp.ls@obf.ateneo.edu
     password: amp.ls
-    event_host: 31
-- model: main_events.orguser
+- model: main_events.user
   pk: 19
   fields:
     email: ams.ls@obf.ateneo.edu
     password: ams.ls
-    event_host: 48
-- model: main_events.orguser
+- model: main_events.user
   pk: 20
   fields:
     email: apair.ls@obf.ateneo.edu
     password: apair.ls
-    event_host: 5
-- model: main_events.orguser
+- model: main_events.user
   pk: 21
   fields:
     email: asec.ls@obf.ateneo.edu
     password: asec.ls
-    event_host: 23
-- model: main_events.orguser
+- model: main_events.user
   pk: 22
   fields:
     email: assembly.ls@obf.ateneo.edu
     password: assembly.ls
-    event_host: 6
-- model: main_events.orguser
+- model: main_events.user
   pk: 23
   fields:
     email: astat.ls@obf.ateneo.edu
     password: astat.ls
-    event_host: 3
-- model: main_events.orguser
+- model: main_events.user
   pk: 24
   fields:
     email: atsca.ls@obf.ateneo.edu
     password: atsca.ls
-    event_host: 20
-- model: main_events.orguser
+- model: main_events.user
   pk: 25
   fields:
     email: baybayin.ls@obf.ateneo.edu
     password: baybayin.ls
-    event_host: 25
-- model: main_events.orguser
+- model: main_events.user
   pk: 26
   fields:
     email: bluerep.ls@obf.ateneo.edu
     password: bluerep.ls
-    event_host: 35
-- model: main_events.orguser
+- model: main_events.user
   pk: 27
   fields:
     email: bluesymph.ls@obf.ateneo.edu
     password: bluesymph.ls
-    event_host: 36
-- model: main_events.orguser
+- model: main_events.user
   pk: 28
   fields:
     email: box.ls@obf.ateneo.edu
     password: box.ls
-    event_host: 49
-- model: main_events.orguser
+- model: main_events.user
   pk: 29
   fields:
     email: cads.ls@obf.ateneo.edu
     password: cads.ls
-    event_host: 37
-- model: main_events.orguser
+- model: main_events.user
   pk: 30
   fields:
     email: celadon.ls@obf.ateneo.edu
     password: celadon.ls
-    event_host: 24
-- model: main_events.orguser
+- model: main_events.user
   pk: 31
   fields:
     email: coa.ls@obf.ateneo.edu
     password: coa.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 32
   fields:
     email: code.ls@obf.ateneo.edu
     password: code.ls
-    event_host: 40
-- model: main_events.orguser
+- model: main_events.user
   pk: 33
   fields:
     email: compsat.ls@obf.ateneo.edu
     password: compsat.ls
-    event_host: 50
-- model: main_events.orguser
+- model: main_events.user
   pk: 34
   fields:
     email: cosa.ls@obf.ateneo.edu
     password: cosa.ls
-    event_host: 32
-- model: main_events.orguser
+- model: main_events.user
   pk: 35
   fields:
     email: devsoc.ls@obf.ateneo.edu
     password: devsoc.ls
-    event_host: 7
-- model: main_events.orguser
+- model: main_events.user
   pk: 36
   fields:
     email: edge.ls@obf.ateneo.edu
     password: edge.ls
-    event_host: 41
-- model: main_events.orguser
+- model: main_events.user
   pk: 37
   fields:
     email: entablado.ls@obf.ateneo.edu
     password: entablado.ls
-    event_host: 8
-- model: main_events.orguser
+- model: main_events.user
   pk: 38
   fields:
     email: gabay.ls@obf.ateneo.edu
     password: gabay.ls
-    event_host: 43
-- model: main_events.orguser
+- model: main_events.user
   pk: 39
   fields:
     email: kythe.ls@obf.ateneo.edu
     password: kythe.ls
-    event_host: 39
-- model: main_events.orguser
+- model: main_events.user
   pk: 40
   fields:
     email: leaps.ls@obf.ateneo.edu
     password: leaps.ls
-    event_host: 51
-- model: main_events.orguser
+- model: main_events.user
   pk: 41
   fields:
     email: lfc.ls@obf.ateneo.edu
     password: lfc.ls
-    event_host: 33
-- model: main_events.orguser
+- model: main_events.user
   pk: 42
   fields:
     email: lm.ls@obf.ateneo.edu
     password: lm.ls
-    event_host: 26
-- model: main_events.orguser
+- model: main_events.user
   pk: 43
   fields:
     email: maca.ls@obf.ateneo.edu
     password: maca.ls
-    event_host: 14
-- model: main_events.orguser
+- model: main_events.user
   pk: 44
   fields:
     email: mea.ls@obf.ateneo.edu
     password: mea.ls
-    event_host: 15
-- model: main_events.orguser
+- model: main_events.user
   pk: 45
   fields:
     email: meco.ls@obf.ateneo.edu
     password: meco.ls
-    event_host: 16
-- model: main_events.orguser
+- model: main_events.user
   pk: 46
   fields:
     email: misa.ls@obf.ateneo.edu
     password: misa.ls
-    event_host: 52
-- model: main_events.orguser
+- model: main_events.user
   pk: 47
   fields:
     email: musmos.ls@obf.ateneo.edu
     password: musmos.ls
-    event_host: 44
-- model: main_events.orguser
+- model: main_events.user
   pk: 48
   fields:
     email: peers.ls@obf.ateneo.edu
     password: peers.ls
-    event_host: 28
-- model: main_events.orguser
+- model: main_events.user
   pk: 49
   fields:
     email: pmsa.ls@obf.ateneo.edu
     password: pmsa.ls
-    event_host: 29
-- model: main_events.orguser
+- model: main_events.user
   pk: 50
   fields:
     email: psyche.ls@obf.ateneo.edu
     password: psyche.ls
-    event_host: 53
-- model: main_events.orguser
+- model: main_events.user
   pk: 51
   fields:
     email: sanggunian.ls@obf.ateneo.edu
     password: sanggunian.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 52
   fields:
     email: comelec.ls@obf.ateneo.edu
     password: comelec.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 53
   fields:
     email: dsws.ls@obf.ateneo.edu
     password: dsws.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 54
   fields:
     email: jgsom.ls@obf.ateneo.edu
     password: jgsom.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 55
   fields:
     email: ombudsman.ls@obf.ateneo.edu
     password: ombudsman.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 56
   fields:
     email: soh.ls@obf.ateneo.edu
     password: soh.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 57
   fields:
     email: sose.ls@obf.ateneo.edu
     password: sose.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 58
   fields:
     email: soss.ls@obf.ateneo.edu
     password: soss.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 59
   fields:
     email: sjc.ls@obf.ateneo.edu
     password: sjc.ls
-    event_host: #FIX
-- model: main_events.orguser
+- model: main_events.user
   pk: 60
   fields:
     email: speed.ls@obf.ateneo.edu
     password: speed.ls
-    event_host: 45
-- model: main_events.orguser
+- model: main_events.user
   pk: 61
   fields:
     email: ta.ls@obf.ateneo.edu
     password: ta.ls
-    event_host: 38
-- model: main_events.orguser
+- model: main_events.user
   pk: 62
   fields:
     email: tugon.ls@obf.ateneo.edu
     password: tugon.ls
-    event_host: 42
-- model: main_events.orguser
+- model: main_events.user
   pk: 63
   fields:
     email: yfca.ls@obf.ateneo.edu
     password: yfca.ls
-    event_host: 21
