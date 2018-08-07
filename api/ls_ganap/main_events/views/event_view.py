@@ -209,9 +209,31 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Event.objects.all()
     serializer_class = event_serializer.EventSerializer
 
-class EventLogisticCreate(generics.CreateAPIView):
+class EventLogisticCreate(APIView):
     """
     post: Create a detail for one event (start_time, end_time, venue)
     """
-    queryset = EventLogistic.objects.all()
     serializer_class = event_serializer.EventLogisticSerializer
+    def get_object(self, pk):
+        try:
+            return Event.objects.get(pk=pk)
+        except Event.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        event = self.get_object(pk)
+        serializer = event_serializer.EventSerializer(event)
+        return Response(serializer.data)
+
+    def post(self, request, pk, format=None):
+        # event = self.get_object(pk)
+        # print(event)
+        print(pk)
+        data = request.data.copy()
+        data["event"] = str(pk)
+        print(data)
+        serializer = event_serializer.EventLogisticSaveSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
