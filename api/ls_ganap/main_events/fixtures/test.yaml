@@ -10,9 +10,15 @@
   pk: 1
   fields:
     name: CTC313
+- model: main_events.user
+  pk: 1
+  fields:
+    email: compsat.ls@obf.ateneo.edu
+    password: compsat.ls
 - model: main_events.eventhost
   pk: 1
   fields:
+    user_id: 1
     host_type: 1
     name: Computer Society of the Ateneo
     abbreviation: CompSAt
