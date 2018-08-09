@@ -7,7 +7,7 @@ class ScrollerSection extends Component {
 		super(props);
 		this.state = {
 	    // SAMPLE DATA FOR PROFILE CARDS
-		  items:[
+		  items1:[
         {
           id: 0,
           name: 'Administrative Offices',
@@ -44,7 +44,7 @@ class ScrollerSection extends Component {
 			],
 		
 		  // SAMPLE DATA FOR EVENT CARDS			
-			items1: [
+			items: [
         {
           id: 0,
           name: 'Arduino Workshop',
