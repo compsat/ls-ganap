@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { media } from '../style/style-utils';
 import samplePromo from '../assets/promos/rent_bluerep.jpg';
 
+
 const FeaturedContainer = styled.div`
     width:80%;
     margin:auto;
@@ -14,6 +15,7 @@ const FeaturedContainer = styled.div`
     grid-row-gap: 1em;
 
     ${media.mdScreen`
+        width:100%;
         display:grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
@@ -179,19 +181,27 @@ const MobileDetails = () => (
     </MobileDetailsContainer>
 );
 
-class FeaturedSection extends Component {
+const FeaturedItem = () => (
+    <FeaturedContainer>
+        <Promo src={samplePromo} alt= "" />
+        <DetailsContainer>
+            <DesktopDetails />
+            <MobileDetails />
+        </DetailsContainer>
+    </FeaturedContainer>
+);
 
-    render() {
-        return(
-            <FeaturedContainer>
-                <Promo src={samplePromo} alt= "" />
-                <DetailsContainer>
-                    <DesktopDetails />
-                    <MobileDetails />
-                </DetailsContainer>
-            </FeaturedContainer>
-        );
-    }
-}
+// class FeaturedSection extends Component {
 
-export default FeaturedSection;
+//     render() {
+//         return(
+//         <HorizontalScroller display="1">
+//         {this.state.items.map(item => (
+//           <FeaturedItem item={item} card_type={this.props.card_type} />
+//         ))}
+//         </HorizontalScroller>
+//         );
+//     }
+// }
+
+export default FeaturedItem;

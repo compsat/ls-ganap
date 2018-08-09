@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ScrollerSection from './ScrollerSection';
-import FeaturedSection from './FeaturedSection';
+import FeaturedItem from './FeaturedSection';
 import styled from 'styled-components';
 import FullWidthContainer from '../components/FullWidthContainer';
 import PageContent from '../components/PageContent';
+import HorizontalScroller from '../components/HorizontalScroller.js';
 
 
 const CardsSection = FullWidthContainer.extend`
@@ -12,7 +13,8 @@ const CardsSection = FullWidthContainer.extend`
 `;
 
 const TitleContainer = styled.div`
-  width: 90%;
+  width: 75%;
+  margin: auto;
 `;
 
 const MainTitle = styled.h1`
@@ -42,11 +44,15 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <FeaturedSection />
+        <HorizontalScroller display="1">
+          <FeaturedItem />
+          <FeaturedItem />
+          <FeaturedItem />
+        </HorizontalScroller>
         <CardsSection color="#81C0BB">
           <PageContent>
             <TitleSection name="Upcoming Event" show_subtitle="false" title_color="#F8FFEB"/>
-            <ScrollerSection api_url="" card_type="event" cards_display="3"/>
+            <ScrollerSection api_url="" card_type="event" cards_display="4"/>
           </PageContent>
         </CardsSection>
         <CardsSection color="#FFE5CB">
