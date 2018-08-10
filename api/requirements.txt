@@ -7,3 +7,8 @@ PyYAML===3.13
 djangorestframework-jwt-custom-user==1.11.1
 six==1.11.0
 cloudinary
+whitenoise==3.2
+dj-database-url==0.3.0
+dj-static==0.0.6
+gunicorn==19.6.0
+python-decouple==3.1

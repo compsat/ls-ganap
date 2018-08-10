@@ -1,4 +1,4 @@
-from main_events.models import Event
+from main_events.models import Event, EventLogistic
 from main_events.serializers import event_serializer
 from django.http import Http404
 from rest_framework.views import APIView
@@ -51,7 +51,7 @@ class FilterEventsBetweenDates(generics.ListAPIView):
 
         queryset = Event.objects.all()
 
-        return get_dates_between(start_date, end_date, queryset, Event.start_time)
+        return get_dates_between(start_date, end_date, queryset, Event.event_logistics)
 
 class FilterEventByDate(generics.ListAPIView):
     """
@@ -75,7 +75,7 @@ class FilterEventByDate(generics.ListAPIView):
         queryset = Event.objects.all()
         
         if date is not None:
-            queryset = queryset.filter(start_time__date=date)
+            queryset = queryset.filter(event_logistics__date=date)
 
         return queryset
 
@@ -107,7 +107,7 @@ class FilterEventByWeek(generics.ListAPIView):
 
         queryset = Event.objects.all()
 
-        return get_dates_between(start_date, end_date, queryset, Event.start_time)
+        return get_dates_between(start_date, end_date, queryset, Event.event_logistics)
 
 class FilterEventByMonth(generics.ListAPIView):
     """
@@ -139,7 +139,7 @@ class FilterEventByMonth(generics.ListAPIView):
         queryset = Event.objects.all()
 
         if date is not None:
-            queryset = queryset.filter(start_time__month=get_month, start_time__year=get_year)
+            queryset = queryset.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year)
 
         return queryset
 
@@ -208,3 +208,32 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Event.objects.all()
     serializer_class = event_serializer.EventSerializer
+
+class EventLogisticCreate(APIView):
+    """
+    post: Create a detail for one event (start_time, end_time, venue)
+    """
+    serializer_class = event_serializer.EventLogisticSerializer
+    def get_object(self, pk):
+        try:
+            return Event.objects.get(pk=pk)
+        except Event.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        event = self.get_object(pk)
+        serializer = event_serializer.EventSerializer(event)
+        return Response(serializer.data)
+
+    def post(self, request, pk, format=None):
+        # event = self.get_object(pk)
+        # print(event)
+        print(pk)
+        data = request.data.copy()
+        data["event"] = str(pk)
+        print(data)
+        serializer = event_serializer.EventLogisticSaveSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
