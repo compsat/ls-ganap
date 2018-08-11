@@ -111,7 +111,7 @@ def oauth2callback(request):
 
 	"""
 	If the user directly goes to /google_auth without going to events/google_api/<pk> (hence there's no
-	pk in the session, then this will just redirect the user to /events. Otherwise, they are redirected
+	pk in the session), then this will just redirect the user to /events. Otherwise, they are redirected
 	back to event/google_api/<pk> (pk is obtained from the session) and the event is added to the calendar.
 	"""
 	if 'pk' in request.session:
