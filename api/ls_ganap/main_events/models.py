@@ -4,6 +4,7 @@ from django.utils import timezone
 from main_events.soft_deletion_model import SoftDeletionModel
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
+from cloudinary.models import CloudinaryField
 
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
@@ -61,7 +62,7 @@ class HostType(models.Model):
 class Cluster(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField()
-	logo_url = models.URLField()
+	logo_url = CloudinaryField('image')
 
 	def __str__(self):
 		return self.name
@@ -74,7 +75,7 @@ class EventHost(models.Model):
 	description = models.TextField()
 	accredited = models.BooleanField(default=False)
 	color = models.CharField(max_length=20)
-	logo_url = models.URLField()
+	logo_url = CloudinaryField('image')
 
 	def __str__(self):
 		return self.name
@@ -98,7 +99,7 @@ class Event(SoftDeletionModel):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	is_accepted = models.BooleanField(default=False)
-	poster_url = models.URLField()
+	poster_url = CloudinaryField('image')
 	outside_venue_name = models.CharField(max_length=200, blank=True)
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField()
