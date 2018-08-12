@@ -2,6 +2,7 @@ const theme = {
     sizes: {
         maxSiteWidth: '1200px',
         minSiteWidth: '320px',
+        navHeight: '5em',
     },
     type: {
         maxFontSize: '21px',
