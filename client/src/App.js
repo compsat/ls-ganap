@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './style/style-theme';
 import MainNav from './components/MainNav';
 import PageContent from './components/PageContent';
+import Footer from './components/Footer';
 
 const Home = Loadable({
   loader: () => import('./home/Home'),
@@ -17,6 +18,10 @@ const Browse = Loadable({
   loading: Loading,
 });
 
+const MainContent = PageContent.extend`
+  padding-top: ${props => props.theme.sizes.navHeight};
+`
+
 class App extends Component {
   render() {
     return (
@@ -24,12 +29,13 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <React.Fragment>
             <MainNav />
-            <PageContent>
+            <MainContent>
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/browse" component={Browse} />
               </Switch>
-            </PageContent>
+            </MainContent>
+            <Footer />
           </React.Fragment>
         </ThemeProvider>
       </Router>
