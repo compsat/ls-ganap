@@ -11,6 +11,7 @@ from django.urls import reverse
 import google.oauth2.credentials
 import requests
 from oauthlib.oauth2.rfc6749.errors import MissingCodeError
+from google.auth.exceptions import RefreshError
 
 CLIENT_SECRETS_FILE = 'client_secrets.json'
 SCOPES = 'https://www.googleapis.com/auth/calendar'
@@ -19,7 +20,6 @@ SCOPES = 'https://www.googleapis.com/auth/calendar'
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 def create_events(request, pk):
-	print(request.session['credentials'])
 	if 'credentials' not in request.session or request.session['credentials'] is None:
 		"""
 		Instead of passing the pk as parameters to the views,
@@ -27,38 +27,47 @@ def create_events(request, pk):
 		"""
 		request.session['pk'] = pk
 		return redirect('authorize')
-	else:
-		if request.session['credentials']['token'] is None or request.session['credentials']['refresh_token'] is None:
-			request.session['credentials'] = None
-			request.session['pk'] = pk
-			return redirect('authorize')
+	
+	print(request.session['credentials'])
 
 	  # Load credentials from the session.
 	credentials = google.oauth2.credentials.Credentials(
 		**request.session['credentials'])
 
+	if credentials.expired:
+		try:
+			credentials.refresh(request)
+		except:
+			request.session['credentials'] = None
+			request.session['pk'] = pk
+			return redirect('authorize')
+
 	service = build('calendar', 'v3', credentials=credentials)
 	# print(service)
 
-	event = Event.objects.get(pk=pk)
-	event_logistics = EventLogistic.objects.filter(event=pk)
-	auth_user = None
-	for logistic in event_logistics:
-		start_time = datetime.combine(logistic.date, logistic.start_time)
-		end_time = datetime.combine(logistic.date, logistic.end_time)
-		EVENT = {
-			"summary": event.name,
-			"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
-			"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
-		}
-		eventTest = service.events().insert(calendarId='primary', body=EVENT).execute()
-		auth_user = eventTest['creator']['email']
-		print(eventTest)
+	try:
+		event = Event.objects.get(pk=pk)
+		event_logistics = EventLogistic.objects.filter(event=pk)
+		auth_user = None
+		for logistic in event_logistics:
+			start_time = datetime.combine(logistic.date, logistic.start_time)
+			end_time = datetime.combine(logistic.date, logistic.end_time)
+			EVENT = {
+				"summary": event.name,
+				"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
+				"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
+			}
+			eventTest = service.events().insert(calendarId='primary', body=EVENT).execute()
+			auth_user = eventTest['creator']['email']
+			print(eventTest)
 
-	# Save credentials back to session in case access token was refreshed.
-	# ACTION ITEM: In a production app, you likely want to save these
-	#              credentials in a persistent database instead.
-	request.session['credentials'] = credentials_to_dict(credentials)
+		# Save credentials back to session in case access token was refreshed.
+		# ACTION ITEM: In a production app, you likely want to save these
+		#              credentials in a persistent database instead.
+		request.session['credentials'] = credentials_to_dict(credentials)
+	except RefreshError:
+		request.session['pk'] = pk
+		return redirect('authorize')
 
 	if auth_user:
 		return redirect('https://calendar.google.com/calendar/?authuser=' + auth_user)
