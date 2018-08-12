@@ -8,14 +8,19 @@ import Nirmala from '../assets/fonts/nirmala.TTF';
 import Quatro from '../assets/fonts/quatro-sans-regular.woff';
 
 injectGlobal`
-  html,
-  body {
-    overflow-x: hidden;
-    background-color: #F9F9F9;
+  html {
+    box-sizing: border-box;
   }
 
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  html,
   body {
-    padding-top: 6em;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #F9F9F9;
   }
 
   @font-face {
@@ -26,8 +31,8 @@ injectGlobal`
   @font-face {
     font-family: Nirmala Bold;
     src: url(${NirmalaBold});
-  } 
-  
+  }
+
   @font-face {
     font-family: Nirmala;
     src: url(${Nirmala});
@@ -39,6 +44,16 @@ injectGlobal`
   }
 
   body {
+    min-height: 100%;
+  }
+
+  #root {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100%;
+  }
+
+  html {
     ${interpolate('font-size',
         theme.sizes.minSiteWidth, theme.sizes.maxSiteWidth,
         theme.type.minFontSize, theme.type.maxFontSize)}
