@@ -19,14 +19,19 @@ SCOPES = 'https://www.googleapis.com/auth/calendar'
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 def create_events(request, pk):
-	if 'credentials' not in request.session:
+	print(request.session['credentials'])
+	if 'credentials' not in request.session or request.session['credentials'] is None:
 		"""
 		Instead of passing the pk as parameters to the views,
 		I just stored the pk in the session.
 		"""
 		request.session['pk'] = pk
 		return redirect('authorize')
-	print(request.session['credentials'])
+	else:
+		if request.session['credentials']['token'] is None or request.session['credentials']['refresh_token'] is None:
+			request.session['credentials'] = None
+			request.session['pk'] = pk
+			return redirect('authorize')
 
 	  # Load credentials from the session.
 	credentials = google.oauth2.credentials.Credentials(
@@ -72,10 +77,10 @@ def authorize(request):
     	# re-prompting the user for permission. Recommended for web server apps.
 		access_type='offline',
 		# Enable incremental authorization. Recommended as a best practice.
-		include_granted_scopes='true'
+		include_granted_scopes='true',
+		prompt='select_account',
 		)
 
-	print(request.session)
 	# Store the state so the callback can verify the auth server response.
 	request.session['state'] = state
 
