@@ -52,13 +52,13 @@ class Home extends Component {
         <CardsSection color="#81C0BB">
           <PageContent>
             <TitleSection name="Upcoming Event" show_subtitle="false" title_color="#F8FFEB"/>
-            <ScrollerSection api_url="" card_type="event" cards_display="4"/>
+            <ScrollerSection api_url="http://ls-ganap-api.herokuapp.com/events/" card_type="event" cards_display="4"/>
           </PageContent>
         </CardsSection>
         <CardsSection color="#FFE5CB">
           <PageContent>
             <TitleSection name="Organization" title_color="#E09850" subtitle_color="#7E6A56"/>
-            <ScrollerSection api_url="" card_type="profile" cards_display="5"/>
+            <ScrollerSection api_url="http://ls-ganap-api.herokuapp.com/event_hosts/" card_type="profile" cards_display="5"/>
           </PageContent>
         </CardsSection>
         <CardsSection color="#945858">
