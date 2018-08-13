@@ -14,6 +14,8 @@ class ClusterList(APIView):
     get: List all the clusters.
     post: Create a new cluster.
     """
+    serializer_class = ClusterSerializer
+
     def get(self, request, format=None):
         hosts = Cluster.objects.all()
         serializer = ClusterSerializer(hosts, many=True)
