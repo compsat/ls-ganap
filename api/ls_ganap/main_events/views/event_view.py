@@ -143,14 +143,14 @@ class FilterEventByMonth(generics.ListAPIView):
 
         return queryset
 
-class EventList(generics.ListCreateAPIView):
+class EventList(APIView):
     """
     get: List all the events, ordered by start_time.
     post: Create a new event.
     """ 
 
     queryset = Event.objects.all()
-    serializer_class = event_serializer.EventSerializer
+    serializer_class = event_serializer.CreateEventSerializer
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
@@ -167,30 +167,27 @@ class EventList(generics.ListCreateAPIView):
         ),
     ])
 
-    # overwrite get_queryset() method
-    def get_queryset(self, *args, **kwargs):
-        queryset_list = Event.objects.all()
+    def get(self, request, format=None):
+        events = Event.objects.all()
         query = self.request.GET.get("host_type_id")
-        
-        # only perform the filtering if the query has arguements
-        # if not return all the events
+
         if query:
-            queryset_list = queryset_list.filter(
+            events = events.filter(
                 Q(host_id__host_type__id__contains=query)
             ).distinct()
 
-        return queryset_list
+        serializer = event_serializer.EventSerializer(events, many=True)
 
-
-    def list_items(self, request):
-        """
-        Return the list of events.
-        """
-        # make sure to filter by event start_time
-        queryset = self.get_queryset().order_by('start_time')
-        
-        serializer = event_serializer.EventSerializer(queryset, many=True)
         return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = event_serializer.CreateEventSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
