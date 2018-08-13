@@ -8,6 +8,4 @@ __pycache__/
 # misc
 .DS_Store
 
-api/ls_ganap/.env
-
 venv
