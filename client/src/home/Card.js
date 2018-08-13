@@ -19,7 +19,7 @@ const ProfileCardTitle = CardTitle.extend`
 `;
 
 const EventCard = (props) => (
-    <MediaCard imgSrc={props.item.photo} imgAlt={props.item.photo_alt}>
+    <MediaCard imgSrc={props.item.poster_url} imgAlt={props.item.photo_alt}>
         <CardTitle>{props.item.name}</CardTitle>
         <CardDetails>
             <p>{props.item.date}; {props.item.time}</p>
@@ -30,7 +30,7 @@ const EventCard = (props) => (
 );
 
 const ProfileCard = (props) => (
-    <MediaCard imgSrc={props.item.photo} imgAlt={props.item.photo_alt} imgSize='188px'>
+    <MediaCard imgSrc={props.item.logo_url} imgAlt={props.item.photo_alt} imgSize='188px'>
         <ProfileCardTitle>{props.item.name}</ProfileCardTitle>
     </MediaCard>
 );
