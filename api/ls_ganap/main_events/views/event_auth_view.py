@@ -12,12 +12,24 @@ import google.oauth2.credentials
 import requests
 from oauthlib.oauth2.rfc6749.errors import MissingCodeError
 from google.auth.exceptions import RefreshError
+from decouple import config
 
 CLIENT_SECRETS_FILE = 'client_secrets.json'
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 
 # ------------------ REMOVE IN PRODUCTION ----------------------
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+
+client_secrets = {
+	"web": {"client_id" : config('CLIENT_ID'),
+		"project_id": config('PROJECT_ID'),
+		"auth_uri" : config('AUTH_URI'),
+		"token_uri" : config('TOKEN_URI'),
+		"auth_provider_x509_cert_url" : config('AUTH_PROVIDER'),
+		"client_secret" : config('CLIENT_SECRET'),
+		"redirect_uris" : config('REDIRECT_URIS')
+		}
+}
 
 def create_events(request, pk):
 	if 'credentials' not in request.session or request.session['credentials'] is None:
@@ -28,7 +40,7 @@ def create_events(request, pk):
 		request.session['pk'] = pk
 		return redirect('authorize')
 	
-	print(request.session['credentials'])
+	# print(request.session['credentials'])
 
 	  # Load credentials from the session.
 	credentials = google.oauth2.credentials.Credentials(
@@ -59,7 +71,7 @@ def create_events(request, pk):
 			}
 			eventTest = service.events().insert(calendarId='primary', body=EVENT).execute()
 			auth_user = eventTest['creator']['email']
-			print(eventTest)
+			# print(eventTest)
 
 		# Save credentials back to session in case access token was refreshed.
 		# ACTION ITEM: In a production app, you likely want to save these
@@ -69,6 +81,7 @@ def create_events(request, pk):
 		request.session['pk'] = pk
 		return redirect('authorize')
 
+	request.session['pk'] = None
 	if auth_user:
 		return redirect('https://calendar.google.com/calendar/?authuser=' + auth_user)
 	else:
@@ -76,8 +89,8 @@ def create_events(request, pk):
 
 def authorize(request):
   # Create flow instance to manage the OAuth 2.0 Authorization Grant Flow steps.
-	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-    	CLIENT_SECRETS_FILE, SCOPES)
+	flow = google_auth_oauthlib.flow.Flow.from_client_config(
+    	client_secrets, SCOPES)
 
 	flow.redirect_uri = request.build_absolute_uri(reverse('oauth2callback'))
 
@@ -100,8 +113,8 @@ def oauth2callback(request):
 	# verified in the authorization server response.
 	state = request.session['state']
 
-	flow = google_auth_oauthlib.flow.Flow.from_client_secrets_file(
-	  CLIENT_SECRETS_FILE, scopes=SCOPES, state=state)
+	flow = google_auth_oauthlib.flow.Flow.from_client_config(
+	  client_secrets, scopes=SCOPES, state=state)
 	flow.redirect_uri = request.build_absolute_uri(reverse('oauth2callback'))
 
 	# Use the authorization server's response to fetch the OAuth 2.0 tokens.
@@ -114,7 +127,7 @@ def oauth2callback(request):
 	"""
 	try:
 		flow.fetch_token(authorization_response=authorization_response)
-	except MissingCodeError:
+	except:
 		return redirect('/events')
 
 	# Store credentials in the session.
@@ -128,7 +141,7 @@ def oauth2callback(request):
 	pk in the session), then this will just redirect the user to /events. Otherwise, they are redirected
 	back to event/google_api/<pk> (pk is obtained from the session) and the event is added to the calendar.
 	"""
-	if 'pk' in request.session:
+	if 'pk' in request.session and request.session['pk'] is not None:
 		return redirect(reverse('create_events', args=[request.session['pk']]))
 	else:
 		return redirect('/events')

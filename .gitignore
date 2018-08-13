@@ -8,6 +8,6 @@ __pycache__/
 # misc
 .DS_Store
 
-api/client_secrets.json
+api/ls_ganap/.env
 
 venv
