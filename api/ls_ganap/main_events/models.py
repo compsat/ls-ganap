@@ -62,7 +62,7 @@ class HostType(models.Model):
 class Cluster(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField()
-	logo_url = CloudinaryField('image')
+	logo_url = models.ImageField(upload_to='images/', blank=True)
 
 	def __str__(self):
 		return self.name
@@ -75,7 +75,7 @@ class EventHost(models.Model):
 	description = models.TextField()
 	accredited = models.BooleanField(default=False)
 	color = models.CharField(max_length=20)
-	logo_url = CloudinaryField('image')
+	logo_url = models.ImageField(upload_to='images/', blank=True)
 
 	def __str__(self):
 		return self.name
@@ -101,7 +101,7 @@ class Event(SoftDeletionModel):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	is_accepted = models.BooleanField(default=False)
-	poster_url = CloudinaryField('image')
+	poster_url = models.ImageField(upload_to='images/', blank=True)
 	outside_venue_name = models.CharField(max_length=200, blank=True)
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField()
