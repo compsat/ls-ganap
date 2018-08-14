@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from main_events.views import event_view, cluster_view, host_view, host_type_view, tag_view, venue_view, user_view
+from main_events.views import event_view, event_auth_view, cluster_view, host_view, host_type_view, tag_view, venue_view, user_view
 # import views
 
 urlpatterns = [
@@ -12,10 +12,13 @@ urlpatterns = [
     path('events/between/', event_view.FilterEventsBetweenDates.as_view()),
     path('events/week/<str:date>', event_view.FilterEventByWeek.as_view()),
     path('events/month/<str:date>', event_view.FilterEventByMonth.as_view()),
+    path('events/google_api/<int:pk>/', event_auth_view.create_events, name='create_events'),
     path('event_hosts/', host_view.HostList.as_view()),
     path('event_hosts/<int:pk>/', host_view.HostDetail.as_view()),
+    path('google_auth/', event_auth_view.authorize, name='authorize'),
     path('host_types/', host_type_view.HostTypeList.as_view()),
     path('host_types/<int:pk>/', host_type_view.HostTypeDetail.as_view()),
+    path('oauth2callback/', event_auth_view.oauth2callback, name='oauth2callback'),
     path('tags/', tag_view.TagList.as_view()),
     path('tags/<int:pk>/', tag_view.TagDetail.as_view()),
     path('clusters/', cluster_view.ClusterList.as_view()),

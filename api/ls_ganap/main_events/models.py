@@ -95,8 +95,6 @@ class Tag(models.Model):
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
 	host = models.ForeignKey(EventHost, related_name="hosted_events", on_delete=models.CASCADE)
-	# start_time = models.DateTimeField()
-	# end_time = models.DateTimeField()
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
