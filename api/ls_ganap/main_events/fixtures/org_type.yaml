@@ -1,0 +1,11 @@
+- model: main_events.orgtype
+  pk: 1
+  fields:
+    name: Cluster of Organizations
+    abbreviation: COA
+- model: main_events.orgtype
+  pk: 2
+  fields:
+    name: Confederration of Publications
+    abbreviation: COP
+

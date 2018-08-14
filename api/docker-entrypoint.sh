@@ -12,6 +12,8 @@ python3 ls_ganap/manage.py migrate
 echo "Run Fixtures"
 python3 ls_ganap/manage.py loaddata clusters.yaml
 python3 ls_ganap/manage.py loaddata tags.yaml
+python3 ls_ganap/manage.py loaddata org_type.yaml
+python3 ls_ganap/manage.py loaddata event_hosts.yaml
 python3 ls_ganap/manage.py loaddata test.yaml
 
 # Create superuser

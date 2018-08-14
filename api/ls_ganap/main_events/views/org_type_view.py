@@ -1,5 +1,5 @@
-from main_events.models import HostType
-from main_events.serializers import host_type_serializer
+from main_events.models import OrgType
+from main_events.serializers import org_type_serializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
@@ -9,24 +9,24 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class HostTypeList(generics.ListAPIView):
+class OrgTypeList(generics.ListAPIView):
     """
-    get: List all the host types.
+    get: List all the org types.
     """
-    queryset = HostType.objects.all()
-    serializer_class = host_type_serializer.HostTypeSerializer
+    queryset = OrgType.objects.all()
+    serializer_class = org_type_serializer.OrgTypeSerializer
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
 
     def list_items(self, request):
         queryset = self.get_queryset()
-        serializer = HostTypeSerializer(queryset, many=True)
+        serializer = OrgTypeSerializer(queryset, many=True)
         return Response(serializer.data)
 
-class HostTypeDetail(generics.RetrieveAPIView):
+class OrgTypeDetail(generics.RetrieveAPIView):
     """
-    get: Returns a host type given its id along with the hosts under it.
+    get: Returns a org type given its id along with the orgs under it.
     """
-    queryset = HostType.objects.all()
-    serializer_class = host_type_serializer.HostTypeDetailSerializer
+    queryset = OrgType.objects.all()
+    serializer_class = org_type_serializer.OrgTypeDetailSerializer
     pagination_class = ObjectPageNumberPagination

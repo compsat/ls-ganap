@@ -1,0 +1,4 @@
+- model: main_events.eventhost
+  pk: 1
+  fields:
+    name: Loyola Schools Hosts
