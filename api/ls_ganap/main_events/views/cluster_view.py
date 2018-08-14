@@ -14,17 +14,12 @@ class ClusterList(APIView):
     get: List all the clusters.
     post: Create a new cluster.
     """
+    serializer_class = ClusterSerializer
+
     def get(self, request, format=None):
         hosts = Cluster.objects.all()
         serializer = ClusterSerializer(hosts, many=True)
         return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = ClusterSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ClusterDetail(generics.RetrieveAPIView):
     """
