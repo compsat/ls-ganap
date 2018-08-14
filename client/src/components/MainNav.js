@@ -20,9 +20,8 @@ const Nav = FullWidthContainer.extend`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 5em;
+  height: ${props => props.theme.sizes.navHeight};
   background-color: #F9F9F9;
-
   font-family: 'Quatro', sans-serif;
   text-transform: uppercase;
 
@@ -35,7 +34,7 @@ const NavList = styled.ul`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   height: 100%;
-  margin: 0; 
+  margin: 0;
   padding: 0;
 
   ${media.mdScreen`
