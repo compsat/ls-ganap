@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cluster, EventHost, Event, EventLogistic, Tag, Venue
+from .models import *
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 from .models import User
@@ -25,8 +25,8 @@ class UserAdmin(DjangoUserAdmin):
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
 
-class HostInline(admin.TabularInline):
-    model = EventHost
+class OrgInline(admin.TabularInline):
+    model = OrgHost
     fields = ('name', 'accredited')
 
 class EventInline(admin.TabularInline):
@@ -45,11 +45,10 @@ class EventVenueInline(admin.TabularInline):
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags',)
 	# list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
-	list_display = ('name', 'host', 'is_accepted')
+	list_display = ('name', 'is_accepted')
 	# list_filter = ('host__name', 'is_accepted', 'start_time')
-	list_filter = ('host__name', 'is_accepted')
-	autocomplete_fields = ['host']
-	fields = ('deleted_at', 'name', 'host', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags')
+	list_filter = ('is_accepted',)
+	fields = ('deleted_at', 'name', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags')
 	readonly_fields = ('deleted_at',)
 	actions = ['accept_events']
 	inlines = [EventLogisticInline]
@@ -65,13 +64,12 @@ class EventAdmin(admin.ModelAdmin):
 	accept_events.short_description = "Mark events as accepted"
 
 class EventHostAdmin(admin.ModelAdmin):
-	list_display = ('name', 'host_type', 'cluster')	
-	list_filter = ('host_type__type_name', 'cluster__name')
+	list_display = ('name',)	
 	search_fields = ['name']
 
 class ClusterAdmin(admin.ModelAdmin):
 	inlines = [
-		HostInline,
+		OrgInline,
 	]
 
 class TagAdmin(admin.ModelAdmin):

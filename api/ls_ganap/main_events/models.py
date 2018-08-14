@@ -51,10 +51,9 @@ class User(AbstractUser):
 
     objects = UserManager()
 
-
-
-class HostType(models.Model):
-	type_name = models.CharField(max_length=20)
+class OrgType(models.Model):
+	name = models.CharField(max_length=30)
+	abbreviation = models.CharField(max_length=3)
 
 	def __str__(self):
 		return self.type_name
@@ -69,16 +68,48 @@ class Cluster(models.Model):
 
 class EventHost(models.Model):
 	name = models.CharField(max_length=200)
-	host_type = models.ForeignKey(HostType, related_name='host_list', on_delete=models.DO_NOTHING)
-	cluster = models.ForeignKey(Cluster, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
+
+	def __str__(self):
+		return self.name
+
+class SangguHost(models.Model):	
+	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=10, blank=True)
 	description = models.TextField()
 	accredited = models.BooleanField(default=False)
 	color = models.CharField(max_length=20)
 	logo_url = models.ImageField(upload_to='images/', blank=True)
+	event_host = models.ForeignKey(EventHost, blank=True, related_name='sanggu_list', on_delete=models.DO_NOTHING)
 
 	def __str__(self):
 		return self.name
+
+class OfficeHost(models.Model):
+	name = models.CharField(max_length=200)
+	abbreviation = models.CharField(max_length=10, blank=True)
+	description = models.TextField()
+	accredited = models.BooleanField(default=False)
+	color = models.CharField(max_length=20)
+	logo_url = models.ImageField(upload_to='images/', blank=True)
+	event_host = models.ForeignKey(EventHost, blank=True, related_name='office_list', on_delete=models.DO_NOTHING)
+
+	def __str__(self):
+		return self.name
+
+class OrgHost(models.Model):
+	name = models.CharField(max_length=200)
+	abbreviation = models.CharField(max_length=10, blank=True)
+	description = models.TextField()
+	accredited = models.BooleanField(default=False)
+	color = models.CharField(max_length=20)
+	logo_url = models.ImageField(upload_to='images/', blank=True)
+	event_host = models.ForeignKey(EventHost, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
+	org_type = models.ForeignKey(OrgType, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
+	cluster = models.ForeignKey(Cluster, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
+
+	def __str__(self):
+		return self.name
+
 
 class Venue(SoftDeletionModel):
 	name = models.CharField(max_length=200)
@@ -94,7 +125,6 @@ class Tag(models.Model):
 
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
-	host = models.ForeignKey(EventHost, related_name="hosted_events", on_delete=models.CASCADE)
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
@@ -104,6 +134,9 @@ class Event(SoftDeletionModel):
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField()
 	tags = models.ManyToManyField(Tag, related_name="event_list")
+	sanggu_hosts = models.ManyToManyField(SangguHost, blank=True, related_name='event_list')
+	office_hosts = models.ManyToManyField(OfficeHost, blank=True, related_name='event_list')
+	org_hosts = models.ManyToManyField(OrgHost, blank=True, related_name='event_list')
 
 	def __str__(self):
 		return self.name
