@@ -57,12 +57,16 @@ def create_events(request, pk):
 	service = build('calendar', 'v3', credentials=credentials)
 	# print(service)
 
+	first_date = None
+	auth_user = None
+
 	try:
 		event = Event.objects.get(pk=pk)
 		event_logistics = EventLogistic.objects.filter(event=pk)
-		auth_user = None
 		for logistic in event_logistics:
 			start_time = datetime.combine(logistic.date, logistic.start_time)
+			if first_date is None:
+				first_date = logistic.date
 			end_time = datetime.combine(logistic.date, logistic.end_time)
 			EVENT = {
 				"summary": event.name,
@@ -83,7 +87,7 @@ def create_events(request, pk):
 
 	request.session['pk'] = None
 	if auth_user:
-		return redirect('https://calendar.google.com/calendar/?authuser=' + auth_user)
+		return redirect('https://calendar.google.com/calendar/r/day/{}/{}/{}?authuser={}'.format(first_date.year, first_date.month, first_date.day, auth_user))
 	else:
 		return redirect('https://calendar.google.com/calendar/')
 
