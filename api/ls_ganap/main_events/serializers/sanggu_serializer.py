@@ -15,7 +15,7 @@ class SangguSerializer(serializers.ModelSerializer):
                  'event_host']
 
 class SangguDetailSerializer(serializers.ModelSerializer):
-    hosted_events = event_serializer.EventSerializer(many=True, read_only=True)
+    event_list = event_serializer.EventSerializer(many=True, read_only=True)
 
     class Meta:
         model = SangguHost
@@ -27,4 +27,4 @@ class SangguDetailSerializer(serializers.ModelSerializer):
                  'color',
                  'logo_url',
                  'event_host',
-                 'hosted_events']
+                 'event_list']

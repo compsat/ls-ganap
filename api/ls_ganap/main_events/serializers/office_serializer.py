@@ -15,7 +15,7 @@ class OfficeSerializer(serializers.ModelSerializer):
                  'event_host']
 
 class OfficeDetailSerializer(serializers.ModelSerializer):
-    hosted_events = event_serializer.EventSerializer(many=True, read_only=True)
+    event_list = event_serializer.EventSerializer(many=True, read_only=True)
 
     class Meta:
         model = OfficeHost
@@ -27,4 +27,4 @@ class OfficeDetailSerializer(serializers.ModelSerializer):
                  'color',
                  'logo_url',
                  'event_host',
-                 'hosted_events']
+                 'event_list']
