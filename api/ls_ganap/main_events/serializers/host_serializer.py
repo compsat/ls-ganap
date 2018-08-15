@@ -9,14 +9,14 @@ class HostSerializer(serializers.ModelSerializer):
                  'name']
 
 class HostDetailSerializer(serializers.ModelSerializer):
-    sanggu_hosts = sanggu_serializer.SangguSerializer(many=True, read_only=True)
-    office_hosts = office_serializer.OfficeSerializer(many=True, read_only=True)
-    org_hosts = org_serializer.OrgSerializer(many=True, read_only=True)
+    sanggu_list = sanggu_serializer.SangguSerializer(many=True, read_only=True)
+    office_list = office_serializer.OfficeSerializer(many=True, read_only=True)
+    org_list = org_serializer.OrgSerializer(many=True, read_only=True)
 
     class Meta:
         model = EventHost
         fields = ['id',
                  'name',
-                 'sanggu_hosts',
-                 'office_hosts',
-                 'org_hosts']
+                 'sanggu_list',
+                 'office_list',
+                 'org_list']

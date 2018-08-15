@@ -17,7 +17,7 @@ class OrgSerializer(serializers.ModelSerializer):
                  'cluster']
 
 class OrgDetailSerializer(serializers.ModelSerializer):
-    hosted_events = event_serializer.EventSerializer(many=True, read_only=True)
+    event_list = event_serializer.EventSerializer(many=True, read_only=True)
 
     class Meta:
         model = OrgHost
@@ -31,4 +31,4 @@ class OrgDetailSerializer(serializers.ModelSerializer):
                  'event_host',
                  'org_type',
                  'cluster',
-                 'hosted_events']
+                 'event_list']
