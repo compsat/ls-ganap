@@ -56,7 +56,7 @@ class OrgType(models.Model):
 	abbreviation = models.CharField(max_length=3)
 
 	def __str__(self):
-		return self.type_name
+		return self.name
 
 class Cluster(models.Model):
 	name = models.CharField(max_length=200)
