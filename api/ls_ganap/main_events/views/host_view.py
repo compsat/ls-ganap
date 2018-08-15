@@ -1,5 +1,5 @@
 from main_events.models import EventHost
-from main_events.serializers import HostSerializer, HostDetailSerializer
+from main_events.serializers.host_serializer import HostSerializer, HostDetailSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
