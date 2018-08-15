@@ -24,7 +24,7 @@ class EventSerializer(serializers.ModelSerializer):
     sanggu_hosts = serializers.PrimaryKeyRelatedField(queryset=SangguHost.objects.all(), many=True)
     office_hosts = serializers.PrimaryKeyRelatedField(queryset=OfficeHost.objects.all(), many=True)
     org_hosts = serializers.PrimaryKeyRelatedField(queryset=OrgHost.objects.all(), many=True)
-    event_logistics = EventLogisticSerializer(many=True)
+    event_logistics = EventLogisticSerializer(many=True, read_only=True)
 
     class Meta:
         model = Event
