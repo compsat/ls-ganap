@@ -34,3 +34,17 @@ class EventSerializer(serializers.ModelSerializer):
                 'event_url',
                 'tags',
                 'event_logistics']
+
+class CreateEventSerializer(serializers.ModelSerializer):
+    tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
+
+    class Meta:
+        model = Event
+        fields = ['id', 
+                'host',
+                'name', 
+                'description', 
+                'poster_url', 
+                'outside_venue_name',
+                'event_url',
+                'tags']

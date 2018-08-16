@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_swagger',
-    'rest_framework_jwt',  
+    'rest_framework_jwt', 
+    'cloudinary_storage', 
     'cloudinary', 
 ]
 
@@ -62,7 +63,7 @@ REST_FRAMEWORK = {
     ],
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ],
 
@@ -195,15 +196,32 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
-cloudinary.config( 
-  cloud_name = "dj3kdihst", 
-  api_key = "754783492635919", 
-  api_secret = "VpXxn90G434iwhcjxrHMMRwbPMY" 
-)
+# cloudinary.config( 
+#   cloud_name = "dj3kdihst", 
+#   api_key = "754783492635919", 
+#   api_secret = "VpXxn90G434iwhcjxrHMMRwbPMY" 
+# )
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('CLOUD_API_KEY'),
+    'API_SECRET': config('CLOUD_API_SECRET'),
+
+}
+
+
+
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+
+
 
