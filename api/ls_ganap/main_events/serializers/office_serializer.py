@@ -9,7 +9,6 @@ class OfficeSerializer(serializers.ModelSerializer):
                  'name',
                  'abbreviation',
                  'description',
-                 'accredited',
                  'color',
                  'logo_url',
                  'event_host']
@@ -23,7 +22,6 @@ class OfficeDetailSerializer(serializers.ModelSerializer):
                  'name',
                  'abbreviation',
                  'description',
-                 'accredited',
                  'color',
                  'logo_url',
                  'event_host',

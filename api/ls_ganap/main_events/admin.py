@@ -27,7 +27,7 @@ class UserAdmin(DjangoUserAdmin):
 
 class OrgInline(admin.TabularInline):
     model = OrgHost
-    fields = ('name', 'accredited')
+    fields = ('name',)
 
 class EventInline(admin.TabularInline):
     model = Event.tags.through
