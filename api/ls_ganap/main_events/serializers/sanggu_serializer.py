@@ -9,7 +9,6 @@ class SangguSerializer(serializers.ModelSerializer):
                  'name',
                  'abbreviation',
                  'description',
-                 'accredited',
                  'color',
                  'logo_url',
                  'event_host']
@@ -23,7 +22,6 @@ class SangguDetailSerializer(serializers.ModelSerializer):
                  'name',
                  'abbreviation',
                  'description',
-                 'accredited',
                  'color',
                  'logo_url',
                  'event_host',
