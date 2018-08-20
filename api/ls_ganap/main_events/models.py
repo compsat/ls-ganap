@@ -67,7 +67,7 @@ class Cluster(models.Model):
 		return self.name
 
 class EventHost(models.Model):
-	user_id = models.OneToOneField(User, on_delete=models.CASCADE)
+	# user_id = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 
 	def __str__(self):
