@@ -48,7 +48,7 @@ class CreateEventSerializer(serializers.ModelSerializer):
                 'poster_url', 
                 'outside_venue_name',
                 'event_url',
-                'tags']
+                'tags',
                 'sanggu_hosts',
                 'office_hosts',
                 'org_hosts',
