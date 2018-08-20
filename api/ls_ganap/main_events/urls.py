@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from main_events.views import event_view, event_auth_view, cluster_view, host_view, host_type_view, tag_view, venue_view, user_view
+from main_events.views import event_view, event_auth_view, cluster_view, host_view, org_type_view, tag_view, venue_view, user_view, org_view, sanggu_view, office_view
 # import views
 
 urlpatterns = [
@@ -16,9 +16,15 @@ urlpatterns = [
     path('event_hosts/', host_view.HostList.as_view()),
     path('event_hosts/<int:pk>/', host_view.HostDetail.as_view()),
     path('google_auth/', event_auth_view.authorize, name='authorize'),
-    path('host_types/', host_type_view.HostTypeList.as_view()),
-    path('host_types/<int:pk>/', host_type_view.HostTypeDetail.as_view()),
     path('oauth2callback/', event_auth_view.oauth2callback, name='oauth2callback'),
+    path('orgs/', org_view.OrgList.as_view()),
+    path('orgs/<int:pk>/', org_view.OrgDetail.as_view()),
+    path('offices/', office_view.OfficeList.as_view()),
+    path('offices/<int:pk>/', office_view.OfficeDetail.as_view()),
+    path('sanggu/', sanggu_view.SangguList.as_view()),
+    path('sanggu/<int:pk>', sanggu_view.SangguDetail.as_view()),
+    path('org_types/', org_type_view.OrgTypeList.as_view()),
+    path('org_types/<int:pk>/', org_type_view.OrgTypeDetail.as_view()),
     path('tags/', tag_view.TagList.as_view()),
     path('tags/<int:pk>/', tag_view.TagDetail.as_view()),
     path('clusters/', cluster_view.ClusterList.as_view()),

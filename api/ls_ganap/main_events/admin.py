@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cluster, EventHost, Event, EventLogistic, Tag, Venue
+from .models import *
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 from .models import User
@@ -25,10 +25,18 @@ class UserAdmin(DjangoUserAdmin):
     search_fields = ('email', 'first_name', 'last_name')
     ordering = ('email',)
 
-class HostInline(admin.TabularInline):
-    model = EventHost
-    fields = ('name', 'accredited')
+class SangguInline(admin.TabularInline):
+	model = SangguHost
+	fields = ('name', 'abbreviation',)
 
+class OfficeInline(admin.TabularInline):
+	model = OfficeHost
+	fields = ('name', 'abbreviation',)
+
+class OrgInline(admin.TabularInline):
+    model = OrgHost
+    fields = ('name', 'abbreviation', 'event_host', 'org_type', 'cluster')
+	
 class EventInline(admin.TabularInline):
     model = Event.tags.through
 
@@ -43,16 +51,17 @@ class EventVenueInline(admin.TabularInline):
 		return obj.event.host
 
 class EventAdmin(admin.ModelAdmin):
-	filter_horizontal = ('tags',)
+	filter_horizontal = ('tags', 'org_hosts', 'office_hosts', 'sanggu_hosts')
 	# list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
-	list_display = ('name', 'host', 'is_accepted')
+	list_display = ('name', 'is_accepted')
 	# list_filter = ('host__name', 'is_accepted', 'start_time')
-	list_filter = ('host__name', 'is_accepted')
-	autocomplete_fields = ['host']
-	fields = ('deleted_at', 'name', 'host', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags')
+	list_filter = ('is_accepted',)
+	fields = ('deleted_at', 'name', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
 	readonly_fields = ('deleted_at',)
 	actions = ['accept_events']
-	inlines = [EventLogisticInline]
+	inlines = [
+		EventLogisticInline,
+	]
 
 	def accept_events(self, request, queryset):
 		events_updated = queryset.update(is_accepted=True)
@@ -65,13 +74,36 @@ class EventAdmin(admin.ModelAdmin):
 	accept_events.short_description = "Mark events as accepted"
 
 class EventHostAdmin(admin.ModelAdmin):
-	list_display = ('name', 'host_type', 'cluster')	
-	list_filter = ('host_type__type_name', 'cluster__name')
+	list_display = ('name',)	
 	search_fields = ['name']
+	inlines = [
+		SangguInline,
+		OfficeInline,
+		OrgInline,
+	]
+
+class SangguHostAdmin(admin.ModelAdmin):
+	list_display = ('name', 'abbreviation', 'event_host')
+	list_filter = ('event_host',)
+	search_fields = ['name', 'abbreviation']
+	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
+
+class OfficeHostAdmin(admin.ModelAdmin):
+	list_display = ('name', 'abbreviation', 'event_host')
+	list_filter = ('event_host',)
+	search_fields = ['name', 'abbreviation']
+	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
+
+class OrgHostAdmin(admin.ModelAdmin):
+	list_display = ('name', 'abbreviation', 'event_host', 'org_type', 'cluster')
+	list_filter = ('event_host', 'org_type', 'cluster')
+	search_fields = ['name', 'abbreviation']
+	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host', 'org_type', 'cluster')
+
 
 class ClusterAdmin(admin.ModelAdmin):
 	inlines = [
-		HostInline,
+		OrgInline,
 	]
 
 class TagAdmin(admin.ModelAdmin):
@@ -84,9 +116,18 @@ class VenueAdmin(admin.ModelAdmin):
 		EventVenueInline,
 	]
 
+class OrgTypeAdmin(admin.ModelAdmin):
+	inlines = [
+		OrgInline,
+	]
+
 admin.site.register(Cluster, ClusterAdmin)
 admin.site.register(EventHost, EventHostAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Venue, VenueAdmin)
+admin.site.register(SangguHost, SangguHostAdmin)
+admin.site.register(OfficeHost, OfficeHostAdmin)
+admin.site.register(OrgHost, OrgHostAdmin)
+admin.site.register(OrgType, OrgTypeAdmin)
 # admin.site.register(Venue)

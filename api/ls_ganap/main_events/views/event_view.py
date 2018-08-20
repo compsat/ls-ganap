@@ -154,7 +154,7 @@ class EventList(APIView):
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
-    search_fields = ['name', 'venue__name', 'host__name']
+    search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
     authentication_classes = [MyJWTAuthentication,]
 
     schema = AutoSchema(manual_fields=[
