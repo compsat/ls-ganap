@@ -40,12 +40,34 @@ class OrgInline(admin.TabularInline):
 class EventInline(admin.TabularInline):
     model = Event.tags.through
 
+class EventForSangguInline(admin.TabularInline):
+    model = Event.sanggu_hosts.through
+
+class EventForOrgInline(admin.TabularInline):
+	model = Event.org_hosts.through
+
+	# readonly_fields = ('is_accepted', 'event_logistics',)
+
+	# def is_accepted(self, obj):
+	# 	print(obj.is_accepted)
+	# 	return obj.event_list.get(pk=1).is_accepted
+	# is_accepted.short_description = 'is_accepted'
+
+	# def event_logistics(self, obj):
+	# 	print(obj.event_logistics.get(pk=1).date)
+	# 	return obj.event_list.get(pk=1).event_logistics.get(pk=1).date
+	# event_logistics.short_description = 'event_logistics'
+
+class EventForOfficeInline(admin.TabularInline):
+    model = Event.office_hosts.through
+
 class EventLogisticInline(admin.TabularInline):
     model = EventLogistic
 
 class EventVenueInline(admin.TabularInline):
 	model = EventLogistic
 	readonly_fields = ('event', 'event_host', 'start_time', 'end_time')
+	exclude = ('outside_venue_name',)
 
 	def event_host(self, obj):
 		return obj.event.host
@@ -56,12 +78,10 @@ class EventAdmin(admin.ModelAdmin):
 	list_display = ('name', 'is_accepted')
 	# list_filter = ('host__name', 'is_accepted', 'start_time')
 	list_filter = ('is_accepted',)
-	fields = ('deleted_at', 'name', 'description', 'is_accepted', 'poster_url', 'outside_venue_name', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
+	fields = ('deleted_at', 'name', 'description', 'is_accepted', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
 	readonly_fields = ('deleted_at',)
 	actions = ['accept_events']
-	inlines = [
-		EventLogisticInline,
-	]
+	inlines = [EventLogisticInline,]
 
 	def accept_events(self, request, queryset):
 		events_updated = queryset.update(is_accepted=True)
@@ -87,18 +107,21 @@ class SangguHostAdmin(admin.ModelAdmin):
 	list_filter = ('event_host',)
 	search_fields = ['name', 'abbreviation']
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
+	inlines = [EventForSangguInline]
 
 class OfficeHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation', 'event_host')
 	list_filter = ('event_host',)
 	search_fields = ['name', 'abbreviation']
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
+	inlines = [EventForOfficeInline]
 
 class OrgHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation', 'event_host', 'org_type', 'cluster')
 	list_filter = ('event_host', 'org_type', 'cluster')
 	search_fields = ['name', 'abbreviation']
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host', 'org_type', 'cluster')
+	inlines = [EventForOrgInline]
 
 
 class ClusterAdmin(admin.ModelAdmin):
