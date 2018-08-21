@@ -73,6 +73,7 @@ class EventHost(models.Model):
 		return self.name
 
 class SangguHost(models.Model):	
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=10, blank=True)
 	description = models.TextField()
