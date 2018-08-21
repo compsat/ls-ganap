@@ -7,7 +7,8 @@ class EventLogisticSerializer(serializers.ModelSerializer):
         fields = ['date',
                 'start_time', 
                 'end_time',
-                'venue']
+                'venue',
+                'outside_venue_name']
     # def 
 
 class EventLogisticSaveSerializer(serializers.ModelSerializer):
@@ -17,7 +18,8 @@ class EventLogisticSaveSerializer(serializers.ModelSerializer):
                 'date',
                 'start_time', 
                 'end_time',
-                'venue']
+                'venue',
+                'outside_venue_name']
 
 class EventSerializer(serializers.ModelSerializer):
     tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
@@ -32,7 +34,6 @@ class EventSerializer(serializers.ModelSerializer):
                 'org_hosts', 
                 'description', 
                 'poster_url', 
-                'outside_venue_name',
                 'event_url',
                 'tags',
                 'event_logistics']
@@ -49,6 +50,5 @@ class CreateEventSerializer(serializers.ModelSerializer):
                 'org_hosts',
                 'description', 
                 'poster_url', 
-                'outside_venue_name',
                 'event_url',
                 'tags']
