@@ -27,7 +27,7 @@
   fields:
     user: 23
     name: 'Ateneo Statistics Circle'
-    abbreviation: 'AStat'
+    abbreviation: 'A-Stat'
     description: 'The Ateneo Statistics Circle is the premier research organization of the Ateneo. We utilize statistical tools and methods in our pursuit of raising a community that is critically informed of social issues. In facing these issues, we aspire to spark discourse that eventually leads them to initiate action geared towards nation-building. We aim to properly equip our stakeholders with statistical knowledge to aid them in their decision-making process.We expose our members to the diverse use of Statistics. Our Research and Consultancy conducts studies within and outside the academe. We also have projects for both members and non-members—statistical training and tutorials, competitions, fundraisers, and more. However, If you think you are not an expert in statistics, that’s perfectly fine! Our pursuit does not start and end with it. If you are interested in what we do, or if you see statistics beyond the data crunching, this is the place to be! We guarantee your 100% STATisfaction.'
     color: '#0000EE'
     logo_url: ../astat
@@ -147,7 +147,7 @@
   fields:
     user: 16
     name: 'Ateneo Lex'
-    abbreviation: 'ALEX'
+    abbreviation: 'Lex'
     description: 'Ateneo Lex is the university’s Premier Business-Law organization, and is the exclusive home organization of Legal Management majors. To date, Ateneo Lex remains the only organization in the university oriented towards the various fields of law— with particular emphasis on its applications in the business world; business ethics and the study of ethical standards of business behavior; and support for the university’s Legal Management majors, both in academic and post-graduate endeavors. Ateneo Lex, imbued with the values of excellence, social responsibility, and transformational leadership, envisions a community of competent and dynamic members sufficiently equipped with the fundamental knowledge of business and law grounded on the principles of business ethics, initiating positive contributions towards a better society. Ateneo Lex aims to serve as a venue for the members’ personal and professional growth and development by empowering them through leadership and involvement in dynamic projects grounded in the organization’s core competencies of Business-Law and Business Ethics.'
     color: '#0000EE'
     logo_url: ../alex
@@ -183,7 +183,7 @@
   fields:
     user: 45
     name: 'Ateneo Management Economics Organization'
-    abbreviation: 'MECO'
+    abbreviation: 'MEcO'
     description: 'The Ateneo Management Economics Organization is the premiere business investment organization in the Ateneo. For more than two decades, MEcO has stood by its core competencies of financial literacy and impact investing. Moreover, MEcO is a non-stock, non-profit student duly recognized by the Junior Confederation of Finance Associations – Philippines (JCFAP). It aims to promote the practice of making strategic and responsible financial and economic investments to contribute to the growth of its members as competent professionals and compassionate leaders geared towards the economic improvement of Philippine society. MEcO has had several investment-based projects, the National Student Investors Convention, which discusses financial issues and concerns to students all over the country. MEcO also holds community projects that empower many more outside the Ateneo with the power of financial literacy. These beneficiaries learn the role of money in building their future. Because MEcO believes that financial literacy is a skill that everyone should possess, it is open to all students of the Ateneo. MEcO believes in the empowerment of the community both on a professional level and in the familiarity of a family. Above all else, MEcO presents the opportunity for a fun learning experience in the fields of finance, business, and leadership.'
     color: '#0000EE'
     logo_url: ../meco
@@ -411,7 +411,7 @@
   fields:
     user: 26
     name: 'Ateneo Blue Repertory'
-    abbreviation: 'BlueREP'
+    abbreviation: 'blueREP'
     description: 'A Founded in 1991, with the opening of its first production, “Pippin,” Ateneo Blue Repertory or blueREP has grown to become the premier collegiate musical theater organization in the Philippines. As the only musical theater group of the Ateneo de Manila University, the organization has been staging high quality productions that foster artistic growth and provide multiple theater management opportunities for both members and non-members. Over the years, the group has frequently worked with veterans from professional theater companies such as Repertory Philippines, Atlantis Productions, 9Works Theatrical, and Trumpets, and many of its alumni have entered and found success in the local theater scene.   As an organization dedicated to promoting artistic and managerial excellence in theater, Ateneo Blue Repertory strives to innovate Philippine theater by continuously proving the craft is a powerful avenue for discussion and change. With the mantra, “Be anything, be blueREP,” it serves as a home for lovers and practitioners of musical theater. As the organization moves into its 25th year, its Silver Jubilee, Ateneo Blue Repertory invites old and new members alike to build upon the group’s foundations and past triumphs to better serve the Philippine community.'
     color: '#0000EE'
     logo_url: ../bluerep
