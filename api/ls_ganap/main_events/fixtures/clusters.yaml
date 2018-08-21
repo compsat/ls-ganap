@@ -43,3 +43,8 @@
   fields:
     name: Science & Technology Cluster
     description: The Science and Technology Cluster is more than just a community of nerds hanging out in the laboratories, coding in laptops, crunching numbers in calculators, among other things. In fact, that is one stereotype the cluster tries to transform. As students driven by passion for science and technology, each organization and its members aim to make to make an impact in society through promoting excellence and innovation in our own respective scientific disciplines. The eight organizations that comprise of STC and their members form a united community, driven by the scientific spirit of curiosity and the value of Cura Personalis.
+- model: main_events.cluster
+  pk: 10
+  fields:
+    name: Council of Organizations of the Ateneo
+    description: All clusters #to fix

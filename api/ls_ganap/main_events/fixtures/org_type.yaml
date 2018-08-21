@@ -1,7 +1,7 @@
 - model: main_events.orgtype
   pk: 1
   fields:
-    name: Cluster of Organizations
+    name: Council of Organizations of the Ateneo
     abbreviation: COA
 - model: main_events.orgtype
   pk: 2
