@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from main_events.models import Event, EventLogistic, Tag, SangguHost, OfficeHost, OrgHost
+from main_events.models import Event, EventLogistic, Tag, SangguHost, OfficeHost, OrgHost, Venue
 
 class EventLogisticSerializer(serializers.ModelSerializer):
     class Meta:
@@ -21,7 +21,7 @@ class EventLogisticSaveSerializer(serializers.ModelSerializer):
 
 class EventSerializer(serializers.ModelSerializer):
     tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
-    event_logistics = EventLogisticSerializer(many=True, read_only=True)
+    event_logistics = EventLogisticSerializer(many=True)
 
     class Meta:
         model = Event
@@ -52,4 +52,3 @@ class CreateEventSerializer(serializers.ModelSerializer):
                 'outside_venue_name',
                 'event_url',
                 'tags']
-                # 'event_logistics']
