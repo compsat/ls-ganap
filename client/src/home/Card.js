@@ -22,9 +22,10 @@ const EventCard = (props) => (
     <MediaCard imgSrc={props.item.poster_url} imgAlt={props.item.photo_alt}>
         <CardTitle>{props.item.name}</CardTitle>
         <CardDetails>
-            <p>{props.item.date}; {props.item.time}</p>
-            <p>{props.item.venue}</p>
-            <p>{props.item.org}</p>
+            <p>{props.item.event_logistics[0].date};  
+                {props.item.event_logistics[0].start_time}-{props.item.event_logistics[0].end_time}</p>
+            <p>{props.item.event_logistics[0].venue}</p>
+            <p>{props.item.host}</p>
         </CardDetails>
     </MediaCard>
 );
