@@ -16,6 +16,8 @@ from main_events.swagger import SimpleFilterBackend
 from main_events.helper_methods import get_dates_between
 from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
+from django.utils import timezone
+from django.db.models import Min, Subquery
 
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from main_events.jwt_authentication import MyJWTAuthentication
@@ -168,7 +170,9 @@ class EventList(APIView):
     ])
 
     def get(self, request, format=None):
-        events = Event.objects.all()
+        events = Event.objects.filter(event_logistics__date__gte=timezone.now()).annotate(date=Min('event_logistics__date')).order_by('date')
+        # for event in events:
+        #     event.event_logistics = event.event_logistics.filter(id__in=logistic_ids)
         query = self.request.GET.get("host_type")
 
         if query:
@@ -184,6 +188,8 @@ class EventList(APIView):
                 events = events.filter(
                     Q(org_hosts__isnull=False)
                 ).distinct()
+
+        # events = events.order_by('event_logistics__date').distinct()
 
         serializer = event_serializer.EventSerializer(events, many=True)
 
