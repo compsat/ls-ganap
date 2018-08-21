@@ -52,7 +52,7 @@ class User(AbstractUser):
     objects = UserManager()
 
 class OrgType(models.Model):
-	name = models.CharField(max_length=30)
+	name = models.CharField(max_length=50)
 	abbreviation = models.CharField(max_length=3)
 
 	def __str__(self):
@@ -73,7 +73,6 @@ class Cluster(models.Model):
 		ordering = ('name',)
 
 class EventHost(models.Model):
-	# user_id = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 
 	def __str__(self):
@@ -111,6 +110,7 @@ class OfficeHost(models.Model):
 		ordering = ('name',)
 
 class OrgHost(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=10, blank=True)
 	description = models.TextField()
