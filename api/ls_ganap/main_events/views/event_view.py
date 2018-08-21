@@ -169,12 +169,21 @@ class EventList(APIView):
 
     def get(self, request, format=None):
         events = Event.objects.all()
-        query = self.request.GET.get("host_type_id")
+        query = self.request.GET.get("host_type")
 
         if query:
-            events = events.filter(
-                Q(host_id__host_type__id__contains=query)
-            ).distinct()
+            if query == 'sanggu':
+                events = events.filter(
+                    Q(sanggu_hosts__isnull=False)
+                ).distinct()
+            elif query == 'office':
+                events = events.filter(
+                    Q(office_hosts__isnull=False)
+                ).distinct()
+            elif query == 'org':
+                events = events.filter(
+                    Q(org_hosts__isnull=False)
+                ).distinct()
 
         serializer = event_serializer.EventSerializer(events, many=True)
 
@@ -208,9 +217,20 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class EventLogisticCreate(APIView):
     """
-    post: Create a detail for one event (start_time, end_time, venue)
+    get: Gets the details of an event given the id.
+    post: Create a detail for one event (start_time, end_time, venue) given the event id.
     """
     serializer_class = event_serializer.EventLogisticSerializer
+    schema = AutoSchema(manual_fields=[
+        coreapi.Field(
+            "id",
+            required=True,
+            location="path",
+            description='Specify the id of an event to create a logistic detail.',
+            schema=coreschema.Integer()
+        ),
+    ])
+
     def get_object(self, pk):
         try:
             return Event.objects.get(pk=pk)
@@ -223,12 +243,8 @@ class EventLogisticCreate(APIView):
         return Response(serializer.data)
 
     def post(self, request, pk, format=None):
-        # event = self.get_object(pk)
-        # print(event)
-        print(pk)
         data = request.data.copy()
         data["event"] = str(pk)
-        print(data)
         serializer = event_serializer.EventLogisticSaveSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
