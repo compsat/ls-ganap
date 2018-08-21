@@ -12,7 +12,6 @@ from rest_framework import status
 class ClusterList(APIView):
     """
     get: List all the clusters.
-    post: Create a new cluster.
     """
     serializer_class = ClusterSerializer
 

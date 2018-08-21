@@ -11,7 +11,7 @@ from rest_framework import status
 
 class OrgTypeList(generics.ListAPIView):
     """
-    get: List all the org types.
+    get: List all the org types (COA and COP).
     """
     queryset = OrgType.objects.all()
     serializer_class = org_type_serializer.OrgTypeSerializer
@@ -25,7 +25,7 @@ class OrgTypeList(generics.ListAPIView):
 
 class OrgTypeDetail(generics.RetrieveAPIView):
     """
-    get: Returns a org type given its id along with the orgs under it.
+    get: Returns a org type (COA and COP) given its id along with the orgs under it.
     """
     queryset = OrgType.objects.all()
     serializer_class = org_type_serializer.OrgTypeDetailSerializer

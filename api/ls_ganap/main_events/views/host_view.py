@@ -11,7 +11,7 @@ from rest_framework import status
 
 class HostList(generics.ListAPIView):
     """
-    get: List all the hosts.
+    get: List all the hosts (LS, GS, HS).
     """
     queryset = EventHost.objects.all()
     serializer_class = HostSerializer
@@ -23,16 +23,10 @@ class HostList(generics.ListAPIView):
         serializer = HostSerializer(queryset, many=True)
         return Response(serializer.data)
 
-class HostDetail(generics.RetrieveUpdateAPIView):
+class HostDetail(generics.RetrieveAPIView):
     """
     get: 
-    Returns a host given its id along with all its events.
-    
-    put:
-    Updates a host given its id.
-
-    patch:
-    Updates a host given its id.
+    Returns a host (LS, GS, HS) given its id along with all its lower-level hosts (Sanggu, Org, Office).
     """
     queryset = EventHost.objects.all()
     serializer_class = HostDetailSerializer
