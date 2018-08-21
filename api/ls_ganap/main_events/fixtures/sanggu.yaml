@@ -1,0 +1,90 @@
+- model: main_events.sangguhost
+  pk: 1
+  fields:
+    user: 55
+    name: Sanggunian ng mga Paaralang Loyola ng Ateneo de Manila
+    abbreviation: Sanggu
+    description: Sanggu
+    color: '#000EE'
+    logo_url: ../ads
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 2
+  fields:
+    user: 56
+    name: Ateneo Comission on Elections
+    abbreviation: COMELEC
+    description: COMELEC
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 3
+  fields:
+    user: 57
+    name: Department of Student Welfare and Services
+    abbreviation: DSWS
+    description: DSWS
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 4
+  fields:
+    user: 58
+    name: JGSOM School Board
+    abbreviation: JGSOM
+    description: JGSOM
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 5
+  fields:
+    user: 59
+    name: Office of the Ombudsman
+    abbreviation: Ombudsman
+    description: Ombudsman
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 6
+  fields:
+    user: 60
+    name: School of Humanitites
+    abbreviation: SOH
+    description: SOH
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 7
+  fields:
+    user: 61
+    name: School of Science and Engineering
+    abbreviation: SOSE
+    description: SOSE
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 8
+  fields:
+    user: 62
+    name: School of Social Sciences
+    abbreviation: SOSS
+    description: SOSS
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 9
+  fields:
+    user: 63
+    name: Student Judicial Court
+    abbreviation: SJC
+    description: SJC
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
