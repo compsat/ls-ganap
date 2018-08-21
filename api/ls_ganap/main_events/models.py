@@ -58,6 +58,9 @@ class OrgType(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		ordering = ('name',)
+
 class Cluster(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField()
@@ -66,12 +69,18 @@ class Cluster(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		ordering = ('name',)
+
 class EventHost(models.Model):
 	# user_id = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.name
+
+	class Meta:
+		ordering = ('name',)
 
 class SangguHost(models.Model):	
 	name = models.CharField(max_length=200)
@@ -84,6 +93,9 @@ class SangguHost(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		ordering = ('name',)
+
 class OfficeHost(models.Model):
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=10, blank=True)
@@ -94,6 +106,9 @@ class OfficeHost(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	class Meta:
+		ordering = ('name',)
 
 class OrgHost(models.Model):
 	name = models.CharField(max_length=200)
@@ -108,18 +123,26 @@ class OrgHost(models.Model):
 	def __str__(self):
 		return self.name
 
+	class Meta:
+		ordering = ('name',)
 
 class Venue(SoftDeletionModel):
 	name = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.name
+
+	class Meta:
+		ordering = ('name',)
 		
 class Tag(models.Model):
 	name = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.name
+
+	class Meta:
+		ordering = ('name',)
 
 class Event(SoftDeletionModel):
 	name = models.CharField(max_length=200)
@@ -138,6 +161,9 @@ class Event(SoftDeletionModel):
 	def __str__(self):
 		return self.name
 
+	# class Meta:
+	# 	ordering = ('event_logistics__date',)
+
 class EventLogistic(models.Model):
 	event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_logistics')
 	date = models.DateField()
@@ -145,3 +171,6 @@ class EventLogistic(models.Model):
 	end_time = models.TimeField()
 	venue = models.ForeignKey(Venue, null=True, blank=True, on_delete=models.SET_NULL)
 	outside_venue_name = models.CharField(max_length=200, blank=True)
+
+	class Meta:
+		ordering = ('date', 'start_time',)
