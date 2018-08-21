@@ -37,7 +37,6 @@
     description: BlueHacks is a two-day hackathon where...
     is_accepted: False
     poster_url: http://bluehacks.compsat.org/static/media/logo-big.3d72fc4b.png
-    outside_venue_name: ""
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [1]
@@ -52,3 +51,4 @@
     start_time: '14:30:00'
     end_time: '18:30:00'
     venue: 1
+    outside_venue_name: ""
