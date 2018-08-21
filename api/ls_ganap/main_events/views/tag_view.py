@@ -12,7 +12,6 @@ from rest_framework import status
 class TagList(generics.ListAPIView):
     """
     get: List all the tags.
-    post: Create a new tag.
     """
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
