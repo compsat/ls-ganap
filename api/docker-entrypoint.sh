@@ -14,6 +14,7 @@ python3 ls_ganap/manage.py loaddata clusters.yaml
 python3 ls_ganap/manage.py loaddata tags.yaml
 python3 ls_ganap/manage.py loaddata org_type.yaml
 python3 ls_ganap/manage.py loaddata event_hosts.yaml
+python3 ls_ganap/manage.py loaddata org_users.yaml
 python3 ls_ganap/manage.py loaddata organizations.yaml
 python3 ls_ganap/manage.py loaddata test.yaml
 
