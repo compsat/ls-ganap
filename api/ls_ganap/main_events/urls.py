@@ -22,7 +22,7 @@ urlpatterns = [
     path('offices/', office_view.OfficeList.as_view()),
     path('offices/<int:pk>/', office_view.OfficeDetail.as_view()),
     path('sanggu/', sanggu_view.SangguList.as_view()),
-    path('sanggu/<int:pk>', sanggu_view.SangguDetail.as_view()),
+    path('sanggu/<int:pk>/', sanggu_view.SangguDetail.as_view()),
     path('org_types/', org_type_view.OrgTypeList.as_view()),
     path('org_types/<int:pk>/', org_type_view.OrgTypeDetail.as_view()),
     path('tags/', tag_view.TagList.as_view()),
