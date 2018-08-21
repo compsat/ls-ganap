@@ -6,6 +6,6 @@
 - model: main_events.orgtype
   pk: 2
   fields:
-    name: Confederration of Publications
+    name: Confederation of Publications
     abbreviation: COP
 
