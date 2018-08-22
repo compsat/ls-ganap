@@ -41,11 +41,10 @@ class MediaCard extends Component {
           role="img"
           aria-label={this.props.imgAlt}
           title={this.props.imgAlt}
-          responsive={this.props.responsive}
           src={this.props.imgSrc}
           portrait={this.props.portrait}
         />
-        <CardTextBox responsive={this.props.responsive}>
+        <CardTextBox>
           {this.props.children}
         </CardTextBox>
       </Card>
