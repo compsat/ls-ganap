@@ -1,6 +1,7 @@
 import pandas as pd
+import numpy as np
 
-data = pd.read_csv('emails.csv')
+data = pd.read_csv('org_emails.csv')
 data1 = pd.read_csv('organizations.csv')
 file = open('org_users.yaml', 'w')
 
@@ -29,7 +30,7 @@ for index, rows in data1.iterrows():
             if (rows[4].lower() == r[1].lower()):
                 user_id = i + 1
 
-        # file.write('    user_id: ' + str(user_id) + '\n')
+        file.write('    user: ' + str(user_id) + '\n')
         file.write("    name: '" + rows[3] + "'\n")
         file.write("    abbreviation: '" + rows[4] + "'\n")
         file.write("    description: '" + rows[8] + "'\n")
@@ -37,4 +38,5 @@ for index, rows in data1.iterrows():
         file.write("    logo_url: ../" + str(rows[4]).lower() + "\n")
         file.write("    event_host: 1" + "\n")
         file.write("    org_type: 1" + "\n")
-        file.write("    cluster: " + str(rows[5]) + "\n")
+        file.write("    cluster: " + str(int(rows[5])) + "\n")
+
