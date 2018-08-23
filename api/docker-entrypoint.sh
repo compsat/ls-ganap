@@ -16,6 +16,7 @@ python3 ls_ganap/manage.py loaddata org_type.yaml
 python3 ls_ganap/manage.py loaddata event_hosts.yaml
 python3 ls_ganap/manage.py loaddata organizations.yaml
 python3 ls_ganap/manage.py loaddata test.yaml
+python3 ls_ganap/manage.py loaddata venues.yaml
 
 # Create superuser
 echo "Create superuser"
