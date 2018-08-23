@@ -3,530 +3,544 @@
   fields:
     name: BEL 103B
 - model: main_events.venue
-  pk: 1
+  pk: 2
   fields:
     name: BEL 103C
 - model: main_events.venue
-  pk: 1
+  pk: 3
   fields:
     name: BEL 205
 - model: main_events.venue
-  pk: 1
+  pk: 4
   fields:
     name: BEL 206
 - model: main_events.venue
-  pk: 1
+  pk: 5
   fields:
     name: BEL 207
 - model: main_events.venue
-  pk: 1
+  pk: 6
   fields:
     name: BEL 208
 - model: main_events.venue
-  pk: 1
+  pk: 7
   fields:
     name: BEL 209
 - model: main_events.venue
-  pk: 1
+  pk: 8
   fields:
     name: BEL 210
 - model: main_events.venue
-  pk: 1
+  pk: 9
   fields:
     name: BEL 211
 - model: main_events.venue
-  pk: 1
+  pk: 10
   fields:
     name: BEL 212
 - model: main_events.venue
-  pk: 1
+  pk: 11
   fields:
     name: BEL 213
 - model: main_events.venue
-  pk: 1
+  pk: 12
   fields:
     name: BEL 306
 - model: main_events.venue
-  pk: 1
+  pk: 13
   fields:
     name: BEL 307
 - model: main_events.venue
-  pk: 1
+  pk: 14
   fields:
     name: BEL 308
 - model: main_events.venue
-  pk: 1
+  pk: 15
   fields:
     name: BEL 309
 - model: main_events.venue
-  pk: 1
+  pk: 16
   fields:
     name: BEL 310
 - model: main_events.venue
-  pk: 1
+  pk: 17
   fields:
     name: BEL 311
 - model: main_events.venue
-  pk: 1
+  pk: 18
   fields:
     name: BEL 312
 - model: main_events.venue
-  pk: 1
+  pk: 19
   fields:
     name: BEL 313
 - model: main_events.venue
-  pk: 1
+  pk: 20
   fields:
     name: B 102
 - model: main_events.venue
-  pk: 1
+  pk: 21
   fields:
     name: B 103
 - model: main_events.venue
-  pk: 1
+  pk: 22
   fields:
     name: B 104
 - model: main_events.venue
-  pk: 1
+  pk: 23
   fields:
     name: B 105
 - model: main_events.venue
-  pk: 1
+  pk: 24
   fields:
     name: B 106
 - model: main_events.venue
-  pk: 1
+  pk: 25
   fields:
     name: B 205
 - model: main_events.venue
-  pk: 1
+  pk: 26
   fields:
     name: B 206
 - model: main_events.venue
-  pk: 1
+  pk: 27
   fields:
     name: B 207
 - model: main_events.venue
-  pk: 1
+  pk: 28
   fields:
     name: B 208
 - model: main_events.venue
-  pk: 1
+  pk: 29
   fields:
     name: B 209
 - model: main_events.venue
-  pk: 1
+  pk: 30
   fields:
     name: B 305
 - model: main_events.venue
-  pk: 1
+  pk: 31
   fields:
     name: B 306
 - model: main_events.venue
-  pk: 1
+  pk: 32
   fields:
     name: B 307
 - model: main_events.venue
-  pk: 1
+  pk: 33
   fields:
     name: B 308
 - model: main_events.venue
-  pk: 1
+  pk: 34
   fields:
     name: B 309
 - model: main_events.venue
-  pk: 1
+  pk: 35
   fields:
     name: C 109
 - model: main_events.venue
-  pk: 1
+  pk: 36
   fields:
     name: C 114
 - model: main_events.venue
-  pk: 1
+  pk: 37
   fields:
     name: Colayco Pavilion
 - model: main_events.venue
-  pk: 1
+  pk: 38
   fields:
     name: Escaler Hall
 - model: main_events.venue
-  pk: 1
+  pk: 39
   fields:
     name: Faber Hall Function Room
 - model: main_events.venue
-  pk: 1
+  pk: 40
   fields:
     name: FH 209
 - model: main_events.venue
-  pk: 1
+  pk: 41
   fields:
     name: FH 302
 - model: main_events.venue
-  pk: 1
+  pk: 42
   fields:
     name: FH 310
 - model: main_events.venue
-  pk: 1
+  pk: 43
   fields:
     name: B 311
 - model: main_events.venue
-  pk: 1
+  pk: 44
   fields:
     name: F 113
 - model: main_events.venue
-  pk: 1
+  pk: 45
   fields:
     name: F 113
 - model: main_events.venue
-  pk: 1
+  pk: 46
   fields:
     name: F 114
 - model: main_events.venue
-  pk: 1
+  pk: 47
   fields:
     name: F 115
 - model: main_events.venue
-  pk: 1
+  pk: 48
   fields:
     name: F 116
 - model: main_events.venue
-  pk: 1
+  pk: 49
   fields:
     name: F 304
 - model: main_events.venue
-  pk: 1
+  pk: 50
   fields:
     name: Faura AVR
 - model: main_events.venue
-  pk: 1
+  pk: 51
   fields:
     name: G 205A
 - model: main_events.venue
-  pk: 1
+  pk: 52
   fields:
     name: G 207
 - model: main_events.venue
-  pk: 1
+  pk: 53
   fields:
     name: G 303
 - model: main_events.venue
-  pk: 1
+  pk: 54
   fields:
     name: G 304
 - model: main_events.venue
-  pk: 1
+  pk: 55
   fields:
     name: G 306
 - model: main_events.venue
-  pk: 1
+  pk: 56
   fields:
     name: G 310
 - model: main_events.venue
-  pk: 1
+  pk: 57
   fields:
     name: G 311
 - model: main_events.venue
-  pk: 1
+  pk: 58
   fields:
     name: G 312
 - model: main_events.venue
-  pk: 1
+  pk: 59
   fields:
     name: SOM 105
 - model: main_events.venue
-  pk: 1
+  pk: 60
   fields:
     name: SOM 106
 - model: main_events.venue
-  pk: 1
+  pk: 61
   fields:
     name: SOM 111
 - model: main_events.venue
-  pk: 1
+  pk: 62
   fields:
     name: SOM 202
 - model: main_events.venue
-  pk: 1
+  pk: 63
   fields:
     name: SOM 203
 - model: main_events.venue
-  pk: 1
+  pk: 64
   fields:
     name: SOM 210
 - model: main_events.venue
-  pk: 1
+  pk: 65
   fields:
     name: SOM 211
 - model: main_events.venue
-  pk: 1
+  pk: 66
   fields:
     name: K 201
 - model: main_events.venue
-  pk: 1
+  pk: 67
   fields:
     name: K 202
 - model: main_events.venue
-  pk: 1
+  pk: 68
   fields:
     name: K 203
 - model: main_events.venue
-  pk: 1
+  pk: 69
   fields:
     name: K 204
 - model: main_events.venue
-  pk: 1
+  pk: 70
   fields:
     name: K 301
 - model: main_events.venue
-  pk: 1
+  pk: 71
   fields:
     name: K 302
 - model: main_events.venue
-  pk: 1
+  pk: 72
   fields:
     name: K 303
 - model: main_events.venue
-  pk: 1
+  pk: 73
   fields:
     name: K 304
 - model: main_events.venue
-  pk: 1
+  pk: 74
   fields:
     name: Leong Hall Auditorium
 - model: main_events.venue
-  pk: 1
+  pk: 75
   fields:
     name: LH 206
 - model: main_events.venue
-  pk: 1
+  pk: 76
   fields:
     name: LH 306
 - model: main_events.venue
-  pk: 1
+  pk: 77
   fields:
     name: LH 407
 - model: main_events.venue
-  pk: 1
+  pk: 78
   fields:
     name: LH 404
 - model: main_events.venue
-  pk: 1
+  pk: 79
   fields:
     name: Leong Hall Roofdeck
 - model: main_events.venue
-  pk: 1
+  pk: 80
   fields:
     name: LS Promenade
 - model: main_events.venue
-  pk: 1
+  pk: 81
   fields:
     name: MVP Roofdeck
 - model: main_events.venue
-  pk: 1
+  pk: 82
   fields:
     name: CTC 102
 - model: main_events.venue
-  pk: 1
+  pk: 83
   fields:
     name: CTC 103
 - model: main_events.venue
-  pk: 1
+  pk: 84
   fields:
     name: CTC 104
 - model: main_events.venue
-  pk: 1
+  pk: 85
   fields:
     name: CTC 105
 - model: main_events.venue
-  pk: 1
+  pk: 86
   fields:
     name: CTC 106
 - model: main_events.venue
-  pk: 1
+  pk: 87
   fields:
     name: CTC 107
 - model: main_events.venue
-  pk: 1
+  pk: 88
   fields:
     name: CTC 115
 - model: main_events.venue
-  pk: 1
+  pk: 89
   fields:
     name: CTC 118
 - model: main_events.venue
-  pk: 1
+  pk: 90
   fields:
     name: CTC 202
 - model: main_events.venue
-  pk: 1
+  pk: 91
   fields:
     name: CTC 203
 - model: main_events.venue
-  pk: 1
+  pk: 92
   fields:
     name: CTC 204
 - model: main_events.venue
-  pk: 1
+  pk: 93
   fields:
     name: CTC 205
 - model: main_events.venue
-  pk: 1
+  pk: 94
   fields:
     name: CTC 206
 - model: main_events.venue
-  pk: 1
+  pk: 95
   fields:
     name: CTC 301
 - model: main_events.venue
-  pk: 1
+  pk: 96
   fields:
     name: CTC 302
 - model: main_events.venue
-  pk: 1
+  pk: 97
   fields:
     name: CTC 303
 - model: main_events.venue
-  pk: 1
+  pk: 98
   fields:
     name: CTC 304
 - model: main_events.venue
-  pk: 1
+  pk: 99
   fields:
     name: CTC 305
 - model: main_events.venue
-  pk: 1
+  pk: 100
   fields:
     name: CTC 306
 - model: main_events.venue
-  pk: 1
+  pk: 101
   fields:
     name: CTC 307
 - model: main_events.venue
-  pk: 1
+  pk: 102
   fields:
     name: CTC 308
 - model: main_events.venue
-  pk: 1
+  pk: 103
   fields:
     name: Doghouse
 - model: main_events.venue
-  pk: 1
+  pk: 104
   fields:
     name: Rizal Mini Theater
 - model: main_events.venue
-  pk: 1
+  pk: 105
   fields:
     name: SEC A 116
 - model: main_events.venue
-  pk: 1
+  pk: 106
   fields:
     name: SEC A 117
 - model: main_events.venue
-  pk: 1
+  pk: 107
   fields:
     name: SEC A 123
 - model: main_events.venue
-  pk: 1
+  pk: 108
   fields:
     name: SEC A 124
 - model: main_events.venue
-  pk: 1
+  pk: 109
   fields:
     name: SEC A 202
 - model: main_events.venue
-  pk: 1
+  pk: 110
   fields:
     name: SEC A 203
 - model: main_events.venue
-  pk: 1
+  pk: 111
   fields:
     name: SEC A 204
 - model: main_events.venue
-  pk: 1
+  pk: 112
   fields:
     name: SEC A 205
 - model: main_events.venue
-  pk: 1
+  pk: 113
   fields:
     name: SEC A 208
 - model: main_events.venue
-  pk: 1
+  pk: 114
   fields:
     name: SEC A 209
 - model: main_events.venue
-  pk: 1
+  pk: 115
   fields:
     name: SEC A 210
 - model: main_events.venue
-  pk: 1
+  pk: 116
   fields:
     name: SEC A 214
 - model: main_events.venue
-  pk: 1
+  pk: 117
   fields:
     name: SEC A 215
 - model: main_events.venue
-  pk: 1
+  pk: 118
   fields:
     name: SEC A Foyer
 - model: main_events.venue
-  pk: 1
+  pk: 119
   fields:
     name: SEC B 201
 - model: main_events.venue
-  pk: 1
+  pk: 120
   fields:
     name: SEC B Foyer
 - model: main_events.venue
-  pk: 1
+  pk: 121
   fields:
     name: SEC C 201
 - model: main_events.venue
-  pk: 1
+  pk: 122
   fields:
     name: SEC C Foyer
 - model: main_events.venue
-  pk: 1
+  pk: 123
   fields:
     name: SS Case Study Room
 - model: main_events.venue
-  pk: 1
+  pk: 124
   fields:
     name: SS 280
 - model: main_events.venue
-  pk: 1
+  pk: 125
   fields:
     name: SS 284
 - model: main_events.venue
-  pk: 1
+  pk: 126
   fields:
     name: SS Conference Rooms 1-2
 - model: main_events.venue
-  pk: 1
+  pk: 127
   fields:
     name: SS Conference Rooms 3-4
 - model: main_events.venue
-  pk: 1
+  pk: 128
   fields:
     name: SS Conference Room 5
 - model: main_events.venue
-  pk: 1
+  pk: 129
   fields:
     name: SS Conference Room 6
 - model: main_events.venue
-  pk: 1
+  pk: 130
   fields:
     name: SS Multi-purpose Area
 - model: main_events.venue
-  pk: 1
+  pk: 131
   fields:
     name: SS Conference Room A
 - model: main_events.venue
-  pk: 1
+  pk: 132
   fields:
     name: SS Conference Room B
 - model: main_events.venue
-  pk: 1
+  pk: 133
   fields:
     name: SS Foyer
+- model: main_events.venue
+  pk: 134
+  fields:
+    name: SEC Field
+- model: main_events.venue
+  pk: 135
+  fields:
+    name: BEL Field
+- model: main_events.venue
+  pk: 136
+  fields:
+    name: LS Covered Courts
+
+
