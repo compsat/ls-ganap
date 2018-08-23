@@ -14,3 +14,19 @@
   pk: 4
   fields:
     name: Advertising
+- model: main_events.tag
+  pk: 5
+  fields:
+    name: Theology
+- model: main_events.tag
+  pk: 6
+  fields:
+    name: Finance
+- model: main_events.tag
+  pk: 7
+  fields:
+    name: Theatre
+- model: main_events.tag
+  pk: 8
+  fields:
+    name: Clearance
