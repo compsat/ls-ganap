@@ -2,46 +2,46 @@
   pk: 55
   fields:
     email: sanggunian.ls@obf.ateneo.edu
-    password: sanggunian.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 - model: main_events.user
   pk: 56
   fields:
     email: comelec.ls@obf.ateneo.edu
-    password: comelec.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 - model: main_events.user
   pk: 57
   fields:
     email: dsws.ls@obf.ateneo.edu
-    password: dsws.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 - model: main_events.user
   pk: 58
   fields:
     email: jgsom.ls@obf.ateneo.edu
-    password: jgsom.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 - model: main_events.user
   pk: 59
   fields:
     email: ombudsman.ls@obf.ateneo.edu
-    password: ombudsman.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 - model: main_events.user
   pk: 60
   fields:
     email: soh.ls@obf.ateneo.edu
-    password: soh.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 - model: main_events.user
   pk: 61
   fields:
     email: sose.ls@obf.ateneo.edu
-    password: sose.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 - model: main_events.user
   pk: 62
   fields:
     email: soss.ls@obf.ateneo.edu
-    password: soss.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 - model: main_events.user
   pk: 63
   fields:
     email: sjc.ls@obf.ateneo.edu
-    password: sjc.ls
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
 
   
