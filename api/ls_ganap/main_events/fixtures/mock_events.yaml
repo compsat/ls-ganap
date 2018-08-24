@@ -208,7 +208,7 @@
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [8]
-    sanggu_hosts: [2]
+    sanggu_hosts: [3]
     office_hosts: []
     org_hosts: []
 - model: main_events.eventlogistic
