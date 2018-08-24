@@ -1,31 +1,31 @@
-- model: main_events.venue
-  pk: 1
-  fields:
-    name: CTC313
-- model: main_events.sangguhost
-  pk: 1
-  fields:
-    name: Sanggunian ng mga Paaralang Loyola ng Ateneo de Manila
-    abbreviation: Sanggu
-    description: Sanggu
-    color: '#000EE'
-    event_host: 1
-- model: main_events.sangguhost
-  pk: 2
-  fields:
-    name: Department of Student Welfare and Services
-    abbreviation: DSWS
-    description: DSWS
-    color: '#000EE'
-    event_host: 1
-- model: main_events.sangguhost
-  pk: 3
-  fields:
-    name: Commission on Elections
-    abbreviation: COMELEC
-    description: COMELEC
-    color: '#000EE'
-    event_host: 1
+# - model: main_events.venue
+#   pk: 1
+#   fields:
+#     name: CTC313
+# - model: main_events.sangguhost
+#   pk: 1
+#   fields:
+#     name: Sanggunian ng mga Paaralang Loyola ng Ateneo de Manila
+#     abbreviation: Sanggu
+#     description: Sanggu
+#     color: '#000EE'
+#     event_host: 1
+# - model: main_events.sangguhost
+#   pk: 2
+#   fields:
+#     name: Department of Student Welfare and Services
+#     abbreviation: DSWS
+#     description: DSWS
+#     color: '#000EE'
+#     event_host: 1
+# - model: main_events.sangguhost
+#   pk: 3
+#   fields:
+#     name: Commission on Elections
+#     abbreviation: COMELEC
+#     description: COMELEC
+#     color: '#000EE'
+#     event_host: 1
 - model: main_events.officehost
   pk: 1
   fields: 
