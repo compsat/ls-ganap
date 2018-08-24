@@ -6,7 +6,7 @@
     name: Blue Hacks
     description: Blue Hacks is a two-day hackathon where...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [1]
@@ -39,7 +39,7 @@
     name: PULP
     description: PULP is a conference by...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [4, 3]
@@ -63,7 +63,7 @@
     name: Film Viewing Sessions
     description: Film Viewing Sessions are...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [1]
@@ -105,7 +105,7 @@
     name: Scholars' Reception
     description: The reception is for...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [3]
@@ -129,7 +129,7 @@
     name: Rent
     description: Rent is a play by blueREP...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [7]
@@ -180,7 +180,7 @@
     name: Medical Check-up
     description: Required...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [2]
@@ -204,7 +204,7 @@
     name: Locker Check-up
     description: Required...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [8]
@@ -228,7 +228,7 @@
     name: Forum on Religion
     description: This forum is on...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [5]
@@ -252,7 +252,7 @@
     name: Job Fair
     description: Job Fair offers...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [1, 2, 3, 4, 6]
@@ -312,7 +312,7 @@
     name: Business Talks
     description: We offer...
     is_accepted: False
-    poster_url: /logo-big.3d72fc4b.png
+    poster_url: /logo-big.3d72fc4b
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [3]
