@@ -41,3 +41,6 @@ docker-compose down
 ```
 
 **NOTE: DO NOT USE CTRL + C**
+```
+git push heroku `git subtree split --prefix api preproduction`:master --force
+```
