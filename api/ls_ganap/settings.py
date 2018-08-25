@@ -28,6 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = [
+    'https://ls-ganap-api.herokuapp.com',
     '0.0.0.0',
     'localhost',
     '192.168.254.115'
