@@ -17,7 +17,7 @@ from main_events.helper_methods import get_dates_between
 from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
 from django.utils import timezone
-from django.db.models import Min, Subquery
+from django.db.models import Min
 
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from main_events.jwt_authentication import MyJWTAuthentication
@@ -77,7 +77,7 @@ class FilterEventByDate(generics.ListAPIView):
         queryset = Event.objects.all()
         
         if date is not None:
-            queryset = queryset.filter(event_logistics__date=date)
+            queryset = queryset.filter(event_logistics__date=date).annotate(date=Min('event_logistics__date')).order_by('date')
 
         return queryset
 
@@ -138,10 +138,10 @@ class FilterEventByMonth(generics.ListAPIView):
             get_month = date_list[0]
             get_year = date_list[1]
 
-        queryset = Event.objects.all()
+        queryset = Event.objects.annotate(date=Min('event_logistics__date'))
 
         if date is not None:
-            queryset = queryset.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year)
+            queryset = queryset.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('date')
 
         return queryset
 
@@ -170,6 +170,8 @@ class EventList(APIView):
     ])
 
     def get(self, request, format=None):
+        pagination_class = ObjectPageNumberPagination
+        paginator = pagination_class()
         events = Event.objects.filter(event_logistics__date__gte=timezone.now()).annotate(date=Min('event_logistics__date')).order_by('date')
         # for event in events:
         #     event.event_logistics = event.event_logistics.filter(id__in=logistic_ids)
@@ -191,9 +193,13 @@ class EventList(APIView):
 
         # events = events.order_by('event_logistics__date').distinct()
 
-        serializer = event_serializer.EventSerializer(events, many=True)
+        page = paginator.paginate_queryset(events, request)
 
-        return Response(serializer.data)
+        serializer = event_serializer.EventSerializer(page, many=True)
+        # serializer = event_serializer.EventSerializer(events, many=True)
+
+        return paginator.get_paginated_response(serializer.data)
+        # return Response(serializer.data)
 
     def post(self, request, format=None):
         serializer = event_serializer.CreateEventSerializer(data=request.data)
