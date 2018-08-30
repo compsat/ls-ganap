@@ -18,7 +18,6 @@ from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
 from django.utils import timezone
 from django.db.models import Min
-
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from main_events.jwt_authentication import MyJWTAuthentication
 
@@ -77,7 +76,7 @@ class FilterEventByDate(generics.ListAPIView):
         queryset = Event.objects.all()
         
         if date is not None:
-            queryset = queryset.filter(event_logistics__date=date).annotate(date=Min('event_logistics__date')).order_by('date')
+            queryset = queryset.filter(is_accepted=True, event_logistics__date=date).annotate(date=Min('event_logistics__date')).order_by('date')
 
         return queryset
 
@@ -141,7 +140,7 @@ class FilterEventByMonth(generics.ListAPIView):
         queryset = Event.objects.annotate(date=Min('event_logistics__date'))
 
         if date is not None:
-            queryset = queryset.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('date')
+            queryset = queryset.filter(is_accepted=True, event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('date')
 
         return queryset
 
@@ -156,7 +155,7 @@ class EventList(APIView):
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
-    search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
+    # search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
     authentication_classes = [MyJWTAuthentication,]
 
     schema = AutoSchema(manual_fields=[
@@ -170,12 +169,14 @@ class EventList(APIView):
     ])
 
     def get(self, request, format=None):
+        # search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
         pagination_class = ObjectPageNumberPagination
         paginator = pagination_class()
-        events = Event.objects.filter(event_logistics__date__gte=timezone.now()).annotate(date=Min('event_logistics__date')).order_by('date')
+        events = Event.objects.filter(is_accepted=True, event_logistics__date__gte=timezone.now()).annotate(date=Min('event_logistics__date')).order_by('date')
         # for event in events:
         #     event.event_logistics = event.event_logistics.filter(id__in=logistic_ids)
         query = self.request.GET.get("host_type")
+        search = self.request.GET.get("search")
 
         if query:
             if query == 'sanggu':
@@ -190,6 +191,19 @@ class EventList(APIView):
                 events = events.filter(
                     Q(org_hosts__isnull=False)
                 ).distinct()
+
+        if search:
+            events = events.filter(
+                Q(name__icontains=search) |
+                Q(event_logistics__venue__name__icontains=search) | 
+                Q(event_logistics__outside_venue_name__icontains=search) | 
+                Q(org_hosts__name__icontains=search) |
+                Q(sanggu_hosts__name__icontains=search) |
+                Q(office_hosts__name__icontains=search) |
+                Q(org_hosts__abbreviation__icontains=search) |
+                Q(sanggu_hosts__abbreviation__icontains=search) |
+                Q(office_hosts__abbreviation__icontains=search)
+            )
 
         # events = events.order_by('event_logistics__date').distinct()
 
@@ -208,7 +222,22 @@ class EventList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# class EventDetail(generics.RetrieveUpdateDestroyAPIView):
+#     """
+#     get: 
+#     Returns an event given its id
+    
+#     put:
+#     Updates an event given its id
 
+#     patch:
+#     Updates an event given its id
+
+#     delete:
+#     Deletes an event given its id
+#     """
+#     queryset = Event.objects.filter(is_accepted=True)
+#     serializer_class = event_serializer.EventSerializer
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -224,8 +253,30 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     delete:
     Deletes an event given its id
     """
-    queryset = Event.objects.all()
+    # queryset = Event.objects.filter(is_accepted=True)
     serializer_class = event_serializer.EventSerializer
+    authentication_classes = [MyJWTAuthentication,]
+
+    def get_queryset(self):
+        # pk = self.kwargs['pk']
+        queryset = Event.objects.annotate(date=Min('event_logistics__date'))
+
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            queryset = queryset.filter(Q(is_accepted=True) | Q(sanggu_hosts__user=user) | Q(org_hosts__user=user))
+        else:
+            queryset = queryset.filter(is_accepted=True)
+
+        return queryset
+
+class UnapprovedEventsList(generics.ListAPIView):
+    serializer_class = event_serializer.EventSerializer
+    authentication_classes = [MyJWTAuthentication,]
+    permission_classes = [IsAuthenticated,]
+
+    def get_queryset(self):
+        user = self.request.user
+        return Event.objects.annotate(date=Min('event_logistics__date')).filter(Q(is_accepted=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user)))
 
 class EventLogisticCreate(APIView):
     """
