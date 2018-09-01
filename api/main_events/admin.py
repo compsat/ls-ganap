@@ -3,6 +3,8 @@ from .models import *
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 from .models import User
+from django.utils import timezone
+from django.db.models import Min
 
 @admin.register(User)
 class UserAdmin(DjangoUserAdmin):
@@ -72,16 +74,76 @@ class EventVenueInline(admin.TabularInline):
 	def event_host(self, obj):
 		return obj.event.host
 
+class HasHappenedListFilter(admin.SimpleListFilter):
+    # Human-readable title which will be displayed in the
+    # right admin sidebar just above the filter options.
+    title = _('event status')
+
+    # Parameter for the filter that will be used in the URL query.
+    parameter_name = 'status'
+
+    def lookups(self, request, model_admin):
+        """
+        Returns a list of tuples. The first element in each
+        tuple is the coded value for the option that will
+        appear in the URL query. The second element is the
+        human-readable name for the option that will appear
+        in the right sidebar.
+        """
+        return (
+            ('finished', _('Finished event')),
+            ('future', _('Future or ongoing event')),
+        )
+
+    def queryset(self, request, queryset):
+        """
+        Returns the filtered queryset based on the value
+        provided in the query string and retrievable via
+        `self.value()`.
+        """
+        # Compare the requested value (either '80s' or '90s')
+        # to decide how to filter the queryset.
+        if self.value() == 'finished':
+            return queryset.exclude(event_logistics__date__gte=timezone.now())
+        if self.value() == 'future':
+            return queryset.filter(event_logistics__date__gte=timezone.now())
+
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags', 'org_hosts', 'office_hosts', 'sanggu_hosts')
 	# list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
-	list_display = ('name', 'is_accepted')
+	list_display = ('name', 'first_date', 'is_accepted')
 	# list_filter = ('host__name', 'is_accepted', 'start_time')
-	list_filter = ('is_accepted',)
+	list_filter = ('is_accepted', HasHappenedListFilter)
 	fields = ('deleted_at', 'name', 'description', 'is_accepted', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
 	readonly_fields = ('deleted_at',)
 	actions = ['accept_events']
 	inlines = [EventLogisticInline,]
+	# ordering = ('first_date',)
+
+	def get_queryset(self, request):
+		qs = super(EventAdmin, self).get_queryset(request)
+		qs = qs.annotate(first_date=Min('event_logistics__date'))
+		# qs = qs.filter(event_logistics__date__gte=timezone.now()).annotate(first_date=Min('event_logistics__date'))
+		# qs = super(EventAdmin, self).get_queryset(request)
+		return qs
+
+	def get_ordering(self, request):
+		return ['first_date']
+
+	def first_date(self, obj):
+		return obj.event_logistics.first().date
+		# future_dates = obj.event_logistics.filter(date__gte=timezone.now()).annotate(first_date=Min('date'))
+
+		# date = None
+
+		# if future_dates.last() is None:
+		# 	date = obj.event_logistics.last().date
+		# else:
+		# 	date = future_dates.first().date
+
+		# return date
+	# first_date.short_description = 'Date Nearest to Today'
+	# first_date.admin_order_field = 'first_date'
 
 	def accept_events(self, request, queryset):
 		events_updated = queryset.update(is_accepted=True)
