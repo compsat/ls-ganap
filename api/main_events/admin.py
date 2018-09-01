@@ -2,9 +2,10 @@ from django.contrib import admin
 from .models import *
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
-from .models import User
+from .models import User, OrgHost, SangguHost, OfficeHost
 from django.utils import timezone
 from django.db.models import Min
+from django.utils.safestring import mark_safe
 
 @admin.register(User)
 class UserAdmin(DjangoUserAdmin):
@@ -110,25 +111,33 @@ class HasHappenedListFilter(admin.SimpleListFilter):
 
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags', 'org_hosts', 'office_hosts', 'sanggu_hosts')
-	# list_display = ('name', 'host', 'venue', 'start_time', 'is_accepted')
-	list_display = ('name', 'first_date', 'is_accepted')
-	# list_filter = ('host__name', 'is_accepted', 'start_time')
-	list_filter = ('is_accepted', HasHappenedListFilter)
+	list_display = ('name', 'hosts', 'first_date', 'is_accepted')
+	list_filter = ('is_accepted', HasHappenedListFilter, 'org_hosts', 'office_hosts', 'sanggu_hosts')
 	fields = ('deleted_at', 'name', 'description', 'is_accepted', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
 	readonly_fields = ('deleted_at',)
 	actions = ['accept_events']
 	inlines = [EventLogisticInline,]
-	# ordering = ('first_date',)
 
 	def get_queryset(self, request):
 		qs = super(EventAdmin, self).get_queryset(request)
 		qs = qs.annotate(first_date=Min('event_logistics__date'))
-		# qs = qs.filter(event_logistics__date__gte=timezone.now()).annotate(first_date=Min('event_logistics__date'))
-		# qs = super(EventAdmin, self).get_queryset(request)
 		return qs
 
 	def get_ordering(self, request):
 		return ['first_date']
+
+	def hosts(self, obj):
+		hosts = ""
+		for host in obj.org_hosts.all():
+			hosts += host.name + "<br>"
+
+		for host in obj.office_hosts.all():
+			hosts += host.name + "<br>"
+
+		for host in obj.sanggu_hosts.all():
+			hosts += host.name + "<br>"
+
+		return mark_safe(hosts)
 
 	def first_date(self, obj):
 		return obj.event_logistics.first().date
