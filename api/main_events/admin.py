@@ -89,7 +89,7 @@ class EventAdmin(admin.ModelAdmin):
 		if events_updated == 1:
 			message_bit = "1 event was"
 		else:
-			message_bit = "%s events were" % rows_updated
+			message_bit = "%s events were" % events_updated
 		self.message_user(request, "%s successfully marked as accepted." % message_bit)
 	accept_events.short_description = "Mark events as accepted"
 
