@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 from .models import User, OrgHost, SangguHost, OfficeHost
 from django.utils import timezone
-from django.db.models import Min
+from django.db.models import Min, Q
 from django.utils.safestring import mark_safe
 
 @admin.register(User)
@@ -111,7 +111,7 @@ class HasHappenedListFilter(admin.SimpleListFilter):
 
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags', 'org_hosts', 'office_hosts', 'sanggu_hosts')
-	list_display = ('name', 'hosts', 'first_date', 'is_accepted')
+	list_display = ('name', 'hosts', 'event_dates', 'is_accepted')
 	list_filter = ('is_accepted', HasHappenedListFilter, 'org_hosts', 'office_hosts', 'sanggu_hosts')
 	fields = ('deleted_at', 'name', 'description', 'is_accepted', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
 	readonly_fields = ('deleted_at',)
@@ -120,7 +120,7 @@ class EventAdmin(admin.ModelAdmin):
 
 	def get_queryset(self, request):
 		qs = super(EventAdmin, self).get_queryset(request)
-		qs = qs.annotate(first_date=Min('event_logistics__date'))
+		qs = qs.annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
 		return qs
 
 	def get_ordering(self, request):
@@ -139,20 +139,23 @@ class EventAdmin(admin.ModelAdmin):
 
 		return mark_safe(hosts)
 
-	def first_date(self, obj):
-		return obj.event_logistics.first().date
-		# future_dates = obj.event_logistics.filter(date__gte=timezone.now()).annotate(first_date=Min('date'))
+	def event_dates(self, obj):
+		dates = ""
+		count = 0
+		future_logistics = obj.event_logistics.filter(date__gte=timezone.now()).annotate(earliest=Min('date')).all()
+		if future_logistics.exists():
+			for logistic in future_logistics:
+				dates += logistic.date.strftime('%B %d, %Y')
+				count += 1
+				if count == 3:
+					dates += "..."
+					break
+				else:
+					dates += "<br>"
+		else:
+			return "FINISHED"
 
-		# date = None
-
-		# if future_dates.last() is None:
-		# 	date = obj.event_logistics.last().date
-		# else:
-		# 	date = future_dates.first().date
-
-		# return date
-	# first_date.short_description = 'Date Nearest to Today'
-	# first_date.admin_order_field = 'first_date'
+		return mark_safe(dates)
 
 	def accept_events(self, request, queryset):
 		events_updated = queryset.update(is_accepted=True)
