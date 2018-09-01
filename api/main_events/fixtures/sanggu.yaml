@@ -12,7 +12,7 @@
   pk: 2
   fields:
     user: 56
-    name: Ateneo Comission on Elections
+    name: Ateneo Commission on Elections
     abbreviation: COMELEC
     description: COMELEC
     logo_url: ../ads
@@ -52,7 +52,7 @@
   pk: 6
   fields:
     user: 60
-    name: School of Humanitites
+    name: School of Humanities
     abbreviation: SOH
     description: SOH
     logo_url: ../ads
