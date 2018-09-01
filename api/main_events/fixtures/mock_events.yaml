@@ -5,7 +5,7 @@
     updated_at: 2018-08-23 23:36
     name: Blue Hacks
     description: Blue Hacks is a two-day hackathon where...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -38,7 +38,7 @@
     updated_at: 2018-08-23 23:36
     name: PULP
     description: PULP is a conference by...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -62,7 +62,7 @@
     updated_at: 2018-08-23 23:36
     name: Film Viewing Sessions
     description: Film Viewing Sessions are...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -104,7 +104,7 @@
     updated_at: 2018-08-23 23:36
     name: Scholars' Reception
     description: The reception is for...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -128,7 +128,7 @@
     updated_at: 2018-08-23 23:36
     name: Rent
     description: Rent is a play by blueREP...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -179,7 +179,7 @@
     updated_at: 2018-08-23 23:36
     name: Medical Check-up
     description: Required...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -203,7 +203,7 @@
     updated_at: 2018-08-23 23:36
     name: Locker Check-up
     description: Required...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -227,7 +227,7 @@
     updated_at: 2018-08-23 23:36
     name: Forum on Religion
     description: This forum is on...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -251,7 +251,7 @@
     updated_at: 2018-08-23 23:36
     name: Job Fair
     description: Job Fair offers...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
@@ -311,7 +311,7 @@
     updated_at: 2018-08-23 23:36
     name: Business Talks
     description: We offer...
-    is_accepted: False
+    is_accepted: True
     poster_url: images/logo-big.3d72fc4b_hv3won
     is_premium: False
     event_url: http://bluehacks.compsat.org/
