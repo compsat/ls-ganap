@@ -9,19 +9,28 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class SangguList(generics.ListAPIView):
+class SangguList(APIView):
     """
     get: List all the sanggu hosts.
     """
-    queryset = SangguHost.objects.all()
-    serializer_class = SangguSerializer
-    # specifies which pagination settings to follow
-    pagination_class = ObjectPageNumberPagination
 
-    def list_items(self, request):
-        queryset = self.get_queryset()
-        serializer = SangguSerializer(queryset, many=True)
-        return Response(serializer.data)
+    serializer_class = SangguSerializer
+    def get(self, request, format=None):
+        queryset = SangguHost.objects.all()
+        pagination_class = ObjectPageNumberPagination
+        paginator = pagination_class()
+
+        if request.method == 'GET' and 'page' in request.GET:
+
+            page = paginator.paginate_queryset(queryset, request)
+            serializer =  SangguSerializer(page, many=True)
+        
+            return paginator.get_paginated_response(serializer.data)
+
+        else:
+            serializer =  SangguSerializer(queryset, many=True)
+            
+            return Response({"results" : serializer.data})
 
 class SangguDetail(generics.RetrieveUpdateAPIView):
     """

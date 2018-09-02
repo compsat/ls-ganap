@@ -9,21 +9,30 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class VenueList(generics.ListCreateAPIView):
+class VenueList(APIView):
     """
     get: List all the venues.
     post: Create a new venue.
     """
-    queryset = Venue.objects.all()
     serializer_class = venue_serializer.VenueSerializer
-    # specifies which pagination settings to follow
-    pagination_class = ObjectPageNumberPagination
 
-    def list_items(self, request):
-        queryset = self.get_queryset()
-        serializer = VenueSerializer(queryset, many=True)
-        return Response(serializer.data)
+    def get(self, request, format=None):
+        queryset = Venue.objects.all()
+        pagination_class = ObjectPageNumberPagination
+        paginator = pagination_class()
+
+        if request.method == 'GET' and 'page' in request.GET:
+
+            page = paginator.paginate_queryset(queryset, request)
+            serializer =  venue_serializer.VenueSerializer(page, many=True)
         
+            return paginator.get_paginated_response(serializer.data)
+
+        else:
+            serializer =  venue_serializer.VenueSerializer(queryset, many=True)
+            
+            return Response({"results" : serializer.data})
+    
 class VenueDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     get: 
