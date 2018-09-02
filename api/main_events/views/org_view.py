@@ -9,19 +9,27 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class OrgList(generics.ListAPIView):
+class OrgList(APIView):
     """
     get: List all the org hosts.
     """
-    queryset = OrgHost.objects.all()
     serializer_class = OrgSerializer
-    # specifies which pagination settings to follow
-    pagination_class = ObjectPageNumberPagination
+    def get(self, request, format=None):
+        queryset = OrgHost.objects.all()
+        pagination_class = ObjectPageNumberPagination
+        paginator = pagination_class()
 
-    def list_items(self, request):
-        queryset = self.get_queryset()
-        serializer = OrgSerializer(queryset, many=True)
-        return Response(serializer.data)
+        if request.method == 'GET' and 'page' in request.GET:
+
+            page = paginator.paginate_queryset(queryset, request)
+            serializer =  OrgSerializer(page, many=True)
+        
+            return paginator.get_paginated_response(serializer.data)
+
+        else:
+            serializer =  OrgSerializer(queryset, many=True)
+            
+            return Response({"results" : serializer.data})
 
 class OrgDetail(generics.RetrieveUpdateAPIView):
     """
