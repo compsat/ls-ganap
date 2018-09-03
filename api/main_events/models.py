@@ -151,7 +151,7 @@ class Event(SoftDeletionModel):
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
-	is_accepted = models.BooleanField(default=False)
+	is_approved = models.BooleanField(default=False)
 	poster_url = models.ImageField(upload_to='images/', blank=True)
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField()

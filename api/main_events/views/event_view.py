@@ -76,7 +76,7 @@ class FilterEventByDate(generics.ListAPIView):
         queryset = Event.objects.all()
         
         if date is not None:
-            queryset = queryset.filter(is_accepted=True, event_logistics__date=date).annotate(date=Min('event_logistics__date')).order_by('date')
+            queryset = queryset.filter(is_approved=True, event_logistics__date=date).annotate(date=Min('event_logistics__date')).order_by('date')
 
         return queryset
 
@@ -140,7 +140,7 @@ class FilterEventByMonth(generics.ListAPIView):
         queryset = Event.objects.annotate(date=Min('event_logistics__date'))
 
         if date is not None:
-            queryset = queryset.filter(is_accepted=True, event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('date')
+            queryset = queryset.filter(is_approved=True, event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('date')
 
         return queryset
 
@@ -171,7 +171,7 @@ class EventList(APIView):
         # search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
         pagination_class = ObjectPageNumberPagination
         paginator = pagination_class()
-        events = Event.objects.filter(is_accepted=True, event_logistics__date__gte=timezone.now()).annotate(date=Min('event_logistics__date')).order_by('date')
+        events = Event.objects.filter(is_approved=True, event_logistics__date__gte=timezone.now()).annotate(date=Min('event_logistics__date')).order_by('date')
         # for event in events:
         #     event.event_logistics = event.event_logistics.filter(id__in=logistic_ids)
         query = self.request.GET.get("host_type")
@@ -236,7 +236,7 @@ class EventList(APIView):
 #     delete:
 #     Deletes an event given its id
 #     """
-#     queryset = Event.objects.filter(is_accepted=True)
+#     queryset = Event.objects.filter(is_approved=True)
 #     serializer_class = event_serializer.EventSerializer
 
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -253,7 +253,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     delete:
     Deletes an event given its id
     """
-    # queryset = Event.objects.filter(is_accepted=True)
+    # queryset = Event.objects.filter(is_approved=True)
     serializer_class = event_serializer.EventSerializer
     authentication_classes = [MyJWTAuthentication,]
 
@@ -263,9 +263,9 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 
         if self.request.user.is_authenticated:
             user = self.request.user
-            queryset = queryset.filter(Q(is_accepted=True) | Q(sanggu_hosts__user=user) | Q(org_hosts__user=user))
+            queryset = queryset.filter(Q(is_approved=True) | Q(sanggu_hosts__user=user) | Q(org_hosts__user=user))
         else:
-            queryset = queryset.filter(is_accepted=True)
+            queryset = queryset.filter(is_approved=True)
 
         return queryset
 
@@ -276,7 +276,7 @@ class UnapprovedEventsList(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Event.objects.annotate(date=Min('event_logistics__date')).filter(Q(is_accepted=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user)))
+        return Event.objects.annotate(date=Min('event_logistics__date')).filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user)))
 
 class EventLogisticCreate(APIView):
     """
