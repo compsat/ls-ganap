@@ -269,7 +269,10 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 
         return queryset
 
-class UnapprovedEventsList(generics.ListAPIView):
+class UnapprovedEventList(generics.ListAPIView):
+    """
+    get: Gets all the unapproved events of the authenticated user.
+    """
     serializer_class = event_serializer.EventSerializer
     authentication_classes = [MyJWTAuthentication,]
     permission_classes = [IsAuthenticated,]
