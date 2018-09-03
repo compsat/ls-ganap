@@ -49,12 +49,12 @@ class EventForSangguInline(admin.TabularInline):
 class EventForOrgInline(admin.TabularInline):
 	model = Event.org_hosts.through
 
-	# readonly_fields = ('is_accepted', 'event_logistics',)
+	# readonly_fields = ('is_approved', 'event_logistics',)
 
-	# def is_accepted(self, obj):
-	# 	print(obj.is_accepted)
-	# 	return obj.event_list.get(pk=1).is_accepted
-	# is_accepted.short_description = 'is_accepted'
+	# def is_approved(self, obj):
+	# 	print(obj.is_approved)
+	# 	return obj.event_list.get(pk=1).is_approved
+	# is_approved.short_description = 'is_approved'
 
 	# def event_logistics(self, obj):
 	# 	print(obj.event_logistics.get(pk=1).date)
@@ -111,9 +111,9 @@ class HasHappenedListFilter(admin.SimpleListFilter):
 
 class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags', 'org_hosts', 'office_hosts', 'sanggu_hosts')
-	list_display = ('name', 'hosts', 'event_dates', 'is_accepted')
-	list_filter = ('is_accepted', HasHappenedListFilter, 'org_hosts', 'office_hosts', 'sanggu_hosts')
-	fields = ('deleted_at', 'name', 'description', 'is_accepted', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
+	list_display = ('name', 'hosts', 'event_dates', 'is_approved')
+	list_filter = ('is_approved', HasHappenedListFilter, 'org_hosts', 'office_hosts', 'sanggu_hosts')
+	fields = ('deleted_at', 'name', 'description', 'is_approved', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
 	readonly_fields = ('deleted_at',)
 	actions = ['accept_events']
 	inlines = [EventLogisticInline,]
@@ -158,7 +158,7 @@ class EventAdmin(admin.ModelAdmin):
 		return mark_safe(dates)
 
 	def accept_events(self, request, queryset):
-		events_updated = queryset.update(is_accepted=True)
+		events_updated = queryset.update(is_approved=True)
 
 		if events_updated == 1:
 			message_bit = "1 event was"
