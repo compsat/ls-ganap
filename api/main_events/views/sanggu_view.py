@@ -10,7 +10,6 @@ from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
 from main_events.swagger import SimpleFilterBackend    
 from django.db.models import Q
-
 class SangguList(APIView):
     """
     get: List all the sanggu hosts.

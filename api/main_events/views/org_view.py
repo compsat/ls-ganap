@@ -8,8 +8,8 @@ from rest_framework.response import Response
 from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumberPagination
 from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
-from main_events.swagger import SimpleFilterBackend   
 from django.db.models import Q  
+
 
 
 class OrgList(APIView):

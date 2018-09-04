@@ -11,14 +11,15 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from main_events.swagger import SimpleFilterBackend     
 from django.db.models import Q
 
+
 class OfficeList(APIView):
     """
     get: List all the office hosts.
     """
     serializer_class = OfficeSerializer
+
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
-
 
     def get(self, request, format=None):
         search = self.request.GET.get("search")
