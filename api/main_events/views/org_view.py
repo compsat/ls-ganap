@@ -8,7 +8,8 @@ from rest_framework.response import Response
 from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumberPagination
 from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
-from main_events.swagger import SimpleFilterBackend     
+from main_events.swagger import SimpleFilterBackend   
+from django.db.models import Q  
 
 
 class OrgList(APIView):
@@ -16,11 +17,20 @@ class OrgList(APIView):
     get: List all the org hosts.
     """
     serializer_class = OrgSerializer
-
+    # specifies which pagination settings to follow
+    pagination_class = ObjectPageNumberPagination
+    
     def get(self, request, format=None):
+        search = self.request.GET.get("search")
         queryset = OrgHost.objects.all()
         pagination_class = ObjectPageNumberPagination
         paginator = pagination_class()
+
+        if search:
+            queryset = queryset.filter(
+                    Q(name__icontains=search) |
+                    Q(abbreviation__icontains=search)
+                )
 
         if request.method == 'GET' and 'page' in request.GET:
 
