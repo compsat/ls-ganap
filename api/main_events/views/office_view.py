@@ -9,6 +9,7 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
 from main_events.swagger import SimpleFilterBackend     
+from django.db.models import Q
 
 
 class OfficeList(APIView):
@@ -19,13 +20,18 @@ class OfficeList(APIView):
 
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
-    filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
-    search_fields = ['name', 'abbreviation']
 
     def get(self, request, format=None):
+        search = self.request.GET.get("search")
         queryset = OfficeHost.objects.all()
         pagination_class = ObjectPageNumberPagination
         paginator = pagination_class()
+    
+        if search:
+            queryset = queryset.filter(
+                    Q(name__icontains=search) |
+                    Q(abbreviation__icontains=search)
+                )
 
         if request.method == 'GET' and 'page' in request.GET:
 
