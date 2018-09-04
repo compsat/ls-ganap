@@ -9,6 +9,7 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
+
 class HostList(APIView):
     """
     get: List all the hosts (LS, GS, HS).
@@ -32,6 +33,7 @@ class HostList(APIView):
             serializer = HostSerializer(queryset, many=True)
             
             return Response({"results" : serializer.data})
+
 
 class HostDetail(generics.RetrieveAPIView):
     """

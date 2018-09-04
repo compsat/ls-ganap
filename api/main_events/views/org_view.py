@@ -7,6 +7,8 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumberPagination
 from rest_framework import status
+from rest_framework.filters import SearchFilter, OrderingFilter
+from main_events.swagger import SimpleFilterBackend     
 
 
 class OrgList(APIView):
@@ -14,6 +16,7 @@ class OrgList(APIView):
     get: List all the org hosts.
     """
     serializer_class = OrgSerializer
+
     def get(self, request, format=None):
         queryset = OrgHost.objects.all()
         pagination_class = ObjectPageNumberPagination
@@ -25,6 +28,7 @@ class OrgList(APIView):
             serializer =  OrgSerializer(page, many=True)
         
             return paginator.get_paginated_response(serializer.data)
+
 
         else:
             serializer =  OrgSerializer(queryset, many=True)

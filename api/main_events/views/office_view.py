@@ -7,6 +7,8 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumberPagination
 from rest_framework import status
+from rest_framework.filters import SearchFilter, OrderingFilter
+from main_events.swagger import SimpleFilterBackend     
 
 
 class OfficeList(APIView):
@@ -14,6 +16,7 @@ class OfficeList(APIView):
     get: List all the office hosts.
     """
     serializer_class = OfficeSerializer
+
     def get(self, request, format=None):
         queryset = OfficeHost.objects.all()
         pagination_class = ObjectPageNumberPagination
