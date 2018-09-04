@@ -8,7 +8,6 @@ from rest_framework.response import Response
 from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumberPagination
 from rest_framework import status
 
-
 class HostList(generics.ListAPIView):
     """
     get: List all the hosts (LS, GS, HS).
@@ -17,6 +16,7 @@ class HostList(generics.ListAPIView):
     serializer_class = HostSerializer
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
+
 
     def list_items(self, request):
         queryset = self.get_queryset()
