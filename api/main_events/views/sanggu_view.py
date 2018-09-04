@@ -20,7 +20,6 @@ class SangguList(APIView):
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
 
-
     def get(self, request, format=None):
         search = self.request.GET.get("search")
         queryset = SangguHost.objects.all()

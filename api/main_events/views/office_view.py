@@ -19,7 +19,7 @@ class OfficeList(APIView):
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
 
-    
+
     def get(self, request, format=None):
         search = self.request.GET.get("search")
         queryset = OfficeHost.objects.all()
@@ -38,6 +38,7 @@ class OfficeList(APIView):
             serializer =  OfficeSerializer(page, many=True)
         
             return paginator.get_paginated_response(serializer.data)
+
 
         else:
             serializer =  OfficeSerializer(queryset, many=True)

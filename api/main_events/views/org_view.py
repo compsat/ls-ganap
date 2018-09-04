@@ -17,6 +17,7 @@ class OrgList(APIView):
     get: List all the org hosts.
     """
     serializer_class = OrgSerializer
+
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
     
@@ -38,7 +39,6 @@ class OrgList(APIView):
             serializer =  OrgSerializer(page, many=True)
         
             return paginator.get_paginated_response(serializer.data)
-
 
         else:
             serializer =  OrgSerializer(queryset, many=True)
