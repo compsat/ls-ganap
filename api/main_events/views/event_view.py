@@ -153,7 +153,6 @@ class EventList(APIView):
     queryset = Event.objects.all()
     serializer_class = event_serializer.CreateEventSerializer
     # specifies which pagination settings to follow
-    pagination_class = ObjectPageNumberPagination
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
     # search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
     authentication_classes = [MyJWTAuthentication,]
@@ -205,15 +204,16 @@ class EventList(APIView):
                 Q(office_hosts__abbreviation__icontains=search)
             )
 
-        # events = events.order_by('event_logistics__date').distinct()
+        if request.method == 'GET' and 'page' in request.GET:
 
-        page = paginator.paginate_queryset(events, request)
+            page = paginator.paginate_queryset(events, request)
+            serializer = event_serializer.EventSerializer(page, many=True)
+        
+            return paginator.get_paginated_response(serializer.data)
 
-        serializer = event_serializer.EventSerializer(page, many=True)
-        # serializer = event_serializer.EventSerializer(events, many=True)
-
-        return paginator.get_paginated_response(serializer.data)
-        # return Response(serializer.data)
+        else:
+            serializer = event_serializer.EventSerializer(events, many=True)
+            return Response({"results" : serializer.data})
 
     def post(self, request, format=None):
         serializer = event_serializer.CreateEventSerializer(data=request.data)

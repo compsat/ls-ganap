@@ -16,9 +16,21 @@ class ClusterList(APIView):
     serializer_class = ClusterSerializer
 
     def get(self, request, format=None):
-        hosts = Cluster.objects.all()
-        serializer = ClusterSerializer(hosts, many=True)
-        return Response(serializer.data)
+        queryset = Cluster.objects.all()
+        pagination_class = ObjectPageNumberPagination
+        paginator = pagination_class()
+
+        if request.method == 'GET' and 'page' in request.GET:
+
+            page = paginator.paginate_queryset(queryset, request)
+            serializer =  ClusterSerializer(page, many=True)
+        
+            return paginator.get_paginated_response(serializer.data)
+
+        else:
+            serializer =  ClusterSerializer(queryset, many=True)
+            return Response({"results" : serializer.data})
+
 
 class ClusterDetail(generics.RetrieveAPIView):
     """
