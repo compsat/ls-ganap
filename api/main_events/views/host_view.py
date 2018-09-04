@@ -11,11 +11,11 @@ from rest_framework import status
 
 
 class HostList(APIView):
+
     """
     get: List all the hosts (LS, GS, HS).
     """
     serializer_class = HostSerializer
-
 
     def get(self, request, format=None):
         queryset = EventHost.objects.all()

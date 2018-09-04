@@ -10,7 +10,6 @@ from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
 from main_events.swagger import SimpleFilterBackend    
 from django.db.models import Q
-
 class SangguList(APIView):
     """
     get: List all the sanggu hosts.
@@ -19,7 +18,6 @@ class SangguList(APIView):
     serializer_class = SangguSerializer
     # specifies which pagination settings to follow
     pagination_class = ObjectPageNumberPagination
-
 
     def get(self, request, format=None):
         search = self.request.GET.get("search")
