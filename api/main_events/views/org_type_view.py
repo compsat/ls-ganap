@@ -9,19 +9,26 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class OrgTypeList(generics.ListAPIView):
+class OrgTypeList(APIView):
     """
     get: List all the org types (COA and COP).
     """
-    queryset = OrgType.objects.all()
-    serializer_class = org_type_serializer.OrgTypeSerializer
-    # specifies which pagination settings to follow
-    pagination_class = ObjectPageNumberPagination
+    def get(self, request, format=None):
+        queryset = OrgType.objects.all()
+        pagination_class = ObjectPageNumberPagination
+        paginator = pagination_class()
 
-    def list_items(self, request):
-        queryset = self.get_queryset()
-        serializer = OrgTypeSerializer(queryset, many=True)
-        return Response(serializer.data)
+        if request.method == 'GET' and 'page' in request.GET:
+
+            page = paginator.paginate_queryset(queryset, request)
+            serializer =  org_type_serializer.OrgTypeSerializer(page, many=True)
+        
+            return paginator.get_paginated_response(serializer.data)
+
+        else:
+            serializer =  org_type_serializer.OrgTypeSerializer(queryset, many=True)
+            
+            return Response({"results" : serializer.data})
 
 class OrgTypeDetail(generics.RetrieveAPIView):
     """

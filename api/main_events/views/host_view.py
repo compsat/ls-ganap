@@ -9,19 +9,30 @@ from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumber
 from rest_framework import status
 
 
-class HostList(generics.ListAPIView):
+class HostList(APIView):
+
     """
     get: List all the hosts (LS, GS, HS).
     """
-    queryset = EventHost.objects.all()
     serializer_class = HostSerializer
-    # specifies which pagination settings to follow
-    pagination_class = ObjectPageNumberPagination
 
-    def list_items(self, request):
-        queryset = self.get_queryset()
-        serializer = HostSerializer(queryset, many=True)
-        return Response(serializer.data)
+    def get(self, request, format=None):
+        queryset = EventHost.objects.all()
+        pagination_class = ObjectPageNumberPagination
+        paginator = pagination_class()
+
+        if request.method == 'GET' and 'page' in request.GET:
+
+            page = paginator.paginate_queryset(queryset, request)
+            serializer =  HostSerializer(page, many=True)
+        
+            return paginator.get_paginated_response(serializer.data)
+
+        else:
+            serializer = HostSerializer(queryset, many=True)
+            
+            return Response({"results" : serializer.data})
+
 
 class HostDetail(generics.RetrieveAPIView):
     """

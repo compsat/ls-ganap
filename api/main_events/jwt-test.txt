@@ -5,3 +5,8 @@ curl -H "Authorization: JWT <token>" http://localhost:8000/events/
 curl http://0.0.0.0:8000/events
 
 
+curl -X POST --data "email=compsat.ls@obf.ateneo.edu&password=LoyolaSchoolsOrg2019" http://localhost:8000/auth/token/
+
+curl -H "Authorization: JWT <token>" http://localhost:8000/events/unapproved/
+
+curl http://0.0.0.0:8000/events/unapproved/

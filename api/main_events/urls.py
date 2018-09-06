@@ -13,6 +13,7 @@ urlpatterns = [
     path('events/week/<str:date>', event_view.FilterEventByWeek.as_view()),
     path('events/month/<str:date>', event_view.FilterEventByMonth.as_view()),
     path('events/google_api/<int:pk>/', event_auth_view.create_events, name='create_events'),
+    path('events/unapproved/', event_view.UnapprovedEventList.as_view()),
     path('event_hosts/', host_view.HostList.as_view()),
     path('event_hosts/<int:pk>/', host_view.HostDetail.as_view()),
     path('google_auth/', event_auth_view.authorize, name='authorize'),

@@ -5,6 +5,7 @@ from main_events.soft_deletion_model import SoftDeletionModel
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from cloudinary.models import CloudinaryField
+from django.db.models import Min
 
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
@@ -150,7 +151,7 @@ class Event(SoftDeletionModel):
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
-	is_accepted = models.BooleanField(default=False)
+	is_approved = models.BooleanField(default=False)
 	poster_url = models.ImageField(upload_to='images/', blank=True)
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField()
@@ -162,8 +163,16 @@ class Event(SoftDeletionModel):
 	def __str__(self):
 		return self.name
 
-	# class Meta:
-	# 	ordering = ('event_logistics__date',)
+	# @property
+	# def has_happened(self):
+	# 	return self.event_logistics.last().date < timezone.now().date()
+	
+	# @property
+	# def closest_date(self):
+	# 	if self.has_happened:
+	# 		return self.event_logistics.first().date
+	# 	else:
+	# 		return self.event_logistics.filter(date__gte=timezone.now()).annotate(closest_date=Min('date')).first().date
 
 class EventLogistic(models.Model):
 	event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_logistics')
