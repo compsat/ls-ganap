@@ -41,43 +41,118 @@ const TitleSection = (props) => (
   </TitleContainer>
 )
 
+function EventsSection(props) {
+  const isLoaded = props.state.venues && props.state.orgs && props.state.sanggu && props.state.offices && props.state.events;
+  if (isLoaded) {
+    return (
+      <ScrollerSection 
+        name="events"
+        card_type="event" 
+        cards_display="4" 
+        events={props.state.events}
+        venues={props.state.venues} 
+        orgs={props.state.orgs}
+        sanggu={props.state.sanggu} 
+        offices={props.state.offices} />
+    );
+  }
+  return (<div>Loading...</div>);
+}
+
+function OrgsSection(props) {
+  const isLoaded = props.orgs;
+  if (isLoaded) {
+    return (
+      <ScrollerSection
+        name="orgs"
+        card_type="profile" 
+        cards_display="5" 
+        orgs={props.orgs} />
+    );
+  }
+  return (<div>Loading...</div>);
+}
+
+function OfficesSection(props) {
+  const isLoaded = props.offices;
+  if (isLoaded) {
+    return (
+      <ScrollerSection
+        name="offices"
+        card_type="profile" 
+        cards_display="5" 
+        offices={props.offices} />
+    );
+  }
+  return (<div>Loading...</div>);
+}
+
 class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      venues: {},
-      event_hosts: {}
+      // venues: {},
+      // orgs: {},
+      // sanggu: {},
+      // offices: {},
+      // events: {}
     }
   }
 
   componentWillMount(){
     var venues_url = 'http://ls-ganap-api.herokuapp.com/venues/'
-    var event_hosts_url = 'http://ls-ganap-api.herokuapp.com/event_hosts/'
+    var orgs_url = 'http://ls-ganap-api.herokuapp.com/orgs/'
+    var sanggu_url = 'http://ls-ganap-api.herokuapp.com/sanggu/'
+    var offices_url = 'http://ls-ganap-api.herokuapp.com/offices/'
+    var events_url = 'http://ls-ganap-api.herokuapp.com/events/'
 
     axios.all([
       axios.get(venues_url),
-      axios.get(event_hosts_url),
+      axios.get(orgs_url),
+      axios.get(sanggu_url),
+      axios.get(offices_url),
+      axios.get(events_url)
     ])
-    .then(axios.spread((venuesRes, eventHostsRes) => {
+    .then(axios.spread((venuesRes, orgsRes, sangguRes, officesRes, eventsRes) => {
       var venuesData = venuesRes.data.results
-      var eventHostsData = eventHostsRes.data.results
+      var orgsData = orgsRes.data.results
+      var sangguData = sangguRes.data.results
+      var officesData = officesRes.data.results
+      var eventsData = eventsRes.data.results
 
+
+      var venues = {}
       for (var key in venuesData){
-        var venues = {}
         venues[venuesData[key].id] = venuesData[key]
-        this.setState({ venues });
       }
+      this.setState({ venues });
 
-      for (var key in eventHostsData){
-        var event_hosts = {}
-        event_hosts[eventHostsData[key].id] = eventHostsData[key]
-        this.setState({ event_hosts });
+      var orgs = {}
+      for (var key in orgsData){
+        orgs[orgsData[key].id] = orgsData[key]
       }
+      this.setState({ orgs });
 
-      console.log('BEFORE this.state: ', this.state)
+      var sanggu = {}
+      for (var key in sangguData){
+        sanggu[sangguData[key].id] = sangguData[key]
+      }
+      this.setState({ sanggu });
+
+      var offices = {}
+      for (var key in officesData){
+        offices[officesData[key].id] = officesData[key]
+      }
+      this.setState({ offices });
+
+      var events = {}
+      for (var key in eventsData){
+        events[eventsData[key].id] = eventsData[key]
+      }
+      this.setState({ events });
+
     }).bind(this));
 
-    console.log('AFTER this.state: ', this.state)
   }
 
   render() {
@@ -91,34 +166,19 @@ class Home extends Component {
         <CardsSection color="#81C0BB">
           <PageContent>
             <TitleSection name="Upcoming Event" show_subtitle="false" title_color="#F8FFEB"/>
-            <ScrollerSection 
-              api_url="http://ls-ganap-api.herokuapp.com/events/" 
-              card_type="event" 
-              cards_display="4"
-              event_hosts={this.state.event_hosts} 
-              venues={this.state.venues} />
+            <EventsSection state={this.state} />
           </PageContent>
         </CardsSection>
         <CardsSection color="#FFE5CB">
           <PageContent>
             <TitleSection name="Organization" title_color="#E09850" subtitle_color="#7E6A56"/>
-            <ScrollerSection 
-              api_url="http://ls-ganap-api.herokuapp.com/clusters/" 
-              card_type="profile" 
-              cards_display="5" 
-              event_hosts={this.state.event_hosts} 
-              venues={this.state.venues} />
+            <OrgsSection orgs={this.state.orgs} />
           </PageContent>
         </CardsSection>
         <CardsSection color="#945858">
           <PageContent>
             <TitleSection name="Office" title_color="#FEF5EA" subtitle_color="#573030"/>
-            <ScrollerSection 
-              api_url="" 
-              card_type="profile" 
-              cards_display="5" 
-              event_hosts={this.state.event_hosts} 
-              venues={this.state.venues} />
+            <OfficesSection offices={this.state.offices} />
           </PageContent>
         </CardsSection>
       </div>

@@ -3,13 +3,14 @@ import MediaCard from '../components/MediaCard.js';
 import styled from 'styled-components';
 
 const CardTitle = styled.h1`
-    font-family: 'Nirmala Bold', sans-serif;
+    font-family: 'Nirmala UI', sans-serif;
+    font-weight: 800;
     font-size: 0.8em;
     color: #6A6A6A;
 `;
 
 const CardDetails = styled.h1`
-    font-family: 'Nirmala', sans-serif;
+    font-family: 'Nirmala UI', sans-serif;
     font-size: 0.8em;
     color: #6A6A6A;
 `;
