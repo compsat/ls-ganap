@@ -57,6 +57,7 @@ injectGlobal`
   body {
     min-height: 100%;
     font-family: 'Nirmala UI';
+    line-height: ${theme.type.typeScale};
   }
 
   #root {
