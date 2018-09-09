@@ -3,7 +3,7 @@ import { modularScale } from '../style/style-utils';
 
 const AppText = styled.span`
   font-family: 'Nirmala UI';
-  font-size: ${props => modularScale(props.size)};
+  font-size: ${props => props.size ? modularScale(props.size) : '1em'};
 `
 
 export default AppText;
