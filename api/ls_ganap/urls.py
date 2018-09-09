@@ -22,6 +22,8 @@ from django.contrib.auth import views as auth_views
 
 from rest_framework_jwt.views import ObtainJSONWebToken, RefreshJSONWebToken
 from rest_framework_jwt.views import refresh_jwt_token, verify_jwt_token
+from main_events.views import api_root_view
+
 
 obtain_jwt_token = ObtainJSONWebToken.as_view(
     user_model='main_events.User'
@@ -31,6 +33,7 @@ schema_view = get_swagger_view(title='LS Ganap API')
 
 
 urlpatterns = [
+    path('', api_root_view.api_root),
     path('admin/', admin.site.urls),
     path(
         'admin/password_reset/',
@@ -53,7 +56,7 @@ urlpatterns = [
         name='password_reset_complete',
     ),
     path('', include('main_events.urls')),
-    path('docs/', schema_view),
+    path('docs/', schema_view, name='docs'),
     path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
     path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
     path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),

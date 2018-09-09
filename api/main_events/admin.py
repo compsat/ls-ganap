@@ -157,13 +157,17 @@ class EventAdmin(admin.ModelAdmin):
 
 		return mark_safe(dates)
 
-	def accept_events(self, request, queryset):
-		events_updated = queryset.update(is_approved=True)
+	# event_dates.admin_order_field = 'first_date'
 
-		if events_updated == 1:
+	def accept_events(self, request, queryset):
+		for obj in queryset:
+			obj.is_approved = True
+			obj.save()
+
+		if len(queryset) == 1:
 			message_bit = "1 event was"
 		else:
-			message_bit = "%s events were" % events_updated
+			message_bit = "%s events were" % len(queryset)
 		self.message_user(request, "%s successfully marked as accepted." % message_bit)
 	accept_events.short_description = "Mark events as accepted"
 
