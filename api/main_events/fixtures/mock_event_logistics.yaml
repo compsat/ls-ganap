@@ -1,0 +1,1152 @@
+- model: main_events.eventlogistic
+  pk: 1
+  fields:
+    event: 1
+    date: '2019-01-26'
+    start_time: '14:30:00'
+    end_time: '18:30:00'
+    venue:
+    outside_venue_name: "5th Floor Rizal Lib"
+- model: main_events.eventlogistic
+  pk: 2
+  fields:
+    event: 1
+    date: '2019-01-21'
+    start_time: '17:00:00'
+    end_time: '18:30:00'
+    venue: 13
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 3
+  fields:
+    event: 2
+    date: '2018-11-05'
+    start_time: '08:30:00'
+    end_time: '17:30:00'
+    venue: 5
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 4
+  fields:
+    event: 3
+    date: '2018-08-15'
+    start_time: '17:00:00'
+    end_time: '19:00:00'
+    venue: 24
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 5
+  fields:
+    event: 3
+    date: '2018-10-02'
+    start_time: '17:00:00'
+    end_time: '19:00:00'
+    venue: 13
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 6
+  fields:
+    event: 3
+    date: '2019-02-18'
+    start_time: '17:00:00'
+    end_time: '19:00:00'
+    venue: 16
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 7
+  fields:
+    event: 4
+    date: '2019-02-26'
+    start_time: '17:00:00'
+    end_time: '20:00:00'
+    venue: 79
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 8
+  fields:
+    event: 5
+    date: '2018-09-01'
+    start_time: '20:00:00'
+    end_time: '22:00:00'
+    venue: 104
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 9
+  fields:
+    event: 5
+    date: '2018-09-05'
+    start_time: '20:00:00'
+    end_time: '22:00:00'
+    venue: 104
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 10
+  fields:
+    event: 5
+    date: '2018-09-07'
+    start_time: '20:00:00'
+    end_time: '22:00:00'
+    venue: 104
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 11
+  fields:
+    event: 5
+    date: '2018-09-10'
+    start_time: '20:00:00'
+    end_time: '22:00:00'
+    venue: 104
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 12
+  fields:
+    event: 6
+    date: '2018-12-10'
+    start_time: '12:00:00'
+    end_time: '15:00:00'
+    venue: 80
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 13
+  fields:
+    event: 7
+    date: '2018-12-10'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 40
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 14
+  fields:
+    event: 8
+    date: '2018-09-01'
+    start_time: '08:00:00'
+    end_time: '14:00:00'
+    venue: 64
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 15
+  fields:
+    event: 9
+    date: '2019-02-03'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 16
+  fields:
+    event: 9
+    date: '2019-02-04'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 17
+  fields:
+    event: 9
+    date: '2019-02-05'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 18
+  fields:
+    event: 9
+    date: '2019-02-06'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 19
+  fields:
+    event: 9
+    date: '2019-02-07'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 20
+  fields:
+    event: 10
+    date: '2018-10-10'
+    start_time: '14:00:00'
+    end_time: '17:00:00'
+    venue: 22
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 21
+  fields:
+    event: 10
+    date: '2018-10-17'
+    start_time: '14:00:00'
+    end_time: '17:00:00'
+    venue: 121
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 22
+  fields:
+    event: 10
+    date: '2018-10-24'
+    start_time: '14:00:00'
+    end_time: '17:00:00'
+    venue: 42
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 23
+  fields:
+    event: 11
+    date: '2019-02-16'
+    start_time: '10:30:00'
+    end_time: '15:00:00'
+    venue: 54
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 24
+  fields:
+    event: 12
+    date: '2018-11-05'
+    start_time: '09:00:00'
+    end_time: '16:00:00'
+    venue: 47
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 25
+  fields:
+    event: 13
+    date: '2018-12-09'
+    start_time: '09:30:00'
+    end_time: '18:00:00'
+    venue: 7
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 26
+  fields:
+    event: 14
+    date: '2018-11-01'
+    start_time: '12:00:00'
+    end_time: '18:00:00'
+    venue: 69
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 27
+  fields:
+    event: 15
+    date: '2019-03-20'
+    start_time: '14:00:00'
+    end_time: '18:30:00'
+    venue: 127
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 28
+  fields:
+    event: 16
+    date: '2019-02-15'
+    start_time: '08:00:00'
+    end_time: '18:30:00'
+    venue: 106
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 29
+  fields:
+    event: 17
+    date: '2018-10-14'
+    start_time: '09:30:00'
+    end_time: '17:30:00'
+    venue: 97
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 30
+  fields:
+    event: 18
+    date: '2018-11-26'
+    start_time: '12:30:00'
+    end_time: '16:00:00'
+    venue: 89
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 31
+  fields:
+    event: 19
+    date: '2019-03-28'
+    start_time: '11:00:00'
+    end_time: '18:00:00'
+    venue: 129
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 32
+  fields:
+    event: 20
+    date: '2018-12-25'
+    start_time: '14:00:00'
+    end_time: '19:00:00'
+    venue: 49
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 33
+  fields:
+    event: 20
+    date: '2019-01-10'
+    start_time: '14:30:00'
+    end_time: '19:30:00'
+    venue: 29
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 34
+  fields:
+    event: 20
+    date: '2018-12-27'
+    start_time: '11:30:00'
+    end_time: '19:00:00'
+    venue: 66
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 35
+  fields:
+    event: 21
+    date: '2019-05-22'
+    start_time: '14:30:00'
+    end_time: '16:00:00'
+    venue: 29
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 36
+  fields:
+    event: 22
+    date: '2018-10-14'
+    start_time: '12:30:00'
+    end_time: '19:30:00'
+    venue: 127
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 37
+  fields:
+    event: 23
+    date: '2018-12-03'
+    start_time: '13:00:00'
+    end_time: '18:00:00'
+    venue: 6
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 38
+  fields:
+    event: 24
+    date: '2019-05-14'
+    start_time: '10:30:00'
+    end_time: '19:00:00'
+    venue: 35
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 39
+  fields:
+    event: 25
+    date: '2018-12-27'
+    start_time: '09:30:00'
+    end_time: '19:00:00'
+    venue: 8
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 40
+  fields:
+    event: 26
+    date: '2018-11-16'
+    start_time: '11:30:00'
+    end_time: '16:00:00'
+    venue: 119
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 41
+  fields:
+    event: 27
+    date: '2018-12-04'
+    start_time: '11:30:00'
+    end_time: '19:30:00'
+    venue: 20
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 42
+  fields:
+    event: 28
+    date: '2019-05-31'
+    start_time: '14:30:00'
+    end_time: '16:30:00'
+    venue: 45
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 43
+  fields:
+    event: 29
+    date: '2018-10-16'
+    start_time: '12:30:00'
+    end_time: '19:30:00'
+    venue: 4
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 44
+  fields:
+    event: 30
+    date: '2018-10-25'
+    start_time: '14:30:00'
+    end_time: '16:30:00'
+    venue: 9
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 45
+  fields:
+    event: 30
+    date: '2018-10-16'
+    start_time: '11:00:00'
+    end_time: '17:00:00'
+    venue: 132
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 46
+  fields:
+    event: 30
+    date: '2019-03-23'
+    start_time: '11:30:00'
+    end_time: '18:00:00'
+    venue: 109
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 47
+  fields:
+    event: 31
+    date: '2019-05-06'
+    start_time: '13:00:00'
+    end_time: '16:00:00'
+    venue: 113
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 48
+  fields:
+    event: 32
+    date: '2018-11-28'
+    start_time: '11:30:00'
+    end_time: '16:30:00'
+    venue: 89
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 49
+  fields:
+    event: 33
+    date: '2018-11-24'
+    start_time: '09:30:00'
+    end_time: '19:00:00'
+    venue: 100
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 50
+  fields:
+    event: 34
+    date: '2019-05-02'
+    start_time: '11:30:00'
+    end_time: '19:30:00'
+    venue: 36
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 51
+  fields:
+    event: 35
+    date: '2019-01-27'
+    start_time: '12:00:00'
+    end_time: '16:00:00'
+    venue: 106
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 52
+  fields:
+    event: 36
+    date: '2018-12-15'
+    start_time: '12:30:00'
+    end_time: '18:00:00'
+    venue: 51
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 53
+  fields:
+    event: 37
+    date: '2018-11-28'
+    start_time: '11:30:00'
+    end_time: '15:30:00'
+    venue: 70
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 54
+  fields:
+    event: 38
+    date: '2018-11-19'
+    start_time: '12:00:00'
+    end_time: '15:00:00'
+    venue: 57
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 55
+  fields:
+    event: 39
+    date: '2018-12-19'
+    start_time: '10:00:00'
+    end_time: '18:00:00'
+    venue: 53
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 56
+  fields:
+    event: 40
+    date: '2018-10-05'
+    start_time: '14:00:00'
+    end_time: '19:30:00'
+    venue: 17
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 57
+  fields:
+    event: 40
+    date: '2019-02-03'
+    start_time: '11:30:00'
+    end_time: '15:00:00'
+    venue: 16
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 58
+  fields:
+    event: 40
+    date: '2019-01-16'
+    start_time: '08:00:00'
+    end_time: '19:30:00'
+    venue: 60
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 59
+  fields:
+    event: 41
+    date: '2018-12-30'
+    start_time: '14:00:00'
+    end_time: '17:00:00'
+    venue: 68
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 60
+  fields:
+    event: 42
+    date: '2019-02-23'
+    start_time: '13:00:00'
+    end_time: '16:30:00'
+    venue: 100
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 61
+  fields:
+    event: 43
+    date: '2018-12-01'
+    start_time: '13:30:00'
+    end_time: '18:30:00'
+    venue: 50
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 62
+  fields:
+    event: 44
+    date: '2019-03-12'
+    start_time: '10:00:00'
+    end_time: '18:30:00'
+    venue: 84
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 63
+  fields:
+    event: 45
+    date: '2019-03-23'
+    start_time: '08:00:00'
+    end_time: '15:00:00'
+    venue: 129
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 64
+  fields:
+    event: 46
+    date: '2019-01-10'
+    start_time: '08:30:00'
+    end_time: '15:00:00'
+    venue: 131
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 65
+  fields:
+    event: 47
+    date: '2018-12-01'
+    start_time: '14:30:00'
+    end_time: '15:30:00'
+    venue: 34
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 66
+  fields:
+    event: 48
+    date: '2019-02-10'
+    start_time: '12:30:00'
+    end_time: '16:30:00'
+    venue: 112
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 67
+  fields:
+    event: 49
+    date: '2018-12-16'
+    start_time: '12:30:00'
+    end_time: '19:30:00'
+    venue: 60
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 68
+  fields:
+    event: 50
+    date: '2019-02-05'
+    start_time: '13:00:00'
+    end_time: '18:00:00'
+    venue: 71
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 69
+  fields:
+    event: 50
+    date: '2018-11-02'
+    start_time: '10:00:00'
+    end_time: '17:30:00'
+    venue: 48
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 70
+  fields:
+    event: 50
+    date: '2019-01-08'
+    start_time: '11:30:00'
+    end_time: '15:00:00'
+    venue: 55
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 71
+  fields:
+    event: 51
+    date: '2018-11-02'
+    start_time: '10:30:00'
+    end_time: '15:30:00'
+    venue: 26
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 72
+  fields:
+    event: 52
+    date: '2019-05-20'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 26
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 73
+  fields:
+    event: 53
+    date: '2018-10-20'
+    start_time: '13:30:00'
+    end_time: '16:30:00'
+    venue: 87
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 74
+  fields:
+    event: 54
+    date: '2019-05-24'
+    start_time: '08:30:00'
+    end_time: '19:00:00'
+    venue: 87
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 75
+  fields:
+    event: 55
+    date: '2019-02-28'
+    start_time: '13:00:00'
+    end_time: '15:30:00'
+    venue: 94
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 76
+  fields:
+    event: 56
+    date: '2019-03-16'
+    start_time: '14:00:00'
+    end_time: '19:00:00'
+    venue: 67
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 77
+  fields:
+    event: 57
+    date: '2019-02-07'
+    start_time: '12:30:00'
+    end_time: '18:30:00'
+    venue: 85
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 78
+  fields:
+    event: 58
+    date: '2019-02-07'
+    start_time: '14:00:00'
+    end_time: '19:30:00'
+    venue: 11
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 79
+  fields:
+    event: 59
+    date: '2018-10-05'
+    start_time: '12:30:00'
+    end_time: '15:00:00'
+    venue: 77
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 80
+  fields:
+    event: 60
+    date: '2018-10-01'
+    start_time: '10:00:00'
+    end_time: '19:30:00'
+    venue: 90
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 81
+  fields:
+    event: 60
+    date: '2019-01-09'
+    start_time: '09:00:00'
+    end_time: '15:00:00'
+    venue: 57
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 82
+  fields:
+    event: 60
+    date: '2018-10-23'
+    start_time: '08:30:00'
+    end_time: '18:30:00'
+    venue: 21
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 83
+  fields:
+    event: 61
+    date: '2019-02-04'
+    start_time: '14:00:00'
+    end_time: '16:30:00'
+    venue: 46
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 84
+  fields:
+    event: 62
+    date: '2018-12-20'
+    start_time: '12:00:00'
+    end_time: '19:00:00'
+    venue: 62
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 85
+  fields:
+    event: 63
+    date: '2019-03-18'
+    start_time: '14:30:00'
+    end_time: '18:00:00'
+    venue: 103
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 86
+  fields:
+    event: 64
+    date: '2019-02-21'
+    start_time: '11:00:00'
+    end_time: '15:00:00'
+    venue: 12
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 87
+  fields:
+    event: 65
+    date: '2018-11-21'
+    start_time: '11:00:00'
+    end_time: '18:30:00'
+    venue: 101
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 88
+  fields:
+    event: 66
+    date: '2018-10-15'
+    start_time: '13:00:00'
+    end_time: '17:30:00'
+    venue: 24
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 89
+  fields:
+    event: 67
+    date: '2019-04-05'
+    start_time: '12:00:00'
+    end_time: '16:30:00'
+    venue: 77
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 90
+  fields:
+    event: 68
+    date: '2018-12-29'
+    start_time: '12:30:00'
+    end_time: '19:00:00'
+    venue: 43
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 91
+  fields:
+    event: 69
+    date: '2019-02-07'
+    start_time: '12:00:00'
+    end_time: '18:30:00'
+    venue: 35
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 92
+  fields:
+    event: 70
+    date: '2018-10-13'
+    start_time: '10:00:00'
+    end_time: '18:00:00'
+    venue: 58
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 93
+  fields:
+    event: 70
+    date: '2019-01-27'
+    start_time: '11:00:00'
+    end_time: '18:00:00'
+    venue: 31
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 94
+  fields:
+    event: 70
+    date: '2018-10-31'
+    start_time: '12:30:00'
+    end_time: '19:30:00'
+    venue: 108
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 95
+  fields:
+    event: 71
+    date: '2019-02-11'
+    start_time: '11:00:00'
+    end_time: '18:00:00'
+    venue: 81
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 96
+  fields:
+    event: 72
+    date: '2019-04-23'
+    start_time: '08:00:00'
+    end_time: '18:30:00'
+    venue: 99
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 97
+  fields:
+    event: 73
+    date: '2018-10-06'
+    start_time: '13:30:00'
+    end_time: '18:00:00'
+    venue: 50
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 98
+  fields:
+    event: 74
+    date: '2019-01-24'
+    start_time: '08:00:00'
+    end_time: '17:30:00'
+    venue: 64
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 99
+  fields:
+    event: 75
+    date: '2018-11-29'
+    start_time: '11:30:00'
+    end_time: '19:00:00'
+    venue: 86
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 100
+  fields:
+    event: 76
+    date: '2018-12-07'
+    start_time: '08:30:00'
+    end_time: '19:00:00'
+    venue: 51
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 101
+  fields:
+    event: 77
+    date: '2018-10-14'
+    start_time: '13:00:00'
+    end_time: '16:30:00'
+    venue: 52
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 102
+  fields:
+    event: 78
+    date: '2018-10-27'
+    start_time: '08:00:00'
+    end_time: '19:00:00'
+    venue: 120
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 103
+  fields:
+    event: 79
+    date: '2019-05-19'
+    start_time: '09:30:00'
+    end_time: '15:30:00'
+    venue: 134
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 104
+  fields:
+    event: 80
+    date: '2018-12-16'
+    start_time: '11:30:00'
+    end_time: '15:30:00'
+    venue: 14
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 105
+  fields:
+    event: 80
+    date: '2018-12-23'
+    start_time: '13:00:00'
+    end_time: '16:30:00'
+    venue: 45
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 106
+  fields:
+    event: 80
+    date: '2019-03-06'
+    start_time: '09:00:00'
+    end_time: '19:30:00'
+    venue: 34
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 107
+  fields:
+    event: 81
+    date: '2018-10-03'
+    start_time: '09:30:00'
+    end_time: '16:00:00'
+    venue: 16
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 108
+  fields:
+    event: 82
+    date: '2019-01-02'
+    start_time: '14:30:00'
+    end_time: '17:00:00'
+    venue: 98
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 109
+  fields:
+    event: 83
+    date: '2019-01-07'
+    start_time: '08:00:00'
+    end_time: '19:00:00'
+    venue: 92
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 110
+  fields:
+    event: 84
+    date: '2018-11-27'
+    start_time: '11:30:00'
+    end_time: '15:00:00'
+    venue: 80
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 111
+  fields:
+    event: 85
+    date: '2019-04-28'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 77
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 112
+  fields:
+    event: 86
+    date: '2019-04-15'
+    start_time: '09:00:00'
+    end_time: '16:00:00'
+    venue: 100
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 113
+  fields:
+    event: 87
+    date: '2019-04-24'
+    start_time: '12:30:00'
+    end_time: '17:00:00'
+    venue: 24
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 114
+  fields:
+    event: 88
+    date: '2018-10-12'
+    start_time: '11:30:00'
+    end_time: '17:00:00'
+    venue: 74
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 115
+  fields:
+    event: 89
+    date: '2019-02-17'
+    start_time: '14:00:00'
+    end_time: '16:30:00'
+    venue: 73
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 116
+  fields:
+    event: 90
+    date: '2018-12-23'
+    start_time: '12:00:00'
+    end_time: '15:00:00'
+    venue: 22
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 117
+  fields:
+    event: 90
+    date: '2019-02-20'
+    start_time: '13:30:00'
+    end_time: '18:00:00'
+    venue: 19
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 118
+  fields:
+    event: 90
+    date: '2018-12-16'
+    start_time: '14:00:00'
+    end_time: '19:00:00'
+    venue: 80
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 119
+  fields:
+    event: 91
+    date: '2019-01-17'
+    start_time: '09:00:00'
+    end_time: '17:00:00'
+    venue: 55
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 120
+  fields:
+    event: 92
+    date: '2019-01-28'
+    start_time: '10:30:00'
+    end_time: '19:30:00'
+    venue: 20
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 121
+  fields:
+    event: 93
+    date: '2019-03-03'
+    start_time: '11:30:00'
+    end_time: '16:00:00'
+    venue: 21
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 122
+  fields:
+    event: 94
+    date: '2018-12-24'
+    start_time: '12:00:00'
+    end_time: '16:30:00'
+    venue: 115
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 123
+  fields:
+    event: 95
+    date: '2018-11-21'
+    start_time: '19:00:00'
+    end_time: '23:30:00'
+    venue:
+    outside_venue_name: 'Berkeley'
+- model: main_events.eventlogistic
+  pk: 124
+  fields:
+    event: 96
+    date: '2019-04-19'
+    start_time: '17:00:00'
+    end_time: '18:30:00'
+    venue: 99
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 125
+  fields:
+    event: 97
+    date: '2018-09-20'
+    start_time: '12:00:00'
+    end_time: '16:30:00'
+    venue: 1
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 126
+  fields:
+    event: 98
+    date: '2018-12-08'
+    start_time: '15:00:00'
+    end_time: '16:30:00'
+    venue: 44
+    outside_venue_name: ''
+- model: main_events.eventlogistic
+  pk: 127
+  fields:
+    event: 99
+    date: '2019-03-31'
+    start_time: '18:00:00'
+    end_time: '22:30:00'
+    venue:
+    outside_venue_name: 'Xavierville Clubhouse'
+- model: main_events.eventlogistic
+  pk: 128
+  fields:
+    event: 100
+    date: '2018-09-20'
+    start_time: '08:00:00'
+    end_time: '12:30:00'
+    venue: 103
+    outside_venue_name: ''
