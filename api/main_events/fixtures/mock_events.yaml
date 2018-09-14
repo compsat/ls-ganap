@@ -1,8 +1,8 @@
 - model: main_events.event
   pk: 1
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Blue Hacks
     description: Blue Hacks is a two-day hackathon where...
     is_approved: False
@@ -13,29 +13,11 @@
     sanggu_hosts: []
     office_hosts: []
     org_hosts: [1]
-- model: main_events.eventlogistic
-  pk: 1
-  fields:
-    event: 1
-    date: '2019-01-26'
-    start_time: '14:30:00'
-    end_time: '18:30:00'
-    venue:
-    outside_venue_name: "5th Floor Rizal Lib"
-- model: main_events.eventlogistic
-  pk: 2
-  fields:
-    event: 1
-    date: '2019-01-21'
-    start_time: '17:00:00'
-    end_time: '18:30:00'
-    venue: 13
-    outside_venue_name: ""
 - model: main_events.event
   pk: 2
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: PULP
     description: PULP is a conference by...
     is_approved: True
@@ -46,20 +28,11 @@
     sanggu_hosts: []
     office_hosts: []
     org_hosts: [32, 2, 28]
-- model: main_events.eventlogistic
-  pk: 3
-  fields:
-    event: 2
-    date: '2018-11-05'
-    start_time: '08:30:00'
-    end_time: '17:30:00'
-    venue: 5
-    outside_venue_name: ""
 - model: main_events.event
   pk: 3
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Film Viewing Sessions
     description: Film Viewing Sessions are...
     is_approved: True
@@ -70,38 +43,11 @@
     sanggu_hosts: []
     office_hosts: [3]
     org_hosts: [33]
-- model: main_events.eventlogistic
-  pk: 4
-  fields:
-    event: 3
-    date: '2018-08-15'
-    start_time: '17:00:00'
-    end_time: '19:00:00'
-    venue: 24
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 5
-  fields:
-    event: 3
-    date: '2018-10-02'
-    start_time: '17:00:00'
-    end_time: '19:00:00'
-    venue: 13
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 6
-  fields:
-    event: 3
-    date: '2019-02-18'
-    start_time: '17:00:00'
-    end_time: '19:00:00'
-    venue: 16
-    outside_venue_name: ""
 - model: main_events.event
   pk: 4
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Scholars' Reception
     description: The reception is for...
     is_approved: True
@@ -112,20 +58,11 @@
     sanggu_hosts: [1]
     office_hosts: [2]
     org_hosts: [7]
-- model: main_events.eventlogistic
-  pk: 7
-  fields:
-    event: 4
-    date: '2019-02-26'
-    start_time: '17:00:00'
-    end_time: '20:00:00'
-    venue: 79
-    outside_venue_name: ""
 - model: main_events.event
   pk: 5
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Rent
     description: Rent is a play by blueREP...
     is_approved: True
@@ -136,47 +73,11 @@
     sanggu_hosts: []
     office_hosts: []
     org_hosts: [35]
-- model: main_events.eventlogistic
-  pk: 8
-  fields:
-    event: 5
-    date: '2018-09-01'
-    start_time: '20:00:00'
-    end_time: '22:00:00'
-    venue: 104
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 9
-  fields:
-    event: 5
-    date: '2018-09-05'
-    start_time: '20:00:00'
-    end_time: '22:00:00'
-    venue: 104
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 10
-  fields:
-    event: 5
-    date: '2018-09-07'
-    start_time: '20:00:00'
-    end_time: '22:00:00'
-    venue: 104
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 11
-  fields:
-    event: 5
-    date: '2018-09-10'
-    start_time: '20:00:00'
-    end_time: '22:00:00'
-    venue: 104
-    outside_venue_name: ""
 - model: main_events.event
   pk: 6
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Medical Check-up
     description: Required...
     is_approved: True
@@ -187,20 +88,11 @@
     sanggu_hosts: []
     office_hosts: [4]
     org_hosts: []
-- model: main_events.eventlogistic
-  pk: 12
-  fields:
-    event: 6
-    date: '2018-12-10'
-    start_time: '12:00:00'
-    end_time: '15:00:00'
-    venue: 80
-    outside_venue_name: ""
 - model: main_events.event
   pk: 7
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Locker Check-up
     description: Required...
     is_approved: False
@@ -211,20 +103,11 @@
     sanggu_hosts: [3]
     office_hosts: []
     org_hosts: []
-- model: main_events.eventlogistic
-  pk: 13
-  fields:
-    event: 7
-    date: '2018-12-10'
-    start_time: '08:00:00'
-    end_time: '17:00:00'
-    venue: 40
-    outside_venue_name: ""
 - model: main_events.event
   pk: 8
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Forum on Religion
     description: This forum is on...
     is_approved: True
@@ -235,20 +118,11 @@
     sanggu_hosts: []
     office_hosts: [3]
     org_hosts: [5, 23]
-- model: main_events.eventlogistic
-  pk: 14
-  fields:
-    event: 8
-    date: '2018-09-01'
-    start_time: '08:00:00'
-    end_time: '14:00:00'
-    venue: 64
-    outside_venue_name: ""
 - model: main_events.event
   pk: 9
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Job Fair
     description: Job Fair offers...
     is_approved: True
@@ -259,56 +133,11 @@
     sanggu_hosts: [1]
     office_hosts: [1]
     org_hosts: []
-- model: main_events.eventlogistic
-  pk: 15
-  fields:
-    event: 9
-    date: '2019-02-03'
-    start_time: '08:00:00'
-    end_time: '17:00:00'
-    venue: 136
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 16
-  fields:
-    event: 9
-    date: '2019-02-04'
-    start_time: '08:00:00'
-    end_time: '17:00:00'
-    venue: 136
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 17
-  fields:
-    event: 9
-    date: '2019-02-05'
-    start_time: '08:00:00'
-    end_time: '17:00:00'
-    venue: 136
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 18
-  fields:
-    event: 9
-    date: '2019-02-06'
-    start_time: '08:00:00'
-    end_time: '17:00:00'
-    venue: 136
-    outside_venue_name: ""
-- model: main_events.eventlogistic
-  pk: 19
-  fields:
-    event: 9
-    date: '2019-02-07'
-    start_time: '08:00:00'
-    end_time: '17:00:00'
-    venue: 136
-    outside_venue_name: ""
 - model: main_events.event
   pk: 10
   fields:
-    created_at: 2018-08-23 23:36
-    updated_at: 2018-08-23 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
     name: Business Talks
     description: We offer...
     is_approved: False
@@ -319,30 +148,1691 @@
     sanggu_hosts: []
     office_hosts: []
     org_hosts: [1, 50, 32, 25]
-- model: main_events.eventlogistic
+- model: main_events.event
+  pk: 11
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: et minim deserunt
+    description: Officia proident non tempor anim anim tempor. Qui ut laborum voluptate
+      qui commodo cupidatat laborum commodo ipsum culpa sint dolore do. Est laborum
+      ipsum eiusmod adipisicing. Ipsum dolor consequat nostrud amet minim eu qui nulla
+      cupidatat eu laborum officia. Consequat sit occaecat exercitation adipisicing
+      officia veniam esse ex.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [7,6,3,4]
+    sanggu_hosts: [4]
+    org_hosts: [7, 27, 4]
+    office_hosts: [1, 4]
+- model: main_events.event
+  pk: 12
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: nisi ut pariatur
+    description: Duis enim magna est fugiat aute proident. Amet consequat dolore nisi
+      excepteur labore cillum deserunt cupidatat culpa sit. Nostrud ipsum adipisicing
+      minim est.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [2, 7]
+    sanggu_hosts: [5]
+    org_hosts: []
+    office_hosts: [2]
+- model: main_events.event
+  pk: 13
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: velit veniam anim
+    description: Veniam laboris Lorem pariatur elit labore id. Occaecat aute in deserunt
+      labore ad sint anim ipsum consequat laborum deserunt. Velit ex labore et sunt
+      ut. Cillum ea exercitation esse adipisicing in. Laboris id laborum nisi sunt
+      officia reprehenderit est enim Lorem ex.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1, 1, 7]
+    sanggu_hosts: [3,2,5]
+    org_hosts: []
+    office_hosts: []
+- model: main_events.event
+  pk: 14
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: id irure ea
+    description: Do sunt cillum ad officia eiusmod commodo laboris. Incididunt laboris
+      pariatur ea amet duis pariatur cupidatat fugiat consequat consectetur nostrud
+      sit incididunt. Commodo aute ex ullamco quis. Id sunt sint aliquip exercitation
+      dolore laboris sit enim laboris.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2]
+    sanggu_hosts: [9]
+    org_hosts: [4, 16, 21]
+    office_hosts: [3]
+- model: main_events.event
+  pk: 15
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: non labore non
+    description: Ipsum eiusmod est aute velit commodo pariatur. Nulla nostrud aliqua
+      adipisicing amet eiusmod excepteur voluptate enim nostrud. Nostrud irure ipsum
+      voluptate nisi anim amet pariatur cillum tempor cillum ut pariatur. Magna cillum
+      nostrud incididunt exercitation aliquip enim. Voluptate ea excepteur et ea dolore.
+      Sint ullamco ad aliquip minim sit deserunt qui. Exercitation incididunt aliquip
+      sit irure deserunt officia ipsum et sit ipsum elit quis aliqua laborum.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [4, 6, 7]
+    sanggu_hosts: []
+    org_hosts: []
+    office_hosts: [3]
+- model: main_events.event
+  pk: 16
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: incididunt consectetur ex
+    description: Reprehenderit do tempor nisi dolore mollit irure sit. Proident ex
+      commodo velit id veniam incididunt aliqua labore anim id esse anim. Qui incididunt
+      enim magna id dolore nostrud cillum eu anim duis quis non. Nisi esse nostrud
+      consequat id magna amet nisi enim mollit. Non exercitation elit ea duis veniam
+      amet ex minim incididunt sunt velit reprehenderit. Nostrud laborum consectetur
+      Lorem magna eu elit nostrud laborum cillum.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 2]
+    sanggu_hosts: [7, 1, 4]
+    org_hosts: []
+    office_hosts: [2]
+- model: main_events.event
+  pk: 17
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ipsum nostrud est
+    description: Aliquip veniam ipsum quis voluptate occaecat nisi ipsum. Commodo
+      minim cillum eiusmod non esse occaecat dolore dolore incididunt aliquip cupidatat
+      et. Laboris non eu Lorem irure et non in minim exercitation cupidatat.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2]
+    sanggu_hosts: [9]
+    org_hosts: [6]
+    office_hosts: [2]
+- model: main_events.event
+  pk: 18
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: enim cillum reprehenderit
+    description: Ea ex duis in anim anim aliqua cillum non do magna exercitation.
+      Est id elit pariatur cillum qui qui nostrud veniam velit reprehenderit incididunt
+      amet. Esse in aliqua et sit incididunt incididunt. Ullamco magna laboris ullamco
+      excepteur culpa ad. Aliqua eu cupidatat ullamco aliquip excepteur in quis magna
+      aute consectetur magna. Ea commodo consectetur eu officia enim do ad consectetur
+      minim officia. Magna duis labore esse nisi duis nostrud velit laborum dolore
+      amet qui exercitation adipisicing occaecat.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [5]
+    sanggu_hosts: [5, 9]
+    org_hosts: [38,5]
+    office_hosts: [4]
+- model: main_events.event
+  pk: 19
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: duis sint voluptate
+    description: Sunt commodo duis dolor sit sunt id reprehenderit ut sint incididunt
+      non aute minim eu. Sint cupidatat commodo ea do aute quis nulla dolor dolore
+      ea aliquip. Dolor officia eiusmod magna Lorem qui. Do id enim anim sit amet
+      irure voluptate ut Lorem aliquip. Exercitation et ullamco do anim sunt ex irure
+      elit aliquip amet nisi eu proident. Duis irure aute officia minim velit mollit
+      esse eiusmod excepteur non proident fugiat qui. Lorem aute quis quis eu cupidatat
+      ex consectetur reprehenderit.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [1, 5]
+    sanggu_hosts: [9,2]
+    org_hosts: [53, 45, 37]
+    office_hosts: [3]
+- model: main_events.event
   pk: 20
   fields:
-    event: 10
-    date: '2018-10-10'
-    start_time: '14:00:00'
-    end_time: '17:00:00'
-    venue: 22
-    outside_venue_name: ""
-- model: main_events.eventlogistic
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: laborum aute veniam
+    description: Ullamco quis dolor ad eu labore qui mollit veniam fugiat in occaecat
+      nostrud veniam. Fugiat esse occaecat est mollit nostrud mollit aliqua. Exercitation
+      ut nulla amet aute qui nulla aliqua pariatur quis consectetur pariatur do in.
+      Irure incididunt enim reprehenderit non pariatur. Labore commodo duis velit
+      quis consectetur duis aute sit anim.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 5, 2, 4]
+    sanggu_hosts: [5]
+    org_hosts: [19, 37, 43]
+    office_hosts: [1]
+- model: main_events.event
   pk: 21
   fields:
-    event: 10
-    date: '2018-10-17'
-    start_time: '14:00:00'
-    end_time: '17:00:00'
-    venue: 121
-    outside_venue_name: ""
-- model: main_events.eventlogistic
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: nisi adipisicing duis
+    description: Eiusmod veniam incididunt irure do irure excepteur ex velit ut dolor
+      non reprehenderit eu officia. Eu quis est aliquip reprehenderit aliqua nulla
+      commodo consectetur cillum adipisicing elit esse cillum. Esse excepteur aliquip
+      commodo sit adipisicing duis incididunt irure sint ex deserunt.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [5, 7]
+    sanggu_hosts: [9]
+    org_hosts: [43, 41]
+    office_hosts: [2]
+- model: main_events.event
   pk: 22
   fields:
-    event: 10
-    date: '2018-10-24'
-    start_time: '14:00:00'
-    end_time: '17:00:00'
-    venue: 42
-    outside_venue_name: ""
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: non Lorem pariatur
+    description: Deserunt elit veniam qui anim dolore aliquip. Nulla in amet incididunt
+      reprehenderit aute in nisi consequat est laboris et exercitation sunt laborum.
+      Ex aliqua deserunt do incididunt id commodo sunt velit et anim amet anim adipisicing.
+      Reprehenderit mollit duis tempor tempor officia adipisicing culpa proident aute
+      elit eiusmod. Enim deserunt laboris consectetur magna aliquip excepteur. Officia
+      aliquip exercitation eiusmod consectetur. Adipisicing nostrud commodo fugiat
+      minim.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [4]
+    sanggu_hosts: [6, 1]
+    org_hosts: [3, 49]
+    office_hosts: []
+- model: main_events.event
+  pk: 23
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ex laborum consectetur
+    description: Esse eu non id do cillum dolore sint do aliquip nisi officia aute
+      in. Do incididunt ad sunt elit ex irure dolore elit tempor laboris Lorem et
+      mollit. Ea ex ullamco ut aute amet dolore ea ut labore consectetur laborum sit
+      dolore consequat. Incididunt consequat laboris pariatur sit deserunt dolore
+      officia cillum eiusmod. Et ullamco nulla ipsum irure pariatur esse sint ipsum
+      excepteur consequat.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [5]
+    sanggu_hosts: [2,1,8]
+    org_hosts: [30,37]
+    office_hosts: [2, 3, 4]
+- model: main_events.event
+  pk: 24
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: mollit duis tempor
+    description: Consectetur proident non sit mollit. Occaecat exercitation ipsum
+      do esse id consectetur deserunt esse anim. Ullamco enim ullamco sit quis eiusmod
+      occaecat deserunt. Aliquip culpa sit ad duis occaecat aliqua ad magna minim
+      sit quis quis.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3,5]
+    sanggu_hosts: [2,6]
+    org_hosts: []
+    office_hosts: [3,2]
+- model: main_events.event
+  pk: 25
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: pariatur sunt incididunt
+    description: Aute velit in id et duis ut ut veniam. Enim mollit nulla sit ad in
+      est ex cillum reprehenderit. Reprehenderit elit non non laborum sunt est aliquip.
+      Irure anim labore sunt do nisi. Exercitation sunt dolore sint esse quis commodo
+      laborum.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [6, 7]
+    sanggu_hosts: []
+    org_hosts: [3, 40]
+    office_hosts: []
+- model: main_events.event
+  pk: 26
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: aliquip reprehenderit dolore
+    description: Elit eu voluptate nisi et ullamco veniam veniam exercitation ipsum.
+      Sunt do sit fugiat reprehenderit. Ipsum in veniam veniam culpa cupidatat elit
+      pariatur magna. Non commodo reprehenderit esse cillum id aliqua sunt nostrud
+      nostrud non non ipsum fugiat sint. Et commodo nulla fugiat magna consequat ex
+      nostrud.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3]
+    sanggu_hosts: []
+    org_hosts: [13,15]
+    office_hosts: [3]
+- model: main_events.event
+  pk: 27
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: dolore deserunt exercitation
+    description: Veniam elit voluptate pariatur ad commodo excepteur in dolor deserunt.
+      Eiusmod et laborum dolor deserunt velit eiusmod eiusmod ut eiusmod commodo velit
+      mollit consectetur. Tempor ullamco tempor enim adipisicing ullamco eu ea voluptate
+      ea quis. Irure adipisicing do fugiat mollit cillum veniam laboris minim laborum
+      amet sit.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [7,1]
+    sanggu_hosts: []
+    org_hosts: []
+    office_hosts: [3]
+- model: main_events.event
+  pk: 28
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: excepteur culpa laborum
+    description: Irure eiusmod exercitation magna consectetur. Ad cupidatat eu dolore
+      amet. Magna dolor veniam elit occaecat esse laboris ullamco quis cillum. Sunt
+      do sit sint commodo commodo fugiat ad aliquip. Duis aliquip veniam officia minim
+      commodo eu dolore minim. Ut consequat qui minim ut minim do voluptate ea aliquip
+      tempor ullamco. Laborum sit in cillum ex veniam fugiat non consequat ad qui
+      excepteur.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [4]
+    sanggu_hosts: [3]
+    org_hosts: []
+    office_hosts: []
+- model: main_events.event
+  pk: 29
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: fugiat labore ipsum
+    description: Dolor voluptate do mollit do magna eu ex amet mollit. Eiusmod nulla
+      voluptate exercitation velit incididunt est sunt laboris ea ea non eu ut pariatur.
+      Et velit adipisicing dolor esse incididunt non duis duis velit ex Lorem. Incididunt
+      mollit velit laboris aliqua aute consequat labore minim.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [6,4,2]
+    sanggu_hosts: []
+    org_hosts: []
+    office_hosts: [3]
+- model: main_events.event
+  pk: 30
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ea culpa in
+    description: Qui excepteur sint elit reprehenderit quis qui eu qui. Nulla id ex
+      nostrud ex incididunt duis. Pariatur irure consectetur adipisicing sunt ipsum
+      est.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2,4,3]
+    sanggu_hosts: [8,4]
+    org_hosts: [5,13]
+    office_hosts: []
+- model: main_events.event
+  pk: 31
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: excepteur commodo anim
+    description: Excepteur deserunt ad mollit reprehenderit ex magna quis nostrud
+      voluptate voluptate Lorem pariatur et. Veniam amet nostrud nulla irure ullamco
+      eiusmod fugiat aliquip et qui est elit est quis. Enim ea amet labore pariatur
+      qui adipisicing adipisicing deserunt elit. Eiusmod quis sunt proident ipsum
+      veniam velit irure nostrud officia adipisicing dolor et.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2, 5, 3, 4]
+    sanggu_hosts: []
+    org_hosts: [32]
+    office_hosts: []
+- model: main_events.event
+  pk: 32
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: duis commodo ea
+    description: Velit velit sint duis duis do sit. Veniam tempor ad eu aute nulla
+      fugiat voluptate aute culpa. Est adipisicing minim et labore ea dolor.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [7, 6, 3]
+    sanggu_hosts: [1]
+    org_hosts: [13]
+    office_hosts: [1]
+- model: main_events.event
+  pk: 33
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: culpa qui ullamco
+    description: Ullamco laborum occaecat occaecat quis. Pariatur labore do reprehenderit
+      voluptate. Reprehenderit qui amet ea dolor id aute laboris exercitation minim
+      ipsum in ipsum laborum.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 1, 4]
+    sanggu_hosts: [4, 8]
+    org_hosts: [51]
+    office_hosts: [2]
+- model: main_events.event
+  pk: 34
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: laboris do mollit
+    description: Reprehenderit ut esse ullamco minim ea excepteur. Cupidatat eu qui
+      ex et. Anim reprehenderit voluptate voluptate tempor pariatur aliqua ea ex enim
+      nulla excepteur. Tempor ullamco laboris quis non consectetur cupidatat sint
+      dolore pariatur. Elit officia commodo nostrud voluptate dolore velit amet consectetur
+      tempor. Esse laboris Lorem velit commodo ullamco voluptate.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1,7]
+    sanggu_hosts: []
+    org_hosts: [35, 21]
+    office_hosts: []
+- model: main_events.event
+  pk: 35
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: officia ad do
+    description: Eu commodo velit incididunt occaecat eu cillum. Voluptate do amet
+      enim incididunt magna Lorem commodo. Reprehenderit tempor voluptate ipsum consequat
+      ut. Laboris ex elit excepteur id. Officia et sunt eiusmod voluptate magna sunt
+      esse Lorem commodo excepteur. Excepteur esse amet magna non Lorem. Pariatur
+      aute nulla eu ullamco ex excepteur exercitation.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [6]
+    sanggu_hosts: [2, 8]
+    org_hosts: [38, 40]
+    office_hosts: [1, 3]
+- model: main_events.event
+  pk: 36
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: nulla nisi anim
+    description: Aliquip tempor culpa consequat elit do exercitation mollit est nulla
+      aliquip eu velit. Voluptate est exercitation ipsum excepteur velit. Anim nisi
+      enim commodo quis sunt in ullamco irure aliqua incididunt. Irure sunt ullamco
+      irure magna dolor enim nulla mollit do deserunt. Eiusmod occaecat consectetur
+      eu deserunt qui est ut est duis nisi aute veniam consequat commodo. Ut et aliquip
+      pariatur aliqua aliqua amet reprehenderit excepteur. Mollit cillum dolor commodo
+      non irure dolor eiusmod duis pariatur qui elit eiusmod dolore qui.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [2,5]
+    sanggu_hosts: [9]
+    org_hosts: [15]
+    office_hosts: [4, 3]
+- model: main_events.event
+  pk: 37
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ex occaecat duis
+    description: Aute irure aliqua nulla exercitation sit duis esse ullamco eu culpa
+      anim proident id duis. Cillum esse est irure ullamco. Qui reprehenderit eu pariatur
+      aute. Aliqua irure cillum consectetur adipisicing cupidatat velit laboris anim
+      occaecat exercitation aute do id. Ipsum minim esse et non sunt irure cillum
+      fugiat minim qui nulla anim aliquip. Ad qui officia sint sit eiusmod cillum
+      quis dolore elit consectetur eiusmod.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [6,1]
+    sanggu_hosts: [6, 2, 9]
+    org_hosts: [11]
+    office_hosts: []
+- model: main_events.event
+  pk: 38
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: fugiat reprehenderit ullamco
+    description: Deserunt tempor non occaecat eiusmod. Dolore adipisicing proident
+      aute non laboris aliquip. Incididunt enim commodo nisi voluptate magna quis
+      commodo nisi ad exercitation fugiat consectetur.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3,7]
+    sanggu_hosts: []
+    org_hosts: [27, 8]
+    office_hosts: []
+- model: main_events.event
+  pk: 39
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: quis eu qui
+    description: Esse labore ut sint elit eiusmod Lorem qui dolor aliquip proident
+      fugiat. Tempor cillum dolore ut mollit quis excepteur consectetur. Commodo eiusmod
+      minim veniam magna ullamco qui reprehenderit irure sit occaecat laboris.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2]
+    sanggu_hosts: []
+    org_hosts: []
+    office_hosts: [2]
+- model: main_events.event
+  pk: 40
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: nostrud nisi reprehenderit
+    description: Irure voluptate cillum enim ullamco adipisicing ad cupidatat magna
+      commodo. Sunt adipisicing quis duis sint. Adipisicing ut excepteur nulla ipsum
+      aute ex ea amet. Anim laboris consequat veniam nostrud sit aliqua et excepteur.
+      Est laborum nulla amet laboris consequat magna deserunt aliquip eiusmod proident
+      esse dolore.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1]
+    sanggu_hosts: [4]
+    org_hosts: [18]
+    office_hosts: []
+- model: main_events.event
+  pk: 41
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: veniam aliquip elit
+    description: Nisi ipsum et commodo in. Elit laborum et ea tempor ea magna ea velit
+      laborum proident consectetur magna. Et excepteur quis Lorem labore excepteur
+      nulla ad aute duis et cillum nostrud.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [2]
+    sanggu_hosts: [9, 3]
+    org_hosts: []
+    office_hosts: [4, 3, 2]
+- model: main_events.event
+  pk: 42
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ut consectetur nulla
+    description: Aute sunt exercitation sint est minim veniam non dolore do ipsum
+      amet labore. Et qui Lorem exercitation aliqua ea est ea minim amet tempor incididunt
+      velit est. Non ut nulla deserunt fugiat velit eiusmod.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3, 1]
+    sanggu_hosts: [8]
+    org_hosts: []
+    office_hosts: []
+- model: main_events.event
+  pk: 43
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: dolore adipisicing adipisicing
+    description: Nulla anim ullamco id enim ullamco elit. Cillum nostrud occaecat
+      in sint amet commodo. Elit adipisicing consequat laboris et adipisicing nulla
+      ullamco. Esse do id id est sit sunt occaecat amet Lorem anim eiusmod do. Ea
+      pariatur proident ut nulla. Ad consequat ad dolor occaecat aute consequat deserunt
+      velit enim excepteur. Officia ipsum consequat et cillum adipisicing eu dolore
+      mollit tempor nulla cillum excepteur.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2, 5, 7]
+    sanggu_hosts: []
+    org_hosts: [6]
+    office_hosts: [1, 4, 3]
+- model: main_events.event
+  pk: 44
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: id qui irure
+    description: Laborum incididunt proident ad anim consectetur incididunt elit ut
+      sit id non magna Lorem magna. Sit adipisicing ad ea in voluptate anim aute qui
+      minim ipsum ullamco elit. Voluptate officia culpa consectetur enim et eu mollit.
+      Ad anim nisi cupidatat culpa laboris esse anim. Non amet nisi nisi ex veniam
+      ipsum esse amet ea quis.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [6]
+    sanggu_hosts: []
+    org_hosts: [34, 22, 54]
+    office_hosts: [3]
+- model: main_events.event
+  pk: 45
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: est proident in
+    description: Aliqua Lorem officia dolor aliquip Lorem duis laborum aute reprehenderit
+      duis duis ex tempor velit. Cillum incididunt anim id eu occaecat voluptate aliquip
+      labore esse. Anim veniam magna ea consectetur eiusmod adipisicing eu elit proident.
+      Enim occaecat qui mollit aute commodo minim mollit do proident duis culpa sint.
+      Aliquip culpa consequat sint sit Lorem fugiat ut reprehenderit minim. Aliquip
+      exercitation nisi consequat aute in nisi sit officia nisi. Mollit occaecat pariatur
+      in anim aliquip veniam elit magna proident.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1]
+    sanggu_hosts: [6, 9]
+    org_hosts: [2]
+    office_hosts: [4]
+- model: main_events.event
+  pk: 46
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: mollit officia minim
+    description: Exercitation sint et nostrud amet proident non proident. Ut elit
+      tempor esse nulla anim minim. Pariatur sunt qui est amet velit enim est. Aute
+      sit reprehenderit culpa velit. Dolore et eiusmod excepteur magna sint laborum
+      anim. Officia elit et deserunt sunt pariatur labore labore reprehenderit amet
+      officia exercitation ut ex dolor.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [4,3]
+    sanggu_hosts: []
+    org_hosts: [43, 15]
+    office_hosts: []
+- model: main_events.event
+  pk: 47
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: esse occaecat irure
+    description: Voluptate exercitation et cupidatat occaecat quis incididunt sunt.
+      Nisi aute nostrud fugiat minim eiusmod anim aliqua nisi. Enim enim dolore velit
+      consequat sit exercitation est do aliquip cillum minim cupidatat. Consequat
+      anim tempor consectetur amet consectetur aute exercitation incididunt.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [1, 7]
+    sanggu_hosts: [2, 8]
+    org_hosts: [34, 32, 8]
+    office_hosts: [3, 1]
+- model: main_events.event
+  pk: 48
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: nulla reprehenderit pariatur
+    description: Veniam incididunt in ipsum nostrud pariatur incididunt tempor eu.
+      Occaecat enim mollit nisi tempor. Reprehenderit eu incididunt fugiat aliqua
+      cupidatat do est labore aute pariatur. Nostrud veniam tempor consectetur sint
+      nostrud quis sunt consequat reprehenderit nostrud est magna deserunt dolore.
+      Nisi commodo ex nulla ea voluptate. Enim deserunt enim consequat eiusmod labore
+      dolore tempor ea ipsum magna commodo reprehenderit.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [5, 1]
+    sanggu_hosts: []
+    org_hosts: [33]
+    office_hosts: [3]
+- model: main_events.event
+  pk: 49
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: exercitation incididunt anim
+    description: Eiusmod dolor esse ipsum amet fugiat ex minim cupidatat quis. Velit
+      proident Lorem eu nisi ad esse minim. Id eu non laboris mollit ipsum velit cupidatat
+      sunt.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [4]
+    sanggu_hosts: [2,7]
+    org_hosts: []
+    office_hosts: [2, 3]
+- model: main_events.event
+  pk: 50
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: tempor non anim
+    description: Eu irure mollit magna quis enim minim do. Non nostrud consequat ad
+      consequat dolor id ad irure cupidatat tempor sint in officia. Ea duis officia
+      non amet laborum duis deserunt est enim quis proident. Magna Lorem sunt fugiat
+      commodo do eiusmod excepteur velit magna quis cillum. Aliquip ex tempor commodo
+      dolor mollit.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1]
+    sanggu_hosts: [8]
+    org_hosts: [5]
+    office_hosts: []
+- model: main_events.event
+  pk: 51
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: incididunt aute incididunt
+    description: Dolore commodo dolor nostrud dolor irure occaecat. Cillum irure voluptate
+      proident nisi magna nulla consectetur. Incididunt nulla laboris Lorem incididunt
+      nulla aliquip consequat in minim culpa minim cupidatat. Sunt veniam cillum excepteur
+      ad laboris sint pariatur esse dolore in nisi irure laborum. Sint eu sunt irure
+      in et.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [4]
+    sanggu_hosts: []
+    org_hosts: [29]
+    office_hosts: [1, 3]
+- model: main_events.event
+  pk: 52
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: sit id ut
+    description: Sit qui proident laboris excepteur duis do minim in ipsum culpa nulla
+      cupidatat. Quis cupidatat quis fugiat proident ex anim cillum Lorem commodo
+      occaecat consectetur reprehenderit. Dolore duis labore mollit nulla in anim
+      minim. Est irure ea deserunt sunt deserunt magna. Ad culpa culpa elit laborum
+      officia do ipsum aute ad sit cillum cillum. Deserunt eu reprehenderit quis ad
+      nisi culpa et sit quis dolore commodo.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [7]
+    sanggu_hosts: [9, 4]
+    org_hosts: [12, 50]
+    office_hosts: [1, 2]
+- model: main_events.event
+  pk: 53
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: tempor consequat culpa
+    description: Lorem nostrud duis aute Lorem esse. Cupidatat qui veniam enim pariatur
+      enim minim veniam ad culpa consequat cillum non nostrud minim. Et fugiat exercitation
+      deserunt est dolor culpa anim consectetur adipisicing sit ipsum ut exercitation.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [1, 4, 6]
+    sanggu_hosts: [4, 6, 8]
+    org_hosts: [14, 24, 27]
+    office_hosts: [1,4]
+- model: main_events.event
+  pk: 54
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: eu enim laborum
+    description: Nisi proident minim incididunt do laborum irure tempor officia sit
+      ipsum consectetur. Dolore minim anim amet non. Qui magna consectetur esse non
+      eu voluptate esse cillum nostrud laborum elit.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1]
+    sanggu_hosts: [7]
+    org_hosts: [33, 53, 20]
+    office_hosts: []
+- model: main_events.event
+  pk: 55
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: sint irure ex
+    description: Velit irure reprehenderit ut proident nulla eiusmod. Deserunt et
+      sit officia nulla occaecat dolor ipsum reprehenderit officia incididunt mollit
+      magna. Anim duis esse adipisicing nulla dolore id proident excepteur duis in
+      proident consequat eu. Ea sunt cupidatat occaecat laboris proident aliquip voluptate
+      cupidatat voluptate consequat. Voluptate tempor culpa dolore aute sunt reprehenderit
+      sunt aliquip velit pariatur.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1, 6, 7]
+    sanggu_hosts: [4]
+    org_hosts: [38, 41, 15]
+    office_hosts: [1,4]
+- model: main_events.event
+  pk: 56
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: non nisi irure
+    description: Ea irure nostrud reprehenderit ut aliqua fugiat reprehenderit. Magna
+      excepteur reprehenderit proident ipsum labore non laborum et cupidatat excepteur
+      Lorem. Fugiat excepteur aute veniam amet qui. Veniam officia pariatur veniam
+      elit. Aliquip consequat ex commodo ipsum incididunt cillum exercitation cillum
+      aliqua aliqua laboris.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1,2,3,7]
+    sanggu_hosts: [5]
+    org_hosts: [39, 20]
+    office_hosts: [2, 5]
+- model: main_events.event
+  pk: 57
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: aute enim reprehenderit
+    description: Officia deserunt dolor minim veniam nostrud ea enim consectetur.
+      Duis est pariatur labore fugiat dolore sunt veniam anim ullamco veniam ea excepteur
+      veniam in. Duis dolor officia ex magna. Quis consectetur sit labore tempor ad
+      adipisicing irure. Dolore aute anim sint officia commodo tempor fugiat ipsum
+      magna cupidatat esse reprehenderit deserunt.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [5, 6]
+    sanggu_hosts: [4]
+    org_hosts: [50]
+    office_hosts: []
+- model: main_events.event
+  pk: 58
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: occaecat ipsum nisi
+    description: In reprehenderit ullamco minim qui nisi amet ullamco sit qui nostrud
+      tempor. Exercitation deserunt do labore dolore elit irure consectetur tempor
+      est sunt consectetur occaecat mollit et. Lorem ad dolor culpa elit dolor adipisicing
+      mollit minim.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [4]
+    sanggu_hosts: [1, 5]
+    org_hosts: []
+    office_hosts: [3]
+- model: main_events.event
+  pk: 59
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: consectetur laborum dolor
+    description: Mollit dolore dolore laborum excepteur laborum mollit est aliqua
+      dolore est culpa nulla. Consequat sit incididunt in velit enim laborum. Exercitation
+      quis sit aliquip incididunt. Deserunt id ex laborum et ipsum ut exercitation
+      fugiat irure commodo.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 4, 6]
+    sanggu_hosts: [2, 9]
+    org_hosts: [2, 44]
+    office_hosts: [1, 4]
+- model: main_events.event
+  pk: 60
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: pariatur sit proident
+    description: Aliqua exercitation dolore cupidatat non officia sit exercitation
+      do. Pariatur ad voluptate labore nisi proident. Anim laborum incididunt deserunt
+      velit quis dolor occaecat pariatur eu dolore qui. Aliqua consequat minim et
+      ea ut magna ipsum officia veniam do consectetur id.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1, 3, 7]
+    sanggu_hosts: [2]
+    org_hosts: [10, 16, 33]
+    office_hosts: []
+- model: main_events.event
+  pk: 61
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: commodo ad laborum
+    description: Cupidatat non fugiat officia ea non nulla magna. Exercitation excepteur
+      culpa labore ut magna reprehenderit aliquip nisi mollit culpa deserunt. Ad nisi
+      et amet anim occaecat dolore mollit amet adipisicing ea dolor. Incididunt fugiat
+      eu sint ut nulla Lorem Lorem est. Duis mollit fugiat est est eiusmod ea.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3]
+    sanggu_hosts: [1]
+    org_hosts: []
+    office_hosts: []
+- model: main_events.event
+  pk: 62
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: aliquip Lorem nisi
+    description: Officia sunt deserunt veniam in aliqua. Lorem aliqua exercitation
+      id id ullamco nostrud id adipisicing fugiat labore sunt dolor dolore reprehenderit.
+      Est dolore occaecat Lorem enim eiusmod nulla Lorem esse ex veniam excepteur
+      veniam exercitation fugiat. Mollit sit deserunt cillum eiusmod dolor in aliqua
+      id fugiat culpa do commodo minim. Consequat nostrud veniam tempor dolore. Exercitation
+      deserunt adipisicing exercitation enim pariatur cupidatat.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [2]
+    sanggu_hosts: [4]
+    org_hosts: [17]
+    office_hosts: []
+- model: main_events.event
+  pk: 63
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: nulla laborum incididunt
+    description: Velit commodo sunt proident Lorem reprehenderit qui. Dolore quis
+      nulla nulla reprehenderit ullamco enim ad aute fugiat esse nostrud sunt. Magna
+      commodo tempor amet ut minim nostrud excepteur esse aute duis reprehenderit
+      in ullamco. Cupidatat quis occaecat pariatur sint eiusmod ut laborum occaecat
+      irure labore eu nostrud. Esse aliqua sint aliqua ad laboris. Nostrud eu occaecat
+      sint quis proident aliquip sint sint pariatur laboris aute esse sint. Cillum
+      sit sit anim adipisicing veniam consectetur.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [2, 1, 3]
+    sanggu_hosts: [5, 7, 9]
+    org_hosts: []
+    office_hosts: [3, 4]
+- model: main_events.event
+  pk: 64
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ea mollit aliqua
+    description: Eiusmod cupidatat non fugiat ad commodo esse. Culpa sit enim laborum
+      exercitation ad do velit ullamco magna aute adipisicing. Elit adipisicing anim
+      eiusmod minim do pariatur cupidatat officia fugiat commodo. Exercitation esse
+      dolore aliquip est enim et esse irure velit enim. Velit aliquip et voluptate
+      aliqua exercitation magna enim ex.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1, 3, 7]
+    sanggu_hosts: [2, 3]
+    org_hosts: [34]
+    office_hosts: []
+- model: main_events.event
+  pk: 65
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: pariatur sint mollit
+    description: Nisi adipisicing ex est enim eiusmod voluptate dolor do occaecat
+      id dolor. Proident ipsum mollit sit aute voluptate laboris enim incididunt non
+      aute. Duis qui voluptate nostrud aute. Exercitation aute nostrud officia ex.
+      Labore enim officia elit est. Anim cupidatat dolore cupidatat sunt occaecat
+      nulla consectetur nulla ut nulla esse incididunt. Magna labore deserunt do veniam
+      quis velit mollit id.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [4, 6]
+    sanggu_hosts: []
+    org_hosts: [10]
+    office_hosts: []
+- model: main_events.event
+  pk: 66
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: nisi labore non
+    description: Amet deserunt ut commodo esse exercitation fugiat velit. Cupidatat
+      quis amet ad Lorem proident eu culpa exercitation occaecat cillum esse exercitation
+      nostrud velit. Cupidatat reprehenderit magna magna tempor nostrud. Veniam est
+      sint ut consectetur ullamco sint id commodo. Deserunt minim sunt Lorem pariatur
+      exercitation Lorem tempor ut dolore cupidatat sit deserunt.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 5]
+    sanggu_hosts: [5, 6, 9]
+    org_hosts: [23]
+    office_hosts: [4]
+- model: main_events.event
+  pk: 67
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: veniam in nisi
+    description: Proident est occaecat in duis consectetur anim nulla et eu. Reprehenderit
+      proident ullamco culpa sint aliquip Lorem duis ipsum ipsum dolore quis. Irure
+      est duis amet minim eiusmod non cupidatat. Adipisicing duis eu id aliqua. Adipisicing
+      commodo do eu pariatur eiusmod fugiat cillum culpa.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [4, 5, 6]
+    sanggu_hosts: [1, 2]
+    org_hosts: [24, 45, 49]
+    office_hosts: [1, 4]
+- model: main_events.event
+  pk: 68
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: duis velit labore
+    description: Id amet sit culpa proident ut exercitation nulla dolore aliqua consectetur
+      tempor laboris culpa. Duis culpa occaecat amet consectetur aliqua. Culpa labore
+      laborum qui sunt consectetur exercitation laboris proident mollit nulla irure
+      laboris ad ipsum. Anim eu ipsum consequat cillum nulla ullamco duis. Culpa incididunt
+      consectetur proident incididunt Lorem adipisicing sint amet consectetur. Labore
+      ad enim deserunt sit. Laboris ex in anim duis reprehenderit ut consequat cillum.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [1, 2]
+    sanggu_hosts: [1, 2]
+    org_hosts: []
+    office_hosts: []
+- model: main_events.event
+  pk: 69
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: sunt excepteur id
+    description: Duis nisi enim officia duis deserunt cupidatat enim. Id irure eu
+      in excepteur laborum exercitation id Lorem amet non ullamco. In ex ullamco est
+      est dolor est minim.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [4, 5, 6, 7]
+    sanggu_hosts: [4, 7]
+    org_hosts: [2, 20, 39]
+    office_hosts: [1]
+- model: main_events.event
+  pk: 70
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: sint sit Lorem
+    description: Consectetur nostrud officia incididunt minim et irure occaecat culpa
+      aute excepteur id laboris occaecat et. Do exercitation reprehenderit cillum
+      ad eu ipsum anim mollit laboris sunt proident. Sint esse duis consectetur do
+      aliqua in consectetur id ea. Veniam sunt occaecat culpa cupidatat sit sit. In
+      in deserunt dolor consequat minim occaecat amet nisi.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [4]
+    sanggu_hosts: [8]
+    org_hosts: [35]
+    office_hosts: [2, 3]
+- model: main_events.event
+  pk: 71
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ex dolor aliquip
+    description: Minim enim excepteur Lorem aliquip ut irure ea culpa ipsum culpa
+      nulla qui sint. Do sit sit exercitation eu dolore voluptate eiusmod proident
+      sunt veniam in ex exercitation deserunt. Non ut minim fugiat magna eiusmod ullamco.
+      Labore excepteur ut proident exercitation pariatur do sint ad minim. Culpa labore
+      laboris officia ex anim commodo laboris. Id quis ex mollit aute consequat excepteur.
+      Magna officia occaecat ex nulla ex cupidatat ad officia nostrud non proident
+      velit veniam.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2, 4]
+    sanggu_hosts: []
+    org_hosts: [49]
+    office_hosts: []
+- model: main_events.event
+  pk: 72
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: excepteur magna magna
+    description: Exercitation id non est amet consectetur in aliqua excepteur Lorem
+      amet aliqua adipisicing in. Reprehenderit ullamco nisi consequat aliqua proident.
+      Deserunt nostrud non esse quis sint nulla et laboris mollit cupidatat eu est
+      magna aliqua.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 6]
+    sanggu_hosts: [1]
+    org_hosts: []
+    office_hosts: [3]
+- model: main_events.event
+  pk: 73
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: velit occaecat incididunt
+    description: Elit et reprehenderit elit pariatur mollit do laboris pariatur consectetur
+      sunt proident. Nulla non exercitation eiusmod voluptate eu. Culpa officia deserunt
+      cupidatat magna ad magna tempor. Commodo incididunt irure quis quis. Ullamco
+      Lorem in eiusmod in amet aliquip occaecat enim ad aliquip. Incididunt est elit
+      est nostrud eiusmod anim ipsum magna sunt cillum excepteur.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 6, 7]
+    sanggu_hosts: []
+    org_hosts: [51]
+    office_hosts: [2, 4]
+- model: main_events.event
+  pk: 74
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: dolor ex do
+    description: Enim non deserunt Lorem est amet sunt nostrud consectetur id enim
+      consectetur nostrud veniam mollit. Culpa voluptate nostrud cupidatat amet reprehenderit
+      labore quis sit elit proident aliqua. Eu pariatur ipsum amet nostrud enim cupidatat
+      voluptate incididunt cupidatat non ea in reprehenderit sit.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [5, 3, 1, 2]
+    sanggu_hosts: [6]
+    org_hosts: [28]
+    office_hosts: [2, 3]
+- model: main_events.event
+  pk: 75
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: cupidatat occaecat ex
+    description: Et tempor non pariatur aute cillum consectetur consectetur nostrud.
+      Ea culpa veniam labore incididunt reprehenderit. Dolore aute fugiat aute sit
+      elit laboris proident nulla voluptate nisi. Non reprehenderit aliqua sit do
+      velit duis sint magna nostrud anim laborum laborum ad. Enim labore reprehenderit
+      ea aliquip sit ullamco aute do eu deserunt labore eu tempor.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1, 2, 4, 7]
+    sanggu_hosts: [4, 5, 8]
+    org_hosts: [16, 37]
+    office_hosts: [3]
+- model: main_events.event
+  pk: 76
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: officia aliqua incididunt
+    description: Lorem do mollit veniam consectetur cupidatat sint commodo minim ex
+      elit laborum. Elit cupidatat mollit commodo adipisicing do sit sit sunt. Anim
+      nisi ad sit culpa officia nostrud exercitation excepteur.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3, 5, 7]
+    sanggu_hosts: []
+    org_hosts: [44]
+    office_hosts: []
+- model: main_events.event
+  pk: 77
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: dolore fugiat duis
+    description: Dolor est aliqua elit minim adipisicing magna voluptate ullamco do
+      culpa. Cillum commodo magna elit eiusmod elit sint do ad eu reprehenderit dolore
+      laboris. Cupidatat aute Lorem consectetur ut ea sint. Dolore velit laborum sint
+      qui ipsum. Fugiat ullamco fugiat voluptate irure mollit labore elit voluptate
+      ad ut officia id. Fugiat elit commodo id anim cupidatat velit laborum qui magna
+      ad labore reprehenderit pariatur deserunt.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [7]
+    sanggu_hosts: []
+    org_hosts: [9, 17, 41]
+    office_hosts: [4]
+- model: main_events.event
+  pk: 78
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: deserunt aliquip culpa
+    description: Aute ut ipsum aute aute enim ullamco consequat minim incididunt.
+      Dolor ullamco nostrud veniam mollit ut sunt laborum aliquip officia nostrud
+      incididunt. Exercitation quis amet labore do excepteur incididunt occaecat.
+      Est mollit consectetur velit magna dolore sit labore. Fugiat ex labore labore
+      fugiat ut minim est aute tempor nisi dolor adipisicing deserunt ex.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2, 3]
+    sanggu_hosts: [2]
+    org_hosts: [5, 12, 14]
+    office_hosts: []
+- model: main_events.event
+  pk: 79
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: cupidatat qui cillum
+    description: Esse velit eu adipisicing id. Cupidatat adipisicing ea nulla cillum
+      qui amet. Sit officia ex sit magna commodo incididunt. Mollit eiusmod id commodo
+      proident.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [1, 3, 4]
+    sanggu_hosts: []
+    org_hosts: []
+    office_hosts: [2]
+- model: main_events.event
+  pk: 80
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: sit consectetur labore
+    description: Mollit duis tempor excepteur aute cillum fugiat esse eu ex ea nostrud
+      tempor exercitation. Ullamco in velit esse ex labore esse cillum. Incididunt
+      amet pariatur magna fugiat culpa. Occaecat nulla proident irure minim commodo
+      fugiat. Esse deserunt anim quis ullamco deserunt mollit esse id ullamco. Et
+      eiusmod ea aute non non cupidatat adipisicing Lorem consectetur consequat non
+      tempor minim culpa.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [1, 2, 6]
+    sanggu_hosts: [3]
+    org_hosts: [1, 29]
+    office_hosts: [3]
+- model: main_events.event
+  pk: 81
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: amet velit veniam
+    description: Magna fugiat sint culpa proident velit non. Non ut enim consectetur
+      non anim non pariatur nostrud nostrud voluptate amet sit esse amet. Ea enim
+      occaecat et Lorem magna elit. Officia dolor amet sit tempor incididunt nisi
+      excepteur do. Anim ullamco dolor officia veniam et dolor in sit id.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [2, 3, 4, 6]
+    sanggu_hosts: [4, 5, 6]
+    org_hosts: [5, 8, 16]
+    office_hosts: [1]
+- model: main_events.event
+  pk: 82
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: sit proident aliqua
+    description: Nostrud exercitation et do incididunt magna dolor ullamco eu labore
+      ullamco pariatur anim laboris irure. Eu adipisicing aliqua Lorem dolore sint.
+      Velit dolore quis amet adipisicing nostrud ut minim ullamco consequat Lorem
+      qui ut consequat amet. Velit reprehenderit commodo nulla ea reprehenderit anim
+      exercitation laboris incididunt nostrud aliqua laborum cupidatat qui. Mollit
+      officia eiusmod qui sunt consequat dolor et nostrud ut dolor commodo esse. Duis
+      irure qui sit sunt. Veniam ex deserunt cillum minim consectetur sit est nostrud
+      enim pariatur officia sit cillum sint.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3]
+    sanggu_hosts: [5]
+    org_hosts: []
+    office_hosts: []
+- model: main_events.event
+  pk: 83
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: officia aliquip cupidatat
+    description: Cupidatat nostrud Lorem qui et. Reprehenderit magna id ipsum veniam
+      reprehenderit ex est velit nulla ut veniam occaecat. Commodo nostrud sit qui
+      cupidatat do cupidatat eu ipsum. Adipisicing fugiat deserunt consequat veniam
+      velit ullamco enim officia laboris veniam elit nostrud. Voluptate sunt non ullamco
+      eu magna nisi aliqua nisi enim.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [4, 5]
+    sanggu_hosts: [5, 8]
+    org_hosts: [4, 46]
+    office_hosts: []
+- model: main_events.event
+  pk: 84
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ea ipsum consequat
+    description: Lorem deserunt ipsum esse nostrud magna voluptate labore reprehenderit
+      irure veniam. Sunt cupidatat aliqua adipisicing cupidatat non reprehenderit
+      nostrud dolor id officia. Labore cupidatat aliquip elit est ipsum aliqua deserunt
+      nulla tempor.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3, 5]
+    sanggu_hosts: [3, 6, 7]
+    org_hosts: [38, 43, 52]
+    office_hosts: []
+- model: main_events.event
+  pk: 85
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ex reprehenderit mollit
+    description: Nisi aute in pariatur officia excepteur ipsum ad nisi. Id dolor quis
+      ad ea sint ea dolore laboris fugiat labore. Adipisicing nostrud eiusmod proident
+      dolor. Elit nulla reprehenderit exercitation sunt ex esse dolor consectetur
+      dolor.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3]
+    sanggu_hosts: [7, 8]
+    org_hosts: []
+    office_hosts: []
+- model: main_events.event
+  pk: 86
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ullamco consequat incididunt
+    description: Consequat fugiat laboris ad mollit nostrud aute consectetur. Aute
+      esse amet nisi adipisicing ad ut consequat in. Consequat ad duis ut incididunt
+      occaecat esse officia magna aute. Ad ullamco officia in excepteur tempor cillum
+      reprehenderit laborum laboris aliquip sit nostrud et. Nostrud voluptate sint
+      fugiat nulla ea Lorem. Proident labore irure labore dolore excepteur sint sint
+      cupidatat esse nisi laborum. Incididunt culpa quis enim exercitation deserunt
+      sint amet officia velit minim deserunt amet amet.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 5]
+    sanggu_hosts: [2]
+    org_hosts: [48]
+    office_hosts: [1, 4]
+- model: main_events.event
+  pk: 87
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: id dolor ipsum
+    description: Ad aliqua voluptate officia elit qui. Proident consequat culpa nostrud
+      voluptate proident et qui cillum eiusmod incididunt nulla. Veniam ex sint laborum
+      laboris.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1, 5, 6, 7]
+    sanggu_hosts: []
+    org_hosts: [22, 51, 26]
+    office_hosts: [3]
+- model: main_events.event
+  pk: 88
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: ex pariatur eu
+    description: Consequat ad ipsum officia esse tempor aliqua nostrud elit. Consectetur
+      minim magna aliqua cillum sunt amet consectetur sunt non exercitation Lorem
+      et occaecat. Officia ipsum laboris adipisicing aute cillum enim do magna aliqua
+      cupidatat laborum Lorem est. Sit nostrud magna nisi eiusmod. Ipsum ut incididunt
+      magna deserunt sunt. Cupidatat duis magna ad aute eu ad. Cupidatat officia ipsum
+      excepteur officia amet proident cillum laborum minim et occaecat.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [3, 6]
+    sanggu_hosts: [5, 6]
+    org_hosts: [16]
+    office_hosts: [2, 3]
+- model: main_events.event
+  pk: 89
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: nulla pariatur voluptate
+    description: Velit ea dolore fugiat cupidatat nulla eiusmod veniam. Proident ex
+      in elit dolore occaecat. Consectetur ullamco aliqua ipsum dolore fugiat. Nulla
+      aliquip nostrud consequat magna qui sit pariatur in.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2, 5]
+    sanggu_hosts: [1, 2, 6]
+    org_hosts: [6, 10, 38]
+    office_hosts: [3]
+- model: main_events.event
+  pk: 90
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: duis ipsum pariatur
+    description: Ea ea consectetur culpa ullamco qui officia dolor fugiat voluptate
+      velit consequat pariatur amet mollit. Magna esse fugiat cillum laborum velit
+      sit laboris. Minim proident commodo eu sit amet adipisicing. Eiusmod culpa fugiat
+      enim qui dolore proident est ea. Quis sunt et consequat ex deserunt voluptate
+      aliqua nulla minim exercitation reprehenderit anim est.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3, 7]
+    sanggu_hosts: [2, 4]
+    org_hosts: [23]
+    office_hosts: [1, 2, 3]
+- model: main_events.event
+  pk: 91
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: minim proident officia
+    description: Dolor elit non mollit enim amet nulla. Culpa irure eu commodo esse
+      proident sunt enim. Quis id incididunt voluptate ad exercitation magna. Ex non
+      est cillum duis amet deserunt dolore cillum. Eiusmod id excepteur officia minim
+      minim amet sint eiusmod. Dolore non qui ad laborum veniam laboris quis officia
+      exercitation eu. Officia quis laboris quis eiusmod officia excepteur ipsum irure.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [6]
+    sanggu_hosts: []
+    org_hosts: [7, 21]
+    office_hosts: [2, 4]
+- model: main_events.event
+  pk: 92
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: laboris eiusmod mollit
+    description: Occaecat sunt occaecat officia laboris nostrud culpa occaecat occaecat.
+      In sit dolore excepteur incididunt. Proident aute ut ullamco tempor ad ullamco
+      nulla exercitation dolor elit. Sint duis incididunt culpa commodo ad sit veniam
+      nulla laboris labore.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [2, 6]
+    sanggu_hosts: [9]
+    org_hosts: [46]
+    office_hosts: [1]
+- model: main_events.event
+  pk: 93
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: est irure cupidatat
+    description: Veniam et dolor cillum pariatur consequat enim occaecat nulla non
+      adipisicing exercitation commodo ut. Consectetur mollit voluptate nostrud incididunt
+      elit dolor voluptate ex amet id nisi eiusmod nostrud ea. Minim eu tempor nostrud
+      irure eu ut ad officia reprehenderit.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1, 2, 6, 3]
+    sanggu_hosts: []
+    org_hosts: []
+    office_hosts: [2]
+- model: main_events.event
+  pk: 94
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: excepteur est duis
+    description: Culpa sit ullamco do amet culpa non fugiat laborum et velit est velit.
+      Irure ex eiusmod eiusmod incididunt sint. Sunt consectetur dolor ut cillum Lorem
+      sint cupidatat ut ad cupidatat. Non voluptate enim deserunt anim officia cillum
+      nulla. Adipisicing anim qui id sit nisi aliquip Lorem esse.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [4]
+    sanggu_hosts: []
+    org_hosts: [10]
+    office_hosts: []
+- model: main_events.event
+  pk: 95
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: pariatur Lorem sit
+    description: Proident laboris aliqua commodo commodo veniam incididunt pariatur
+      est irure voluptate. Qui pariatur incididunt in tempor dolor esse esse. Reprehenderit
+      aliquip dolore sint aliqua est esse aute laboris cillum. Minim elit veniam nisi
+      magna aliquip et elit enim sit reprehenderit reprehenderit mollit esse dolor.
+      Dolore mollit proident esse nisi enim ullamco nulla irure culpa. Cillum eiusmod
+      reprehenderit cupidatat do nulla.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [3]
+    sanggu_hosts: [1, 5]
+    org_hosts: [42, 54]
+    office_hosts: [2, 3]
+- model: main_events.event
+  pk: 96
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: amet ex ut
+    description: Deserunt do anim velit id. Magna occaecat excepteur ad ut consequat
+      non ex eu ad eu laborum. Nisi elit mollit tempor deserunt officia. Excepteur
+      nisi ipsum incididunt incididunt sint sunt. Voluptate incididunt consectetur
+      laboris esse proident amet pariatur occaecat veniam. Esse non ut eiusmod nostrud
+      occaecat id aliqua non. Est id labore reprehenderit elit aliqua.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1, 4]
+    sanggu_hosts: [1, 6]
+    org_hosts: [15, 16, 34]
+    office_hosts: []
+- model: main_events.event
+  pk: 97
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: Lorem quis voluptate
+    description: Excepteur sint elit laborum quis. Anim ut elit cillum elit consequat
+      dolore veniam cupidatat mollit aliquip. Esse laborum aliquip consequat enim
+      ipsum dolor in eu enim.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2]
+    sanggu_hosts: [1, 5, 9]
+    org_hosts: []
+    office_hosts: []
+- model: main_events.event
+  pk: 98
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: minim excepteur ut
+    description: Irure nisi excepteur ad consectetur tempor tempor esse laboris quis
+      tempor. Culpa magna aliquip Lorem ad nisi consequat ad adipisicing commodo.
+      Sit duis duis ullamco eiusmod commodo fugiat id et laborum sit esse aute. Deserunt
+      excepteur anim enim do pariatur anim cupidatat adipisicing. Cillum ea commodo
+      sit nisi amet magna non ipsum et consectetur labore labore consectetur cupidatat.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [1]
+    sanggu_hosts: [4]
+    org_hosts: [27]
+    office_hosts: [3, 4]
+- model: main_events.event
+  pk: 99
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: consectetur proident elit
+    description: Ex Lorem pariatur eiusmod laborum deserunt incididunt deserunt exercitation
+      deserunt ut duis culpa fugiat. Sit ullamco duis deserunt cillum ex eiusmod magna
+      duis laboris consequat dolor laborum. Do ad Lorem ullamco enim reprehenderit
+      ullamco incididunt voluptate ad ex. Do quis eu labore amet ex Lorem. Reprehenderit
+      occaecat in ut sunt eu Lorem anim aliquip ex dolor Lorem ipsum. Nisi cupidatat
+      sit sit veniam id nisi voluptate ipsum anim do cupidatat amet voluptate.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: true
+    tags: [2, 5, 6]
+    sanggu_hosts: [1, 8, 9]
+    org_hosts: [12, 50]
+    office_hosts: [4, 3]
+- model: main_events.event
+  pk: 100
+  fields:
+    created_at: 2018-09-14 23:36
+    updated_at: 2018-09-14 23:36
+    name: est cillum ad
+    description: Lorem culpa anim cupidatat eu amet ullamco est. Nostrud exercitation
+      fugiat nisi id. Irure id commodo incididunt do velit deserunt ut.
+    poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
+    is_premium: false
+    event_url: http://bluehacks.compsat.org/
+    is_approved: false
+    tags: [6, 4]
+    sanggu_hosts: [3, 5]
+    org_hosts: [21, 42]
+    office_hosts: []
