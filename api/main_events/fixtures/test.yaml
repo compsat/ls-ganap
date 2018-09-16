@@ -58,6 +58,14 @@
     description: LSHS
     color: '#000EE'
     event_host: 1
+- model: main_events.officehost
+  pk: 5
+  fields: 
+    name: Office of the Vice Presidenet
+    abbreviation: OVP
+    description: OVP
+    color: '#000EE'
+    event_host: 1
 # - model: main_events.orghost
 #   pk: 1
 #   fields:
