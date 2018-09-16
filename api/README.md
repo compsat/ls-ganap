@@ -45,5 +45,5 @@ docker-compose down
 ### Preproduction Instructions
 ```
 git push heroku `git subtree split --prefix api preproduction`:master --force
-heroku run sh heroku_run.sh
+heroku run sh docker-entrypoint.sh
 ```
