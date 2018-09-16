@@ -137,10 +137,10 @@ class FilterEventByMonth(generics.ListAPIView):
             get_month = date_list[0]
             get_year = date_list[1]
 
-        queryset = Event.objects.annotate(date=Min('event_logistics__date'))
+        queryset = Event.objects.all()
 
         if date is not None:
-            queryset = queryset.filter(is_approved=True, event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('date')
+            queryset = queryset.filter(is_approved=True, event_logistics__date__month=get_month, event_logistics__date__year=get_year).annotate(date=Min('event_logistics__date')).order_by('date')
 
         return queryset
 
@@ -279,7 +279,7 @@ class UnapprovedEventList(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Event.objects.annotate(date=Min('event_logistics__date')).filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user)))
+        return Event.objects.filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user))).annotate(date=Min('event_logistics__date')).order_by('date')
 
 class EventLogisticCreate(APIView):
     """
