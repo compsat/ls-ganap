@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import ScrollerSection from './ScrollerSection';
-import FeaturedItem from './FeaturedSection';
+// import FeaturedSection from './FeaturedSection';
 import styled from 'styled-components';
 import FullWidthContainer from '../components/FullWidthContainer';
 import PageContent from '../components/PageContent';
-import HorizontalScroller from '../components/HorizontalScroller.js';
+import Loading from '../components/Loading';
+// import HorizontalScroller from '../components/HorizontalScroller.js';
 import axios from 'axios'
 
 
@@ -41,6 +42,24 @@ const TitleSection = (props) => (
   </TitleContainer>
 )
 
+function FeaturedSection(props) {
+  const isLoaded = props.state.venues && props.state.orgs && props.state.sanggu && props.state.offices && props.state.featured_events;
+  if (isLoaded) {
+    return (
+      <ScrollerSection 
+        name="featured"
+        card_type="featured" 
+        cards_display="1" 
+        featured_events={props.state.featured_events}
+        venues={props.state.venues} 
+        orgs={props.state.orgs}
+        sanggu={props.state.sanggu} 
+        offices={props.state.offices} />
+    );
+  }
+  return (<Loading />);
+}
+
 function EventsSection(props) {
   const isLoaded = props.state.venues && props.state.orgs && props.state.sanggu && props.state.offices && props.state.events;
   if (isLoaded) {
@@ -48,7 +67,7 @@ function EventsSection(props) {
       <ScrollerSection 
         name="events"
         card_type="event" 
-        cards_display="4" 
+        cards_display="3" 
         events={props.state.events}
         venues={props.state.venues} 
         orgs={props.state.orgs}
@@ -56,7 +75,7 @@ function EventsSection(props) {
         offices={props.state.offices} />
     );
   }
-  return (<div>Loading...</div>);
+  return (<Loading />);
 }
 
 function OrgsSection(props) {
@@ -70,7 +89,7 @@ function OrgsSection(props) {
         orgs={props.orgs} />
     );
   }
-  return (<div>Loading...</div>);
+  return (<Loading />);
 }
 
 function OfficesSection(props) {
@@ -84,19 +103,13 @@ function OfficesSection(props) {
         offices={props.offices} />
     );
   }
-  return (<div>Loading...</div>);
+  return (<Loading />);
 }
 
 class Home extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      // venues: {},
-      // orgs: {},
-      // sanggu: {},
-      // offices: {},
-      // events: {}
-    }
+    this.state = {}
   }
 
   componentWillMount(){
@@ -105,21 +118,23 @@ class Home extends Component {
     var sanggu_url = 'http://ls-ganap-api.herokuapp.com/sanggu/'
     var offices_url = 'http://ls-ganap-api.herokuapp.com/offices/'
     var events_url = 'http://ls-ganap-api.herokuapp.com/events/'
+    var featured_events_url = 'http://ls-ganap-api.herokuapp.com/events/'
 
     axios.all([
       axios.get(venues_url),
       axios.get(orgs_url),
       axios.get(sanggu_url),
       axios.get(offices_url),
-      axios.get(events_url)
+      axios.get(events_url),
+      axios.get(featured_events_url),
     ])
-    .then(axios.spread((venuesRes, orgsRes, sangguRes, officesRes, eventsRes) => {
+    .then(axios.spread((venuesRes, orgsRes, sangguRes, officesRes, eventsRes, featuredEventsRes) => {
       var venuesData = venuesRes.data.results
       var orgsData = orgsRes.data.results
       var sangguData = sangguRes.data.results
       var officesData = officesRes.data.results
       var eventsData = eventsRes.data.results
-
+      var featuredEventsData = featuredEventsRes.data.results
 
       var venues = {}
       for (var key in venuesData){
@@ -151,6 +166,12 @@ class Home extends Component {
       }
       this.setState({ events });
 
+      var featured_events = {}
+      for (var i = 0 ; i <= 5; i++) {
+        featured_events[featuredEventsData[i].id] = featuredEventsData[i]
+      }
+      this.setState({ featured_events });
+
     }).bind(this));
 
   }
@@ -158,11 +179,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <HorizontalScroller display="1">
-          <FeaturedItem />
-          <FeaturedItem />
-          <FeaturedItem />
-        </HorizontalScroller>
+        <CardsSection>
+          <PageContent>
+            <FeaturedSection state={this.state} />
+          </PageContent>
+        </CardsSection>
         <CardsSection color="#81C0BB">
           <PageContent>
             <TitleSection name="Upcoming Event" show_subtitle="false" title_color="#F8FFEB"/>
