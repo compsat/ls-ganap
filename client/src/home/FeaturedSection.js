@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import { media } from '../style/style-utils';
 import samplePromo from '../assets/promos/rent_bluerep.jpg';
-
+import HorizontalScroller from '../components/HorizontalScroller.js';
 
 const FeaturedContainer = styled.div`
     width:80%;
@@ -85,7 +85,6 @@ const Link = ({className, route, children}) => (
     </LinkContainer>
 );
 
-
 const MobileLink = styled(Link)`
     width: 100%;
     color: #926C00;
@@ -138,7 +137,6 @@ const MobileDetailsContainer = styled.div`
 `;
 
 const DetailsContainer = styled.div``;
-
 const Heading = styled.div``;
 const Content = styled.div``;
 
@@ -191,17 +189,18 @@ const FeaturedItem = () => (
     </FeaturedContainer>
 );
 
-// class FeaturedSection extends Component {
+class FeaturedSection extends Component {
 
-//     render() {
-//         return(
-//         <HorizontalScroller display="1">
-//         {this.state.items.map(item => (
-//           <FeaturedItem item={item} card_type={this.props.card_type} />
-//         ))}
-//         </HorizontalScroller>
-//         );
-//     }
-// }
+    render() {
+        return(
+        <HorizontalScroller display="1">
+        {/* {this.state.items.map(item => (
+          <FeaturedItem item={item} card_type={this.props.card_type} />
+        ))} */}
+            <FeaturedItem />
+        </HorizontalScroller>
+        );
+    }
+}
 
-export default FeaturedItem;
+export default FeaturedSection;

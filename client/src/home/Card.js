@@ -42,8 +42,10 @@ const Card = (props) => {
         return <EventCard item={props.item}/>;
     } else if (props.card_type === 'profile'){
         return <ProfileCard item={props.item}/>;
+    } else if (props.card_type === 'featured'){
+        return <EventCard item={props.item}/>;
     } else {
-        return;
+        return <div>Error</div>;
     }
 }
 
