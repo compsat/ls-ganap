@@ -1,8 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { media } from '../style/style-utils';
-import samplePromo from '../assets/promos/rent_bluerep.jpg';
-import HorizontalScroller from '../components/HorizontalScroller.js';
 
 const FeaturedContainer = styled.div`
     width:80%;
@@ -106,14 +104,15 @@ const DesktopLink2 = DesktopLink.extend`
     color: #926C00;
 `;
 
-const DatesContainer = styled.div`
+const LogDetailsContainer = styled.div`
     font-family: 'Nirmala', sans-serif;
     font-size: 1em;
 
     ${media.mdScreen`
         display:grid;
         grid-template-columns: 1fr 2fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        ${'' /* grid-template-rows: 1fr 1fr 1fr; */}
+        grid-template-rows: 1fr 1fr;
     `}
 `;
 
@@ -140,67 +139,52 @@ const DetailsContainer = styled.div``;
 const Heading = styled.div``;
 const Content = styled.div``;
 
-const DesktopDetails = () => (
+const DesktopDetails = (props) => (
     <DesktopDetailsContainer>
         <TitleSection>
-            <Title>Rent</Title>
-            <Subtitle>by blueREP</Subtitle>
+            <Title>{props.item.name}</Title>
+            <Subtitle>by {props.item.all_hosts.join(', ')}</Subtitle>
         </TitleSection>
-        <DatesContainer>
+        <LogDetailsContainer>
             <Heading>Date/Time:</Heading>
-            <Content>April 7, 2018 (02:00PM - 03:00PM)</Content>
+            <Content>{props.item.event_logistics[0].date} ({props.item.event_logistics[0].start_time}-{props.item.event_logistics[0].end_time})</Content>
             <Heading>Venue:</Heading>
-            <Content>Rizal Mini Theatre, Ateneo de Manila University</Content>
-            <Heading>Ticket Prices:</Heading>
-            <Content>AP400 (Regular price) <br />P350 (Student discount)</Content>
-        </DatesContainer>
+            <Content>{props.item.event_logistics[0].venue}</Content>
+            {/* Add link here if there are more than one venues */}
+        </LogDetailsContainer>
         <LinksSection>
             <DesktopLink route="">Export to Calendar</DesktopLink>
-            <DesktopLink2 route="">Read More about Rent</DesktopLink2>
+            <DesktopLink2 route="">Read More about the event</DesktopLink2>
         </LinksSection>
     </DesktopDetailsContainer>
 );
 
-const MobileDetails = () => (
+const MobileDetails = (props) => (
     <MobileDetailsContainer>
         <TitleContainer>
             <TitleSection>
-                <Title>Rent</Title>
-                <Subtitle>by blueREP</Subtitle>
+                <Title>{props.item.name}</Title>
+                <Subtitle>by {props.item.all_hosts.join(', ')}</Subtitle>
             </TitleSection>
             <LinksSection>
                 <MobileLink route="">Export</MobileLink>
                 <MobileLink route="">Read More</MobileLink>
             </LinksSection>
         </TitleContainer>
-        <DatesContainer>
-            April 7, 2018 (02:00PM - 03:00PM)
-        </DatesContainer>
+        <LogDetailsContainer>
+        {props.item.event_logistics[0].date} ({props.item.event_logistics[0].start_time}-{props.item.event_logistics[0].end_time})
+        </LogDetailsContainer>
     </MobileDetailsContainer>
 );
 
-const FeaturedItem = () => (
+const FeaturedCard = (props) => (
     <FeaturedContainer>
-        <Promo src={samplePromo} alt= "" />
+        <Promo src={props.item.poster_url} alt={props.item.photo_alt} />
         <DetailsContainer>
-            <DesktopDetails />
-            <MobileDetails />
+            <DesktopDetails item={props.item}/>
+            <MobileDetails item={props.item}/>
         </DetailsContainer>
     </FeaturedContainer>
-);
+)
 
-class FeaturedSection extends Component {
-
-    render() {
-        return(
-        <HorizontalScroller display="1">
-        {/* {this.state.items.map(item => (
-          <FeaturedItem item={item} card_type={this.props.card_type} />
-        ))} */}
-            <FeaturedItem />
-        </HorizontalScroller>
-        );
-    }
-}
-
-export default FeaturedSection;
+export default FeaturedCard;
