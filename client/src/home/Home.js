@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import ScrollerSection from './ScrollerSection';
-// import FeaturedSection from './FeaturedSection';
 import styled from 'styled-components';
 import FullWidthContainer from '../components/FullWidthContainer';
 import PageContent from '../components/PageContent';
 import Loading from '../components/Loading';
-// import HorizontalScroller from '../components/HorizontalScroller.js';
 import axios from 'axios'
-
 
 const CardsSection = FullWidthContainer.extend`
   background-color: ${props => props.color};

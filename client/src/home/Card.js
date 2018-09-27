@@ -1,5 +1,6 @@
 import React from 'react';
 import MediaCard from '../components/MediaCard.js';
+import FeaturedCard from './FeaturedCard'
 import styled from 'styled-components';
 
 const CardTitle = styled.h1`
@@ -26,7 +27,7 @@ const EventCard = (props) => (
             <p>{props.item.event_logistics[0].date};  
                 {props.item.event_logistics[0].start_time}-{props.item.event_logistics[0].end_time}</p>
             <p>{props.item.event_logistics[0].venue}</p>
-            <p>{props.item.host}</p>
+            <p>{props.item.all_hosts.join(', ')}</p>
         </CardDetails>
     </MediaCard>
 );
@@ -43,9 +44,9 @@ const Card = (props) => {
     } else if (props.card_type === 'profile'){
         return <ProfileCard item={props.item}/>;
     } else if (props.card_type === 'featured'){
-        return <EventCard item={props.item}/>;
+        return <FeaturedCard item={props.item}/>;
     } else {
-        return <div>Error</div>;
+        return <div>Failed to load events.</div>;
     }
 }
 

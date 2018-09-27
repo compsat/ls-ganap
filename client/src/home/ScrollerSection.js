@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card.js'
 import HorizontalScroller from '../components/HorizontalScroller.js';
-import axios from 'axios'
 
 class ScrollerSection extends Component {
   constructor(props){
@@ -17,22 +16,29 @@ class ScrollerSection extends Component {
       var event = events[event_key]
 
       if (event) { // if event exists
+
+        // Store a collection of all hosts
+        event.all_hosts = [];
+
         // Change org ID to org name for each org_host
         for (var orgId_key in event.org_hosts){
           var orgId = event.org_hosts[orgId_key]
-          event.org_hosts[orgId_key] = this.props.orgs[orgId].name
+          event.org_hosts[orgId_key] = this.props.orgs[orgId].abbreviation
+          event.all_hosts.push(this.props.orgs[orgId].abbreviation)
         }
 
         // Change sanggu ID to org name for each sanggu_host
         for (var sangguId_key in event.sanggu_hosts){
           var sangguId = event.sanggu_hosts[sangguId_key]
-          event.sanggu_hosts[sangguId_key] = this.props.sanggu[sangguId].name
+          event.sanggu_hosts[sangguId_key] = this.props.sanggu[sangguId].abbreviation
+          event.all_hosts.push(this.props.sanggu[sangguId].abbreviation)
         }
 
         // Change sanggu ID to org name for each sanggu_host
         for (var officeId_key in event.office_hosts){
           var officeId = event.office_hosts[officeId_key]
-          event.office_hosts[officeId_key] = this.props.offices[officeId].name 
+          event.office_hosts[officeId_key] = this.props.offices[officeId].abbreviation 
+          event.all_hosts.push(this.props.offices[officeId].abbreviation)        
         }
 
         // Format each in event_logistics
@@ -66,6 +72,7 @@ class ScrollerSection extends Component {
     if (this.props.name === 'events'){
       var events = this.props.events
       var items = this.formatEvents(events, this.props.orgs, this.props.sanggu, this.props.offices, this.props.venues)
+      console.log('ITEMS', items);
       this.setState({ items });
     }
     
