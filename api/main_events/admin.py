@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
 from .models import User, OrgHost, SangguHost, OfficeHost
 from django.utils import timezone
-from django.db.models import Min, Q
+from django.db.models import Min, Q, FieldDoesNotExist
 from django.utils.safestring import mark_safe
 
 @admin.register(User)
@@ -44,7 +44,7 @@ class EventInline(admin.TabularInline):
     model = Event.tags.through
 
 class EventForSangguInline(admin.TabularInline):
-    model = Event.sanggu_hosts.through
+	model = Event.sanggu_hosts.through
 
 class EventForOrgInline(admin.TabularInline):
 	model = Event.org_hosts.through
@@ -62,7 +62,7 @@ class EventForOrgInline(admin.TabularInline):
 	# event_logistics.short_description = 'event_logistics'
 
 class EventForOfficeInline(admin.TabularInline):
-    model = Event.office_hosts.through
+	model = Event.office_hosts.through
 
 class EventLogisticInline(admin.TabularInline):
     model = EventLogistic
@@ -115,12 +115,12 @@ class EventAdmin(admin.ModelAdmin):
 	list_filter = ('is_approved', HasHappenedListFilter, 'org_hosts', 'office_hosts', 'sanggu_hosts')
 	fields = ('deleted_at', 'name', 'description', 'is_approved', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
 	readonly_fields = ('deleted_at',)
+	search_fields = ('name', 'org_hosts__name', 'office_hosts__name', 'sanggu_hosts__name', 'org_hosts__abbreviation', 'office_hosts__abbreviation', 'sanggu_hosts__abbreviation')
 	actions = ['accept_events']
 	inlines = [EventLogisticInline,]
 
 	def get_queryset(self, request):
 		qs = super(EventAdmin, self).get_queryset(request)
-		qs = qs.annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
 		return qs
 
 	def get_ordering(self, request):
@@ -181,21 +181,21 @@ class EventHostAdmin(admin.ModelAdmin):
 	]
 
 class SangguHostAdmin(admin.ModelAdmin):
-	list_display = ('name', 'abbreviation', 'event_host')
-	list_filter = ('event_host',)
+	list_display = ('name', 'abbreviation')
+	# list_filter = ('event_host',)
 	search_fields = ['name', 'abbreviation']
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
 	inlines = [EventForSangguInline]
 
 class OfficeHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation', 'event_host')
-	list_filter = ('event_host',)
+	# list_filter = ('event_host',)
 	search_fields = ['name', 'abbreviation']
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
 	inlines = [EventForOfficeInline]
 
 class OrgHostAdmin(admin.ModelAdmin):
-	list_display = ('name', 'abbreviation', 'event_host', 'org_type', 'cluster')
+	list_display = ('name', 'abbreviation', 'cluster')
 	list_filter = ('event_host', 'org_type', 'cluster')
 	search_fields = ['name', 'abbreviation']
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host', 'org_type', 'cluster')
@@ -208,11 +208,13 @@ class ClusterAdmin(admin.ModelAdmin):
 	]
 
 class TagAdmin(admin.ModelAdmin):
+	search_fields = ['name',]
 	inlines = [
 		EventInline,
 	]
 
 class VenueAdmin(admin.ModelAdmin):
+	search_fields = ['name',]
 	inlines = [
 		EventVenueInline,
 	]
