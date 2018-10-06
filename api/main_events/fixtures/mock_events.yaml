@@ -41,7 +41,7 @@
     event_url: http://bluehacks.compsat.org/
     tags: [1]
     sanggu_hosts: []
-    office_hosts: [3]
+    office_hosts: [131]
     org_hosts: [33]
 - model: main_events.event
   pk: 4
@@ -55,8 +55,8 @@
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [3]
-    sanggu_hosts: [1]
-    office_hosts: [2]
+    sanggu_hosts: [61]
+    office_hosts: [72]
     org_hosts: [7]
 - model: main_events.event
   pk: 5
@@ -86,7 +86,7 @@
     event_url: http://bluehacks.compsat.org/
     tags: [2]
     sanggu_hosts: []
-    office_hosts: [4]
+    office_hosts: [94]
     org_hosts: []
 - model: main_events.event
   pk: 7
@@ -100,9 +100,9 @@
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [8]
-    sanggu_hosts: [3]
+    sanggu_hosts: [67]
     office_hosts: []
-    org_hosts: []
+    org_hosts: [57]
 - model: main_events.event
   pk: 8
   fields:
@@ -116,7 +116,7 @@
     event_url: http://bluehacks.compsat.org/
     tags: [5]
     sanggu_hosts: []
-    office_hosts: [3]
+    office_hosts: [83]
     org_hosts: [5, 23]
 - model: main_events.event
   pk: 9
@@ -130,8 +130,8 @@
     is_premium: False
     event_url: http://bluehacks.compsat.org/
     tags: [1, 2, 3, 4, 6]
-    sanggu_hosts: [1]
-    office_hosts: [1]
+    sanggu_hosts: [61]
+    office_hosts: [111]
     org_hosts: []
 - model: main_events.event
   pk: 10
@@ -147,7 +147,7 @@
     tags: [3]
     sanggu_hosts: []
     office_hosts: []
-    org_hosts: [1, 50, 32, 25]
+    org_hosts: [1, 55, 32, 25]
 - model: main_events.event
   pk: 11
   fields:
@@ -166,9 +166,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [7,6,3,4]
-    sanggu_hosts: [4]
+    sanggu_hosts: [64]
     org_hosts: [7, 27, 4]
-    office_hosts: [1, 4]
+    office_hosts: [101, 104]
 - model: main_events.event
   pk: 12
   fields:
@@ -183,9 +183,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [2, 7]
-    sanggu_hosts: [5]
+    sanggu_hosts: [65]
     org_hosts: []
-    office_hosts: [2]
+    office_hosts: [72]
 - model: main_events.event
   pk: 13
   fields:
@@ -201,7 +201,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1, 1, 7]
-    sanggu_hosts: [3,2,5]
+    sanggu_hosts: [63,58,59]
     org_hosts: []
     office_hosts: []
 - model: main_events.event
@@ -219,9 +219,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [2]
-    sanggu_hosts: [9]
+    sanggu_hosts: [59]
     org_hosts: [4, 16, 21]
-    office_hosts: [3]
+    office_hosts: [93]
 - model: main_events.event
   pk: 15
   fields:
@@ -241,7 +241,7 @@
     tags: [4, 6, 7]
     sanggu_hosts: []
     org_hosts: []
-    office_hosts: [3]
+    office_hosts: [93]
 - model: main_events.event
   pk: 16
   fields:
@@ -259,9 +259,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3, 2]
-    sanggu_hosts: [7, 1, 4]
+    sanggu_hosts: [67, 61, 64]
     org_hosts: []
-    office_hosts: [2]
+    office_hosts: [122]
 - model: main_events.event
   pk: 17
   fields:
@@ -276,9 +276,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [2]
-    sanggu_hosts: [9]
+    sanggu_hosts: [59]
     org_hosts: [6]
-    office_hosts: [2]
+    office_hosts: [126]
 - model: main_events.event
   pk: 18
   fields:
@@ -297,9 +297,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [5]
-    sanggu_hosts: [5, 9]
+    sanggu_hosts: [65, 59]
     org_hosts: [38,5]
-    office_hosts: [4]
+    office_hosts: [84]
 - model: main_events.event
   pk: 19
   fields:
@@ -318,9 +318,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [1, 5]
-    sanggu_hosts: [9,2]
+    sanggu_hosts: [59,62]
     org_hosts: [53, 45, 37]
-    office_hosts: [3]
+    office_hosts: [68]
 - model: main_events.event
   pk: 20
   fields:
@@ -337,9 +337,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3, 5, 2, 4]
-    sanggu_hosts: [5]
+    sanggu_hosts: [58]
     org_hosts: [19, 37, 43]
-    office_hosts: [1]
+    office_hosts: [69]
 - model: main_events.event
   pk: 21
   fields:
@@ -355,9 +355,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [5, 7]
-    sanggu_hosts: [9]
+    sanggu_hosts: [59]
     org_hosts: [43, 41]
-    office_hosts: [2]
+    office_hosts: [120]
 - model: main_events.event
   pk: 22
   fields:
@@ -376,7 +376,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [4]
-    sanggu_hosts: [6, 1]
+    sanggu_hosts: [66, 61]
     org_hosts: [3, 49]
     office_hosts: []
 - model: main_events.event
@@ -396,9 +396,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [5]
-    sanggu_hosts: [2,1,8]
+    sanggu_hosts: [62,61,58]
     org_hosts: [30,37]
-    office_hosts: [2, 3, 4]
+    office_hosts: [125, 103, 94]
 - model: main_events.event
   pk: 24
   fields:
@@ -414,9 +414,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3,5]
-    sanggu_hosts: [2,6]
+    sanggu_hosts: [62,66]
     org_hosts: []
-    office_hosts: [3,2]
+    office_hosts: [97,107]
 - model: main_events.event
   pk: 25
   fields:
@@ -453,7 +453,7 @@
     tags: [3]
     sanggu_hosts: []
     org_hosts: [13,15]
-    office_hosts: [3]
+    office_hosts: [83]
 - model: main_events.event
   pk: 27
   fields:
@@ -472,7 +472,7 @@
     tags: [7,1]
     sanggu_hosts: []
     org_hosts: []
-    office_hosts: [3]
+    office_hosts: [113]
 - model: main_events.event
   pk: 28
   fields:
@@ -490,7 +490,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [4]
-    sanggu_hosts: [3]
+    sanggu_hosts: [63]
     org_hosts: []
     office_hosts: []
 - model: main_events.event
@@ -510,7 +510,7 @@
     tags: [6,4,2]
     sanggu_hosts: []
     org_hosts: []
-    office_hosts: [3]
+    office_hosts: [123]
 - model: main_events.event
   pk: 30
   fields:
@@ -525,7 +525,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [2,4,3]
-    sanggu_hosts: [8,4]
+    sanggu_hosts: [58,64]
     org_hosts: [5,13]
     office_hosts: []
 - model: main_events.event
@@ -560,9 +560,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [7, 6, 3]
-    sanggu_hosts: [1]
+    sanggu_hosts: [61]
     org_hosts: [13]
-    office_hosts: [1]
+    office_hosts: [110]
 - model: main_events.event
   pk: 33
   fields:
@@ -577,9 +577,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3, 1, 4]
-    sanggu_hosts: [4, 8]
+    sanggu_hosts: [64, 58]
     org_hosts: [51]
-    office_hosts: [2]
+    office_hosts: [92]
 - model: main_events.event
   pk: 34
   fields:
@@ -615,9 +615,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [6]
-    sanggu_hosts: [2, 8]
+    sanggu_hosts: [62, 58]
     org_hosts: [38, 40]
-    office_hosts: [1, 3]
+    office_hosts: [111, 73]
 - model: main_events.event
   pk: 36
   fields:
@@ -636,9 +636,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [2,5]
-    sanggu_hosts: [9]
+    sanggu_hosts: [59]
     org_hosts: [15]
-    office_hosts: [4, 3]
+    office_hosts: [74, 73]
 - model: main_events.event
   pk: 37
   fields:
@@ -656,7 +656,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [6,1]
-    sanggu_hosts: [6, 2, 9]
+    sanggu_hosts: [66, 62, 59]
     org_hosts: [11]
     office_hosts: []
 - model: main_events.event
@@ -692,7 +692,7 @@
     tags: [2]
     sanggu_hosts: []
     org_hosts: []
-    office_hosts: [2]
+    office_hosts: [99]
 - model: main_events.event
   pk: 40
   fields:
@@ -709,7 +709,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1]
-    sanggu_hosts: [4]
+    sanggu_hosts: [64]
     org_hosts: [18]
     office_hosts: []
 - model: main_events.event
@@ -726,9 +726,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [2]
-    sanggu_hosts: [9, 3]
+    sanggu_hosts: [59, 63]
     org_hosts: []
-    office_hosts: [4, 3, 2]
+    office_hosts: [89, 109, 128]
 - model: main_events.event
   pk: 42
   fields:
@@ -743,7 +743,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [3, 1]
-    sanggu_hosts: [8]
+    sanggu_hosts: [58]
     org_hosts: []
     office_hosts: []
 - model: main_events.event
@@ -765,7 +765,7 @@
     tags: [2, 5, 7]
     sanggu_hosts: []
     org_hosts: [6]
-    office_hosts: [1, 4, 3]
+    office_hosts: [119, 84, 117]
 - model: main_events.event
   pk: 44
   fields:
@@ -784,7 +784,7 @@
     tags: [6]
     sanggu_hosts: []
     org_hosts: [34, 22, 54]
-    office_hosts: [3]
+    office_hosts: [125]
 - model: main_events.event
   pk: 45
   fields:
@@ -803,9 +803,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1]
-    sanggu_hosts: [6, 9]
+    sanggu_hosts: [66, 59]
     org_hosts: [2]
-    office_hosts: [4]
+    office_hosts: [124]
 - model: main_events.event
   pk: 46
   fields:
@@ -840,9 +840,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [1, 7]
-    sanggu_hosts: [2, 8]
+    sanggu_hosts: [62, 58]
     org_hosts: [34, 32, 8]
-    office_hosts: [3, 1]
+    office_hosts: [113, 107]
 - model: main_events.event
   pk: 48
   fields:
@@ -862,7 +862,7 @@
     tags: [5, 1]
     sanggu_hosts: []
     org_hosts: [33]
-    office_hosts: [3]
+    office_hosts: [126]
 - model: main_events.event
   pk: 49
   fields:
@@ -877,9 +877,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [4]
-    sanggu_hosts: [2,7]
+    sanggu_hosts: [62,58]
     org_hosts: []
-    office_hosts: [2, 3]
+    office_hosts: [129, 123]
 - model: main_events.event
   pk: 50
   fields:
@@ -896,7 +896,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1]
-    sanggu_hosts: [8]
+    sanggu_hosts: [58]
     org_hosts: [5]
     office_hosts: []
 - model: main_events.event
@@ -917,7 +917,7 @@
     tags: [4]
     sanggu_hosts: []
     org_hosts: [29]
-    office_hosts: [1, 3]
+    office_hosts: [103, 93]
 - model: main_events.event
   pk: 52
   fields:
@@ -935,9 +935,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [7]
-    sanggu_hosts: [9, 4]
+    sanggu_hosts: [59, 64]
     org_hosts: [12, 50]
-    office_hosts: [1, 2]
+    office_hosts: [119, 129]
 - model: main_events.event
   pk: 53
   fields:
@@ -952,9 +952,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [1, 4, 6]
-    sanggu_hosts: [4, 6, 8]
+    sanggu_hosts: [64, 66, 58]
     org_hosts: [14, 24, 27]
-    office_hosts: [1,4]
+    office_hosts: [112,114]
 - model: main_events.event
   pk: 54
   fields:
@@ -969,7 +969,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1]
-    sanggu_hosts: [7]
+    sanggu_hosts: [67]
     org_hosts: [33, 53, 20]
     office_hosts: []
 - model: main_events.event
@@ -989,9 +989,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1, 6, 7]
-    sanggu_hosts: [4]
+    sanggu_hosts: [64]
     org_hosts: [38, 41, 15]
-    office_hosts: [1,4]
+    office_hosts: [115,124]
 - model: main_events.event
   pk: 56
   fields:
@@ -1008,9 +1008,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1,2,3,7]
-    sanggu_hosts: [5]
+    sanggu_hosts: [65]
     org_hosts: [39, 20]
-    office_hosts: [2, 5]
+    office_hosts: [69, 68]
 - model: main_events.event
   pk: 57
   fields:
@@ -1027,7 +1027,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [5, 6]
-    sanggu_hosts: [4]
+    sanggu_hosts: [64]
     org_hosts: [50]
     office_hosts: []
 - model: main_events.event
@@ -1045,9 +1045,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [4]
-    sanggu_hosts: [1, 5]
+    sanggu_hosts: [61, 65]
     org_hosts: []
-    office_hosts: [3]
+    office_hosts: [131]
 - model: main_events.event
   pk: 59
   fields:
@@ -1063,9 +1063,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3, 4, 6]
-    sanggu_hosts: [2, 9]
+    sanggu_hosts: [62, 59]
     org_hosts: [2, 44]
-    office_hosts: [1, 4]
+    office_hosts: [81, 116]
 - model: main_events.event
   pk: 60
   fields:
@@ -1081,9 +1081,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1, 3, 7]
-    sanggu_hosts: [2]
+    sanggu_hosts: [62]
     org_hosts: [10, 16, 33]
-    office_hosts: []
+    office_hosts: [96]
 - model: main_events.event
   pk: 61
   fields:
@@ -1099,7 +1099,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3]
-    sanggu_hosts: [1]
+    sanggu_hosts: [61]
     org_hosts: []
     office_hosts: []
 - model: main_events.event
@@ -1119,7 +1119,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [2]
-    sanggu_hosts: [4]
+    sanggu_hosts: [64]
     org_hosts: [17]
     office_hosts: []
 - model: main_events.event
@@ -1140,9 +1140,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [2, 1, 3]
-    sanggu_hosts: [5, 7, 9]
+    sanggu_hosts: [65]
     org_hosts: []
-    office_hosts: [3, 4]
+    office_hosts: [127]
 - model: main_events.event
   pk: 64
   fields:
@@ -1159,7 +1159,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1, 3, 7]
-    sanggu_hosts: [2, 3]
+    sanggu_hosts: []
     org_hosts: [34]
     office_hosts: []
 - model: main_events.event
@@ -1198,9 +1198,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3, 5]
-    sanggu_hosts: [5, 6, 9]
+    sanggu_hosts: [65]
     org_hosts: [23]
-    office_hosts: [4]
+    office_hosts: [89]
 - model: main_events.event
   pk: 67
   fields:
@@ -1216,9 +1216,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [4, 5, 6]
-    sanggu_hosts: [1, 2]
+    sanggu_hosts: [61, 62]
     org_hosts: [24, 45, 49]
-    office_hosts: [1, 4]
+    office_hosts: [96]
 - model: main_events.event
   pk: 68
   fields:
@@ -1236,7 +1236,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [1, 2]
-    sanggu_hosts: [1, 2]
+    sanggu_hosts: [61]
     org_hosts: []
     office_hosts: []
 - model: main_events.event
@@ -1253,9 +1253,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [4, 5, 6, 7]
-    sanggu_hosts: [4, 7]
+    sanggu_hosts: [64, 67]
     org_hosts: [2, 20, 39]
-    office_hosts: [1]
+    office_hosts: [96]
 - model: main_events.event
   pk: 70
   fields:
@@ -1272,9 +1272,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [4]
-    sanggu_hosts: [8]
+    sanggu_hosts: [58]
     org_hosts: [35]
-    office_hosts: [2, 3]
+    office_hosts: [78]
 - model: main_events.event
   pk: 71
   fields:
@@ -1311,9 +1311,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3, 6]
-    sanggu_hosts: [1]
+    sanggu_hosts: [61]
     org_hosts: []
-    office_hosts: [3]
+    office_hosts: [104]
 - model: main_events.event
   pk: 73
   fields:
@@ -1332,7 +1332,7 @@
     tags: [3, 6, 7]
     sanggu_hosts: []
     org_hosts: [51]
-    office_hosts: [2, 4]
+    office_hosts: [88, 89]
 - model: main_events.event
   pk: 74
   fields:
@@ -1348,9 +1348,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [5, 3, 1, 2]
-    sanggu_hosts: [6]
+    sanggu_hosts: [66]
     org_hosts: [28]
-    office_hosts: [2, 3]
+    office_hosts: [117, 116]
 - model: main_events.event
   pk: 75
   fields:
@@ -1367,9 +1367,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1, 2, 4, 7]
-    sanggu_hosts: [4, 5, 8]
+    sanggu_hosts: [64, 65, 58]
     org_hosts: [16, 37]
-    office_hosts: [3]
+    office_hosts: [79]
 - model: main_events.event
   pk: 76
   fields:
@@ -1405,8 +1405,8 @@
     is_approved: true
     tags: [7]
     sanggu_hosts: []
-    org_hosts: [9, 17, 41]
-    office_hosts: [4]
+    org_hosts: [9, 57, 41]
+    office_hosts: [94]
 - model: main_events.event
   pk: 78
   fields:
@@ -1423,8 +1423,8 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [2, 3]
-    sanggu_hosts: [2]
-    org_hosts: [5, 12, 14]
+    sanggu_hosts: [62]
+    org_hosts: [12]
     office_hosts: []
 - model: main_events.event
   pk: 79
@@ -1442,7 +1442,7 @@
     tags: [1, 3, 4]
     sanggu_hosts: []
     org_hosts: []
-    office_hosts: [2]
+    office_hosts: [92]
 - model: main_events.event
   pk: 80
   fields:
@@ -1460,9 +1460,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [1, 2, 6]
-    sanggu_hosts: [3]
+    sanggu_hosts: [63]
     org_hosts: [1, 29]
-    office_hosts: [3]
+    office_hosts: [97]
 - model: main_events.event
   pk: 81
   fields:
@@ -1478,9 +1478,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [2, 3, 4, 6]
-    sanggu_hosts: [4, 5, 6]
+    sanggu_hosts: [64, 65, 66]
     org_hosts: [5, 8, 16]
-    office_hosts: [1]
+    office_hosts: [70]
 - model: main_events.event
   pk: 82
   fields:
@@ -1500,7 +1500,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [3]
-    sanggu_hosts: [5]
+    sanggu_hosts: [65]
     org_hosts: []
     office_hosts: []
 - model: main_events.event
@@ -1519,7 +1519,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [4, 5]
-    sanggu_hosts: [5, 8]
+    sanggu_hosts: [67]
     org_hosts: [4, 46]
     office_hosts: []
 - model: main_events.event
@@ -1537,7 +1537,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [3, 5]
-    sanggu_hosts: [3, 6, 7]
+    sanggu_hosts: [63, 66, 58]
     org_hosts: [38, 43, 52]
     office_hosts: []
 - model: main_events.event
@@ -1555,7 +1555,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [3]
-    sanggu_hosts: [7, 8]
+    sanggu_hosts: [67, 58]
     org_hosts: []
     office_hosts: []
 - model: main_events.event
@@ -1576,9 +1576,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3, 5]
-    sanggu_hosts: [2]
+    sanggu_hosts: [62]
     org_hosts: [48]
-    office_hosts: [1, 4]
+    office_hosts: [80, 90]
 - model: main_events.event
   pk: 87
   fields:
@@ -1595,7 +1595,7 @@
     tags: [1, 5, 6, 7]
     sanggu_hosts: []
     org_hosts: [22, 51, 26]
-    office_hosts: [3]
+    office_hosts: [100]
 - model: main_events.event
   pk: 88
   fields:
@@ -1613,9 +1613,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [3, 6]
-    sanggu_hosts: [5, 6]
+    sanggu_hosts: [65, 66]
     org_hosts: [16]
-    office_hosts: [2, 3]
+    office_hosts: [110, 120]
 - model: main_events.event
   pk: 89
   fields:
@@ -1630,9 +1630,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [2, 5]
-    sanggu_hosts: [1, 2, 6]
+    sanggu_hosts: []
     org_hosts: [6, 10, 38]
-    office_hosts: [3]
+    office_hosts: [83]
 - model: main_events.event
   pk: 90
   fields:
@@ -1649,9 +1649,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [3, 7]
-    sanggu_hosts: [2, 4]
+    sanggu_hosts: [62, 64]
     org_hosts: [23]
-    office_hosts: [1, 2, 3]
+    office_hosts: [114, 102, 130]
 - model: main_events.event
   pk: 91
   fields:
@@ -1670,7 +1670,7 @@
     tags: [6]
     sanggu_hosts: []
     org_hosts: [7, 21]
-    office_hosts: [2, 4]
+    office_hosts: [100]
 - model: main_events.event
   pk: 92
   fields:
@@ -1686,9 +1686,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [2, 6]
-    sanggu_hosts: [9]
+    sanggu_hosts: [59]
     org_hosts: [46]
-    office_hosts: [1]
+    office_hosts: [101]
 - model: main_events.event
   pk: 93
   fields:
@@ -1706,7 +1706,7 @@
     tags: [1, 2, 6, 3]
     sanggu_hosts: []
     org_hosts: []
-    office_hosts: [2]
+    office_hosts: [121]
 - model: main_events.event
   pk: 94
   fields:
@@ -1742,9 +1742,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [3]
-    sanggu_hosts: [1, 5]
+    sanggu_hosts: [61, 65]
     org_hosts: [42, 54]
-    office_hosts: [2, 3]
+    office_hosts: [95, 69]
 - model: main_events.event
   pk: 96
   fields:
@@ -1761,7 +1761,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1, 4]
-    sanggu_hosts: [1, 6]
+    sanggu_hosts: [61, 66]
     org_hosts: [15, 16, 34]
     office_hosts: []
 - model: main_events.event
@@ -1778,7 +1778,7 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [2]
-    sanggu_hosts: [1, 5, 9]
+    sanggu_hosts: [61, 65, 59]
     org_hosts: []
     office_hosts: []
 - model: main_events.event
@@ -1797,9 +1797,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [1]
-    sanggu_hosts: [4]
+    sanggu_hosts: [64]
     org_hosts: [27]
-    office_hosts: [3, 4]
+    office_hosts: [70, 79]
 - model: main_events.event
   pk: 99
   fields:
@@ -1817,9 +1817,9 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [2, 5, 6]
-    sanggu_hosts: [1, 8, 9]
+    sanggu_hosts: [61, 58, 59]
     org_hosts: [12, 50]
-    office_hosts: [4, 3]
+    office_hosts: [78, 87]
 - model: main_events.event
   pk: 100
   fields:
@@ -1833,6 +1833,6 @@
     event_url: http://bluehacks.compsat.org/
     is_approved: false
     tags: [6, 4]
-    sanggu_hosts: [3, 5]
+    sanggu_hosts: [63, 65]
     org_hosts: [21, 42]
     office_hosts: []

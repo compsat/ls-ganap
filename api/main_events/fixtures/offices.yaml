@@ -1,5 +1,5 @@
 - model: main_events.officehost
-  pk: 1
+  pk: 68
   fields:
     user: 65
     name: "Acquisitions [RL]"
@@ -9,7 +9,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 2
+  pk: 69
   fields:
     user: 66
     name: "Office of the Associate Dean for Academic Affairs [LS]"
@@ -19,7 +19,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 3
+  pk: 70
   fields:
     user: 67
     name: "Office of the Associate Dean for the Core Curriculum [LS]"
@@ -29,7 +29,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 4
+  pk: 71
   fields:
     user: 68
     name: "Associate Dean for Graduate Programs [LS]"
@@ -39,7 +39,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 5
+  pk: 72
   fields:
     user: 69
     name: "Office of the Associate Dean for Graduate Programs [LS]"
@@ -49,7 +49,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 6
+  pk: 73
   fields:
     user: 70
     name: "Office of the Associate Dean for Research and Creative Work [LS]"
@@ -59,7 +59,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 7
+  pk: 74
   fields:
     user: 71
     name: "Office of the Associate Dean for Student Affairs [LS]"
@@ -69,7 +69,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 8
+  pk: 75
   fields:
     user: 72
     name: "Office of the Associate Dean for Student & Admin Services [LS]"
@@ -79,7 +79,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 9
+  pk: 76
   fields:
     user: 73
     name: "Office of the Associate Dean for Student Formation [LS]"
@@ -89,7 +89,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 10
+  pk: 77
   fields:
     user: 74
     name: "LS Agenda Committee [LS]"
@@ -99,7 +99,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 11
+  pk: 78
   fields:
     user: 75
     name: "American Historical Collection [RL]"
@@ -109,7 +109,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 12
+  pk: 79
   fields:
     user: 76
     name: "Ateneo Junior Summer Seminar [LS]"
@@ -119,7 +119,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 13
+  pk: 80
   fields:
     user: 77
     name: "Atenista Ka Application [LS]"
@@ -129,7 +129,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 14
+  pk: 81
   fields:
     user: 78
     name: "Ateneo Library of Women's Writings (ALIWW) [LS]"
@@ -139,7 +139,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 15
+  pk: 82
   fields:
     user: 79
     name: "Loyola Schools Bookstore [LS]"
@@ -149,7 +149,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 16
+  pk: 83
   fields:
     user: 80
     name: "Bulatao Center [LS]"
@@ -159,7 +159,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 17
+  pk: 84
   fields:
     user: 81
     name: "Office of Campus Ministry [LS]"
@@ -169,7 +169,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 18
+  pk: 85
   fields:
     user: 82
     name: "Cataloging [RL]"
@@ -179,7 +179,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 19
+  pk: 86
   fields:
     user: 83
     name: "Office of the Associate Dean for Graduate Programs [LS]"
@@ -189,7 +189,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 20
+  pk: 87
   fields:
     user: 84
     name: "Lead Coordinating Office for the Loyola Schools [LS]"
@@ -199,7 +199,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 21
+  pk: 88
   fields:
     user: 85
     name: "Circulation [RL]"
@@ -209,7 +209,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 22
+  pk: 89
   fields:
     user: 86
     name: "Computer Services [RL]"
@@ -219,7 +219,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 23
+  pk: 90
   fields:
     user: 87
     name: "RL Director [RL]"
@@ -229,7 +229,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 24
+  pk: 91
   fields:
     user: 88
     name: "Director's Office [RL]"
@@ -239,7 +239,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 25
+  pk: 92
   fields:
     user: 89
     name: "Campus Events Management [LS]"
@@ -249,7 +249,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 26
+  pk: 93
   fields:
     user: 90
     name: "Facilities Section [RL]"
@@ -259,7 +259,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 27
+  pk: 94
   fields:
     user: 91
     name: "Filipiniana [RL]"
@@ -269,7 +269,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 28
+  pk: 95
   fields:
     user: 92
     name: "LS Faculty Social Involvement Coordinator [LS]"
@@ -279,7 +279,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 29
+  pk: 96
   fields:
     user: 93
     name: "Office of Guidance and Counseling [LS]"
@@ -289,7 +289,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 30
+  pk: 97
   fields:
     user: 94
     name: "Office of Health Services [LS]"
@@ -299,7 +299,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 31
+  pk: 98
   fields:
     user: 95
     name: "Human Resource Services for Staff and Maintenance"
@@ -309,7 +309,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 32
+  pk: 99
   fields:
     user: 96
     name: "HR Support [LS]"
@@ -319,7 +319,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 33
+  pk: 100
   fields:
     user: 97
     name: "Indexing [RL]"
@@ -329,7 +329,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 34
+  pk: 101
   fields:
     user: 98
     name: "Introduction to Ateneo Culture & Traditions [LS]"
@@ -339,7 +339,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 35
+  pk: 102
   fields:
     user: 99
     name: "Coordinator for Internationalization for Loyola Schools [LS]"
@@ -349,7 +349,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 36
+  pk: 103
   fields:
     user: 100
     name: "Junior Engagement Program [LS]"
@@ -359,7 +359,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 37
+  pk: 104
   fields:
     user: 101
     name: "Loyola Schools Journals [LS]"
@@ -369,7 +369,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 38
+  pk: 105
   fields:
     user: 102
     name: "Leadership Development Program [LS]"
@@ -379,7 +379,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 39
+  pk: 106
   fields:
     user: 103
     name: "LS Childcare Place [LS]"
@@ -389,7 +389,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 40
+  pk: 107
   fields:
     user: 104
     name: "Local Unit Emergency Response Teams [LS]"
@@ -399,7 +399,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 41
+  pk: 108
   fields:
     user: 105
     name: "MDRC [RL]"
@@ -409,7 +409,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 42
+  pk: 109
   fields:
     user: 106
     name: "MMR [RL]"
@@ -419,7 +419,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 43
+  pk: 110
   fields:
     user: 107
     name: "Moodle Admin [LS]"
@@ -429,7 +429,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 44
+  pk: 111
   fields:
     user: 108
     name: "National Service Training Program [LS]"
@@ -439,7 +439,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 45
+  pk: 112
   fields:
     user: 109
     name: "Office of Administrative Services [LS]"
@@ -449,7 +449,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 46
+  pk: 113
   fields:
     user: 110
     name: "Office of Facilities and Sustainability [LS]"
@@ -459,7 +459,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 47
+  pk: 114
   fields:
     user: 111
     name: "Office of Management Information Systems [LS]"
@@ -469,7 +469,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 48
+  pk: 115
   fields:
     user: 112
     name: "Office of Admission and Aid [LS]"
@@ -479,7 +479,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 49
+  pk: 116
   fields:
     user: 113
     name: "Office of Student Activities [LS]"
@@ -489,7 +489,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 50
+  pk: 117
   fields:
     user: 114
     name: "Office for Social Concern and Involvement [LS]"
@@ -499,7 +499,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 51
+  pk: 118
   fields:
     user: 115
     name: "Office of Student Services [LS]"
@@ -509,7 +509,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 52
+  pk: 119
   fields:
     user: 116
     name: "Pardo de Tavera [RL]"
@@ -519,7 +519,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 53
+  pk: 120
   fields:
     user: 117
     name: "Physical Education Program [LS]"
@@ -529,7 +529,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 54
+  pk: 121
   fields:
     user: 118
     name: "Photo Duplication [RL]"
@@ -539,7 +539,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 55
+  pk: 122
   fields:
     user: 119
     name: "Ateneo Placement Office [LS]"
@@ -549,7 +549,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 56
+  pk: 123
   fields:
     user: 120
     name: "Praxis Immersion Program [LS]"
@@ -559,7 +559,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 57
+  pk: 124
   fields:
     user: 121
     name: "LS Quality Assurance [LS]"
@@ -569,7 +569,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 58
+  pk: 125
   fields:
     user: 122
     name: "Office of the Registrar [LS]"
@@ -579,7 +579,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 59
+  pk: 126
   fields:
     user: 123
     name: "Residence Halls [LS]"
@@ -589,7 +589,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 60
+  pk: 127
   fields:
     user: 124
     name: "Rizal Library [LS]"
@@ -599,7 +599,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 61
+  pk: 128
   fields:
     user: 125
     name: "Foreign Serials [RL]"
@@ -609,7 +609,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 62
+  pk: 129
   fields:
     user: 126
     name: "Student Support and Specialized Services [LS]"
@@ -619,7 +619,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 63
+  pk: 130
   fields:
     user: 127
     name: "The Ateneo College Student Survey [LS]"
@@ -629,7 +629,7 @@
     logo_url: ../admu
     event_host: 1
 - model: main_events.officehost
-  pk: 64
+  pk: 131
   fields:
     user: 128
     name: "Undergraduate PAASCU 2016 [LS]"
