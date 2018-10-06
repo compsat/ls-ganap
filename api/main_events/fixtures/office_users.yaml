@@ -1,0 +1,320 @@
+- model: main_events.user
+  pk: 65
+  fields:
+    email: acquisition.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 66
+  fields:
+    email: adaa.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 67
+  fields:
+    email: adcc.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 68
+  fields:
+    email: adean.adgp.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 69
+  fields:
+    email: adgp.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 70
+  fields:
+    email: adrcw.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 71
+  fields:
+    email: adsa.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 72
+  fields:
+    email: adsas.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 73
+  fields:
+    email: adsf.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 74
+  fields:
+    email: agenda.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 75
+  fields:
+    email: ahc.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 76
+  fields:
+    email: ajss.admissions.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 77
+  fields:
+    email: akapp.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 78
+  fields:
+    email: aliww.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 79
+  fields:
+    email: bookstore.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 80
+  fields:
+    email: bulataocenter.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 81
+  fields:
+    email: campusministry.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 82
+  fields:
+    email: cataloging.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 83
+  fields:
+    email: ched.adgp.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 84
+  fields:
+    email: chedget.adsas.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 85
+  fields:
+    email: circulation.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 86
+  fields:
+    email: cs.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 87
+  fields:
+    email: director.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 88
+  fields:
+    email: do.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 89
+  fields:
+    email: events.adsas.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 90
+  fields:
+    email: facilities.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 91
+  fields:
+    email: filipiniana.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 92
+  fields:
+    email: fsic.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 93
+  fields:
+    email: guidance.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 94
+  fields:
+    email: healthservices.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 95
+  fields:
+    email: hrserv.adsas.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 96
+  fields:
+    email: hrsupport.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 97
+  fields:
+    email: indexing.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 98
+  fields:
+    email: intact.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 99
+  fields:
+    email: internationalization.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 100
+  fields:
+    email: jeep.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 101
+  fields:
+    email: journals.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 102
+  fields:
+    email: leadershipdevelopment.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 103
+  fields:
+    email: lschildcareplace.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 104
+  fields:
+    email: luert.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 105
+  fields:
+    email: mdrc.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 106
+  fields:
+    email: mmr.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 107
+  fields:
+    email: moodle.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 108
+  fields:
+    email: nstp.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 109
+  fields:
+    email: oas.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 110
+  fields:
+    email: ofs.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 111
+  fields:
+    email: omis.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 112
+  fields:
+    email: onlineapplication.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 113
+  fields:
+    email: osa.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 114
+  fields:
+    email: osci.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 115
+  fields:
+    email: oss.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 116
+  fields:
+    email: pardo.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 117
+  fields:
+    email: pe.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 118
+  fields:
+    email: photodup.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 119
+  fields:
+    email: placement.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 120
+  fields:
+    email: praxis.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 121
+  fields:
+    email: qa.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 122
+  fields:
+    email: registrar.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 123
+  fields:
+    email: residencehalls.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 124
+  fields:
+    email: rizal.library.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 125
+  fields:
+    email: serials.rl.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 126
+  fields:
+    email: studentsupport.adsas.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 127
+  fields:
+    email: tacss.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
+- model: main_events.user
+  pk: 128
+  fields:
+    email: ugpaascu2016.ls@ateneo.edu
+    password: pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4=
