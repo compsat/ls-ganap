@@ -1,0 +1,640 @@
+- model: main_events.officehost
+  pk: 1
+  fields:
+    user: 65
+    name: "Acquisitions [RL]"
+    abbreviation: Acquisitions
+    description: "Acquisitions [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 2
+  fields:
+    user: 66
+    name: "Office of the Associate Dean for Academic Affairs [LS]"
+    abbreviation: ADAA
+    description: "Office of the Associate Dean for Academic Affairs [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 3
+  fields:
+    user: 67
+    name: "Office of the Associate Dean for the Core Curriculum [LS]"
+    abbreviation: ADCC
+    description: "Office of the Associate Dean for the Core Curriculum [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 4
+  fields:
+    user: 68
+    name: "Associate Dean for Graduate Programs [LS]"
+    abbreviation: ADGP
+    description: "Associate Dean for Graduate Programs [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 5
+  fields:
+    user: 69
+    name: "Office of the Associate Dean for Graduate Programs [LS]"
+    abbreviation: OADGP
+    description: "Office of the Associate Dean for Graduate Programs [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 6
+  fields:
+    user: 70
+    name: "Office of the Associate Dean for Research and Creative Work [LS]"
+    abbreviation: OADRCW
+    description: "Office of the Associate Dean for Research and Creative Work [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 7
+  fields:
+    user: 71
+    name: "Office of the Associate Dean for Student Affairs [LS]"
+    abbreviation: ADSA
+    description: "Office of the Associate Dean for Student Affairs [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 8
+  fields:
+    user: 72
+    name: "Office of the Associate Dean for Student & Admin Services [LS]"
+    abbreviation: ADSAS
+    description: "Office of the Associate Dean for Student & Admin Services [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 9
+  fields:
+    user: 73
+    name: "Office of the Associate Dean for Student Formation [LS]"
+    abbreviation: OADSF
+    description: "Office of the Associate Dean for Student Formation [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 10
+  fields:
+    user: 74
+    name: "LS Agenda Committee [LS]"
+    abbreviation: Agenda Committee
+    description: "LS Agenda Committee [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 11
+  fields:
+    user: 75
+    name: "American Historical Collection [RL]"
+    abbreviation: AHC
+    description: "American Historical Collection [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 12
+  fields:
+    user: 76
+    name: "Ateneo Junior Summer Seminar [LS]"
+    abbreviation: AJSS
+    description: "Ateneo Junior Summer Seminar [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 13
+  fields:
+    user: 77
+    name: "Atenista Ka Application [LS]"
+    abbreviation: AKApp
+    description: "Atenista Ka Application [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 14
+  fields:
+    user: 78
+    name: "Ateneo Library of Women's Writings (ALIWW) [LS]"
+    abbreviation: ALIWW
+    description: "Ateneo Library of Women's Writings (ALIWW) [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 15
+  fields:
+    user: 79
+    name: "Loyola Schools Bookstore [LS]"
+    abbreviation: LS Bookstore
+    description: "Loyola Schools Bookstore [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 16
+  fields:
+    user: 80
+    name: "Bulatao Center [LS]"
+    abbreviation: Bulatao
+    description: "Bulatao Center [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 17
+  fields:
+    user: 81
+    name: "Office of Campus Ministry [LS]"
+    abbreviation: OCM
+    description: "Office of Campus Ministry [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 18
+  fields:
+    user: 82
+    name: "Cataloging [RL]"
+    abbreviation: Cataloging
+    description: "Cataloging [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 19
+  fields:
+    user: 83
+    name: "Office of the Associate Dean for Graduate Programs [LS]"
+    abbreviation: OADGP
+    description: "Office of the Associate Dean for Graduate Programs [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 20
+  fields:
+    user: 84
+    name: "Lead Coordinating Office for the Loyola Schools [LS]"
+    abbreviation: LCOLS
+    description: "Lead Coordinating Office for the Loyola Schools [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 21
+  fields:
+    user: 85
+    name: "Circulation [RL]"
+    abbreviation: Circulation
+    description: "Circulation [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 22
+  fields:
+    user: 86
+    name: "Computer Services [RL]"
+    abbreviation: Computer Services
+    description: "Computer Services [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 23
+  fields:
+    user: 87
+    name: "RL Director [RL]"
+    abbreviation: RL Director
+    description: "RL Director [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 24
+  fields:
+    user: 88
+    name: "Director's Office [RL]"
+    abbreviation: RL Director's Office
+    description: "Director's Office [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 25
+  fields:
+    user: 89
+    name: "Campus Events Management [LS]"
+    abbreviation: CEM
+    description: "Campus Events Management [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 26
+  fields:
+    user: 90
+    name: "Facilities Section [RL]"
+    abbreviation: Facilities
+    description: "Facilities Section [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 27
+  fields:
+    user: 91
+    name: "Filipiniana [RL]"
+    abbreviation: Filipiniana
+    description: "Filipiniana [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 28
+  fields:
+    user: 92
+    name: "LS Faculty Social Involvement Coordinator [LS]"
+    abbreviation: FSIC
+    description: "LS Faculty Social Involvement Coordinator [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 29
+  fields:
+    user: 93
+    name: "Office of Guidance and Counseling [LS]"
+    abbreviation: LSOGC
+    description: "Office of Guidance and Counseling [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 30
+  fields:
+    user: 94
+    name: "Office of Health Services [LS]"
+    abbreviation: LSHS
+    description: "Office of Health Services [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 31
+  fields:
+    user: 95
+    name: "Human Resource Services for Staff and Maintenance"
+    abbreviation: HRSERV
+    description: "Human Resource Services for Staff and Maintenance"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 32
+  fields:
+    user: 96
+    name: "HR Support [LS]"
+    abbreviation: HR Support
+    description: "HR Support [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 33
+  fields:
+    user: 97
+    name: "Indexing [RL]"
+    abbreviation: Indexing
+    description: "Indexing [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 34
+  fields:
+    user: 98
+    name: "Introduction to Ateneo Culture & Traditions [LS]"
+    abbreviation: INTACT
+    description: "Introduction to Ateneo Culture & Traditions [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 35
+  fields:
+    user: 99
+    name: "Coordinator for Internationalization for Loyola Schools [LS]"
+    abbreviation: Internationalization
+    description: "Coordinator for Internationalization for Loyola Schools [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 36
+  fields:
+    user: 100
+    name: "Junior Engagement Program [LS]"
+    abbreviation: JEEP
+    description: "Junior Engagement Program [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 37
+  fields:
+    user: 101
+    name: "Loyola Schools Journals [LS]"
+    abbreviation: Journals
+    description: "Loyola Schools Journals [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 38
+  fields:
+    user: 102
+    name: "Leadership Development Program [LS]"
+    abbreviation: Leadership Development
+    description: "Leadership Development Program [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 39
+  fields:
+    user: 103
+    name: "LS Childcare Place [LS]"
+    abbreviation: CCP
+    description: "LS Childcare Place [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 40
+  fields:
+    user: 104
+    name: "Local Unit Emergency Response Teams [LS]"
+    abbreviation: LUERT
+    description: "Local Unit Emergency Response Teams [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 41
+  fields:
+    user: 105
+    name: "MDRC [RL]"
+    abbreviation: MDRC
+    description: "MDRC [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 42
+  fields:
+    user: 106
+    name: "MMR [RL]"
+    abbreviation: MMR
+    description: "MMR [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 43
+  fields:
+    user: 107
+    name: "Moodle Admin [LS]"
+    abbreviation: Moodle
+    description: "Moodle Admin [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 44
+  fields:
+    user: 108
+    name: "National Service Training Program [LS]"
+    abbreviation: NSTP
+    description: "National Service Training Program [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 45
+  fields:
+    user: 109
+    name: "Office of Administrative Services [LS]"
+    abbreviation: OAS
+    description: "Office of Administrative Services [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 46
+  fields:
+    user: 110
+    name: "Office of Facilities and Sustainability [LS]"
+    abbreviation: OFS
+    description: "Office of Facilities and Sustainability [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 47
+  fields:
+    user: 111
+    name: "Office of Management Information Systems [LS]"
+    abbreviation: OMIS
+    description: "Office of Management Information Systems [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 48
+  fields:
+    user: 112
+    name: "Office of Admission and Aid [LS]"
+    abbreviation: OAA
+    description: "Office of Admission and Aid [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 49
+  fields:
+    user: 113
+    name: "Office of Student Activities [LS]"
+    abbreviation: OSA
+    description: "Office of Student Activities [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 50
+  fields:
+    user: 114
+    name: "Office for Social Concern and Involvement [LS]"
+    abbreviation: OSCI
+    description: "Office for Social Concern and Involvement [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 51
+  fields:
+    user: 115
+    name: "Office of Student Services [LS]"
+    abbreviation: OSS
+    description: "Office of Student Services [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 52
+  fields:
+    user: 116
+    name: "Pardo de Tavera [RL]"
+    abbreviation: Pardo de Tavera
+    description: "Pardo de Tavera [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 53
+  fields:
+    user: 117
+    name: "Physical Education Program [LS]"
+    abbreviation: PE
+    description: "Physical Education Program [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 54
+  fields:
+    user: 118
+    name: "Photo Duplication [RL]"
+    abbreviation: Photoduplication
+    description: "Photo Duplication [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 55
+  fields:
+    user: 119
+    name: "Ateneo Placement Office [LS]"
+    abbreviation: APO
+    description: "Ateneo Placement Office [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 56
+  fields:
+    user: 120
+    name: "Praxis Immersion Program [LS]"
+    abbreviation: Praxis
+    description: "Praxis Immersion Program [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 57
+  fields:
+    user: 121
+    name: "LS Quality Assurance [LS]"
+    abbreviation: LSQA
+    description: "LS Quality Assurance [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 58
+  fields:
+    user: 122
+    name: "Office of the Registrar [LS]"
+    abbreviation: Registrar
+    description: "Office of the Registrar [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 59
+  fields:
+    user: 123
+    name: "Residence Halls [LS]"
+    abbreviation: Residence Halls
+    description: "Residence Halls [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 60
+  fields:
+    user: 124
+    name: "Rizal Library [LS]"
+    abbreviation: Rizal Library
+    description: "Rizal Library [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 61
+  fields:
+    user: 125
+    name: "Foreign Serials [RL]"
+    abbreviation: Foreign Serials
+    description: "Foreign Serials [RL]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 62
+  fields:
+    user: 126
+    name: "Student Support and Specialized Services [LS]"
+    abbreviation: SSSS
+    description: "Student Support and Specialized Services [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 63
+  fields:
+    user: 127
+    name: "The Ateneo College Student Survey [LS]"
+    abbreviation: TACSS
+    description: "The Ateneo College Student Survey [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
+- model: main_events.officehost
+  pk: 64
+  fields:
+    user: 128
+    name: "Undergraduate PAASCU 2016 [LS]"
+    abbreviation: UGPAASCU
+    description: "Undergraduate PAASCU 2016 [LS]"
+    color: '#0000EE'
+    logo_url: ../admu
+    event_host: 1
