@@ -188,7 +188,7 @@ class SangguHostAdmin(admin.ModelAdmin):
 	inlines = [EventForSangguInline]
 
 class OfficeHostAdmin(admin.ModelAdmin):
-	list_display = ('name', 'abbreviation', 'event_host')
+	list_display = ('name', 'abbreviation')
 	# list_filter = ('event_host',)
 	search_fields = ['name', 'abbreviation']
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
