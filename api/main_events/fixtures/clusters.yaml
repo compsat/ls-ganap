@@ -48,3 +48,8 @@
   fields:
     name: Council of Organizations of the Ateneo
     description: All clusters #to fix
+- model: main_events.cluster
+  pk: 11
+  fields:
+    name: Confederation of Publications
+    description: Confederation of Publications #to fix
