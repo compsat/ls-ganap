@@ -26,54 +26,54 @@
 #     description: COMELEC
 #     color: '#000EE'
 #     event_host: 1
-- model: main_events.officehost
-  pk: 1
-  fields: 
-    name: Office of Student Affairs
-    abbreviation: OSA
-    description: OSA
-    color: '#000EE'
-    event_host: 1
-- model: main_events.officehost
-  pk: 2
-  fields: 
-    name: Office of Admission and Aid
-    abbreviation: OAA
-    description: OAA
-    color: '#000EE'
-    event_host: 1
-- model: main_events.officehost
-  pk: 3
-  fields: 
-    name: Rizal Library
-    abbreviation: Rizal
-    description: Test office
-    color: '#000EE'
-    event_host: 1
-- model: main_events.officehost
-  pk: 4
-  fields: 
-    name: Health Services
-    abbreviation: LSHS
-    description: LSHS
-    color: '#000EE'
-    event_host: 1
-- model: main_events.officehost
-  pk: 5
-  fields: 
-    name: Office of the Vice Presidenet
-    abbreviation: OVP
-    description: OVP
-    color: '#000EE'
-    event_host: 1
-# - model: main_events.orghost
+# - model: main_events.officehost
 #   pk: 1
-#   fields:
-#     name: Computer Society of the Ateneo
-#     abbreviation: CompSAt
-#     description: The Computer Society of the Ateneo, or CompSAt, is recognized as the premier Information Technology (IT) organization of the Ateneo. We work towards creating avenues to learn IT, promoting the use of IT through our services, and sharing our advocacy with others to promote IT awareness. We offer basic Computer Science tutorials for freshmen and hold series of development tutorials of different platforms that are open to all Ateneans. We also hold events such as  talks and competitions to show the different applications of IT. We also partner up with Alay Ni Ignacio, NSTP, and JEEP to spread IT outside of Ateneo.CompSAt also focuses on fostering a sense of community and aims to help hone the membersâ€™ interpersonal skills through clustering and various team building activities. It is through these, that we develop the organization’s membership formation because in CompSAt, we want our members to feel like part of the family.CompSAt welcomes anyone interested in IT. Through building a strong community with a common passion for learning, using, and sharing IT, we believe that we can make the world a better place!
-#     color: '#0000EE'
+#   fields: 
+#     name: Office of Student Affairs
+#     abbreviation: OSA
+#     description: OSA
+#     color: '#000EE'
 #     event_host: 1
+# - model: main_events.officehost
+#   pk: 2
+#   fields: 
+#     name: Office of Admission and Aid
+#     abbreviation: OAA
+#     description: OAA
+#     color: '#000EE'
+#     event_host: 1
+# - model: main_events.officehost
+#   pk: 3
+#   fields: 
+#     name: Rizal Library
+#     abbreviation: Rizal
+#     description: Test office
+#     color: '#000EE'
+#     event_host: 1
+# - model: main_events.officehost
+#   pk: 4
+#   fields: 
+#     name: Health Services
+#     abbreviation: LSHS
+#     description: LSHS
+#     color: '#000EE'
+#     event_host: 1
+# - model: main_events.officehost
+#   pk: 5
+#   fields: 
+#     name: Office of the Vice Presidenet
+#     abbreviation: OVP
+#     description: OVP
+#     color: '#000EE'
+#     event_host: 1
+# # - model: main_events.orghost
+# #   pk: 1
+# #   fields:
+# #     name: Computer Society of the Ateneo
+# #     abbreviation: CompSAt
+# #     description: The Computer Society of the Ateneo, or CompSAt, is recognized as the premier Information Technology (IT) organization of the Ateneo. We work towards creating avenues to learn IT, promoting the use of IT through our services, and sharing our advocacy with others to promote IT awareness. We offer basic Computer Science tutorials for freshmen and hold series of development tutorials of different platforms that are open to all Ateneans. We also hold events such as  talks and competitions to show the different applications of IT. We also partner up with Alay Ni Ignacio, NSTP, and JEEP to spread IT outside of Ateneo.CompSAt also focuses on fostering a sense of community and aims to help hone the membersâ€™ interpersonal skills through clustering and various team building activities. It is through these, that we develop the organization’s membership formation because in CompSAt, we want our members to feel like part of the family.CompSAt welcomes anyone interested in IT. Through building a strong community with a common passion for learning, using, and sharing IT, we believe that we can make the world a better place!
+# #     color: '#0000EE'
+# #     event_host: 1
 #     org_type: 1
 #     cluster: 9
 # - model: main_events.event
