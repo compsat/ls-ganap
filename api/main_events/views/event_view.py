@@ -201,7 +201,8 @@ class EventList(APIView):
                 Q(office_hosts__name__icontains=search) |
                 Q(org_hosts__abbreviation__icontains=search) |
                 Q(sanggu_hosts__abbreviation__icontains=search) |
-                Q(office_hosts__abbreviation__icontains=search)
+                Q(office_hosts__abbreviation__icontains=search) |
+                Q(org_hosts__cluster__name__icontains=search)
             )
 
         if request.method == 'GET' and 'page' in request.GET:
