@@ -268,3 +268,18 @@
   fields:
     email: yfca.ls@obf.ateneo.edu
     password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+- model: main_events.user
+  pk: 129
+  fields:
+    email: theguidon.ls@obf.ateneo.edu
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+- model: main_events.user
+  pk: 130
+  fields:
+    email: heights.ls@obf.ateneo.edu
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+- model: main_events.user
+  pk: 131
+  fields:
+    email: matanglawin.ls@obf.ateneo.edu
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
