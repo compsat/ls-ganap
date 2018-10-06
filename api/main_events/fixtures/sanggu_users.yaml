@@ -43,5 +43,8 @@
   fields:
     email: sjc.ls@obf.ateneo.edu
     password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
-
-  
+- model: main_events.user
+  pk: 64
+  fields:
+    email: regcom.ls@obf.ateneo.edu
+    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='

@@ -88,3 +88,13 @@
     logo_url: ../ads
     color: '#000EE'
     event_host: 1
+- model: main_events.sangguhost
+  pk: 10
+  fields:
+    user: 64
+    name: Registration Committee
+    abbreviation: RegCom
+    description: RegCom
+    logo_url: ../regcom
+    color: '#000EE'
+    event_host: 1
