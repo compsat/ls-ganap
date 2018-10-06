@@ -1,5 +1,5 @@
 - model: main_events.sangguhost
-  pk: 1
+  pk: 58
   fields:
     user: 55
     name: Sanggunian ng mga Paaralang Loyola ng Ateneo de Manila
@@ -9,7 +9,7 @@
     logo_url: ../ads
     event_host: 1
 - model: main_events.sangguhost
-  pk: 2
+  pk: 59
   fields:
     user: 56
     name: Ateneo Commission on Elections
@@ -19,7 +19,7 @@
     color: '#000EE'
     event_host: 1
 - model: main_events.sangguhost
-  pk: 3
+  pk: 60
   fields:
     user: 57
     name: Department of Student Welfare and Services
@@ -29,7 +29,7 @@
     color: '#000EE'
     event_host: 1
 - model: main_events.sangguhost
-  pk: 4
+  pk: 61
   fields:
     user: 58
     name: JGSOM School Board
@@ -39,7 +39,7 @@
     color: '#000EE'
     event_host: 1
 - model: main_events.sangguhost
-  pk: 5
+  pk: 62
   fields:
     user: 59
     name: Office of the Ombudsman
@@ -49,7 +49,7 @@
     color: '#000EE'
     event_host: 1
 - model: main_events.sangguhost
-  pk: 6
+  pk: 63
   fields:
     user: 60
     name: School of Humanities
@@ -59,7 +59,7 @@
     color: '#000EE'
     event_host: 1
 - model: main_events.sangguhost
-  pk: 7
+  pk: 64
   fields:
     user: 61
     name: School of Science and Engineering
@@ -69,7 +69,7 @@
     color: '#000EE'
     event_host: 1
 - model: main_events.sangguhost
-  pk: 8
+  pk: 65
   fields:
     user: 62
     name: School of Social Sciences
@@ -79,7 +79,7 @@
     color: '#000EE'
     event_host: 1
 - model: main_events.sangguhost
-  pk: 9
+  pk: 66
   fields:
     user: 63
     name: Student Judicial Court
@@ -89,7 +89,7 @@
     color: '#000EE'
     event_host: 1
 - model: main_events.sangguhost
-  pk: 10
+  pk: 67
   fields:
     user: 64
     name: Registration Committee
