@@ -1,11 +1,11 @@
 from django.db import models
 from django.db.models.query import QuerySet
 from django.utils import timezone
-from main_events.soft_deletion_model import SoftDeletionModel
+from main_events.soft_deletion_model import *
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from cloudinary.models import CloudinaryField
-from django.db.models import Min
+from django.db.models import Min, Q
 
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
@@ -147,7 +147,13 @@ class Tag(models.Model):
 	class Meta:
 		ordering = ('name',)
 
+class EventManager(SoftDeletionManager):
+	def get_queryset(self):
+		return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
+
 class Event(SoftDeletionModel):
+	objects = EventManager()
+
 	name = models.CharField(max_length=200)
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)

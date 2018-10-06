@@ -76,7 +76,7 @@ class FilterEventByDate(generics.ListAPIView):
         queryset = Event.objects.all()
         
         if date is not None:
-            queryset = queryset.filter(is_approved=True, event_logistics__date=date).annotate(date=Min('event_logistics__date')).order_by('date')
+            queryset = queryset.filter(is_approved=True, event_logistics__date=date).order_by('first_date')
 
         return queryset
 
@@ -140,7 +140,7 @@ class FilterEventByMonth(generics.ListAPIView):
         queryset = Event.objects.all()
 
         if date is not None:
-            queryset = queryset.filter(is_approved=True, event_logistics__date__month=get_month, event_logistics__date__year=get_year).annotate(date=Min('event_logistics__date')).order_by('date')
+            queryset = queryset.filter(is_approved=True, event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('first_date')
 
         return queryset
 
@@ -171,7 +171,7 @@ class EventList(APIView):
         # search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
         pagination_class = ObjectPageNumberPagination
         paginator = pagination_class()
-        events = Event.objects.filter(is_approved=True, event_logistics__date__gte=timezone.now()).annotate(date=Min('event_logistics__date')).order_by('date')
+        events = Event.objects.filter(is_approved=True, event_logistics__date__gte=timezone.now()).order_by('first_date')
         # for event in events:
         #     event.event_logistics = event.event_logistics.filter(id__in=logistic_ids)
         query = self.request.GET.get("host_type")
@@ -259,7 +259,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         # pk = self.kwargs['pk']
-        queryset = Event.objects.annotate(date=Min('event_logistics__date'))
+        queryset = Event.objects.all()
 
         if self.request.user.is_authenticated:
             user = self.request.user
@@ -279,7 +279,7 @@ class UnapprovedEventList(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Event.objects.filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user))).annotate(date=Min('event_logistics__date')).order_by('date')
+        return Event.objects.filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user))).order_by('first_date')
 
 class EventLogisticCreate(APIView):
     """
