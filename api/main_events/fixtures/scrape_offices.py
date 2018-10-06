@@ -18,7 +18,7 @@ file = open('offices.yaml', 'w')
 for index, rows in data.iterrows():
 
     file.write('- model: main_events.officehost\n')
-    file.write('  pk: ' + str(index+1) + '\n')
+    file.write('  pk: ' + str(index+68) + '\n')
     file.write('  fields:\n')
     file.write('    user: ' + str(index+65) + '\n')
     file.write('    name: "' + rows[0] + '"\n')
