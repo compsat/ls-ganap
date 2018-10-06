@@ -85,7 +85,7 @@ class EventHost(models.Model):
 class SangguHost(models.Model):	
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
-	abbreviation = models.CharField(max_length=10, blank=True)
+	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
 	color = models.CharField(max_length=20)
 	logo_url = models.ImageField(upload_to='images/', blank=True)
@@ -98,8 +98,9 @@ class SangguHost(models.Model):
 		ordering = ('name',)
 
 class OfficeHost(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
-	abbreviation = models.CharField(max_length=10, blank=True)
+	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
 	color = models.CharField(max_length=20)
 	logo_url = models.ImageField(upload_to='images/', blank=True)
@@ -114,7 +115,7 @@ class OfficeHost(models.Model):
 class OrgHost(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
-	abbreviation = models.CharField(max_length=10, blank=True)
+	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
 	color = models.CharField(max_length=20)
 	logo_url = models.ImageField(upload_to='images/', blank=True)
