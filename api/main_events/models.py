@@ -151,6 +151,10 @@ class EventManager(SoftDeletionManager):
 	def get_queryset(self):
 		return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
 
+	def by_first_date(self): 
+		qs = super(EventManager, self).get_queryset() 
+		return qs.order_by('first_date')
+
 class Event(SoftDeletionModel):
 	objects = EventManager()
 
