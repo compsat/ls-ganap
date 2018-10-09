@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import *
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import ugettext_lazy as _
-from .models import User, OrgHost, SangguHost, OfficeHost
 from django.utils import timezone
 from django.db.models import Min, Q, FieldDoesNotExist
 from django.utils.safestring import mark_safe
@@ -88,39 +87,141 @@ class OrgInline(admin.TabularInline):
     fields = ('name', 'abbreviation', 'event_host', 'org_type', 'cluster')
 	
 class EventInline(admin.TabularInline):
-    model = Event.tags.through
+	model = Event.tags.through
+
+	readonly_fields = ('is_approved', 'event_logistics',)
+
+	def is_approved(self, obj):
+		return Event.objects.get(pk=obj.event_id).is_approved
+	is_approved.short_description = 'Is approved'
+
+	def event_logistics(self, obj):
+		dates = ""
+		count = 0
+		logistics = Event.objects.get(pk=obj.event_id).event_logistics.annotate(earliest=Min('date')).all()
+		if logistics.exists():
+			for logistic in logistics:
+				dates += logistic.date.strftime('%B %d, %Y')
+				count += 1
+				if count == 3:
+					dates += "..."
+					break
+				else:
+					dates += "<br>"
+		else:
+			return "FINISHED"
+
+		return mark_safe(dates)
+	event_logistics.short_description = 'Event Dates'
 
 class EventForSangguInline(admin.TabularInline):
 	model = Event.sanggu_hosts.through
 
+	readonly_fields = ('is_approved', 'event_logistics',)
+
+	def is_approved(self, obj):
+		return Event.objects.get(pk=obj.event_id).is_approved
+	is_approved.short_description = 'Is approved'
+
+	def event_logistics(self, obj):
+		dates = ""
+		count = 0
+		logistics = Event.objects.get(pk=obj.event_id).event_logistics.annotate(earliest=Min('date')).all()
+		if logistics.exists():
+			for logistic in logistics:
+				dates += logistic.date.strftime('%B %d, %Y')
+				count += 1
+				if count == 3:
+					dates += "..."
+					break
+				else:
+					dates += "<br>"
+		else:
+			return "FINISHED"
+
+		return mark_safe(dates)
+	event_logistics.short_description = 'Event Dates'
+
+	def get_ordering(self, request):
+		return ['event__event_logistics']
+
 class EventForOrgInline(admin.TabularInline):
 	model = Event.org_hosts.through
 
-	# readonly_fields = ('is_approved', 'event_logistics',)
+	readonly_fields = ('is_approved', 'event_logistics',)
 
-	# def is_approved(self, obj):
-	# 	print(obj.is_approved)
-	# 	return obj.event_list.get(pk=1).is_approved
-	# is_approved.short_description = 'is_approved'
+	def is_approved(self, obj):
+		return Event.objects.get(pk=obj.event_id).is_approved
+	is_approved.short_description = 'Is approved'
 
-	# def event_logistics(self, obj):
-	# 	print(obj.event_logistics.get(pk=1).date)
-	# 	return obj.event_list.get(pk=1).event_logistics.get(pk=1).date
-	# event_logistics.short_description = 'event_logistics'
+	def event_logistics(self, obj):
+		dates = ""
+		count = 0
+		logistics = Event.objects.get(pk=obj.event_id).event_logistics.annotate(earliest=Min('date')).all()
+		if logistics.exists():
+			for logistic in logistics:
+				dates += logistic.date.strftime('%B %d, %Y')
+				count += 1
+				if count == 3:
+					dates += "..."
+					break
+				else:
+					dates += "<br>"
+		else:
+			return "FINISHED"
+
+		return mark_safe(dates)
+	event_logistics.short_description = 'Event Dates'
 
 class EventForOfficeInline(admin.TabularInline):
 	model = Event.office_hosts.through
+
+	readonly_fields = ('is_approved', 'event_logistics',)
+
+	def is_approved(self, obj):
+		return Event.objects.get(pk=obj.event_id).is_approved
+	is_approved.short_description = 'Is approved'
+
+	def event_logistics(self, obj):
+		dates = ""
+		count = 0
+		logistics = Event.objects.get(pk=obj.event_id).event_logistics.annotate(earliest=Min('date')).all()
+		if logistics.exists():
+			for logistic in logistics:
+				dates += logistic.date.strftime('%B %d, %Y')
+				count += 1
+				if count == 3:
+					dates += "..."
+					break
+				else:
+					dates += "<br>"
+		else:
+			return "FINISHED"
+
+		return mark_safe(dates)
+	event_logistics.short_description = 'Event Dates'
 
 class EventLogisticInline(admin.TabularInline):
     model = EventLogistic
 
 class EventVenueInline(admin.TabularInline):
 	model = EventLogistic
-	readonly_fields = ('event', 'event_host', 'start_time', 'end_time')
+	readonly_fields = ('event', 'event_hosts', 'start_time', 'end_time')
 	exclude = ('outside_venue_name',)
 
-	def event_host(self, obj):
-		return obj.event.host
+	def event_hosts(self, obj):
+		event = obj.event
+		hosts = ""
+		for host in event.org_hosts.all():
+			hosts += host.name + "<br>"
+
+		for host in event.office_hosts.all():
+			hosts += host.name + "<br>"
+
+		for host in event.sanggu_hosts.all():
+			hosts += host.name + "<br>"
+
+		return mark_safe(hosts)
 
 class HasHappenedListFilter(admin.SimpleListFilter):
     # Human-readable title which will be displayed in the
@@ -203,8 +304,7 @@ class EventAdmin(admin.ModelAdmin):
 			return "FINISHED"
 
 		return mark_safe(dates)
-
-	# event_dates.admin_order_field = 'first_date'
+	event_dates.short_description = 'Event Dates After Today'
 
 	def accept_events(self, request, queryset):
 		for obj in queryset:
@@ -215,24 +315,33 @@ class EventAdmin(admin.ModelAdmin):
 			message_bit = "1 event was"
 		else:
 			message_bit = "%s events were" % len(queryset)
-		self.message_user(request, "%s successfully marked as accepted." % message_bit)
-	accept_events.short_description = "Mark events as accepted"
+		self.message_user(request, "%s successfully marked as approved." % message_bit)
+	accept_events.short_description = "Mark events as approved"
 
 class EventHostAdmin(admin.ModelAdmin):
 	list_display = ('name',)	
 	search_fields = ['name']
-	inlines = [
-		SangguInline,
-		OfficeInline,
-		OrgInline,
-	]
+
+	def add_view(self, request, extra_content=None):
+		self.inlines = []
+		return super(EventHostAdmin, self).add_view(request)
+
+	def change_view(self, request, object_id, extra_content=None):
+		self.inlines = [
+			SangguInline,
+			OfficeInline,
+			OrgInline,
+		]
+		return super(EventHostAdmin, self).change_view(request, object_id)
 
 class SangguHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation')
-	# list_filter = ('event_host',)
 	search_fields = ['name', 'abbreviation']
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
 	inlines = [EventForSangguInline]
+
+	def has_add_permission(self, request, obj=None):
+		return False
 
 class OfficeHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation')
@@ -241,6 +350,9 @@ class OfficeHostAdmin(admin.ModelAdmin):
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
 	inlines = [EventForOfficeInline]
 
+	def has_add_permission(self, request, obj=None):
+		return False
+
 class OrgHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation', 'cluster')
 	list_filter = ('event_host', 'org_type', 'cluster')
@@ -248,11 +360,17 @@ class OrgHostAdmin(admin.ModelAdmin):
 	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host', 'org_type', 'cluster')
 	inlines = [EventForOrgInline]
 
+	def has_add_permission(self, request, obj=None):
+		return False
 
 class ClusterAdmin(admin.ModelAdmin):
-	inlines = [
-		OrgInline,
-	]
+	def add_view(self, request, extra_content=None):
+		self.inlines = []
+		return super(ClusterAdmin, self).add_view(request)
+
+	def change_view(self, request, object_id, extra_content=None):
+		self.inlines = [OrgInline]
+		return super(ClusterAdmin, self).change_view(request, object_id)
 
 class TagAdmin(admin.ModelAdmin):
 	search_fields = ['name',]
@@ -274,9 +392,13 @@ class VenueAdmin(admin.ModelAdmin):
 		return super(VenueAdmin, self).change_view(request, object_id)
 
 class OrgTypeAdmin(admin.ModelAdmin):
-	inlines = [
-		OrgInline,
-	]
+	def add_view(self, request, extra_content=None):
+		self.inlines = []
+		return super(OrgTypeAdmin, self).add_view(request)
+
+	def change_view(self, request, object_id, extra_content=None):
+		self.inlines = [OrgInline]
+		return super(OrgTypeAdmin, self).change_view(request, object_id)
 
 admin.site.register(Cluster, ClusterAdmin)
 admin.site.register(EventHost, EventHostAdmin)
