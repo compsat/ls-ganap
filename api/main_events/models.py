@@ -83,7 +83,7 @@ class EventHost(models.Model):
 		ordering = ('name',)
 
 class SangguHost(models.Model):	
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='sanggu_host')
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
@@ -98,7 +98,7 @@ class SangguHost(models.Model):
 		ordering = ('name',)
 
 class OfficeHost(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='office_host')
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
@@ -113,7 +113,7 @@ class OfficeHost(models.Model):
 		ordering = ('name',)
 
 class OrgHost(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='org_host')
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
