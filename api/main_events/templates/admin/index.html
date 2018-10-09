@@ -37,6 +37,10 @@
                 {% if model.view_only %}
                 <td><a href="{{ model.admin_url }}" class="viewlink">{% trans 'View' %}</a></td>
                 {% else %}
+                {% if model.name == 'Office hosts' or model.name == 'Org hosts' or model.name == 'Sanggu hosts' %}
+                <td></td>
+                <td></td>
+                {% endif %}
                 <td><a href="{{ model.admin_url }}" class="changelink">{% trans 'Change' %}</a></td>
                 {% endif %}
             {% else %}
