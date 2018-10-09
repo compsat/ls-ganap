@@ -6,27 +6,74 @@ from .models import User, OrgHost, SangguHost, OfficeHost
 from django.utils import timezone
 from django.db.models import Min, Q, FieldDoesNotExist
 from django.utils.safestring import mark_safe
+from django.contrib.admin.views.decorators import staff_member_required
+from django.urls import include, path, resolve
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
+
+class UserOrgInline(admin.StackedInline):
+	model = OrgHost
+
+class UserOfficeInline(admin.StackedInline):
+	model = OfficeHost
+
+class UserSangguInline(admin.StackedInline):
+	model = SangguHost
 
 @admin.register(User)
 class UserAdmin(DjangoUserAdmin):
-    """Define admin model for custom User model with no email field."""
+	"""Define admin model for custom User model with no email field."""
 
-    fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name')}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
+	fieldsets = (
+		(None, {'fields': ('email', 'password')}),
+		(_('Personal info'), {'fields': ('first_name', 'last_name')}),
+		(_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
-        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
-    )
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2'),
-        }),
-    )
-    list_display = ('email', 'first_name', 'last_name', 'is_staff')
-    search_fields = ('email', 'first_name', 'last_name')
-    ordering = ('email',)
+		(_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+	)
+	add_fieldsets = (
+		(None, {
+			'classes': ('wide',),
+			'fields': ('email', 'password1', 'password2'),
+		}),
+	)
+	list_display = ('email', 'first_name', 'last_name', 'is_staff')
+	search_fields = ('email', 'first_name', 'last_name')
+	ordering = ('email',)
+
+	def add_org_view(self, request, extra_content=None):
+		self.inlines = [UserOrgInline]
+		return super(UserAdmin, self).add_view(request)
+
+	def add_office_view(self, request, extra_content=None):
+		self.inlines = [UserOfficeInline]
+		return super(UserAdmin, self).add_view(request)
+
+	def add_sanggu_view(self, request, extra_content=None):
+		self.inlines = [UserSangguInline]
+		return super(UserAdmin, self).add_view(request)
+
+	def change_view(self, request, object_id, extra_content=None):
+		object_id = resolve(request.path).kwargs['object_id']
+		user = User.objects.get(pk=object_id)
+		self.inlines = []
+		if hasattr(user, 'org_host'):
+			self.inlines = [UserOrgInline]
+		elif hasattr(user, 'office_host'):
+			self.inlines = [UserOfficeInline]
+		elif hasattr(user, 'sanggu_host'):
+			self.inlines = [UserSangguInline]
+
+		return super(UserAdmin, self).change_view(request, object_id)
+
+	def get_urls(self):
+		urls = super(UserAdmin, self).get_urls()
+		urls[2] = path("add/org/", self.add_org_view, name='main_events_user_add')
+		custom_urls = [
+			path('add/office/', self.add_office_view, name='main_events_user_add_office'),
+			path('add/sanggu/', self.add_sanggu_view, name='main_events_user_add_sanggu')
+		]
+		return custom_urls + urls
 
 class SangguInline(admin.TabularInline):
 	model = SangguHost
@@ -215,9 +262,16 @@ class TagAdmin(admin.ModelAdmin):
 
 class VenueAdmin(admin.ModelAdmin):
 	search_fields = ['name',]
-	inlines = [
-		EventVenueInline,
-	]
+	inlines = []
+	readonly_fields = ['deleted_at']
+
+	def add_view(self, request, extra_content=None):
+		self.inlines = []
+		return super(VenueAdmin, self).add_view(request)
+
+	def change_view(self, request, object_id, extra_content=None):
+		self.inlines = [EventVenueInline]
+		return super(VenueAdmin, self).change_view(request, object_id)
 
 class OrgTypeAdmin(admin.ModelAdmin):
 	inlines = [
@@ -233,4 +287,3 @@ admin.site.register(SangguHost, SangguHostAdmin)
 admin.site.register(OfficeHost, OfficeHostAdmin)
 admin.site.register(OrgHost, OrgHostAdmin)
 admin.site.register(OrgType, OrgTypeAdmin)
-# admin.site.register(Venue)
