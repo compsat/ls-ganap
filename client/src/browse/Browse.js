@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import SearchBar from './SearchBar';
-import FilterBar from './FilterBar';
+import FilterBarContainer from '../containers/FilterBarContainer';
 import MediaCard from '../components/MediaCard';
 import AppSubheading from '../components/AppSubheading';
 import AppText from '../components/AppText';
@@ -31,7 +31,7 @@ const MainContentBox = styled.div`
   `}
 `
 
-const BrowseFilterBar = styled(FilterBar)`
+const BrowseFilterBar = styled(FilterBarContainer)`
   margin-bottom: 1em;
 
   ${media.mdScreen`

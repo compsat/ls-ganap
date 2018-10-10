@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from "redux-logger";
+import rootReducer from './reducers';
 import Loadable from 'react-loadable';
 import Loading from './components/Loading';
 import { ThemeProvider } from 'styled-components';
@@ -7,6 +12,11 @@ import theme from './style/style-theme';
 import MainNav from './components/MainNav';
 import PageContent from './components/PageContent';
 import Footer from './components/Footer';
+
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunkMiddleware, createLogger())
+);
 
 const Home = Loadable({
   loader: () => import('./home/Home'),
@@ -32,7 +42,9 @@ class App extends Component {
             <MainContent>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/browse" component={Browse} />
+                <Provider store={store}>
+                  <Route path="/browse" component={Browse} />
+                </Provider>
               </Switch>
             </MainContent>
             <Footer />

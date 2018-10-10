@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import PropTypes from "prop-types";
+
 import InvisibleToggle from './InvisibleToggle';
 import WidgetContainer from './WidgetContainer';
 
@@ -23,71 +25,27 @@ const TagItem = styled.li`
 `
 
 class TagsWidget extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      tags: {}
-    }
-    this.props.setTags('All');
-  }
-
-  setWidgetState = (tags) => {
-    this.setState({tags});
-
-    let displayTags = Object.entries(tags).filter(
-      ([key, val]) => val).map(([key, val]) => key);
-    displayTags = displayTags.length ? displayTags : 'All';
-    this.props.setTags(displayTags);
-  }
-
   componentDidMount() {
-    const tags = [
-      'Business',
-      'Science & Tech',
-      'Family & Education',
-      'Spirituality',
-      'Other',
-      'Governement',
-      'Hobbies',
-      'Music',
-      'Film & Media',
-      'Health',
-      'Community',
-      'Fashion',
-      'Travel & Outdoor',
-      'Food & Drink',
-      'Charity & Causes',
-      'Home & Lifestyle',
-      'School Activities',
-    ];
-    const tagsObject = tags.reduce((obj, tag) => {
-      obj[tag] = false;
-      return obj;
-    }, {});
-
-    this.setWidgetState(tagsObject);
+    this.props.fetchTags();
   }
 
-  handleToggle = (e, tag) => {
-    const tagsObject = {
-      ...this.state.tags,
-      [tag]: e.target.checked,
-    };
-
-    this.setWidgetState(tagsObject);
+  isTagActive = (tagId) => {
+    return this.props.tags.find(tag => tag.id === tagId && tag.active);
   }
-
+  
   render() {
     return (
       <WidgetContainer>
         <ul>
-          {Object.keys(this.state.tags).map((tag) =>
-            <TagItem active={this.state.tags[tag]}>
-              {tag}
+          {this.props.tags.map((tag) =>
+            <TagItem
+              key={tag.id}
+              active={this.isTagActive(tag.id)}
+            >
+              {tag.name}
               <InvisibleToggle
-                checked={this.state.tags[tag]}
-                onChange={(e) => this.handleToggle(e, tag)}
+                checked={this.isTagActive(tag.id)}
+                onChange={() => this.props.toggleTag(tag.id)}
               />
             </TagItem>
           )}
@@ -95,6 +53,18 @@ class TagsWidget extends Component {
       </WidgetContainer>
     );
   }
+}
+
+TagsWidget.propTypes = {
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      active: PropTypes.bool.isRequired,
+    }).isRequired
+  ).isRequired,
+  toggleTag: PropTypes.func.isRequired,
+  fetchTags: PropTypes.func.isRequired
 }
 
 export default TagsWidget;
