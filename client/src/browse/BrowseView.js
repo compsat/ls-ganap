@@ -8,6 +8,7 @@ import AppSubheading from '../components/AppSubheading';
 import AppText from '../components/AppText';
 import { media } from '../style/style-utils';
 import SVG from 'react-inlinesvg';
+import { fetchVenues } from '../actions/venues';
 
 const SearchHeader = styled.header`
   ${media.mdScreen`
@@ -82,6 +83,8 @@ class BrowseView extends Component {
   }
 
   componentDidMount() {
+    this.props.fetchVenues();
+    
     const API_URL = 'https://ls-ganap-api.herokuapp.com/';
     const dataKeys = Object.keys(this.state.apiData);
     const requests = dataKeys.map((dataKey) => {
