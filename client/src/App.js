@@ -24,7 +24,7 @@ const Home = Loadable({
 });
 
 const BrowseView = Loadable({
-  loader: () => import('./browse/BrowseView'),
+  loader: () => import('./containers/BrowseViewContainer'),
   loading: Loading,
 });
 
