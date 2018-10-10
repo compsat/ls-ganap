@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import WidgetContainer from './WidgetContainer';
-import AppRadio from '../components/AppRadio';
+import React, { Component } from "react";
+import styled from "styled-components";
+import WidgetContainer from "./WidgetContainer";
+import AppRadio from "../components/AppRadio";
 
 const DateWidgetChoice = AppRadio.extend`
   display: block;
 `;
 
 const DateWidgetInput = styled.input.attrs({
-  type: 'radio',
+  type: "radio"
 })`
   position: absolute;
   top: 0;
@@ -23,41 +23,26 @@ const DateWidgetInput = styled.input.attrs({
 class DateWidget extends Component {
   constructor(props) {
     super(props);
-    this.dateChoices = [
-      'All',
-      'Today',
-      'This Week',
-      'This Month',
-      'After this Month',
-    ];
-
-    const initialDate = this.dateChoices[0];
-
-    this.state = {
-      date: initialDate,
-    };
-    this.props.setDate(initialDate);
+    this.dateRanges = ["All", "Today", "This Week", "This Month"];
   }
 
-  setWidgetState = (date) => {
-    this.setState({date});
-    this.props.setDate(date);
-  }
-
-  handleChoiceClick = (e) => {
+  handleChoiceClick = e => {
     const date = e.target.value;
-    this.setWidgetState(date);
-  }
+    this.props.selectDateRange(date);
+  };
 
   render() {
     return (
       <WidgetContainer>
-        {this.dateChoices.map((date) => (
-          <DateWidgetChoice checked={this.state.date === date}>
+        {this.dateRanges.map(date => (
+          <DateWidgetChoice
+            key={date}
+            checked={this.props.dates === date}
+          >
             <DateWidgetInput
               name="date"
               value={date}
-              checked={this.state.date === date}
+              checked={this.props.dates === date}
               onChange={this.handleChoiceClick}
             />
             {date}
