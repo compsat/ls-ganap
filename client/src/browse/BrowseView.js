@@ -61,7 +61,7 @@ const MediaCardHostP = AppText.withComponent('p').extend`
   margin-bottom: 1em;
 `
 
-class Browse extends Component {
+class BrowseView extends Component {
   constructor(props) {
     super(props);
 
@@ -198,4 +198,4 @@ class Browse extends Component {
   }
 }
 
-export default Browse;
+export default BrowseView;
