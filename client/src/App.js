@@ -23,8 +23,8 @@ const Home = Loadable({
   loading: Loading,
 });
 
-const Browse = Loadable({
-  loader: () => import('./browse/Browse'),
+const BrowseView = Loadable({
+  loader: () => import('./browse/BrowseView'),
   loading: Loading,
 });
 
@@ -43,7 +43,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Provider store={store}>
-                  <Route path="/browse" component={Browse} />
+                  <Route path="/browse" component={BrowseView} />
                 </Provider>
               </Switch>
             </MainContent>
