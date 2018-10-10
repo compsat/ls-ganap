@@ -5,14 +5,15 @@ services:
     image: postgres
     volumes:
       - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   web:
     build: .
-    command: /bin/bash -c "sleep 3; sh docker-entrypoint.sh"  
     volumes:
       - .:/code
     ports:
       - "8000:8000"
-    depends_on: 
+    links: 
       - db
 volumes: 
     pgdata:
