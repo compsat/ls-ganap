@@ -24,59 +24,28 @@ class HostList extends Component {
     this.props.setActiveHost(activeHost || this.props.parentActiveHost);
   }
 
-  is(type, item) {
-    return !!item && item.constructor === type;
-  }
-
   render() {
-    const item = this.props.item;
-    const is = this.is;
-
     return (
-      <React.Fragment>
-      {is(Object, item) ? (
-        <List className={this.props.className}>
-        {Object.entries(item).map(([key, value]) =>
-          <li>
-            <AppRadio checked={this.state.activeHost === key}>
+      <List className={this.props.className}>
+        {this.props.item.map(item => (
+          <li key={item.id}>
+            <AppRadio checked={this.state.activeHost === item.name}>
               <InvisibleToggle
-                checked={this.state.activeHost === key}
-                onChange={(e) => this.handleItemClick(e, key)}
+                checked={this.state.activeHost === item.name}
+                onChange={(e) => this.handleItemClick(e, item.name)}
               />
-              {key}
+              {item.name}
             </AppRadio>
-            {this.state.activeHost === key &&
+            {this.state.activeHost === item.name && item.items && (
               <HostList
-                item={value}
+                item={item.items}
                 parentActiveHost={this.state.activeHost}
                 setActiveHost={this.props.setActiveHost}
               />
-            }
+            )}
           </li>
-        )}
-        </List>
-      ) : is(Array, item) ? (
-        <List className={this.props.className}>
-        {item.map(value =>
-          <HostList
-            item={value}
-            parentActiveHost={this.props.parentActiveHost}
-            setActiveHost={this.props.setActiveHost}
-          />
-        )}
-        </List>
-      ) : (
-        <li>
-          <AppRadio checked={this.state.activeHost === item}>
-            <InvisibleToggle
-              checked={this.state.activeHost === item}
-              onChange={(e) => this.handleItemClick(e, item)}
-            />
-            {item}
-          </AppRadio>
-        </li>
-      )}
-      </React.Fragment>
+        ))}
+      </List>
     );
   }
 }

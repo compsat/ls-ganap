@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import WidgetToggle from './WidgetToggle';
-import HostWidget from './HostWidget';
-import TagsWidget from './TagsWidget';
-import DateWidget from './DateWidget';
+import HostWidgetContainer from '../containers/HostWidgetContainer';
+import TagsWidgetContainer from '../containers/TagsWidgetContainer';
+import DateWidgetContainer from '../containers/DateWidgetContainer';
 import AppBorder from '../components/AppBorder';
 import { media } from '../style/style-utils';
 
@@ -60,25 +60,25 @@ class FilterBar extends Component {
           checked={this.state.activeFilter === 'Host'}
           toggleHandler={(e) => this.handleWidgetToggle(e, 'Host')}
           label="Host"
-          value={this.state.host}
+          value={this.props.activeHost}
         >
-          <HostWidget setHost={(host) => this.setFilterState({'host': host})}/>
+          <HostWidgetContainer/>
         </FilterBarWidgetToggle>
         <FilterBarWidgetToggle
           checked={this.state.activeFilter === 'Tags'}
           toggleHandler={(e) => this.handleWidgetToggle(e, 'Tags')}
           label="Tags"
-          value={this.state.tags}
+          value={this.props.activeTags}
         >
-          <TagsWidget setTags={(tags) => this.setFilterState({'tags': tags})}/>
+          <TagsWidgetContainer/>
         </FilterBarWidgetToggle>
         <FilterBarWidgetToggle
           checked={this.state.activeFilter === 'Date'}
           toggleHandler={(e) => this.handleWidgetToggle(e, 'Date')}
           label="Date"
-          value={this.state.date}
+          value={this.props.dates}
         >
-          <DateWidget setDate={(date) => this.setFilterState({'date': date})}/>
+          <DateWidgetContainer/>
         </FilterBarWidgetToggle>
       </FilterBarContainer>
     );

@@ -69,7 +69,9 @@ class WidgetToggle extends Component {
           />
           <WidgetToggleTextContainer>
             <WidgetToggleLegend>{this.props.label}</WidgetToggleLegend>
-            <WidgetToggleValue>{this.props.value}</WidgetToggleValue>
+            <WidgetToggleValue>
+              {this.props.value || "All"}
+            </WidgetToggleValue>
           </WidgetToggleTextContainer>
           <ArrowIcon
             checked={this.props.checked}
