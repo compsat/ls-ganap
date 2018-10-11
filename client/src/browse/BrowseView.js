@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import SearchBar from './SearchBar';
 import FilterBarContainer from '../containers/FilterBarContainer';
 import MediaCard from '../components/MediaCard';
@@ -8,7 +7,6 @@ import AppSubheading from '../components/AppSubheading';
 import AppText from '../components/AppText';
 import { media } from '../style/style-utils';
 import SVG from 'react-inlinesvg';
-import { fetchVenues } from '../actions/venues';
 
 const SearchHeader = styled.header`
   ${media.mdScreen`
@@ -63,81 +61,23 @@ const MediaCardHostP = AppText.withComponent('p').extend`
 `
 
 class BrowseView extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      apiData: {
-        event_hosts: [],
-        events: [],
-        venues: [],
-      },
-      search: {
-        query: '',
-        host: '',
-        tags: [],
-        date: '',
-      },
-    }
-  }
-
   componentDidMount() {
     this.props.fetchVenues();
-    
-    const API_URL = 'https://ls-ganap-api.herokuapp.com/';
-    const dataKeys = Object.keys(this.state.apiData);
-    const requests = dataKeys.map((dataKey) => {
-      return axios.get(API_URL + dataKey +
-        (dataKey === 'event_hosts' ? '/1' : ''));
-    });
-
-    axios.all(requests).then((responses) => {
-      responses.forEach((response, index) => {
-        this.setState((prevState) => ({
-          apiData: {
-            ...prevState.apiData,
-            [dataKeys[index]]:
-              (dataKeys[index] === 'event_hosts'
-                ? response.data
-                : response.data.results)
-          },
-          loading: false
-        }));
-      })
-    });
+    this.props.fetchEvents();
   }
 
-  handleSearchChange = (search) => {
-    this.setState((prevState) => ({
-      search: {
-        ...prevState.search,
-        ...search
-      }
-    }));
+  getItemProp = (arr, id, prop, fallbackValue)  => {
+    const item = arr.find((item) => item.id === id);
+
+    return item ? item[prop] : fallbackValue;
   }
 
-  getItem = (arr, id)  => {
-    return arr.find((item) => item.id === id);
-  }
+  formatHosts = (hostIds) => {
+    const hostNames = hostIds.map((hostId) => (
+      this.getItemProp(this.props.hosts.items, hostId, "name")
+    ));
 
-  renderHosts = (rootHosts) => {
-    const hosts = Object.entries(rootHosts).reduce(
-      (acc, [rootHost, hosts]) => {
-        return [
-          ...acc,
-          ...hosts.map((hostId) => {
-            const hostList = this.state.apiData.event_hosts[rootHost + '_list'];
-
-            return this.getItem(hostList, hostId).name;
-          })
-        ]
-      }
-    , []);
-
-    return (
-      <MediaCardHostP>{hosts.join(', ')}</MediaCardHostP>
-    );
+    return `Hosted by ${hostNames[0]} and ${hostNames.length - 1} other${hostNames.length - 1 > 1 && 's'}`
   }
 
   formatDate(date) {
@@ -162,42 +102,40 @@ class BrowseView extends Component {
   }
 
   render() {
-    return (
-      <main>
+    return <main>
         <SearchHeader>
-          <BrowseSearchBar onQueryChange={this.handleSearchChange}/>
+          <BrowseSearchBar />
         </SearchHeader>
         <MainContentBox>
-          <BrowseFilterBar onFiltersChange={this.handleSearchChange}/>
-          {this.state.loading || !this.state.apiData.events ? (
-            <SpinnerIcon src={require('../assets/icon-spinner.svg')}/>
-          ) : (
-            <EventItemList>
-              {this.state.apiData.events.map((event) => (
-              <li key={event.id}>
-                <BrowseMediaCard
-                  portrait
-                  horizontal
-                  imgSrc={event.poster_url}
-                  imgAlt={event.name}
-                >
-                  <AppSubheading size='1'>{event.name}</AppSubheading>
-                  {this.renderHosts({
-                    org: event.org_hosts,
-                    office: event.office_hosts,
-                    sanggu: event.sanggu_hosts
-                  })}
-                  <p>{this.formatDate(event.event_logistics[0].date)}</p>
-                  <p>{this.formatTime(event.event_logistics[0].start_time)}</p>
-                  {/* <p>{this.getItem(this.state.venues, event.event_logistics[0].venue).name}</p> */}
-                  <p>CTC 103</p>
-                </BrowseMediaCard>
-              </li>))}
-            </EventItemList>
-          )}
+          <BrowseFilterBar />
+          {this.props.venues.items && this.props.events.items ? <EventItemList>
+              {this.props.events.items.map(event => <li key={event.id}>
+                  <BrowseMediaCard portrait horizontal imgSrc={event.poster_url} imgAlt={event.name}>
+                    <AppSubheading size="1">{event.name}</AppSubheading>
+                    <MediaCardHostP>
+                      {this.formatHosts([
+                        ...event.org_hosts,
+                        ...event.office_hosts,
+                        ...event.sanggu_hosts
+                      ])}
+                    </MediaCardHostP>
+                    <p>{this.formatDate(event.event_logistics[0].date)}</p>
+                    <p>
+                      {this.formatTime(event.event_logistics[0].start_time)}
+                    </p>
+                    <p>
+                      {this.getItemProp(
+                        this.props.venues.items,
+                        event.event_logistics[0].venue,
+                        "name",
+                        event.event_logistics[0].outside_venue_name
+                      )}
+                    </p>
+                  </BrowseMediaCard>
+                </li>)}
+            </EventItemList> : <SpinnerIcon src={require("../assets/icon-spinner.svg")} />}
         </MainContentBox>
-      </main>
-    );
+      </main>;
   }
 }
 

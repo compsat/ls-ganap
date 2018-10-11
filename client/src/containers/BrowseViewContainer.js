@@ -6,7 +6,8 @@ import { fetchVenues } from "../actions/venues";
 
 const mapStateToProps = state => ({
   events: state.events,
-  venues: state.venues
+  venues: state.venues,
+  hosts: state.hosts
 });
 
 const mapDispatchToProps = dispatch => ({
