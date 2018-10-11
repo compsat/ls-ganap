@@ -17,6 +17,7 @@ const CardImageBox = styled.div`
   border-top-left-radius: .3em;
   border-bottom-left-radius: .3em;
   background: #000;
+  flex-shrink: 0;
 `;
 
 const CardImage = styled.div`
