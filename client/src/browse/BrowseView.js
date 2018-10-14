@@ -108,7 +108,7 @@ class BrowseView extends Component {
         </SearchHeader>
         <MainContentBox>
           <BrowseFilterBar />
-          {this.props.venues.items && this.props.events.items ? <EventItemList>
+          {!this.props.events.isFetching ? <EventItemList>
               {this.props.events.items.map(event => <li key={event.id}>
                   <BrowseMediaCard portrait horizontal imgSrc={event.poster_url} imgAlt={event.name}>
                     <AppSubheading size="1">{event.name}</AppSubheading>
@@ -133,7 +133,10 @@ class BrowseView extends Component {
                     </p>
                   </BrowseMediaCard>
                 </li>)}
-            </EventItemList> : <SpinnerIcon src={require("../assets/icon-spinner.svg")} />}
+            </EventItemList> : (
+              <SpinnerIcon src={require("../assets/icon-spinner.svg")} />
+            )
+          }
         </MainContentBox>
       </main>;
   }
