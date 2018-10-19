@@ -2,284 +2,284 @@
   pk: 1
   fields:
     email: acgc.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$Tnbo32N5CdH0$6xq0ttD1uejwFELg72P+4z8+//0A+ty89pCcdbWdc48=
 - model: main_events.user
   pk: 2
   fields:
     email: aches.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$hEPLFT6u2fr4$/SkmyW0YbpTmjZpGaVk+KKYjdPJIDq0GHmtp7nzlPqI=
 - model: main_events.user
   pk: 3
   fields:
     email: acil.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$RScOeFv51SJ5$a3aDfw1jv4xms6MuyfQIDS1hHNRiiLPDRslY25FQFWA=
 - model: main_events.user
   pk: 4
   fields:
     email: aclc.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$hVxzrzcwAbJj$AT43mpEsut9bdYx2SdrNypPkmiLcGsFTZIMyOBLA/BA=
 - model: main_events.user
   pk: 5
   fields:
     email: acmg.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$lzj7y0ibHq3A$puVbAc0VQm+wpOnBvu+hXv5BwvPJseMH0crXGrhcIeQ=
 - model: main_events.user
   pk: 6
   fields:
     email: acomm.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$tKzm7WDepx6D$rmtZDLvBNnnHC+557aGPNwVElo6PUFgEx2vlsKuA/h0=
 - model: main_events.user
   pk: 7
   fields:
     email: actm.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$KT3x7oAZqK24$2h3DAFM/zgQYj0fm5I364WBMi+JToXbwx4V6bEhtW5c=
 - model: main_events.user
   pk: 8
   fields:
     email: ads.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$h4V9YQ5rJDkD$SuWnTuSDp0/UeKB880mdXU0wwuCbj05FM7OT1eCNcGQ=
 - model: main_events.user
   pk: 9
   fields:
     email: aea.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$4lUYwvZBNK0Z$mFoRL5/6RQtjWkn4V/cLJpNy4Isoo0ZlubDyD6fypYI=
 - model: main_events.user
   pk: 10
   fields:
     email: aeces.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$2wyNu5QI4ZXa$cmLY6LKkqtUxyjvkQd8LfvsKsLkAwHml7nn8h56S+XI=
 - model: main_events.user
   pk: 11
   fields:
     email: aess.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$kIdBYPzmovQR$A+xg3NHrZiB3jrc14dF9iR0pIY31Ax/biOd5srIACq4=
 - model: main_events.user
   pk: 12
   fields:
     email: aeuss.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$fjUnr4SMVvdb$j406Ib6jO6ZcGh8rTG1s1SCeg8mOVKqXASfHu6ARgcE=
 - model: main_events.user
   pk: 13
   fields:
     email: aiesec.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$rzrH55CTJAYc$kdIsiGhDncPiH9dY+o4DskiGAILAcE05qP1k15zSd40=
 - model: main_events.user
   pk: 14
   fields:
     email: ajma.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$BWbGgF6aTew9$K/aysgp9eIv0DtMFG2usAHt6nIkHYBw8yM8WXZSCXv0=
 - model: main_events.user
   pk: 15
   fields:
     email: alac.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$qrr4pvEVMJ8M$zfJuDPyuHWoRFfS5j5T7Npl8+s2m0BXYDS3xxMY28LM=
 - model: main_events.user
   pk: 16
   fields:
     email: alex.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$pp0Ln83xsOej$WzmSqKNvZvxE0kBjc2EauYR2OS9Egp6bv4g2Di62JRs=
 - model: main_events.user
   pk: 17
   fields:
     email: ama.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$8mEvpgeOv8E5$hd8KIeXt5uk83duNNpPALg2vNQaqUe6d7p3z74w7mcE=
 - model: main_events.user
   pk: 18
   fields:
     email: amp.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$En5RqgRnIqUw$hNT5nYdzDvh0B/NcqNKUuMnvgUCvRpAv1LxajKVD4b8=
 - model: main_events.user
   pk: 19
   fields:
     email: ams.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$AF9JMOdOt0Ep$b1RsuCNU3JK76XRI2mKk7dUJi5a4YaZHzFfmY/9m7lU=
 - model: main_events.user
   pk: 20
   fields:
     email: apair.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$UaMxKLcXI8UB$Ec91LNAdpOUly6vzDxd3wx0u/Ed649PFbNv9iWwOCXw=
 - model: main_events.user
   pk: 21
   fields:
     email: asec.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$Ck493nZ5S6MN$ffEIJGm1ld2n+8WRi7tYyosBAXaKbpSixnPyCOWbDQw=
 - model: main_events.user
   pk: 22
   fields:
     email: assembly.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$bLPH5JdVtnBy$KqqDuvI/eI2bs3nARgbAdiNwEw6SOFbAOnzBVfaq4fw=
 - model: main_events.user
   pk: 23
   fields:
     email: astat.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$ls4QTsEdBfcn$ZXWuUWILkgmicZT2GgCSMsmi7/u+BBwQ/20/z0KoXJ4=
 - model: main_events.user
   pk: 24
   fields:
     email: atsca.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$IoHLLwT7P0FL$ZePabL8umdQg7NutqozKJbO7hnGS9pFCP6s7cgOdAK4=
 - model: main_events.user
   pk: 25
   fields:
     email: baybayin.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$duWFq6rOWMNs$KUH2DDRrqcKBsSpoR6hrjHRzTJKoWBhNFVf7n5TCUms=
 - model: main_events.user
   pk: 26
   fields:
     email: bluerep.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$7NEskdfJ3wA1$1+7e+QfgKh/6QUqWbnySYApmp5xan0xdbOCdAV43fSw=
 - model: main_events.user
   pk: 27
   fields:
     email: bluesymph.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$DdXiO7aHGchL$/+kM7NOF5d+Z2w9eiQ422ZXiSytQpMB1yBlBhNh5mCg=
 - model: main_events.user
   pk: 28
   fields:
     email: box.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$cBEOojb827yh$EQiqdZxDkowtELenLoVe5AvtxFoSEtcRgTEY5idoc7Q=
 - model: main_events.user
   pk: 29
   fields:
     email: cads.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$YoiZ5SCJE2aN$WC/EzKyiNbP/7TSsUeOiil1Idb0z7J6qmGZ9cP7FHwY=
 - model: main_events.user
   pk: 30
   fields:
     email: celadon.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$ja1a7Y6pX8k5$9LNHJZ3QzBLImgNec6ZTbPJ1Mf4Qtmt6pB5Rm/k9ZTE=
 - model: main_events.user
   pk: 31
   fields:
     email: coa.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$icOcZk49xF6j$HD1l2TrI1Hj81TmoEl49QeYAKE1fOtZT4iZ1LNCJBvM=
 - model: main_events.user
   pk: 32
   fields:
     email: code.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$2bTF3h5M5Noh$RgEG6coHrrhXQmKIHd4d8RCcv4G7e73EVS23LU6RrVQ=
 - model: main_events.user
   pk: 33
   fields:
     email: compsat.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$KG1HSvXXFsRF$HHozN1AFuDpu4VcZ5G7kmMG6J2JJJIksBPT9ptzxvgI=
 - model: main_events.user
   pk: 34
   fields:
     email: cosa.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$sN9jT93kKhrV$/oeq5OzNQ0Ewb5irG/Lw2u07uQfQlYO2OcrDrDNcD6w=
 - model: main_events.user
   pk: 35
   fields:
     email: devsoc.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$A3VqkUWbCg4y$4ZEx1buwFsnyMw3kpdQ09232GKrWU3y457+IP1T76RA=
 - model: main_events.user
   pk: 36
   fields:
     email: edge.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$M5nuK43gRlBj$EWO141ZtXe0okVgRMMBxQ0Q+XuNNjsFsoYUoUUfBE/g=
 - model: main_events.user
   pk: 37
   fields:
     email: entablado.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$n0i8fYxTolFa$p3GmgX1fHe5mZ5lqHg6e1PSzqEM0ZMBJer4aCd//d3E=
 - model: main_events.user
   pk: 38
   fields:
     email: gabay.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$sgroX6LiVzkU$EOrSSOrOA/eUayZCl1i7jF3XOJFI7EjwZTlV97VWL6E=
 - model: main_events.user
   pk: 39
   fields:
     email: kythe.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$BSm6KVFVbRMZ$EsDrBD1elsKN2he+5wLjCeQXSwyNVrz5l6UQ42nR5Uw=
 - model: main_events.user
   pk: 40
   fields:
     email: leaps.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$ySEZll5CXMwL$xF/mx13NqT8tUfYyXUdMEKnaxK/QAI3IdAqM85Go0gY=
 - model: main_events.user
   pk: 41
   fields:
     email: lfc.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$5adYRpKiQQqI$bVY4ljCoxqfn+YPxMZOq8qGshDUfqJG3mgtaHEKOzs0=
 - model: main_events.user
   pk: 42
   fields:
     email: lm.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$qv8xHF1rpnFa$KtefCjW+O9xjXKlw+oKAHRNcbufxdBwoVwZHBF9JBDg=
 - model: main_events.user
   pk: 43
   fields:
     email: maca.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$ymRlZy17Yhfa$F/Hi8pNE8IRWABl8jBfNHTesZfBUUPLfTpnBvS9bDOk=
 - model: main_events.user
   pk: 44
   fields:
     email: mea.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$AggfHeIGJ3ts$bQFBLs0BOQQhahhgWekCDMHGVxBo7emh0wbViLRLEBk=
 - model: main_events.user
   pk: 45
   fields:
     email: meco.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$vgdc5zPbwZ9H$27efMSNYUsgkt5PJWQ5q0VLkU8XT3TKmGOQfjSKVwG8=
 - model: main_events.user
   pk: 46
   fields:
     email: misa.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$aYXLBviZPyH1$gkd2edjaGHQj/qWihYeINKXdr3TPNBYGTKtiIAEQ57E=
 - model: main_events.user
   pk: 47
   fields:
     email: musmos.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$7vw9rAJ9u2Zc$IavPEiEvZwsOoDqWC7FcJNXevXoXUVDU0JMFBwjHTEc=
 - model: main_events.user
   pk: 48
   fields:
     email: peers.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$P7esNeLUTMQT$HsK+L0eWUjWCNYKJwTn3TT90s3qH9PmjFDNG3qxRJqQ=
 - model: main_events.user
   pk: 49
   fields:
     email: pmsa.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$llCvhEPaC9ev$vfzxSw/k7knt3pQYIZ4GFrXcnXsj4m924vlQna+cbFU=
 - model: main_events.user
   pk: 50
   fields:
     email: psyche.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$wWItqAWLV4Wh$u2sniNjHWuJEyTPR6xU7NJLyJXJdUxMmsHjEq/v1u5Y=
 - model: main_events.user
   pk: 51
   fields:
     email: speed.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$0uUrl1AQY3Ay$jAcsI9MP29fnAZMGwangy/EVMeRPdykfQypNMP/3xzM=
 - model: main_events.user
   pk: 52
   fields:
     email: ta.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$jxiNZYwX1bGz$F9UyVdoz9/tOTfO/WCWl6tDvG+RFkNxgU/sztgkjtRM=
 - model: main_events.user
   pk: 53
   fields:
     email: tugon.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$MAGVUHx6XjgX$3Tj2CKFobITKa/i27wn9l+U5MXUQLugEy4CvZDeis7w=
 - model: main_events.user
   pk: 54
   fields:
     email: yfca.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$ulPQfJuhtEkI$xG6tNy59iWnw3fRkPh7PQJFEiR+RXMMBPMqBgObWokI=
 - model: main_events.user
   pk: 129
   fields:
     email: theguidon.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$i2oFC1jvngUt$YNdPVvtqPWpPEn6ew/E6MKOvkZzatizVvKQy7lLT3OE=
 - model: main_events.user
   pk: 130
   fields:
     email: heights.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$IX73N81XZKTM$+mVmFvUkDSo/tUE3Hlmt8aZECG97y4QLTLyfp/KLfUk=
 - model: main_events.user
   pk: 131
   fields:
     email: matanglawin.ls@obf.ateneo.edu
-    password: 'pbkdf2_sha256$100000$2BqNAoQ4SyuQ$24dCvbhMGyJX+INmbMIJXAUOpBKTXeDu6cdt2gnVXm4='
+    password: pbkdf2_sha256$100000$PEYt46OlGeNL$lVFX/aiJ8ARKb0nSsXr8flx8QqNLEwhxBVjmVfVQf+Q=
