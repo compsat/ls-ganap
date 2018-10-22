@@ -144,6 +144,23 @@ class FilterEventByMonth(generics.ListAPIView):
 
         return queryset
 
+host_map = {
+    '1' : Q(sanggu_hosts__isnull=False),
+    '2' : Q(office_hosts__isnull=False),
+    '3' : Q(org_hosts__isnull=False),
+    '4' : Q(org_hosts__org_type__abbreviation='COP'),
+    '5' : Q(org_hosts__org_type__abbreviation='COA'),
+    '6' : Q(org_hosts__cluster__abbreviation='ADC'),
+    '7' : Q(org_hosts__cluster__abbreviation='BC'),
+    '8' : Q(org_hosts__cluster__abbreviation='FFC'),
+    '9' : Q(org_hosts__cluster__abbreviation='HEC'),
+    '10' : Q(org_hosts__cluster__abbreviation='IRC'),
+    '11' : Q(org_hosts__cluster__abbreviation='MCA'),
+    '12' : Q(org_hosts__cluster__abbreviation='PAC'),
+    '13' : Q(org_hosts__cluster__abbreviation='SBC'),
+    '14' : Q(org_hosts__cluster__abbreviation='STC'),
+}
+
 class EventList(APIView):
     """
     get: List all the events, ordered by start_time.
@@ -174,22 +191,15 @@ class EventList(APIView):
         events = Event.objects.filter(is_approved=True, event_logistics__date__gte=timezone.now()).order_by('first_date')
         # for event in events:
         #     event.event_logistics = event.event_logistics.filter(id__in=logistic_ids)
-        query = self.request.GET.get("host_type")
+        host_query = self.request.GET.get("host_query")
+        tags = self.request.GET.get("tags")
         search = self.request.GET.get("search")
 
-        if query:
-            if query == 'sanggu':
-                events = events.filter(
-                    Q(sanggu_hosts__isnull=False)
-                ).distinct()
-            elif query == 'office':
-                events = events.filter(
-                    Q(office_hosts__isnull=False)
-                ).distinct()
-            elif query == 'org':
-                events = events.filter(
-                    Q(org_hosts__isnull=False)
-                ).distinct()
+        if host_query:
+            queries = host_query.split(',')
+            for query in queries:
+                if query in host_map:
+                    events = events.filter(host_map[query]).distinct()
 
         if search:
             events = events.filter(
@@ -201,9 +211,13 @@ class EventList(APIView):
                 Q(office_hosts__name__icontains=search) |
                 Q(org_hosts__abbreviation__icontains=search) |
                 Q(sanggu_hosts__abbreviation__icontains=search) |
-                Q(office_hosts__abbreviation__icontains=search) |
-                Q(org_hosts__cluster__name__icontains=search)
-            )
+                Q(office_hosts__abbreviation__icontains=search)
+            ).distinct()
+
+        if tags:
+            tags_list = tags.split(',')
+            for tag in tags_list:
+                events = events.filter(tags__pk=tag).distinct()
 
         if request.method == 'GET' and 'page' in request.GET:
 
