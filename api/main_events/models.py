@@ -65,6 +65,7 @@ class OrgType(models.Model):
 class Cluster(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField()
+	abbreviation = models.CharField(max_length=30, blank=True)
 	logo_url = models.ImageField(upload_to='images/', blank=True)
 
 	def __str__(self):
