@@ -2,8 +2,8 @@ import httplib2
 from googleapiclient.discovery import build
 from django.conf import settings
 from oauth2client import file, client, tools
-from main_events.models import Event, EventLogistic
-import os
+from main_events.models import Event, EventLogistic, SangguHost, OrgHost, OfficeHost
+import os, json
 from datetime import datetime
 import google_auth_oauthlib.flow
 from django.shortcuts import redirect
@@ -13,9 +13,10 @@ import requests
 from oauthlib.oauth2.rfc6749.errors import MissingCodeError
 from google.auth.exceptions import RefreshError
 from decouple import config
+from google.oauth2 import service_account
 
 CLIENT_SECRETS_FILE = 'client_secrets.json'
-SCOPES = 'https://www.googleapis.com/auth/calendar'
+SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 # ------------------ REMOVE IN PRODUCTION ----------------------
 # os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
@@ -31,6 +32,14 @@ client_secrets = {
 		}
 }
 
+service_secrets = '{{"type":"{}", "project_id": "{}", "private_key_id": "{}", "private_key": "{}", "client_email": "{}", "client_id": "{}", "auth_uri" : "{}", "token_uri" : "{}", "auth_provider_x509_cert_url" : "{}", "client_x509_cert_url" : "{}"}}'.format(
+	config('SERVICE_TYPE'), config('SERVICE_PROJECT_ID'), 
+	config('SERVICE_PRIVATE_KEY_ID'), config('SERVICE_PRIVATE_KEY'), 
+	config('SERVICE_CLIENT_EMAIL'), config('SERVICE_CLIENT_ID'), 
+	config('SERVICE_AUTH_URI'), config('SERVICE_TOKEN_URI'), 
+	config('SERVICE_AUTH_PROVIDER'), config('SERVICE_CLIENT_X509_CERT_URL')
+	)
+
 def create_events(request, pk):
 	if 'credentials' not in request.session or request.session['credentials'] is None:
 		"""
@@ -38,10 +47,9 @@ def create_events(request, pk):
 		I just stored the pk in the session.
 		"""
 		request.session['pk'] = pk
+		request.session['endpoint'] = 'create_events'
 		return redirect('authorize')
 	
-	# print(request.session['credentials'])
-
 	  # Load credentials from the session.
 	credentials = google.oauth2.credentials.Credentials(
 		**request.session['credentials'])
@@ -55,7 +63,6 @@ def create_events(request, pk):
 			return redirect('authorize')
 
 	service = build('calendar', 'v3', credentials=credentials)
-	# print(service)
 
 	first_date = None
 	auth_user = None
@@ -68,8 +75,16 @@ def create_events(request, pk):
 			if first_date is None:
 				first_date = logistic.date
 			end_time = datetime.combine(logistic.date, logistic.end_time)
+			location = None
+			if logistic.venue:
+				location = logistic.venue.name
+			else:
+				location = logistic.outside_venue_name
+				
 			EVENT = {
 				"summary": event.name,
+				"location": location,
+				"description": event_instance.description,
 				"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
 				"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
 			}
@@ -86,10 +101,140 @@ def create_events(request, pk):
 		return redirect('authorize')
 
 	request.session['pk'] = None
+	del request.session['endpoint']
 	if auth_user:
 		return redirect('https://calendar.google.com/calendar/r/day/{}/{}/{}?authuser={}'.format(first_date.year, first_date.month, first_date.day, auth_user))
 	else:
 		return redirect('https://calendar.google.com/calendar/')
+
+"""
+Syncs the Google Calendar of a user to the calendar of a host, given its pk.
+"""
+def sync_host(request, host_type, pk):
+	if 'credentials' not in request.session or request.session['credentials'] is None:
+		"""
+		Instead of passing the pk as parameters to the views,
+		I just stored the pk in the session.
+		"""
+		request.session['pk'] = pk
+		request.session['endpoint'] = 'sync_host'
+		request.session['host_type'] = host_type
+		return redirect('authorize')
+	
+	  # Load credentials from the session.
+	credentials = google.oauth2.credentials.Credentials(
+		**request.session['credentials'])
+
+	if credentials.expired:
+		try:
+			credentials.refresh(request)
+		except:
+			request.session['credentials'] = None
+			request.session['pk'] = pk
+			return redirect('authorize')
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	first_date = None
+	auth_user = None
+
+	try:
+		event_host = None
+		events = None
+		if host_type == 'sanggu':
+			event_host = SangguHost.objects.get(pk=pk)
+			events = Event.objects.filter(sanggu_hosts=pk, is_approved=True)
+		elif host_type == 'orgs':
+			event_host = OrgHost.objects.get(pk=pk)
+			events = Event.objects.filter(org_hosts=pk, is_approved=True)
+		elif host_type == 'offices':
+			event_host = OfficeHost.objects.get(pk=pk)
+			events = Event.objects.filter(office_hosts=pk, is_approved=True)
+		else:
+			return redirect('index')
+
+		calendar = {
+		    'summary': event_host.name,
+		    'timeZone': 'Asia/Manila'
+		}
+		host_calendar = service.calendars().insert(body=calendar).execute()
+
+		for event in events:
+			event_logistics = EventLogistic.objects.filter(event=event.pk)
+			for logistic in event_logistics:
+				start_time = datetime.combine(logistic.date, logistic.start_time)
+				if first_date is None:
+					first_date = logistic.date
+				end_time = datetime.combine(logistic.date, logistic.end_time)
+				location = None
+				if logistic.venue:
+					location = logistic.venue.name
+				else:
+					location = logistic.outside_venue_name
+					
+				EVENT = {
+					"summary": event.name,
+					"location": location,
+					"description": event_instance.description,
+					"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
+					"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
+				}
+				eventTest = service.events().insert(calendarId=host_calendar['id'], body=EVENT).execute()
+				auth_user = eventTest['creator']['email']
+
+		# Save credentials back to session in case access token was refreshed.
+		# ACTION ITEM: In a production app, you likely want to save these
+		#              credentials in a persistent database instead.
+		request.session['credentials'] = credentials_to_dict(credentials)
+	except RefreshError:
+		request.session['pk'] = pk
+		return redirect('authorize')
+
+	request.session['pk'] = None
+	if auth_user:
+		return redirect('https://calendar.google.com/calendar/r/day/{}/{}/{}?authuser={}'.format(first_date.year, first_date.month, first_date.day, auth_user))
+	else:
+		return redirect('https://calendar.google.com/calendar/')
+
+"""
+Every time a new event is approved, this method gets called to add the event to the service account's
+calendar of the event host.
+"""
+def sync_calendar(event_instance):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	calendarId = '953r9fo5hts9vpoo158em12fs8@group.calendar.google.com'
+	first_date = None
+
+	# try:
+	event_logistics = EventLogistic.objects.filter(event=event_instance.pk)
+	for logistic in event_logistics:
+		start_time = datetime.combine(logistic.date, logistic.start_time)
+		if first_date is None:
+			first_date = logistic.date
+		end_time = datetime.combine(logistic.date, logistic.end_time)
+		location = None
+		if logistic.venue:
+			location = logistic.venue.name
+		else:
+			location = logistic.outside_venue_name
+
+		EVENT = {
+			"summary": event_instance.name,
+			"location": location,
+			"description": event_instance.description,
+			"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
+			"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
+		}
+		eventTest = service.events().insert(calendarId=calendarId, body=EVENT).execute()
+	# except RefreshError:
+	# 	print("Unable to add event to calendar")
 
 def authorize(request):
   # Create flow instance to manage the OAuth 2.0 Authorization Grant Flow steps.
@@ -123,7 +268,7 @@ def oauth2callback(request):
 
 	# Use the authorization server's response to fetch the OAuth 2.0 tokens.
 	authorization_response = request.build_absolute_uri()
-	print(authorization_response)
+	# print(authorization_response)
 
 	"""
 	If the user grants the permission, the token is fetched, but if the user does not grant,
@@ -146,9 +291,12 @@ def oauth2callback(request):
 	back to event/google_api/<pk> (pk is obtained from the session) and the event is added to the calendar.
 	"""
 	if 'pk' in request.session and request.session['pk'] is not None:
-		return redirect(reverse('create_events', args=[request.session['pk']]))
-	else:
-		return redirect('/events')
+		if request.session['endpoint'] == 'create_events':
+			return redirect(reverse('create_events', args=[request.session['pk']]))
+		elif request.session['endpoint'] == 'sync_host':
+			return redirect(reverse('sync_host', args=[request.session['host_type'], request.session['pk']]))
+	
+	return redirect('/events')
 
 def credentials_to_dict(credentials):
 	return {'token': credentials.token,
