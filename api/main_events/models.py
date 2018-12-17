@@ -175,6 +175,14 @@ class Event(SoftDeletionModel):
 	def __str__(self):
 		return self.name
 
+	def save(self, *args, **kwargs):
+		if self.pk:
+			old_approved = Event.objects.get(pk=self.pk).is_approved
+		super(Event, self).save(*args, **kwargs)
+		if self.pk and not old_approved and self.is_approved:
+			from main_events.views.event_auth_view import sync_calendar
+			sync_calendar(self)
+
 	# @property
 	# def has_happened(self):
 	# 	return self.event_logistics.last().date < timezone.now().date()
