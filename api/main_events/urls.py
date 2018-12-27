@@ -20,6 +20,7 @@ urlpatterns = [
     path('gcal/del_org/', event_auth_view.del_calendars, name='del_calendars'),
     path('gcal/events/<int:pk>/', event_auth_view.create_events, name='create_events'),
     path('gcal/<str:host_type>/<int:pk>/', event_auth_view.sync_host, name='sync_host'),
+    path('gcal/add_calendar/<int:pk>/', event_auth_view.add_calendar_to_list, name='add_calendar_to_list'),
     path('google_auth/', event_auth_view.authorize, name='authorize'),
     path('oauth2callback/', event_auth_view.oauth2callback, name='oauth2callback'),
     path('orgs/', org_view.OrgList.as_view(), name='org-list'),
