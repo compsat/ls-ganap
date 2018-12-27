@@ -283,7 +283,13 @@ def get_calendar(request):
 				'role' : 'writer'
 			}
 			created_rule = service.acl().insert(calendarId=calendar_list_entry['id'], body=rule).execute()
-			print(created_rule['id'])
+			default_rule = {
+				'scope' : {
+					'type' : 'default',
+				},
+				'role' : 'reader'
+			}
+			created_default_rule = service.acl().insert(calendarId=calendar_list_entry['id'], body=default_rule).execute()
 			for org in orgs:
 				if org.name == calendar_list_entry['summary']:
 					org_list.append((org.pk, calendar_list_entry['id']))
@@ -294,7 +300,7 @@ def get_calendar(request):
 					break
 			# print(calendar_list_entry['summary'])
 		org_list = sorted(org_list)
-		# print(org_list)
+		print(org_list)
 		# file = open('calendar_ids.txt', 'w')
 		# for idx, cId in org_list:
 		# 	file.write('{} : "{}",\n'.format(idx, cId))
@@ -426,6 +432,71 @@ def add_event_to_calendar(service, event_instance, calendarId):
 	# except RefreshError:
 	# 	print("Unable to add event to calendar")
 
+"""
+Adds the Calendar of the host to the authenticated user's calendar list
+"""
+def add_calendar_to_list(request, pk):
+	if 'credentials' not in request.session or request.session['credentials'] is None:
+		"""
+		Instead of passing the pk as parameters to the views,
+		I just stored the pk in the session.
+		"""
+		request.session['pk'] = pk
+		request.session['endpoint'] = 'add_calendar_to_list'
+		return redirect('authorize')
+	
+	  # Load credentials from the session.
+	credentials = google.oauth2.credentials.Credentials(
+		**request.session['credentials'])
+
+	if credentials.expired:
+		try:
+			credentials.refresh(request)
+		except:
+			request.session['credentials'] = None
+			request.session['pk'] = pk
+			return redirect('authorize')
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	first_date = None
+	auth_user = None
+
+	try:
+		calendar = {
+			'id' : host_calendar_ids[pk]
+		}
+		new_calendar = service.calendarList().insert(body=calendar).execute()
+		EVENT = {
+			"summary": "test",
+			'start': {
+				'dateTime': '2015-05-28T09:00:00-07:00',
+				'timeZone': 'America/Los_Angeles',
+			},
+			'end': {
+				'dateTime': '2015-05-28T17:00:00-07:00',
+				'timeZone': 'America/Los_Angeles',
+			},
+		}
+		print(new_calendar['id'])
+		new_event = service.events().insert(calendarId='primary', body=EVENT).execute()
+		auth_user = new_event['creator']['email']
+		deleted_event = service.events().delete(calendarId='primary', eventId=new_event['id']).execute()
+
+		# Save credentials back to session in case access token was refreshed.
+		# ACTION ITEM: In a production app, you likely want to save these
+		#              credentials in a persistent database instead.
+		request.session['credentials'] = credentials_to_dict(credentials)
+	except RefreshError:
+		request.session['pk'] = pk
+		return redirect('authorize')
+
+	request.session['pk'] = None
+	if auth_user:
+		return redirect('https://calendar.google.com/calendar/r/?authuser={}'.format(auth_user))
+	else:
+		return redirect('https://calendar.google.com/calendar/')
+
 def authorize(request):
   # Create flow instance to manage the OAuth 2.0 Authorization Grant Flow steps.
 	flow = google_auth_oauthlib.flow.Flow.from_client_config(
@@ -485,7 +556,9 @@ def oauth2callback(request):
 			return redirect(reverse('create_events', args=[request.session['pk']]))
 		elif request.session['endpoint'] == 'sync_host':
 			return redirect(reverse('sync_host', args=[request.session['host_type'], request.session['pk']]))
-	
+		elif request.session['endpoint'] == 'add_calendar_to_list':
+			return redirect(reverse('add_calendar_to_list', args=[request.session['add_calendar_to_list'], request.session['pk']]))
+
 	return redirect('/events')
 
 def credentials_to_dict(credentials):
