@@ -196,6 +196,98 @@ def sync_host(request, host_type, pk):
 	else:
 		return redirect('https://calendar.google.com/calendar/')
 
+def get_calendar(request):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	page_token = None
+	while True:
+		calendar_list = service.calendarList().list(pageToken=page_token).execute()
+		for calendar_list_entry in calendar_list['items']:
+			print(calendar_list_entry['summary'])
+		page_token = calendar_list.get('nextPageToken')
+		if not page_token:
+			break
+
+	return redirect('https://calendar.google.com/calendar/')
+
+def add_calendars(request):
+	if 'credentials' not in request.session or request.session['credentials'] is None:
+		"""
+		Instead of passing the pk as parameters to the views,
+		I just stored the pk in the session.
+		"""
+		# request.session['pk'] = pk
+		request.session['endpoint'] = 'sync_host'
+		# request.session['host_type'] = host_type
+		return redirect('authorize')
+	
+	  # Load credentials from the session.
+	credentials = google.oauth2.credentials.Credentials(
+		**request.session['credentials'])
+
+	if credentials.expired:
+		try:
+			credentials.refresh(request)
+		except:
+			request.session['credentials'] = None
+			# request.session['pk'] = pk
+			return redirect('authorize')
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	first_date = None
+	auth_user = None
+
+	try:
+		file = open('calendar_orgs.txt', 'w')
+		orgs = OrgHost.objects.all().order_by('pk')
+		for idx, host in enumerate(orgs, start=1):
+			calendar = {
+			    'summary': host.name,
+			    'timeZone': 'Asia/Manila'
+			}
+			host_calendar = service.calendars().insert(body=calendar).execute()
+			file.write('{} : "{}",\n'.format(idx, host_calendar['id']))
+			print(host_calendar['id'])
+
+		# Save credentials back to session in case access token was refreshed.
+		# ACTION ITEM: In a production app, you likely want to save these
+		#              credentials in a persistent database instead.
+		request.session['credentials'] = credentials_to_dict(credentials)
+	except RefreshError:
+		request.session['pk'] = pk
+		return redirect('authorize')
+
+	return redirect('https://calendar.google.com/calendar/')
+
+def del_calendars(request):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	page_token = None
+	while True:
+		calendar_list = service.calendarList().list(pageToken=page_token).execute()
+		for calendar_list_entry in calendar_list['items']:
+			if calendar_list_entry['summary'] != 'Ateneo Commission on Elections':
+				calendar = service.calendars().delete(calendarId=calendar_list_entry['id']).execute()
+				# print(calendar['summary'])
+		page_token = calendar_list.get('nextPageToken')
+		if not page_token:
+			break
+
+	return redirect('https://calendar.google.com/calendar/')
+
 """
 Every time a new event is approved, this method gets called to add the event to the service account's
 calendar of the event host.
