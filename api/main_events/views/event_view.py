@@ -13,13 +13,30 @@ from django.http import Http404
 from datetime import datetime, timedelta
 from rest_framework.filters import SearchFilter, OrderingFilter
 from main_events.swagger import SimpleFilterBackend
-from main_events.helper_methods import get_dates_between
+from main_events.helper_methods import get_dates_between, tags_hostgroup_filter
 from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
 from django.utils import timezone
 from django.db.models import Min
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from main_events.jwt_authentication import MyJWTAuthentication
+
+host_map = {
+    '1' : Q(sanggu_hosts__isnull=False),
+    '2' : Q(office_hosts__isnull=False),
+    '3' : Q(org_hosts__isnull=False),
+    '4' : Q(org_hosts__org_type__abbreviation='COP'),
+    '5' : Q(org_hosts__org_type__abbreviation='COA'),
+    '6' : Q(org_hosts__cluster__abbreviation='ADC'),
+    '7' : Q(org_hosts__cluster__abbreviation='BC'),
+    '8' : Q(org_hosts__cluster__abbreviation='FFC'),
+    '9' : Q(org_hosts__cluster__abbreviation='HEC'),
+    '10' : Q(org_hosts__cluster__abbreviation='IRC'),
+    '11' : Q(org_hosts__cluster__abbreviation='MCA'),
+    '12' : Q(org_hosts__cluster__abbreviation='PAC'),
+    '13' : Q(org_hosts__cluster__abbreviation='SBC'),
+    '14' : Q(org_hosts__cluster__abbreviation='STC'),
+}
 
 class FilterEventsBetweenDates(generics.ListAPIView):
     """
@@ -52,6 +69,8 @@ class FilterEventsBetweenDates(generics.ListAPIView):
 
         queryset = Event.objects.all()
 
+        queryset = tags_hostgroup_filter(queryset, self.request, host_map)
+
         return get_dates_between(start_date, end_date, queryset, Event.event_logistics)
 
 class FilterEventByDate(generics.ListAPIView):
@@ -77,6 +96,8 @@ class FilterEventByDate(generics.ListAPIView):
         
         if date is not None:
             queryset = queryset.filter(is_approved=True, event_logistics__date=date).order_by('first_date')
+
+        queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
         return queryset
 
@@ -107,6 +128,8 @@ class FilterEventByWeek(generics.ListAPIView):
         end_date = end_date + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
 
         queryset = Event.objects.all()
+
+        queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
         return get_dates_between(start_date, end_date, queryset, Event.event_logistics)
 
@@ -142,24 +165,9 @@ class FilterEventByMonth(generics.ListAPIView):
         if date is not None:
             queryset = queryset.filter(is_approved=True, event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('first_date')
 
-        return queryset
+        queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
-host_map = {
-    '1' : Q(sanggu_hosts__isnull=False),
-    '2' : Q(office_hosts__isnull=False),
-    '3' : Q(org_hosts__isnull=False),
-    '4' : Q(org_hosts__org_type__abbreviation='COP'),
-    '5' : Q(org_hosts__org_type__abbreviation='COA'),
-    '6' : Q(org_hosts__cluster__abbreviation='ADC'),
-    '7' : Q(org_hosts__cluster__abbreviation='BC'),
-    '8' : Q(org_hosts__cluster__abbreviation='FFC'),
-    '9' : Q(org_hosts__cluster__abbreviation='HEC'),
-    '10' : Q(org_hosts__cluster__abbreviation='IRC'),
-    '11' : Q(org_hosts__cluster__abbreviation='MCA'),
-    '12' : Q(org_hosts__cluster__abbreviation='PAC'),
-    '13' : Q(org_hosts__cluster__abbreviation='SBC'),
-    '14' : Q(org_hosts__cluster__abbreviation='STC'),
-}
+        return queryset
 
 class EventList(APIView):
     """
@@ -196,10 +204,7 @@ class EventList(APIView):
         search = self.request.GET.get("search")
 
         if host_query:
-            queries = host_query.split(',')
-            for query in queries:
-                if query in host_map:
-                    events = events.filter(host_map[query]).distinct()
+            events = events.filter(host_map[host_query]).distinct()
 
         if search:
             events = events.filter(
@@ -216,8 +221,11 @@ class EventList(APIView):
 
         if tags:
             tags_list = tags.split(',')
+            queries = Q()
             for tag in tags_list:
-                events = events.filter(tags__pk=tag).distinct()
+                queries = queries | Q(tags__pk=tag)
+
+            events = events.filter(queries).distinct()
 
         if request.method == 'GET' and 'page' in request.GET:
 
