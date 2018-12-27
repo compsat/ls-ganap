@@ -33,7 +33,7 @@ schema_view = get_swagger_view(title='LS Ganap API')
 
 
 urlpatterns = [
-    path('', api_root_view.api_root),
+    path('', api_root_view.api_root, name='index'),
     path('admin/', admin.site.urls),
     path(
         'admin/password_reset/',
