@@ -3,11 +3,11 @@ import coreapi
 class SimpleFilterBackend(BaseFilterBackend):
     def get_schema_fields(self, view):
         return [coreapi.Field(
-            name='host_type',
+            name='host_query',
             location='query',
-            description='Specify a host_type (sanggu, org, office) to return all events associated to the chosen type.',
+            description='Specify a host group (sanggu, org, office, or any cluster) to return all events associated to the chosen group.',
             required=False,
-            type='string'
+            type='integer'
         )]
         
     def filter_queryset(self, request, queryset, view):

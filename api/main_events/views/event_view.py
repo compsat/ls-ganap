@@ -60,6 +60,20 @@ class FilterEventsBetweenDates(generics.ListAPIView):
             description='Specify a date in YYYY-MM-DD as the end of the range of dates, inclusive.',
             schema=coreschema.String()
         ),
+        coreapi.Field(
+            name='host_query',
+            required=False,
+            location='query',
+            description='Specify a host group (sanggu, org, office, or any cluster) to return all events associated to the chosen group.',
+            type='integer'
+        ),
+        coreapi.Field(
+            "tags",
+            required=False,
+            location="query",
+            description='Specify tag IDs (separated by commas) to get all events with any of the tags specified.',
+            schema=coreschema.String()
+        ),
     ])
 
     def get_queryset(self):
@@ -86,6 +100,20 @@ class FilterEventByDate(generics.ListAPIView):
             required=True,
             location="path",
             description='Specify a date in YYYY-MM-DD to get all the events held on the same date.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            name='host_query',
+            required=False,
+            location='query',
+            description='Specify a host group (sanggu, org, office, or any cluster) to return all events associated to the chosen group.',
+            type='integer'
+        ),
+        coreapi.Field(
+            "tags",
+            required=False,
+            location="query",
+            description='Specify tag IDs (separated by commas) to get all events with any of the tags specified.',
             schema=coreschema.String()
         ),
     ])
@@ -117,6 +145,20 @@ class FilterEventByWeek(generics.ListAPIView):
             description='Specify a date in YYYY-MM-DD to get all the events held in the same week.',
             schema=coreschema.String()
         ),
+        coreapi.Field(
+            name='host_query',
+            required=False,
+            location='query',
+            description='Specify a host group (sanggu, org, office, or any cluster) to return all events associated to the chosen group.',
+            type='integer'
+        ),
+        coreapi.Field(
+            "tags",
+            required=False,
+            location="query",
+            description='Specify tag IDs (separated by commas) to get all events with any of the tags specified.',
+            schema=coreschema.String()
+        ),
     ])
 
     def get_queryset(self):
@@ -146,6 +188,20 @@ class FilterEventByMonth(generics.ListAPIView):
             required=True,
             location="path",
             description='Specify a date in YYYY-MM-DD or in MM-YYYY to get all the events held in the same month.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            name='host_query',
+            required=False,
+            location='query',
+            description='Specify a host group (sanggu, org, office, or any cluster) to return all events associated to the chosen group.',
+            type='integer'
+        ),
+        coreapi.Field(
+            "tags",
+            required=False,
+            location="query",
+            description='Specify tag IDs (separated by commas) to get all events with any of the tags specified.',
             schema=coreschema.String()
         ),
     ])
@@ -188,6 +244,13 @@ class EventList(APIView):
             required=False,
             location="query",
             description='A search term for events with the given name, venue, or host.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "tags",
+            required=False,
+            location="query",
+            description='Specify tag IDs (separated by commas) to get all events with any of the tags specified.',
             schema=coreschema.String()
         ),
     ])
@@ -245,23 +308,6 @@ class EventList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# class EventDetail(generics.RetrieveUpdateDestroyAPIView):
-#     """
-#     get: 
-#     Returns an event given its id
-    
-#     put:
-#     Updates an event given its id
-
-#     patch:
-#     Updates an event given its id
-
-#     delete:
-#     Deletes an event given its id
-#     """
-#     queryset = Event.objects.filter(is_approved=True)
-#     serializer_class = event_serializer.EventSerializer
-
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     get: 
@@ -286,7 +332,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 
         if self.request.user.is_authenticated:
             user = self.request.user
-            queryset = queryset.filter(Q(is_approved=True) | Q(sanggu_hosts__user=user) | Q(org_hosts__user=user))
+            queryset = queryset.filter(Q(is_approved=True) | Q(sanggu_hosts__user=user) | Q(org_hosts__user=user) | Q(office_hosts__user=user))
         else:
             queryset = queryset.filter(is_approved=True)
 
@@ -302,7 +348,7 @@ class UnapprovedEventList(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Event.objects.filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user))).order_by('first_date')
+        return Event.objects.filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user) | Q(office_hosts__user=user))).order_by('first_date')
 
 class EventLogisticCreate(APIView):
     """
