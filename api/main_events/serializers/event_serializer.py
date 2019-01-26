@@ -9,7 +9,6 @@ class EventLogisticSerializer(serializers.ModelSerializer):
                 'end_time',
                 'venue',
                 'outside_venue_name']
-    # def 
 
 class EventLogisticSaveSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,7 +22,7 @@ class EventLogisticSaveSerializer(serializers.ModelSerializer):
 
 class EventSerializer(serializers.ModelSerializer):
     tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
-    event_logistics = EventLogisticSerializer(many=True)
+    event_logistics = EventLogisticSerializer(many=True, read_only=True)
 
     class Meta:
         model = Event
