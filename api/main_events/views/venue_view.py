@@ -33,7 +33,7 @@ class VenueList(APIView):
             
             return Response({"results" : serializer.data})
     
-class VenueDetail(generics.RetrieveUpdateDestroyAPIView):
+class VenueDetail(generics.RetrieveAPIView):
     """
     get: 
     Returns a venue given its id

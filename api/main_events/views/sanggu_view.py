@@ -3,13 +3,16 @@ from main_events.serializers.sanggu_serializer import SangguSerializer, SangguDe
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework import generics
-from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from main_events.pagination import ObjectLimitOffsetPagination, ObjectPageNumberPagination
 from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
 from main_events.swagger import SimpleFilterBackend    
 from django.db.models import Q
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from main_events.jwt_authentication import MyJWTAuthentication
+from main_events.permissions import IsOwnerOrReadOnly
+
 class SangguList(APIView):
     """
     get: List all the sanggu hosts.
@@ -56,3 +59,5 @@ class SangguDetail(generics.RetrieveUpdateAPIView):
     """
     queryset = SangguHost.objects.all()
     serializer_class = SangguDetailSerializer
+    authentication_classes = [MyJWTAuthentication,]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
