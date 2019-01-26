@@ -18,8 +18,9 @@ from rest_framework.schemas import AutoSchema
 import coreapi, coreschema
 from django.utils import timezone
 from django.db.models import Min
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAuthenticatedOrReadOnly
 from main_events.jwt_authentication import MyJWTAuthentication
+from main_events.permissions import IsOwnerOrReadOnly, IsEventHostOrReadOnly
 
 host_map = {
     '1' : Q(sanggu_hosts__isnull=False),
@@ -325,6 +326,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     # queryset = Event.objects.filter(is_approved=True)
     serializer_class = event_serializer.EventSerializer
     authentication_classes = [MyJWTAuthentication,]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsEventHostOrReadOnly]
 
     def get_queryset(self):
         # pk = self.kwargs['pk']
@@ -365,10 +367,13 @@ class EventLogisticCreate(APIView):
             schema=coreschema.Integer()
         ),
     ])
+    authentication_classes = [MyJWTAuthentication,]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsEventHostOrReadOnly,]
 
     def get_object(self, pk):
         try:
-            return Event.objects.get(pk=pk)
+            user = self.request.user
+            return Event.objects.filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user) | Q(office_hosts__user=user))).get(pk=pk)
         except Event.DoesNotExist:
             raise Http404
 
