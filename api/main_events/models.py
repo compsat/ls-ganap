@@ -150,11 +150,25 @@ class Tag(models.Model):
 
 class EventManager(SoftDeletionManager):
 	def get_queryset(self):
-		return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
+		return super(EventManager, self).get_queryset().filter(is_approved=True).annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
 
 	def by_first_date(self): 
 		qs = super(EventManager, self).get_queryset() 
 		return qs.order_by('first_date')
+
+	def all_events(self):
+		return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
+
+	def approved_events(self, user):
+		if user.is_authenticated:
+			return super(EventManager, self).get_queryset().filter(Q(is_approved=True) | 
+				Q(sanggu_hosts__user=user) | 
+				Q(org_hosts__user=user) | 
+				Q(office_hosts__user=user)).annotate(first_date=Min('event_logistics__date', 
+					filter=Q(event_logistics__date__gte=timezone.now())))
+
+		return super(EventManager, self).get_queryset().filter(Q(is_approved=True)).annotate(first_date=Min('event_logistics__date', 
+			filter=Q(event_logistics__date__gte=timezone.now())))
 
 class Event(SoftDeletionModel):
 	objects = EventManager()
@@ -175,6 +189,7 @@ class Event(SoftDeletionModel):
 	def __str__(self):
 		return self.name
 
+	# ------------EDIT SO THAT IT SYNC AFTER EDITING OR CREATING A LOGISTIC-----------------
 	def save(self, *args, **kwargs):
 		if self.pk:
 			old_approved = Event.objects.get(pk=self.pk).is_approved
