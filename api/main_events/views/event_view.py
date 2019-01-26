@@ -228,14 +228,14 @@ class FilterEventByMonth(generics.ListAPIView):
 
 class FilterEventByOrg(generics.ListAPIView):
     """
-    get: Gets all events given a specific date.
+    get: Gets all events under a specific org.
     """
     serializer_class = event_serializer.EventSerializer
     pagination_class = ObjectPageNumberPagination
 
     schema = AutoSchema(manual_fields=[
         coreapi.Field(
-            "org",
+            "id",
             required=True,
             location="path",
             description='Specify an org to get all events under that entity',
@@ -258,12 +258,87 @@ class FilterEventByOrg(generics.ListAPIView):
     ])
 
     def get_queryset(self):
-        date = self.kwargs['date']
-        queryset = Event.objects.all()
+        pk = self.kwargs['pk']
+        queryset = Event.objects.filter(org_hosts__pk=pk)
         
-        if date is not None:
-            queryset = queryset.filter(event_logistics__date=date).order_by('first_date')
+        queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
+        return queryset
+
+class FilterEventByOffice(generics.ListAPIView):
+    """
+    get: Gets all events under a specific office.
+    """
+    serializer_class = event_serializer.EventSerializer
+    pagination_class = ObjectPageNumberPagination
+
+    schema = AutoSchema(manual_fields=[
+        coreapi.Field(
+            "id",
+            required=True,
+            location="path",
+            description='Specify an office to get all events under that entity',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            name='host_query',
+            required=False,
+            location='query',
+            description='Specify a host group (sanggu, org, office, or any cluster) to return all events associated to the chosen group.',
+            type='integer'
+        ),
+        coreapi.Field(
+            "tags",
+            required=False,
+            location="query",
+            description='Specify tag IDs (separated by commas) to get all events with any of the tags specified.',
+            schema=coreschema.String()
+        ),
+    ])
+
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        queryset = Event.objects.filter(office_hosts__pk=pk)
+        
+        queryset = tags_hostgroup_filter(queryset, self.request, host_map)
+
+        return queryset
+
+class FilterEventBySanggu(generics.ListAPIView):
+    """
+    get: Gets all events under a specific sanggu org.
+    """
+    serializer_class = event_serializer.EventSerializer
+    pagination_class = ObjectPageNumberPagination
+
+    schema = AutoSchema(manual_fields=[
+        coreapi.Field(
+            "id",
+            required=True,
+            location="path",
+            description='Specify an office to get all events under that entity',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            name='host_query',
+            required=False,
+            location='query',
+            description='Specify a host group (sanggu, org, office, or any cluster) to return all events associated to the chosen group.',
+            type='integer'
+        ),
+        coreapi.Field(
+            "tags",
+            required=False,
+            location="query",
+            description='Specify tag IDs (separated by commas) to get all events with any of the tags specified.',
+            schema=coreschema.String()
+        ),
+    ])
+
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        queryset = Event.objects.filter(sanggu_hosts__pk=pk)
+        
         queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
         return queryset
