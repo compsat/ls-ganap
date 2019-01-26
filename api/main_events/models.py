@@ -166,7 +166,7 @@ class Event(SoftDeletionModel):
 	is_approved = models.BooleanField(default=False)
 	poster_url = models.ImageField(upload_to='images/', blank=True)
 	is_premium = models.BooleanField(default=False)
-	event_url = models.URLField()
+	event_url = models.URLField(blank=True)
 	tags = models.ManyToManyField(Tag, related_name="event_list")
 	sanggu_hosts = models.ManyToManyField(SangguHost, blank=True, related_name='event_list')
 	office_hosts = models.ManyToManyField(OfficeHost, blank=True, related_name='event_list')
