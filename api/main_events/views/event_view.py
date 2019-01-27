@@ -492,21 +492,21 @@ class EventList(APIView):
         if week:
             get_date = datetime.strptime(week, '%Y-%m-%d')
             get_day = get_date.weekday()
-            start_date = (get_date - timedelta(days=get_day))
-            end_date = (get_date + timedelta(days=(6-get_day)))
-            end_date = end_date + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
-            events = get_dates_between(start_date, end_date, queryset, Event.event_logistics)
+            start_week_date = (get_date - timedelta(days=get_day))
+            end_week_date = (get_date + timedelta(days=(6-get_day)))
+            end_week_date = end_week_date + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
+            events = get_dates_between(start_week_date, end_week_date, events, Event.event_logistics)
 
         if month:
             try:
-                get_month = datetime.strptime(date, '%Y-%m-%d').date().month
-                get_year = datetime.strptime(date, '%Y-%m-%d').date().year
+                get_month = datetime.strptime(month, '%Y-%m-%d').date().month
+                get_year = datetime.strptime(month, '%Y-%m-%d').date().year
             except ValueError:
-                date_list = date.split("-")
+                date_list = month.split("-")
                 get_month = date_list[0]
                 get_year = date_list[1]
             
-            events = queryset.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('first_date')
+            events = events.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('first_date')
 
         if start_date or end_date:
             if end_date:
