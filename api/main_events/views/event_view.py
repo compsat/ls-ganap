@@ -78,6 +78,20 @@ class FilterEventsBetweenDates(generics.ListAPIView):
     ])
 
     def get_queryset(self):
+        coreapi.Field(
+            "start_date",
+            required=True,
+            location="query",
+            description='Specify a date in YYYY-MM-DD as the start of the range of dates.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "end_date",
+            required=True,
+            location="query",
+            description='Specify a date in YYYY-MM-DD as the end of the range of dates, inclusive.',
+            schema=coreschema.String()
+        ),
         start_date = self.request.query_params.get('start_date', None)
         end_date = self.request.query_params.get('end_date', None)
         end_date = datetime.strptime(end_date, '%Y-%m-%d') + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
@@ -371,6 +385,62 @@ class EventList(APIView):
             description='Specify tag IDs (separated by commas) to get all events with any of the tags specified.',
             schema=coreschema.String()
         ),
+        coreapi.Field(
+            "org",
+            required=False,
+            location="query",
+            description='Specify an org id to get all events under that entity',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "office",
+            required=False,
+            location="query",
+            description='Specify an office id to get all events under that entity',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "sanggu",
+            required=False,
+            location="query",
+            description='Specify a sanggu id to get all events under that entity',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "date",
+            required=False,
+            location="query",
+            description='Specify a date in YYYY-MM-DD to get all the events held on that date.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "week",
+            required=False,
+            location="query",
+            description='Specify a date in YYYY-MM-DD to get all the events held in the same week.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "month",
+            required=False,
+            location="query",
+            description='Specify a date in YYYY-MM-DD or in MM-YYYY to get all the events held in the same month.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "start_date",
+            required=False,
+            location="query",
+            description='Specify a date in YYYY-MM-DD as the start of the range of dates.',
+            schema=coreschema.String()
+        ),
+        coreapi.Field(
+            "end_date",
+            required=False,
+            location="query",
+            description='Specify a date in YYYY-MM-DD as the end of the range of dates, inclusive.',
+            schema=coreschema.String()
+        ),
     ])
 
     def get(self, request, format=None):
@@ -383,6 +453,14 @@ class EventList(APIView):
         host_query = self.request.GET.get("host_query")
         tags = self.request.GET.get("tags")
         search = self.request.GET.get("search")
+        date = self.request.GET.get("date")
+        week = self.request.GET.get("week")
+        month = self.request.GET.get("month")
+        start_date = self.request.GET.get("start_date")
+        end_date = self.request.GET.get("end_date")
+        org = self.request.GET.get("org")
+        office = self.request.GET.get("office")
+        sanggu = self.request.GET.get("sanggu")
 
         if host_query:
             events = events.filter(host_map[host_query]).distinct()
@@ -408,8 +486,43 @@ class EventList(APIView):
 
             events = events.filter(queries).distinct()
 
-        if request.method == 'GET' and 'page' in request.GET:
+        if date:
+            events = events.filter(event_logistics__date=date).order_by('first_date')  
 
+        if week:
+            get_date = datetime.strptime(week, '%Y-%m-%d')
+            get_day = get_date.weekday()
+            start_date = (get_date - timedelta(days=get_day))
+            end_date = (get_date + timedelta(days=(6-get_day)))
+            end_date = end_date + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
+            events = get_dates_between(start_date, end_date, queryset, Event.event_logistics)
+
+        if month:
+            try:
+                get_month = datetime.strptime(date, '%Y-%m-%d').date().month
+                get_year = datetime.strptime(date, '%Y-%m-%d').date().year
+            except ValueError:
+                date_list = date.split("-")
+                get_month = date_list[0]
+                get_year = date_list[1]
+            
+            events = queryset.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('first_date')
+
+        if start_date or end_date:
+            if end_date:
+                end_date = datetime.strptime(end_date, '%Y-%m-%d') + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
+            events = get_dates_between(start_date, end_date, events, Event.event_logistics)
+
+        if org:
+            events = events.filter(org_hosts__pk=org)
+
+        if office:
+            events = events.filter(office_hosts__pk=office)
+
+        if sanggu:
+            events = events.filter(sanggu_hosts__pk=sanggu)
+        
+        if request.method == 'GET' and 'page' in request.GET:
             page = paginator.paginate_queryset(events, request)
             serializer = event_serializer.EventSerializer(page, many=True)
         

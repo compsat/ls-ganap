@@ -6,7 +6,11 @@ def get_dates_between(start_date, end_date, queryset, event_logistics):
     if(start_date is not None) and (end_date is not None):
         queryset = queryset.filter(event_logistics__date__range=[start_date, end_date]).order_by('first_date')
     else:
-        raise Http404
+        if start_date is not None:
+        	queryset = queryset.filter(event_logistics__date__gte=start_date).order_by('first_date')
+
+        if end_date is not None:
+        	queryset = queryset.filter(event_logistics__date__lte=end_date).order_by('first_date')
 
     return queryset
 
