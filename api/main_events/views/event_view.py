@@ -386,25 +386,11 @@ class EventList(APIView):
             schema=coreschema.String()
         ),
         coreapi.Field(
-            "org",
+            "host",
             required=False,
             location="query",
-            description='Specify an org id to get all events under that entity',
-            schema=coreschema.String()
-        ),
-        coreapi.Field(
-            "office",
-            required=False,
-            location="query",
-            description='Specify an office id to get all events under that entity',
-            schema=coreschema.String()
-        ),
-        coreapi.Field(
-            "sanggu",
-            required=False,
-            location="query",
-            description='Specify a sanggu id to get all events under that entity',
-            schema=coreschema.String()
+            description='Specify a host id to get all events under that entity',
+            schema=coreschema.Integer()
         ),
         coreapi.Field(
             "date",
@@ -458,9 +444,7 @@ class EventList(APIView):
         month = self.request.GET.get("month")
         start_date = self.request.GET.get("start_date")
         end_date = self.request.GET.get("end_date")
-        org = self.request.GET.get("org")
-        office = self.request.GET.get("office")
-        sanggu = self.request.GET.get("sanggu")
+        host = self.request.GET.get("host")
 
         if host_query:
             events = events.filter(host_map[host_query]).distinct()
@@ -513,15 +497,18 @@ class EventList(APIView):
                 end_date = datetime.strptime(end_date, '%Y-%m-%d') + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
             events = get_dates_between(start_date, end_date, events, Event.event_logistics)
 
-        if org:
-            events = events.filter(org_hosts__pk=org)
+        if host:
+            try:
+                host_id = int(host)
+                if host_id <= 57:
+                    events = events.filter(org_hosts__pk=host)
+                elif host_id <= 67:
+                    events = events.filter(sanggu_hosts__pk=host)
+                elif host_id <= 131:
+                    events = events.filter(office_hosts__pk=host)
+            except ValueError:
+                pass
 
-        if office:
-            events = events.filter(office_hosts__pk=office)
-
-        if sanggu:
-            events = events.filter(sanggu_hosts__pk=sanggu)
-        
         if request.method == 'GET' and 'page' in request.GET:
             page = paginator.paginate_queryset(events, request)
             serializer = event_serializer.EventSerializer(page, many=True)
