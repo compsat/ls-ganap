@@ -6,6 +6,8 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from cloudinary.models import CloudinaryField
 from django.db.models import Min, Q
+from django.db.models.signals import m2m_changed
+from django.dispatch import receiver
 
 class UserManager(BaseUserManager):
     """Define a model manager for User model with no username field."""
@@ -150,14 +152,18 @@ class Tag(models.Model):
 
 class EventManager(SoftDeletionManager):
 	def get_queryset(self):
-		return super(EventManager, self).get_queryset().filter(is_approved=True).annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
+		return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
+		# return super(EventManager, self).get_queryset().filter(is_approved=True).annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
 
 	def by_first_date(self): 
 		qs = super(EventManager, self).get_queryset() 
 		return qs.order_by('first_date')
 
-	def all_events(self):
-		return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
+	def approved_events_only(self):
+		return super(EventManager, self).get_queryset().filter(is_approved=True).annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
+
+	# def all_events(self):
+	# 	return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
 
 	def approved_events(self, user):
 		if user.is_authenticated:
@@ -189,14 +195,18 @@ class Event(SoftDeletionModel):
 	def __str__(self):
 		return self.name
 
-	# ------------EDIT SO THAT IT SYNC AFTER EDITING OR CREATING A LOGISTIC-----------------
 	def save(self, *args, **kwargs):
+		from main_events.views.event_auth_view import sync_calendar, change_logistics, change_details
 		if self.pk:
+			old_name = Event.objects.get(pk=self.pk).name
+			old_description = Event.objects.get(pk=self.pk).description
 			old_approved = Event.objects.get(pk=self.pk).is_approved
 		super(Event, self).save(*args, **kwargs)
 		if self.pk and not old_approved and self.is_approved:
-			from main_events.views.event_auth_view import sync_calendar
 			sync_calendar(self)
+		elif self.pk and self.is_approved:
+			if (old_name != self.name) or (old_description != self.description):
+				change_details(self)
 
 	# @property
 	# def has_happened(self):
@@ -209,6 +219,30 @@ class Event(SoftDeletionModel):
 	# 	else:
 	# 		return self.event_logistics.filter(date__gte=timezone.now()).annotate(closest_date=Min('date')).first().date
 
+class EventCalendar(models.Model):
+	event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_calendars')
+	event_cal_id = models.CharField(max_length=200)
+	sanggu_host = models.ForeignKey(SangguHost, blank=True, null=True, on_delete=models.DO_NOTHING, related_name='event_calendar_links')
+	org_host = models.ForeignKey(OrgHost, blank=True, null=True, on_delete=models.DO_NOTHING, related_name='event_calendar_links')
+	office_host = models.ForeignKey(OfficeHost, blank=True, null=True, on_delete=models.DO_NOTHING, related_name='event_calendar_links')
+	event_logistic = models.ForeignKey('EventLogistic', on_delete=models.CASCADE, related_name='event_calendar_links')
+
+	def __str__(self):
+		return self.event.name + " - " + self.event_cal_id
+
+def hosts_added(sender, instance, **kwargs):
+	from main_events.views.event_auth_view import add_hosts, remove_hosts
+	action = kwargs.pop('action', None)
+	pk_set = kwargs.pop('pk_set', None)    
+	if action == "post_add":
+		add_hosts(instance, pk_set)
+	elif action == "post_remove":
+		remove_hosts(instance, pk_set)
+
+m2m_changed.connect(hosts_added, sender=Event.org_hosts.through)
+m2m_changed.connect(hosts_added, sender=Event.sanggu_hosts.through)
+m2m_changed.connect(hosts_added, sender=Event.office_hosts.through)
+
 class EventLogistic(models.Model):
 	event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_logistics')
 	date = models.DateField()
@@ -219,3 +253,19 @@ class EventLogistic(models.Model):
 
 	class Meta:
 		ordering = ('date', 'start_time',)
+
+	def save(self, *args, **kwargs):
+		from main_events.views.event_auth_view import change_logistics, new_logistic
+		if self.pk:
+			super(EventLogistic, self).save(*args, **kwargs)
+			if self.event.is_approved and self.event_calendar_links:
+				change_logistics(self)
+		else:
+			super(EventLogistic, self).save(*args, **kwargs)
+			if self.event.is_approved:
+				new_logistic(self)
+
+	def delete(self, *args, **kwargs):
+		from main_events.views.event_auth_view import delete_logistics
+		delete_logistics(self)
+		super(EventLogistic, self).delete(*args, **kwargs)
