@@ -23,10 +23,13 @@ class TagSerializer(serializers.ModelSerializer):
         return data
 
 class TagDetailSerializer(serializers.ModelSerializer):
-    event_list = event_serializer.EventSerializer(many=True, read_only=True)
+    event_list = serializers.SerializerMethodField("get_approved_events")
 
     class Meta:
         model = Tag
         fields = ['id',
                   'name', 
                   'event_list']
+
+    def get_approved_events(self, obj):
+        return event_serializer.EventSerializer(obj.event_list.filter(is_approved=True), many=True).data

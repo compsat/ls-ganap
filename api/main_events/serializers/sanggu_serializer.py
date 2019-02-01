@@ -14,7 +14,7 @@ class SangguSerializer(serializers.ModelSerializer):
                  'event_host']
 
 class SangguDetailSerializer(serializers.ModelSerializer):
-    event_list = event_serializer.EventSerializer(many=True, read_only=True)
+    event_list = serializers.SerializerMethodField("get_approved_events")
 
     class Meta:
         model = SangguHost
@@ -26,3 +26,6 @@ class SangguDetailSerializer(serializers.ModelSerializer):
                  'logo_url',
                  'event_host',
                  'event_list']
+
+    def get_approved_events(self, obj):
+        return event_serializer.EventSerializer(obj.event_list.filter(is_approved=True), many=True).data
