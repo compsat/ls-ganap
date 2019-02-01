@@ -1,4 +1,4 @@
-from main_events.models import Event, EventLogistic
+from main_events.models import Event, EventLogistic, OrgHost, SangguHost, OfficeHost
 from main_events.serializers import event_serializer
 from django.http import Http404
 from rest_framework.views import APIView
@@ -96,7 +96,7 @@ class FilterEventsBetweenDates(generics.ListAPIView):
         end_date = self.request.query_params.get('end_date', None)
         end_date = datetime.strptime(end_date, '%Y-%m-%d') + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
 
-        queryset = Event.objects.filter(is_approved=True)
+        queryset = Event.objects.approved_events_only()
 
         queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
@@ -135,7 +135,7 @@ class FilterEventByDate(generics.ListAPIView):
 
     def get_queryset(self):
         date = self.kwargs['date']
-        queryset = Event.objects.all()
+        queryset = Event.objects.approved_events_only()
         
         if date is not None:
             queryset = queryset.filter(event_logistics__date=date).order_by('first_date')
@@ -184,7 +184,7 @@ class FilterEventByWeek(generics.ListAPIView):
         end_date = (get_date + timedelta(days=(6-get_day)))
         end_date = end_date + timedelta(hours=23, minutes=59, seconds=59, milliseconds=59)
 
-        queryset = Event.objects.filter(is_approved=True)
+        queryset = Event.objects.approved_events_only()
 
         queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
@@ -231,7 +231,7 @@ class FilterEventByMonth(generics.ListAPIView):
             get_month = date_list[0]
             get_year = date_list[1]
 
-        queryset = Event.objects.all()
+        queryset = Event.objects.approved_events_only()
 
         if date is not None:
             queryset = queryset.filter(event_logistics__date__month=get_month, event_logistics__date__year=get_year).order_by('first_date')
@@ -273,7 +273,7 @@ class FilterEventByOrg(generics.ListAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['pk']
-        queryset = Event.objects.filter(org_hosts__pk=pk)
+        queryset = Event.objects.approved_events_only().filter(org_hosts__pk=pk)
         
         queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
@@ -312,7 +312,7 @@ class FilterEventByOffice(generics.ListAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['pk']
-        queryset = Event.objects.filter(office_hosts__pk=pk)
+        queryset = Event.objects.approved_events_only().filter(office_hosts__pk=pk)
         
         queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
@@ -351,7 +351,7 @@ class FilterEventBySanggu(generics.ListAPIView):
 
     def get_queryset(self):
         pk = self.kwargs['pk']
-        queryset = Event.objects.filter(sanggu_hosts__pk=pk)
+        queryset = Event.objects.approved_events_only().filter(sanggu_hosts__pk=pk)
         
         queryset = tags_hostgroup_filter(queryset, self.request, host_map)
 
@@ -433,7 +433,7 @@ class EventList(APIView):
         # search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
         pagination_class = ObjectPageNumberPagination
         paginator = pagination_class()
-        events = Event.objects.filter(event_logistics__date__gte=timezone.now()).order_by('first_date')
+        events = Event.objects.approved_events_only().filter(event_logistics__date__gte=timezone.now()).order_by('first_date')
         # for event in events:
         #     event.event_logistics = event.event_logistics.filter(id__in=logistic_ids)
         host_query = self.request.GET.get("host_query")
@@ -499,12 +499,12 @@ class EventList(APIView):
 
         if host:
             try:
-                host_id = int(host)
-                if host_id <= 57:
+                host_pk = int(host)
+                if OrgHost.objects.filter(pk=host_pk).exists():
                     events = events.filter(org_hosts__pk=host)
-                elif host_id <= 67:
+                elif SangguHost.objects.filter(pk=host_pk).exists():
                     events = events.filter(sanggu_hosts__pk=host)
-                elif host_id <= 131:
+                elif OfficeHost.objects.filter(pk=host_pk).exists():
                     events = events.filter(office_hosts__pk=host)
             except ValueError:
                 pass
@@ -540,7 +540,6 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     delete:
     Deletes an event given its id
     """
-    # queryset = Event.objects.filter(is_approved=True)
     serializer_class = event_serializer.EventSerializer
     authentication_classes = [MyJWTAuthentication,]
     permission_classes = [IsAuthenticatedOrReadOnly, IsEventHostOrReadOnly]
@@ -567,7 +566,7 @@ class UnapprovedEventList(generics.ListAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Event.objects.all_events().filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user) | Q(office_hosts__user=user))).order_by('first_date')
+        return Event.objects.filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user) | Q(office_hosts__user=user))).order_by('first_date')
 
 class EventLogisticCreate(APIView):
     """
