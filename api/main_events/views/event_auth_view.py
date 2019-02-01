@@ -2,7 +2,7 @@ import httplib2
 from googleapiclient.discovery import build
 from django.conf import settings
 from oauth2client import file, client, tools
-from main_events.models import Event, EventLogistic, SangguHost, OrgHost, OfficeHost
+from main_events.models import Event, EventLogistic, SangguHost, OrgHost, OfficeHost, EventCalendar
 import os, json
 from datetime import datetime
 import google_auth_oauthlib.flow
@@ -69,7 +69,7 @@ def create_events(request, pk):
 	auth_user = None
 
 	try:
-		event = Event.objects.get(pk=pk)
+		event = Event.objects.filter(is_approved=True).get(pk=pk)
 		event_logistics = EventLogistic.objects.filter(event=pk)
 		for logistic in event_logistics:
 			start_time = datetime.combine(logistic.date, logistic.start_time)
@@ -124,18 +124,17 @@ def sync_calendar(event_instance):
 	for host in event_instance.sanggu_hosts.all():
 		if host.pk in host_calendar_ids:
 			calendarId = host_calendar_ids[host.pk]
-			add_event_to_calendar(service, event_instance, calendarId)
+			add_event_to_calendar(service, event_instance, calendarId, host, 'sanggu')
 	for host in event_instance.office_hosts.all():
 		if host.pk in host_calendar_ids:
 			calendarId = host_calendar_ids[host.pk]
-			add_event_to_calendar(service, event_instance, calendarId)
+			add_event_to_calendar(service, event_instance, calendarId, host, 'office')
 	for host in event_instance.org_hosts.all():
 		if host.pk in host_calendar_ids:
 			calendarId = host_calendar_ids[host.pk]
-			add_event_to_calendar(service, event_instance, calendarId)
+			add_event_to_calendar(service, event_instance, calendarId, host, 'org')
 
-def add_event_to_calendar(service, event_instance, calendarId):
-	# try:
+def add_event_to_calendar(service, event_instance, calendarId, host, host_type):
 	event_logistics = EventLogistic.objects.filter(event=event_instance.pk)
 	for logistic in event_logistics:
 		start_time = datetime.combine(logistic.date, logistic.start_time)
@@ -154,8 +153,15 @@ def add_event_to_calendar(service, event_instance, calendarId):
 			"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
 		}
 		eventTest = service.events().insert(calendarId=calendarId, body=EVENT).execute()
-	# except RefreshError:
-	# 	print("Unable to add event to calendar")
+
+		obj = EventCalendar.objects.create(event=event_instance, event_cal_id=eventTest['id'], event_logistic=logistic)
+		if host_type == 'sanggu':
+			obj.sanggu_host = host
+		elif host_type == 'org':
+			obj.org_host = host
+		elif host_type == 'office':
+			obj.office_host = host
+		obj.save()
 
 """
 Adds the Calendar of the host to the authenticated user's calendar list
@@ -203,7 +209,6 @@ def add_calendar_to_list(request, pk):
 				'timeZone': 'America/Los_Angeles',
 			},
 		}
-		print(new_calendar['id'])
 		new_event = service.events().insert(calendarId='primary', body=EVENT).execute()
 		auth_user = new_event['creator']['email']
 		deleted_event = service.events().delete(calendarId='primary', eventId=new_event['id']).execute()
@@ -221,6 +226,225 @@ def add_calendar_to_list(request, pk):
 		return redirect('https://calendar.google.com/calendar/r/?authuser={}'.format(auth_user))
 	else:
 		return redirect('https://calendar.google.com/calendar/')
+
+"""
+Every time a logistic changes, this method gets called to sync the event to the service account's
+calendar of the event host.
+"""
+def change_logistics(event_logistic):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	for event_cal_instance in event_logistic.event_calendar_links.all():
+		curr_id = event_cal_instance.event_cal_id
+
+		host = None
+		if event_cal_instance.sanggu_host:
+			host = event_cal_instance.sanggu_host
+		elif event_cal_instance.org_host:
+			host = event_cal_instance.org_host
+		elif event_cal_instance.office_host:
+			host = event_cal_instance.office_host
+
+		calendarId = host_calendar_ids[host.pk]
+		event = service.events().get(calendarId=calendarId, eventId=curr_id).execute()
+
+		start_time = datetime.combine(event_logistic.date, event_logistic.start_time)
+		end_time = datetime.combine(event_logistic.date, event_logistic.end_time)
+		location = None
+		if event_logistic.venue:
+			location = event_logistic.venue.name
+		else:
+			location = event_logistic.outside_venue_name
+
+		event['location'] = location
+		event['start'] = {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'}
+		event['end'] = {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
+
+		updated_event = service.events().update(calendarId=calendarId, eventId=event['id'], body=event).execute()
+
+"""
+Every time a logistic is deleted, this method gets called to sync the event to the service account's
+calendar of the event host.
+"""
+def delete_logistics(event_logistic):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	for event_cal_instance in event_logistic.event_calendar_links.all():
+		curr_id = event_cal_instance.event_cal_id
+
+		host = None
+		if event_cal_instance.sanggu_host:
+			host = event_cal_instance.sanggu_host
+		elif event_cal_instance.org_host:
+			host = event_cal_instance.org_host
+		elif event_cal_instance.office_host:
+			host = event_cal_instance.office_host
+
+		calendarId = host_calendar_ids[host.pk]
+		service.events().delete(calendarId=calendarId, eventId=curr_id).execute()
+
+"""
+Every time a logistic is created, this method gets called to sync the event to the service account's
+calendar of the event host.
+"""
+def new_logistic(event_logistic):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	event_instance = event_logistic.event
+	for host in event_instance.sanggu_hosts.all():
+		if host.pk in host_calendar_ids:
+			calendarId = host_calendar_ids[host.pk]
+			add_new_logistic_to_calendar(service, event_logistic, calendarId, host, 'sanggu')
+	for host in event_instance.office_hosts.all():
+		if host.pk in host_calendar_ids:
+			calendarId = host_calendar_ids[host.pk]
+			add_new_logistic_to_calendar(service, event_logistic, calendarId, host, 'office')
+	for host in event_instance.org_hosts.all():
+		if host.pk in host_calendar_ids:
+			calendarId = host_calendar_ids[host.pk]
+			add_new_logistic_to_calendar(service, event_logistic, calendarId, host, 'org')
+
+def add_new_logistic_to_calendar(service, logistic, calendarId, host, host_type):
+	event_instance = logistic.event
+	start_time = datetime.combine(logistic.date, logistic.start_time)
+	end_time = datetime.combine(logistic.date, logistic.end_time)
+	location = None
+	if logistic.venue:
+		location = logistic.venue.name
+	else:
+		location = logistic.outside_venue_name
+
+	EVENT = {
+		"summary": event_instance.name,
+		"location": location,
+		"description": event_instance.description,
+		"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
+		"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
+	}
+	eventTest = service.events().insert(calendarId=calendarId, body=EVENT).execute()
+
+	obj = EventCalendar.objects.create(event=event_instance, event_cal_id=eventTest['id'], event_logistic=logistic)
+	if host_type == 'sanggu':
+		obj.sanggu_host = host
+	elif host_type == 'org':
+		obj.org_host = host
+	elif host_type == 'office':
+		obj.office_host = host
+	obj.save()
+
+"""
+Every time a host is added to an event, this method gets called to sync the event to the service account's
+calendar of the event host.
+"""
+def add_hosts(event_instance, new_hosts):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	for host_pk in new_hosts:
+		if host_pk in host_calendar_ids:
+			calendarId = host_calendar_ids[host_pk]
+			if OrgHost.objects.filter(pk=host_pk).exists():
+				add_event_to_calendar(service, event_instance, calendarId, OrgHost.objects.get(pk=host_pk), 'org')
+			elif SangguHost.objects.filter(pk=host_pk).exists():
+				add_event_to_calendar(service, event_instance, calendarId, SangguHost.objects.get(pk=host_pk), 'sanggu')
+			elif OfficeHost.objects.filter(pk=host_pk).exists():
+				add_event_to_calendar(service, event_instance, calendarId, OfficeHost.objects.get(pk=host_pk), 'office')
+
+"""
+Every time a host is removed from an event, this method gets called to sync the event to the service account's
+calendar of the event host.
+"""
+def remove_hosts(event_instance, new_hosts):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	for host_pk in new_hosts:
+		if host_pk in host_calendar_ids:
+			calendarId = host_calendar_ids[host_pk]
+			if OrgHost.objects.filter(pk=host_pk).exists():
+				delete_event_from_calendar(service, event_instance, calendarId, OrgHost.objects.get(pk=host_pk), 'org')
+			elif SangguHost.objects.filter(pk=host_pk).exists():
+				delete_event_from_calendar(service, event_instance, calendarId, SangguHost.objects.get(pk=host_pk), 'sanggu')
+			elif OfficeHost.objects.filter(pk=host_pk).exists():
+				delete_event_from_calendar(service, event_instance, calendarId, OfficeHost.objects.get(pk=host_pk), 'office')
+
+def delete_event_from_calendar(service, event_instance, calendarId, host, host_type):
+	try:
+		event_cal_instance = None
+		if host_type == 'org':
+			event_cal_instance = EventCalendar.objects.filter(event=event_instance, org_host=host)[0]
+		elif host_type == 'sanggu':
+			event_cal_instance = EventCalendar.objects.filter(event=event_instance, sanggu_host=host)[0]
+		elif host_type == 'office':
+			event_cal_instance = EventCalendar.objects.filter(event=event_instance, office_host=host)[0]
+
+		curr_id = event_cal_instance.event_cal_id
+		service.events().delete(calendarId=calendarId, eventId=curr_id).execute()
+	except IndexError:
+		pass
+
+"""
+Every time an event's details (other than logistics) changes, this method gets called to sync 
+the event to the service account's calendar of the event host.
+"""
+def change_details(event_instance):
+	# Load credentials from the session.
+	info = json.loads(service_secrets)
+	# print(info)
+	credentials = service_account.Credentials.from_service_account_info(
+		info, scopes=SCOPES)
+
+	service = build('calendar', 'v3', credentials=credentials)
+
+	name = event_instance.name
+	description = event_instance.description
+
+	for event_cal_instance in event_instance.event_calendars.all():
+		curr_id = event_cal_instance.event_cal_id
+
+		host = None
+		if event_cal_instance.sanggu_host:
+			host = event_cal_instance.sanggu_host
+		elif event_cal_instance.org_host:
+			host = event_cal_instance.org_host
+		elif event_cal_instance.office_host:
+			host = event_cal_instance.office_host
+
+		calendarId = host_calendar_ids[host.pk]
+		event = service.events().get(calendarId=calendarId, eventId=curr_id).execute()
+
+		event['summary'] = name
+		event['description'] = description
+
+		updated_event = service.events().update(calendarId=calendarId, eventId=event['id'], body=event).execute()
 
 def authorize(request):
   # Create flow instance to manage the OAuth 2.0 Authorization Grant Flow steps.
