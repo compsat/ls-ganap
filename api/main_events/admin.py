@@ -140,7 +140,7 @@ class OfficeInline(admin.TabularInline):
 class OrgInline(admin.TabularInline):
     model = OrgHost
     fields = ('name', 'abbreviation', 'event_host', 'org_type', 'cluster')
-	
+
 class EventInline(admin.TabularInline):
 	model = Event.tags.through
 
@@ -171,7 +171,6 @@ class EventInline(admin.TabularInline):
 
 class EventForSangguInline(admin.TabularInline):
 	model = Event.sanggu_hosts.through
-
 	readonly_fields = ('is_approved', 'event_logistics',)
 
 	def is_approved(self, obj):
@@ -321,10 +320,6 @@ class EventAdmin(admin.ModelAdmin):
 	search_fields = ('name', 'org_hosts__name', 'office_hosts__name', 'sanggu_hosts__name', 'org_hosts__abbreviation', 'office_hosts__abbreviation', 'sanggu_hosts__abbreviation')
 	actions = ['accept_events']
 	inlines = [EventLogisticInline,]
-
-	def get_queryset(self, request):
-		qs = super(EventAdmin, self).get_queryset(request)
-		return qs
 
 	def get_ordering(self, request):
 		return ['first_date']
