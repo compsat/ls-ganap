@@ -11,10 +11,10 @@ urlpatterns = [
     path('events/orgs/<int:pk>/', event_view.FilterEventByOrg.as_view()),
     path('events/offices/<int:pk>/', event_view.FilterEventByOffice.as_view()),
     path('events/sanggu/<int:pk>/', event_view.FilterEventBySanggu.as_view()),
-    path('events/on/<str:date>', event_view.FilterEventByDate.as_view()),
+    path('events/on/<str:date>/', event_view.FilterEventByDate.as_view()),
     path('events/between/', event_view.FilterEventsBetweenDates.as_view()),
-    path('events/week/<str:date>', event_view.FilterEventByWeek.as_view()),
-    path('events/month/<str:date>', event_view.FilterEventByMonth.as_view()),
+    path('events/week/<str:date>/', event_view.FilterEventByWeek.as_view()),
+    path('events/month/<str:date>/', event_view.FilterEventByMonth.as_view()),
     path('events/unapproved/', event_view.UnapprovedEventList.as_view()),
     path('event_hosts/', host_view.HostList.as_view(), name='host-list'),
     path('event_hosts/<int:pk>/', host_view.HostDetail.as_view()),
@@ -37,10 +37,10 @@ urlpatterns = [
     path('tags/', tag_view.TagList.as_view(), name='tag-list'),
     path('tags/<int:pk>/', tag_view.TagDetail.as_view()),
     path('clusters/', cluster_view.ClusterList.as_view(), name='cluster-list'),
-    path('clusters/<int:pk>', cluster_view.ClusterDetail.as_view()),
+    path('clusters/<int:pk>/', cluster_view.ClusterDetail.as_view()),
     path('venues/', venue_view.VenueList.as_view(), name='venue-list'),
     path('venues/<int:pk>/', venue_view.VenueDetail.as_view()),
-    path('user/password_reset', user_view.UpdatePassword.as_view())
+    path('user/password_reset/', user_view.UpdatePassword.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
