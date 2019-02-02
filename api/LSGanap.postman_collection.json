@@ -1,0 +1,1631 @@
+{
+	"info": {
+		"_postman_id": "f71794d8-d1cd-4846-b622-7d5b4c190b5b",
+		"name": "LS Ganap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "User Password Reset",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c336337f-5f29-49c8-b812-6ee63363aaf6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "wNPbpXIZ",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "wNPbpXIZ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/user/password_reset/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"password_reset",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c336337f-5f29-49c8-b812-6ee63363aaf6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "ads.ls@obf.ateneo.edu",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "wNPbpXIZ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/token/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Token Verify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/token-verify/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"token-verify",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Token Reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4LCJ1c2VybmFtZSI6ImFkcy5sc0BvYmYuYXRlbmVvLmVkdSIsImV4cCI6MTU0ODUwNDMwMSwiZW1haWwiOiJhZHMubHNAb2JmLmF0ZW5lby5lZHUiLCJvcmlnX2lhdCI6MTU0ODUwMDcwMX0.R5Ocnt9QhjZcHbN_bsceHjCjxUQPmPEzAn5BZr9-wq0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/auth/token-reset/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"token-reset",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event Hosts",
+			"item": [
+				{
+					"name": "Event Hosts List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/event_hosts/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event_hosts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Hosts Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/event_hosts/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event_hosts",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Org Types",
+			"item": [
+				{
+					"name": "Org Type List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/org_types/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"org_types",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/org_types/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"org_types",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clusters",
+			"item": [
+				{
+					"name": "Cluster List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/clusters/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clusters",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cluster Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/clusters/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clusters",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orgs",
+			"item": [
+				{
+					"name": "Org List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/orgs/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orgs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/orgs/3/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orgs",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Edit Details",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ateneo Debates Society",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "FFFFFF",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/orgs/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orgs",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sanggu",
+			"item": [
+				{
+					"name": "Sanggu List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/sanggu/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sanggu",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sanggu Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/sanggu/58/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sanggu",
+								"58",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sanggu Edit Details",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ateneo Debates Society",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "FFFFFF",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/sanggu/58/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sanggu",
+								"58",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Office",
+			"item": [
+				{
+					"name": "Office List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/offices/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"offices",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Office Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/offices/100/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"offices",
+								"100",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Office Edit Details",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Ateneo Debates Society",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "FFFFFF",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/offices/100/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"offices",
+								"100",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Tags List",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/tags/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Tag",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Recruitment",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/tags/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tags Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/tags/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tags",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Venues",
+			"item": [
+				{
+					"name": "Venues List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/venues/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"venues",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Venues Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/venues/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"venues",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Event List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/?host=58",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "CompSAt",
+									"disabled": true
+								},
+								{
+									"key": "host_query",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "5,2",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"disabled": true
+								},
+								{
+									"key": "week",
+									"value": "2019-04-1",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2019-03-01",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2019-03-23",
+									"disabled": true
+								},
+								{
+									"key": "host",
+									"value": "58"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/11/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"11",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unapproved Events",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/unapproved/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"unapproved",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Events by Orgs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/orgs/2/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"orgs",
+								"2",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "CompSAt",
+									"disabled": true
+								},
+								{
+									"key": "host_query",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "5,2",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"disabled": true
+								},
+								{
+									"key": "week",
+									"value": "2019-04-1",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2019-03-01",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2019-03-23",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Events by Sanggu",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/sanggu/58/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"sanggu",
+								"58",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "CompSAt",
+									"disabled": true
+								},
+								{
+									"key": "host_query",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "5,2",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"disabled": true
+								},
+								{
+									"key": "week",
+									"value": "2019-04-1",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2019-03-01",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2019-03-23",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Events by Offices",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/offices/100/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"offices",
+								"100",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "CompSAt",
+									"disabled": true
+								},
+								{
+									"key": "host_query",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "5,2",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"disabled": true
+								},
+								{
+									"key": "week",
+									"value": "2019-04-1",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2019-03-01",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2019-03-23",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Events by Date",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/on/2019-02-23/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"on",
+								"2019-02-23",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "CompSAt",
+									"disabled": true
+								},
+								{
+									"key": "host_query",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "5,2",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"disabled": true
+								},
+								{
+									"key": "week",
+									"value": "2019-04-1",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2019-03-01",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2019-03-23",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Events by Week",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/week/2019-02-23/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"week",
+								"2019-02-23",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "CompSAt",
+									"disabled": true
+								},
+								{
+									"key": "host_query",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "5,2",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"disabled": true
+								},
+								{
+									"key": "week",
+									"value": "2019-04-1",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2019-03-01",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2019-03-23",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Events by Month",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/month/2019-02-23/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"month",
+								"2019-02-23",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "CompSAt",
+									"disabled": true
+								},
+								{
+									"key": "host_query",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "5,2",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"disabled": true
+								},
+								{
+									"key": "week",
+									"value": "2019-04-1",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2019-03-01",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": "2019-03-23",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Events by Range",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/events/between/?start_date=2019-03-01&end_date=2019-03-23",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"between",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "CompSAt",
+									"disabled": true
+								},
+								{
+									"key": "host_query",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "5,2",
+									"disabled": true
+								},
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"disabled": true
+								},
+								{
+									"key": "week",
+									"value": "2019-04-1",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "start_date",
+									"value": "2019-03-01"
+								},
+								{
+									"key": "end_date",
+									"value": "2019-03-23"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Edit Details",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Blue Hacks 2019",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "tags",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "org_hosts",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/events/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Get Logistic",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/events/logistics/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"logistics",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event Create Logistic",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "JWT {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "date",
+									"value": "2019-02-23",
+									"type": "text"
+								},
+								{
+									"key": "start_time",
+									"value": "12:00:00",
+									"type": "text"
+								},
+								{
+									"key": "end_time",
+									"value": "12:00:00",
+									"type": "text"
+								},
+								{
+									"key": "venue",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/events/logistics/1/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"events",
+								"logistics",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "64f58239-08ff-4a0c-8f62-f412d9a22bd8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ade04be5-4f23-4352-a3c4-39275d31a736",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "39414c94-2428-4e17-8253-ae70066341be",
+			"key": "url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"id": "b67d6ad4-1d03-47b6-8e76-3d679c1227c8",
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo4LCJ1c2VybmFtZSI6ImFkcy5sc0BvYmYuYXRlbmVvLmVkdSIsImV4cCI6MTU0ODUyNzgxMSwiZW1haWwiOiJhZHMubHNAb2JmLmF0ZW5lby5lZHUiLCJvcmlnX2lhdCI6MTU0ODUyNDIxMX0.9bh3ks0ktNBhaDOzn4eU8VI1nvIySNW5oPDQ-rkgGw4",
+			"type": "string"
+		}
+	]
+}
