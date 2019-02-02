@@ -397,19 +397,17 @@ def remove_hosts(event_instance, new_hosts):
 				delete_event_from_calendar(service, event_instance, calendarId, OfficeHost.objects.get(pk=host_pk), 'office')
 
 def delete_event_from_calendar(service, event_instance, calendarId, host, host_type):
-	try:
-		event_cal_instance = None
-		if host_type == 'org':
-			event_cal_instance = EventCalendar.objects.filter(event=event_instance, org_host=host)[0]
-		elif host_type == 'sanggu':
-			event_cal_instance = EventCalendar.objects.filter(event=event_instance, sanggu_host=host)[0]
-		elif host_type == 'office':
-			event_cal_instance = EventCalendar.objects.filter(event=event_instance, office_host=host)[0]
+	event_cal_instances = None
+	if host_type == 'org':
+		event_cal_instances = EventCalendar.objects.filter(event=event_instance, org_host=host)
+	elif host_type == 'sanggu':
+		event_cal_instances = EventCalendar.objects.filter(event=event_instance, sanggu_host=host)
+	elif host_type == 'office':
+		event_cal_instances = EventCalendar.objects.filter(event=event_instance, office_host=host)
 
+	for event_cal_instance in event_cal_instances:
 		curr_id = event_cal_instance.event_cal_id
 		service.events().delete(calendarId=calendarId, eventId=curr_id).execute()
-	except IndexError:
-		pass
 
 """
 Every time an event's details (other than logistics) changes, this method gets called to sync 
