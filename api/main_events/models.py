@@ -204,7 +204,7 @@ class Event(SoftDeletionModel):
 		super(Event, self).save(*args, **kwargs)
 		if self.pk and not old_approved and self.is_approved:
 			sync_calendar(self)
-		elif self.pk and self.is_approved:
+		elif self.pk and self.event_calendars.exists():
 			if (old_name != self.name) or (old_description != self.description):
 				change_details(self)
 
@@ -234,9 +234,9 @@ def hosts_added(sender, instance, **kwargs):
 	from main_events.views.event_auth_view import add_hosts, remove_hosts
 	action = kwargs.pop('action', None)
 	pk_set = kwargs.pop('pk_set', None)    
-	if action == "post_add":
+	if action == "post_add" and instance.event_calendars.exists():
 		add_hosts(instance, pk_set)
-	elif action == "post_remove":
+	elif action == "post_remove" and instance.event_calendars.exists():
 		remove_hosts(instance, pk_set)
 
 m2m_changed.connect(hosts_added, sender=Event.org_hosts.through)
@@ -267,5 +267,6 @@ class EventLogistic(models.Model):
 
 	def delete(self, *args, **kwargs):
 		from main_events.views.event_auth_view import delete_logistics
-		delete_logistics(self)
+		if self.event_calendar_links:
+			delete_logistics(self)
 		super(EventLogistic, self).delete(*args, **kwargs)
