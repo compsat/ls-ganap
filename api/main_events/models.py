@@ -191,12 +191,14 @@ class Event(SoftDeletionModel):
 	sanggu_hosts = models.ManyToManyField(SangguHost, blank=True, related_name='event_list')
 	office_hosts = models.ManyToManyField(OfficeHost, blank=True, related_name='event_list')
 	org_hosts = models.ManyToManyField(OrgHost, blank=True, related_name='event_list')
+	created_by = models.IntegerField(blank=True)
 
 	def __str__(self):
 		return self.name
 
 	def save(self, *args, **kwargs):
 		from main_events.views.event_auth_view import sync_calendar, change_logistics, change_details
+		old_approved = False
 		if self.pk:
 			old_name = Event.objects.get(pk=self.pk).name
 			old_description = Event.objects.get(pk=self.pk).description
