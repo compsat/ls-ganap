@@ -20,7 +20,7 @@ from django.utils import timezone
 from django.db.models import Min
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAuthenticatedOrReadOnly
 from main_events.jwt_authentication import MyJWTAuthentication
-from main_events.permissions import IsOwnerOrReadOnly, IsEventHostOrReadOnly
+from main_events.permissions import IsOwnerOrReadOnly, IsEventHostOrReadOnly, IsCreatorOrReadOnly
 
 host_map = {
     '1' : Q(sanggu_hosts__isnull=False),
@@ -521,8 +521,10 @@ class EventList(APIView):
 
     def post(self, request, format=None):
         serializer = event_serializer.CreateEventSerializer(data=request.data)
+        print("data")
+        print(request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(created_by=request.user.pk)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -542,7 +544,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = event_serializer.EventSerializer
     authentication_classes = [MyJWTAuthentication,]
-    permission_classes = [IsAuthenticatedOrReadOnly, IsEventHostOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsCreatorOrReadOnly]
 
     def get_queryset(self):
         # pk = self.kwargs['pk']
@@ -584,7 +586,7 @@ class EventLogisticCreate(APIView):
         ),
     ])
     authentication_classes = [MyJWTAuthentication,]
-    permission_classes = [IsAuthenticatedOrReadOnly, IsEventHostOrReadOnly,]
+    permission_classes = [IsAuthenticatedOrReadOnly, IsCreatorOrReadOnly,]
 
     def get_object(self, pk):
         try:
