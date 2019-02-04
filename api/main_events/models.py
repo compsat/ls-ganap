@@ -197,6 +197,21 @@ class Event(SoftDeletionModel):
 		return self.name
 
 	def save(self, *args, **kwargs):
+		# automatically adds creator to list of hosts if it's not part
+		creator = self.created_by
+		if OrgHost.objects.filter(pk=creator).exists():
+			org_host = OrgHost.objects.get(pk=creator)
+			if org_host not in self.org_hosts.all():
+				self.org_hosts.add(org_host)
+		elif SangguHost.objects.filter(pk=creator).exists():
+			sanggu_host = SangguHost.objects.get(pk=creator)
+			if sanggu_host not in self.sanggu_hosts.all():
+				self.sanggu_hosts.add(sanggu_host)
+		elif OfficeHost.objects.filter(pk=creator).exists():
+			office_host = OfficeHost.objects.get(pk=creator)
+			if office_host not in self.office_hosts.all():
+				self.office_hosts.add(office_host)
+
 		from main_events.views.event_auth_view import sync_calendar, change_logistics, change_details
 		old_approved = False
 		if self.pk:
