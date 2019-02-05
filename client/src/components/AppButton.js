@@ -1,4 +1,11 @@
+import { css } from 'styled-components';
+import theme from "../style/style-theme";
 import AppText from "../components/AppText";
+
+const AppButtonActive = css`
+  background: ${theme.colors.accent};
+  color: ${theme.colors.white};
+`;
 
 const AppButton = AppText.withComponent("button").extend`
   display: inline-block;
@@ -17,10 +24,8 @@ const AppButton = AppText.withComponent("button").extend`
   outline: none;
   cursor: pointer;
 
-  &:hover {
-    background: ${props => props.theme.colors.accent};
-    color: ${props => props.theme.colors.white};
-  }
+  &:hover { ${AppButtonActive} }
+  ${props => props.active && AppButtonActive }
 `;
 
 export default AppButton;

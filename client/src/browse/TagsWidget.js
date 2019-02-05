@@ -24,12 +24,9 @@ class TagsWidget extends Component {
     return (
       <WidgetContainer>
         <ul>
-          {this.props.tags.map((tag) =>
-            <TagLi
-              key={tag.id}
-              active={this.isTagActive(tag.id)}
-            >
-              <AppButton>
+          {this.props.tags.map(tag => (
+            <TagLi key={tag.id}>
+              <AppButton active={this.isTagActive(tag.id)}>
                 {tag.name}
                 <InvisibleToggle
                   checked={this.isTagActive(tag.id)}
@@ -37,7 +34,7 @@ class TagsWidget extends Component {
                 />
               </AppButton>
             </TagLi>
-          )}
+          ))}
         </ul>
       </WidgetContainer>
     );
