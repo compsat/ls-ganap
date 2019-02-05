@@ -43,6 +43,7 @@ const buildHostObject = host => {
   return {
     name: host.name,
     hostGroupId: nameToHostGroupIdMap[host.name],
-    id: host.id
+    id: host.id,
+    abbreviation: host.abbreviation,
   };
 };
