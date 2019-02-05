@@ -645,7 +645,6 @@
     logo_url: ../coa
     event_host: 1
     org_type: 1
-    cluster: 10
 - model: main_events.orghost
   pk: 55
   fields:
@@ -657,7 +656,6 @@
     logo_url: ../guidon
     event_host: 1
     org_type: 2
-    cluster: 11
 - model: main_events.orghost
   pk: 56
   fields:
@@ -669,7 +667,6 @@
     logo_url: ../heights
     event_host: 1
     org_type: 2
-    cluster: 11
 - model: main_events.orghost
   pk: 57
   fields:
@@ -681,4 +678,3 @@
     logo_url: ../matanglawin
     event_host: 1
     org_type: 2
-    cluster: 11
