@@ -6,7 +6,7 @@ import { media } from '../style/style-utils';
 import FullWidthContainer from './FullWidthContainer';
 import ArrowButton from './ArrowButton';
 
-const ScrollerContainer = FullWidthContainer.extend`
+const ScrollerContainer = styled.div`
   ${media.mdScreen`
     display: flex;
     justify-content: space-between;

@@ -5,15 +5,24 @@ import FullWidthContainer from '../components/FullWidthContainer';
 import PageContent from '../components/PageContent';
 import Loading from '../components/Loading';
 import axios from 'axios'
+import { media } from '../style/style-utils';
 
-const CardsSection = FullWidthContainer.extend`
+
+const CardsSection = styled.div`
   background-color: ${props => props.color};
   padding: 2em 0;
+
+  ${media.mdScreen`
+    margin-left: calc((100% - 100vw)/2);
+    margin-right: calc((100% - 100vw)/2);
+  `}
 `;
 
 const TitleContainer = styled.div`
-  width: 75%;
-  margin: auto;
+  ${media.mdScreen`
+    width: 75%;
+    margin: auto;
+  `}
 `;
 
 const MainTitle = styled.h1`
@@ -43,7 +52,7 @@ function FeaturedSection(props) {
   const isLoaded = props.state.venues && props.state.orgs && props.state.sanggu && props.state.offices && props.state.featured_events;
   if (isLoaded) {
     return (
-      <ScrollerSection 
+      <ScrollerSection
         name="featured"
         card_type="featured" 
         cards_display="1" 
