@@ -85,7 +85,7 @@ def create_events(request, pk):
 			EVENT = {
 				"summary": event.name,
 				"location": location,
-				"description": event_instance.description,
+				"description": event.description,
 				"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
 				"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
 			}
