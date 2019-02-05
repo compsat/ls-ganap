@@ -1,9 +1,16 @@
-import styled from 'styled-components';
-import { modularScale } from '../style/style-utils';
+import styled from "styled-components";
+import { interpolate } from "../style/style-utils";
 
 const AppText = styled.span`
-  font-family: 'Nirmala UI';
-  font-size: ${props => props.size ? modularScale(props.size) : '1em'};
-`
+  font-family: "Nirmala UI";
+  ${props => interpolate(
+    "font-size",
+    `${props.theme.sizes.minSiteWidth}`,
+    `${props.theme.sizes.maxSiteWidth}`,
+    `${props.theme.type.minScale ** ((+props.size || 1) + 1) * 11}px`,
+    `${props.theme.type.maxScale ** ((+props.size || 1) + 1) * 11}px`
+  )};
+  text-align: ${props => props.align || "left"};
+`;
 
 export default AppText;

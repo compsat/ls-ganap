@@ -1,14 +1,8 @@
 import { combineReducers } from 'redux';
-import events from './events';
-import venues from './venues';
-import hosts from './hosts';
-import tags from './tags';
-import dates from './dates';
+import entities from './entities';
+import filters from './filters';
 
 export default combineReducers({
-  events,
-  venues,
-  hosts,
-  tags,
-  dates
+  entities,
+  filters
 });

@@ -1,11 +1,5 @@
 import axios from "axios";
 
-export const TOGGLE_TAG = "TOGGLE_TAG";
-export const toggleTag = tagId => ({
-  type: TOGGLE_TAG,
-  id: tagId
-});
-
 export const FETCH_TAGS_REQUEST = "FETCH_TAGS_REQUEST";
 export const fetchTagsRequest = () => ({
   type: FETCH_TAGS_REQUEST
@@ -27,7 +21,7 @@ export const fetchTags = () => {
     dispatch(fetchTagsRequest());
 
     return axios
-      .get(process.env.REACT_APP_API_URL + "/tags")
+      .get("/tags")
       .then(response => {
         dispatch(fetchTagsSuccess(response.data.results));
       })

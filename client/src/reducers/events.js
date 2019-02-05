@@ -8,7 +8,8 @@ const events = (
   state = {
     isFetching: false,
     failedToFetch: false,
-    items: []
+    items: [],
+    page: 1
   },
   action
 ) => {
@@ -20,7 +21,13 @@ const events = (
     case FETCH_EVENTS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.events
+        items: action.page === 1
+          ? action.events
+          : [
+            ...state.items,
+            ...action.events
+          ],
+        page: action.page
       });
     case FETCH_EVENTS_FAILURE:
       return Object.assign({}, state, {

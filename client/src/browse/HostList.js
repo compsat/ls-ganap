@@ -20,7 +20,7 @@ class HostList extends Component {
     const checked = e.target.checked;
     const activeHost = checked ? item : "";
 
-    this.setState({activeHost});
+    this.setState({ activeHost });
     this.props.setActiveHost(activeHost || this.props.parentActiveHost);
   }
 
@@ -29,14 +29,14 @@ class HostList extends Component {
       <List className={this.props.className}>
         {this.props.item.map(item => (
           <li key={item.id}>
-            <AppRadio checked={this.state.activeHost === item.name}>
+            <AppRadio checked={this.state.activeHost.name === item.name}>
               <InvisibleToggle
-                checked={this.state.activeHost === item.name}
-                onChange={(e) => this.handleItemClick(e, item.name)}
+                checked={this.state.activeHost.name === item.name}
+                onChange={(e) => this.handleItemClick(e, item)}
               />
               {item.name}
             </AppRadio>
-            {this.state.activeHost === item.name && item.items && (
+            {this.state.activeHost.name === item.name && item.items && (
               <HostList
                 item={item.items}
                 parentActiveHost={this.state.activeHost}

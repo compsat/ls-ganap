@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
-import { toggleTag, fetchTags } from '../actions/tags';
+import { toggleTag } from '../actions/filters';
+import { fetchTags } from '../actions/tags';
 
 import TagsWidget from '../browse/TagsWidget';
 
 const mapStateToProps = state => ({
-  tags: state.tags.items
+  activeTags: state.filters.tags,
+  tags: state.entities.tags.items
 });
 
 const mapDispatchToProps = dispatch => ({

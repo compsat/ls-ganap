@@ -4,25 +4,12 @@ import PropTypes from "prop-types";
 
 import InvisibleToggle from './InvisibleToggle';
 import WidgetContainer from './WidgetContainer';
+import AppButton from "../components/AppButton";
 
-const TagItem = styled.li`
-  --tag-color: ${props => props.theme.colors.accent};
-
+const TagLi = styled.li`
   display: inline-block;
   position: relative;
-  padding: .5em .75em;
-  border: ${props => props.theme.sizes.borderWidth} solid var(--tag-color);
-  border-radius: .5em;
-  margin-right: .5em;
-  margin-bottom: .5em;
-  background: ${props => props.active ? 'var(--tag-color)' : 'none'};
-  color: ${props => props.active ? props.theme.colors.white : 'var(--tag-color)'};
-
-  &:hover {
-    background: var(--tag-color);
-    color: ${props => props.theme.colors.white};
-  }
-`
+`;
 
 class TagsWidget extends Component {
   componentDidMount() {
@@ -30,24 +17,26 @@ class TagsWidget extends Component {
   }
 
   isTagActive = (tagId) => {
-    return this.props.tags.find(tag => tag.id === tagId && tag.active);
+    return this.props.activeTags.includes(tagId);
   }
-  
+
   render() {
     return (
       <WidgetContainer>
         <ul>
           {this.props.tags.map((tag) =>
-            <TagItem
+            <TagLi
               key={tag.id}
               active={this.isTagActive(tag.id)}
             >
-              {tag.name}
-              <InvisibleToggle
-                checked={this.isTagActive(tag.id)}
-                onChange={() => this.props.toggleTag(tag.id)}
-              />
-            </TagItem>
+              <AppButton>
+                {tag.name}
+                <InvisibleToggle
+                  checked={this.isTagActive(tag.id)}
+                  onChange={() => this.props.toggleTag(tag.id)}
+                />
+              </AppButton>
+            </TagLi>
           )}
         </ul>
       </WidgetContainer>

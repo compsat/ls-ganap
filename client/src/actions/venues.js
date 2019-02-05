@@ -21,7 +21,7 @@ export const fetchVenues = () => {
     dispatch(fetchVenuesRequest());
 
     return axios
-      .get(process.env.REACT_APP_API_URL + "/venues")
+      .get("/venues")
       .then(response => {
         dispatch(fetchVenuesSuccess(response.data.results));
       })

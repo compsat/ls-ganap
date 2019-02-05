@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import onClickOutside from 'react-onclickoutside';
 import WidgetToggle from './WidgetToggle';
 import HostWidgetContainer from '../containers/HostWidgetContainer';
 import TagsWidgetContainer from '../containers/TagsWidgetContainer';
 import DateWidgetContainer from '../containers/DateWidgetContainer';
 import AppBorder from '../components/AppBorder';
-import { media } from '../style/style-utils';
 
-const FilterBarContainer = AppBorder.extend.attrs({
-  border: ['top', 'bottom', 'right'],
-})`
+const FilterBarContainer = AppBorder.extend`
   position: relative;
   display: flex;
   width: 100%;
@@ -17,10 +15,7 @@ const FilterBarContainer = AppBorder.extend.attrs({
   background: ${props => props.theme.colors.white};
 `;
 
-const BorderedWidgetToggle = AppBorder.withComponent(WidgetToggle);
-const FilterBarWidgetToggle = BorderedWidgetToggle.extend.attrs({
-  border: ['left'],
-})`
+const FilterBarWidgetToggle = styled(WidgetToggle)`
   width: 100%;
   min-width: 0;
 `;
@@ -60,7 +55,7 @@ class FilterBar extends Component {
           checked={this.state.activeFilter === 'Host'}
           toggleHandler={(e) => this.handleWidgetToggle(e, 'Host')}
           label="Host"
-          value={this.props.activeHost}
+          value={this.props.host}
         >
           <HostWidgetContainer/>
         </FilterBarWidgetToggle>
@@ -68,7 +63,7 @@ class FilterBar extends Component {
           checked={this.state.activeFilter === 'Tags'}
           toggleHandler={(e) => this.handleWidgetToggle(e, 'Tags')}
           label="Tags"
-          value={this.props.activeTags}
+          value={this.props.tags}
         >
           <TagsWidgetContainer/>
         </FilterBarWidgetToggle>
@@ -76,7 +71,7 @@ class FilterBar extends Component {
           checked={this.state.activeFilter === 'Date'}
           toggleHandler={(e) => this.handleWidgetToggle(e, 'Date')}
           label="Date"
-          value={this.props.dates}
+          value={this.props.dateRange}
         >
           <DateWidgetContainer/>
         </FilterBarWidgetToggle>
