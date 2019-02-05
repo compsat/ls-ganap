@@ -50,14 +50,14 @@ injectGlobal`
   html,
   body {
     height: 100%;
-    overflow-x: hidden;
     background-color: #F9F9F9;
   }
 
   body {
     min-height: 100%;
     font-family: 'Nirmala UI';
-    line-height: ${theme.type.typeScale};
+    line-height: 1.33;
+    overflow-x: hidden;
   }
 
   #root {

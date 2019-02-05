@@ -12,8 +12,12 @@ const AppRadioStyles = css`
 `;
 
 const AppRadio = styled.label`
+  display: inline-block;
   position: relative;
   padding-left: 1.5em;
+  ${props => props.checked && `
+    font-family: "Quatro Sans";
+  `};
   cursor: pointer;
 
   &:before {

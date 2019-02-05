@@ -43,5 +43,3 @@ export const calcInterpolation = (minScreen, minValue, maxScreen, maxValue) => {
 
     return `calc(${a*100}vw ${sign} ${b}px)`;
 }
-
-export const modularScale = (multiple) => `${theme.type.typeScale**multiple}em`;

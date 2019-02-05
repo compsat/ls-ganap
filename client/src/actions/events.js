@@ -1,4 +1,5 @@
 import axios from "axios";
+import queryString from "query-string";
 
 export const FETCH_EVENTS_REQUEST = "FETCH_EVENTS_REQUEST";
 export const fetchEventsRequest = () => ({
@@ -6,8 +7,9 @@ export const fetchEventsRequest = () => ({
 });
 
 export const FETCH_EVENTS_SUCCESS = "FETCH_EVENTS_SUCCESS";
-export const fetchEventsSuccess = events => ({
+export const fetchEventsSuccess = (page, events) => ({
   type: FETCH_EVENTS_SUCCESS,
+  page,
   events
 });
 
@@ -16,14 +18,14 @@ export const fetchEventsFailure = () => ({
   type: FETCH_EVENTS_FAILURE
 });
 
-export const fetchEvents = () => {
+export const fetchEvents = params => {
   return dispatch => {
     dispatch(fetchEventsRequest());
 
     return axios
-      .get(process.env.REACT_APP_API_URL + "/events")
+      .get("/events?" + queryString.stringify(params))
       .then(response => {
-        dispatch(fetchEventsSuccess(response.data.results));
+        dispatch(fetchEventsSuccess(params.page || 1, response.data.results));
       })
       .catch(error => {
         dispatch(fetchEventsFailure());

@@ -6,7 +6,8 @@ const theme = {
         borderWidth: '2px',
     },
     type: {
-        typeScale: 1.333,
+        maxScale: 1.33,
+        minScale: 1.15,
         maxFontSize: '20px',
         minFontSize: '16px',
     },

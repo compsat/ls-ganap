@@ -21,29 +21,19 @@ const DateWidgetInput = styled.input.attrs({
 `;
 
 class DateWidget extends Component {
-  constructor(props) {
-    super(props);
-    this.dateRanges = ["All", "Today", "This Week", "This Month"];
-  }
-
-  handleChoiceClick = e => {
-    const date = e.target.value;
-    this.props.selectDateRange(date);
-  };
-
   render() {
     return (
       <WidgetContainer>
-        {this.dateRanges.map(date => (
+        {this.props.dateRanges.map(date => (
           <DateWidgetChoice
             key={date}
-            checked={this.props.dates === date}
+            checked={this.props.activeDateRange.key === date}
           >
             <DateWidgetInput
               name="date"
               value={date}
-              checked={this.props.dates === date}
-              onChange={this.handleChoiceClick}
+              checked={this.props.activeDateRange.key === date}
+              onChange={(e) => this.props.setDateRange(e.target.value)}
             />
             {date}
           </DateWidgetChoice>

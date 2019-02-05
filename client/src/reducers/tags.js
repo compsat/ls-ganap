@@ -1,5 +1,4 @@
 import {
-  TOGGLE_TAG,
   FETCH_TAGS_REQUEST,
   FETCH_TAGS_SUCCESS,
   FETCH_TAGS_FAILURE
@@ -14,12 +13,6 @@ const tags = (
   action
 ) => {
   switch (action.type) {
-    case TOGGLE_TAG:
-      return Object.assign({}, state, {
-        items: state.items.map(
-          tag => (tag.id === action.id ? { ...tag, active: !tag.active } : tag)
-        )
-      });
     case FETCH_TAGS_REQUEST:
       return Object.assign({}, state, {
         isFetching: true
