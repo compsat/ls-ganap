@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaCard from '../components/MediaCard.js';
+import HomeMediaCard from '../home/HomeMediaCard.js';
 import FeaturedCard from './FeaturedCard'
 import styled from 'styled-components';
 
@@ -21,21 +21,21 @@ const ProfileCardTitle = CardTitle.extend`
 `;
 
 const EventCard = (props) => (
-    <MediaCard imgSrc={props.item.poster_url} imgAlt={props.item.photo_alt}>
+    <HomeMediaCard imgSrc={props.item.poster_url} imgAlt={props.item.photo_alt}>
         <CardTitle>{props.item.name}</CardTitle>
         <CardDetails>
-            <p>{props.item.event_logistics[0].date};  
+            <p>{props.item.event_logistics[0].date};
                 {props.item.event_logistics[0].start_time}-{props.item.event_logistics[0].end_time}</p>
             <p>{props.item.event_logistics[0].venue}</p>
             <p>{props.item.all_hosts.join(', ')}</p>
         </CardDetails>
-    </MediaCard>
+    </HomeMediaCard>
 );
 
 const ProfileCard = (props) => (
-    <MediaCard imgSrc={props.item.logo_url} imgAlt={props.item.photo_alt} imgSize='188px'>
+    <HomeMediaCard imgHeight="100px" imgSrc={props.item.logo_url} imgAlt={props.item.photo_alt} imgSize='188px'>
         <ProfileCardTitle>{props.item.name}</ProfileCardTitle>
-    </MediaCard>
+    </HomeMediaCard>
 );
 
 const Card = (props) => {
