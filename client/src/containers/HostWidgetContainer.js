@@ -1,14 +1,15 @@
 import { connect } from "react-redux";
-import { selectHost, fetchHosts } from "../actions/hosts";
+import { selectHost } from "../actions/filters";
+import { fetchHosts } from "../actions/hosts";
 
 import HostWidget from "../browse/HostWidget";
 
 const mapStateToProps = state => ({
-  hosts: structureHosts(state.hosts)
+  hosts: structureHosts(state.entities.hosts)
 });
 
 const mapDispatchToProps = dispatch => ({
-  selectHost: hostName => dispatch(selectHost(hostName)),
+  selectHost: host => dispatch(selectHost(host)),
   fetchHosts: () => dispatch(fetchHosts())
 });
 
@@ -20,16 +21,20 @@ const structureHosts = hosts => {
     hosts.event_hosts,
     hosts.items
   );
-  
-  const orgsIndex = structuredHosts.findIndex(
+
+  return restructureHostsData(hosts, structuredHosts);
+};
+
+const restructureHostsData = (hosts, originalStructure) => {
+  const orgsIndex = originalStructure.findIndex(
     host => host.name === "Student Organizations"
   );
   const structuredOrgs = groupHosts(
     "org_type",
     hosts.org_types,
-    structuredHosts[orgsIndex].items
+    originalStructure[orgsIndex].items
   );
-  structuredHosts[orgsIndex].items = structuredOrgs;
+  originalStructure[orgsIndex].items = structuredOrgs;
 
   const coaIndex = structuredOrgs.findIndex(
     host => host.name === "Council of Organizations of the Ateneo"
@@ -39,10 +44,10 @@ const structureHosts = hosts => {
     hosts.clusters,
     structuredOrgs[coaIndex].items
   );
-  structuredHosts[orgsIndex].items[coaIndex].items = structuredCoa;
+  originalStructure[orgsIndex].items[coaIndex].items = structuredCoa;
 
-  return structuredHosts;
-};
+  return originalStructure;
+}
 
 const groupHosts = (hostKey, hosts, items) => {
   return items.reduce((current, item) => {

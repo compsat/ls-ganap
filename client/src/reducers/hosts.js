@@ -1,5 +1,4 @@
 import {
-  SELECT_HOST,
   FETCH_HOSTS_REQUEST,
   FETCH_HOSTS_SUCCESS,
   FETCH_HOSTS_FAILURE
@@ -12,16 +11,11 @@ const hosts = (
     event_hosts: [],
     clusters: [],
     org_types: [],
-    items: [],
-    activeHost: "All"
+    items: []
   },
   action
 ) => {
   switch (action.type) {
-    case SELECT_HOST:
-      return Object.assign({}, state, {
-        activeHost: action.name
-      });
     case FETCH_HOSTS_REQUEST:
       return Object.assign({}, state, {
         isFetching: true

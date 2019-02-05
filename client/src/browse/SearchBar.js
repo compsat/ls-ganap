@@ -45,19 +45,6 @@ const SearchField = AppText.withComponent(DebounceInput).extend.attrs({
 `
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: '',
-    }
-  }
-
-  handleQueryChange = (e) => {
-    const query = e.target.value;
-    this.setState({query});
-    this.props.onQueryChange({query});
-  }
-
   render() {
     return (
       <SearchForm className={this.props.className}>
@@ -69,8 +56,9 @@ class SearchBar extends Component {
             />
           </SearchIcon>
           <SearchField
-            value={this.state.query}
-            onChange={this.handleQueryChange}
+            value={this.props.query}
+            onChange={(e) => this.props.updateQuery(e.target.value)}
+            debounceTimeout={300}
           />
         </SearchFieldContainer>
       </SearchForm>

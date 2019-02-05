@@ -8,8 +8,8 @@ const HostWidgetList = styled(HostList)`
 `
 
 class HostFilterWidget extends Component {
-  setWidgetState = (hostName) => {
-    this.props.selectHost(hostName);
+  setWidgetState = (host) => {
+    this.props.selectHost(host);
   }
 
   componentDidMount = () => {
@@ -22,7 +22,7 @@ class HostFilterWidget extends Component {
         <HostWidgetList
           item={this.props.hosts}
           parentActiveHost=""
-          setActiveHost={this.setWidgetState}
+          setActiveHost={this.props.selectHost}
         />
       </WidgetContainer>
     );

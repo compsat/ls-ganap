@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import SearchBar from "./SearchBar";
-import FilterBarContainer from "../containers/FilterBarContainer";
-import MediaCard from "../components/MediaCard";
-import AppSubheading from "../components/AppSubheading";
-import AppText from "../components/AppText";
 import { media } from "../style/style-utils";
+import InfiniteScroll from "react-infinite-scroller";
 import SVG from "react-inlinesvg";
+
+import SearchBarContainer from "../containers/SearchBarContainer";
+import FilterBarContainer from "../containers/FilterBarContainer";
+import AppText from "../components/AppText";
+import BrowseEventCardContainer from "../containers/BrowseEventCardContainer";
 
 const SearchHeader = styled.header`
   ${media.mdScreen`
@@ -15,7 +16,7 @@ const SearchHeader = styled.header`
   `}
 `;
 
-const BrowseSearchBar = styled(SearchBar)`
+const BrowseSearchBar = styled(SearchBarContainer)`
   ${media.mdScreen`
     width: 28em;
     margin: 0 auto;
@@ -41,9 +42,12 @@ const BrowseFilterBar = styled(FilterBarContainer)`
   `}
 `;
 
-const EventItemList = styled.ul`
+const ResultsContainer = styled.div`
   flex-grow: 1;
+  list-style-type: none;
 `;
+
+const NoResultsP = AppText.withComponent("p");
 
 const SpinnerIcon = styled(SVG)`
   display: block;
@@ -51,55 +55,41 @@ const SpinnerIcon = styled(SVG)`
   margin: 0 auto;
 `;
 
-const BrowseMediaCard = styled(MediaCard)`
-  min-height: 12em;
-  margin-bottom: 1em;
-`;
-
-const MediaCardHostP = AppText.withComponent("p").extend`
-  margin-bottom: 1em;
-`;
-
 class BrowseView extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hasMounted: false,
+    };
+  }
+
   componentDidMount() {
     this.props.fetchVenues();
-    this.props.fetchEvents();
+    this.props.fetchEvents({
+      ...this.props.filters,
+      page: 1,
+    });
+    this.setState({ hasMounted: true });
   }
 
-  getItemProp = (arr, id, prop, fallbackValue) => {
-    const item = arr.find(item => item.id === id);
+  componentDidUpdate(prevProps) {
+    if (prevProps.filters === this.props.filters) return;
 
-    return item ? item[prop] : fallbackValue;
-  };
-
-  formatHosts = hostIds => {
-    const hostNames = hostIds.map(hostId =>
-      this.getItemProp(this.props.hosts.items, hostId, "name")
-    );
-
-    return `Hosted by ${hostNames[0]} and ${hostNames.length -
-      1} other${hostNames.length - 1 > 1 && "s"}`;
-  };
-
-  formatDate(date) {
-    const dateObject = new Date(date);
-    const dateString = dateObject.toDateString().substr(4);
-
-    return dateString.replace(/ (?=[^ ]*$)/, ", ");
+    this.props.fetchEvents({
+      ...this.props.filters,
+      page: 1,
+    });
   }
 
-  formatTime(time) {
-    const [hours, mins] = time.split(":");
-    const timeStringOptions = {
-      hour12: true,
-      hour: "numeric",
-      minute: "2-digit"
-    };
-    const timeContainer = new Date();
+  loadMoreEvents = () => {
+    if (!this.state.hasMounted) return;
+    if (this.props.entities.events.isFetching) return;
 
-    timeContainer.setHours(hours, mins);
-
-    return timeContainer.toLocaleTimeString("en-US", timeStringOptions);
+    this.props.fetchEvents({
+      ...this.props.filters,
+      page: this.props.entities.events.page + 1,
+    });
   }
 
   render() {
@@ -110,43 +100,26 @@ class BrowseView extends Component {
         </SearchHeader>
         <MainContentBox>
           <BrowseFilterBar />
-          {!this.props.events.isFetching ? (
-            <EventItemList>
-              {this.props.events.items.map(event => (
-                <li key={event.id}>
-                  <BrowseMediaCard
-                    portrait
-                    horizontal
-                    imgSrc={event.poster_url}
-                    imgAlt={event.name}
-                  >
-                    <AppSubheading size="1">{event.name}</AppSubheading>
-                    <MediaCardHostP>
-                      {this.formatHosts([
-                        ...event.org_hosts,
-                        ...event.office_hosts,
-                        ...event.sanggu_hosts
-                      ])}
-                    </MediaCardHostP>
-                    <p>{this.formatDate(event.event_logistics[0].date)}</p>
-                    <p>
-                      {this.formatTime(event.event_logistics[0].start_time)}
-                    </p>
-                    <p>
-                      {this.getItemProp(
-                        this.props.venues.items,
-                        event.event_logistics[0].venue,
-                        "name",
-                        event.event_logistics[0].outside_venue_name
-                      )}
-                    </p>
-                  </BrowseMediaCard>
-                </li>
-              ))}
-            </EventItemList>
-          ) : (
-            <SpinnerIcon src={require("../assets/icon-spinner.svg")} />
-          )}
+          <ResultsContainer>
+            {this.props.entities.events.isFetching ||
+              this.props.entities.events.items.length > 0
+              ? (
+                <InfiniteScroll
+                  loadMore={this.loadMoreEvents}
+                  hasMore={!this.props.entities.events.failedToFetch}
+                  loader={<SpinnerIcon src={require("../assets/icon-spinner.svg")} />}
+                >
+                  {this.props.entities.events.items.map(event => (
+                    <li key={event.id}>
+                      <BrowseEventCardContainer event={event} />
+                    </li>
+                  ))}
+                </InfiniteScroll>
+              ) : (
+                <NoResultsP align="center">No events found.</NoResultsP>
+              )
+            }
+          </ResultsContainer>
         </MainContentBox>
       </main>
     );

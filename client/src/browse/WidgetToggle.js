@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import InvisibleToggle from './InvisibleToggle';
+import AppBorder from '../components/AppBorder';
 import AppSubheading from '../components/AppSubheading';
 import { media } from '../style/style-utils';
 import SVG from 'react-inlinesvg';
@@ -9,7 +10,7 @@ const WidgetToggleContainer = styled.fieldset`
 
 `
 
-const ToggleContainer = styled.div`
+const ToggleContainer = AppBorder.extend`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,7 +23,7 @@ const WidgetToggleTextContainer = styled.div`
 `
 
 const WidgetToggleLegend = AppSubheading.withComponent('legend').extend.attrs({
-  size: -2,
+  size: -1,
 })`
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -40,14 +41,23 @@ const ArrowIcon = styled(SVG)`
   margin: 0 .5em;
   transform: ${props => props.checked ? 'rotate(-90deg)' : 'rotate(90deg)'};
   pointer-events: none;
+
+  ${media.mdScreen`
+    display: none;
+  `}
 `
 
 const TogglableWidget = styled.div`
   position: absolute;
   z-index: 1;
   left: 0;
-  width: calc(100% + ${props => props.theme.sizes.borderWidth});
+  width: 100%;
   visibility: ${props => props.visible ? 'visible' : 'hidden'};
+
+  ${media.mdScreen`
+    position: relative;
+    visibility: visible;
+  `}
 `
 
 class WidgetToggle extends Component {
