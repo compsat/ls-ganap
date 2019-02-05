@@ -124,7 +124,7 @@ class OrgHost(models.Model):
 	logo_url = models.ImageField(upload_to='images/', blank=True)
 	event_host = models.ForeignKey(EventHost, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
 	org_type = models.ForeignKey(OrgType, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
-	cluster = models.ForeignKey(Cluster, blank=True, related_name='org_list', on_delete=models.DO_NOTHING)
+	cluster = models.ForeignKey(Cluster, blank=True, null=True, related_name='org_list', on_delete=models.DO_NOTHING)
 
 	def __str__(self):
 		return self.name
