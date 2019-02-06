@@ -9,6 +9,7 @@ const Card = styled.article`
   box-shadow: 0 .1em .6em rgba(0,0,0,.16);
   background: #fcfcfc;
   width: 200px;
+  height: 100%;
 
   ${media.mdScreen`
     width: 100%;
