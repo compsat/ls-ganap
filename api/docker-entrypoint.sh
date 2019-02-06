@@ -25,17 +25,6 @@ python3 manage.py loaddata venues.yaml
 python3 manage.py loaddata mock_events.yaml
 python3 manage.py loaddata mock_event_logistics.yaml
 
-# Create superuser
-echo "Create superuser"
-python manage.py shell << END
-from django.contrib.auth import get_user_model
-User = get_user_model()
-if not User.objects.filter(email='ls_ganap123@gmail.com'):
-    User.objects.create_superuser('ls_ganap123@gmail.com', 'ilovecompsat')
-if not User.objects.filter(email='test@obf.ateneo.edu'):  
-    User.objects.create_user('test@obf.ateneo.edu', 'test123')
-END
-
 # Start server
 echo "Starting server"
 python3 manage.py runserver 0.0.0.0:8000
