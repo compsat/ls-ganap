@@ -8,11 +8,6 @@ const Card = styled.article`
   border-radius: .3em;
   box-shadow: 0 .1em .6em rgba(0,0,0,.16);
   background: #fcfcfc;
-  max-width: 200px;
-
-  ${media.mdScreen`
-    width: 100%;
-  `}
 `;
 
 const CardImage = styled.div`
