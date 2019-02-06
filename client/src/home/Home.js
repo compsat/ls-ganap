@@ -10,18 +10,11 @@ import { media } from '../style/style-utils';
 
 const CardsSection = styled.div`
   background-color: ${props => props.color};
-  padding: 2em 0;
+  padding: 4em 0;
 
   ${media.mdScreen`
     margin-left: calc((100% - 100vw)/2);
     margin-right: calc((100% - 100vw)/2);
-  `}
-`;
-
-const TitleContainer = styled.div`
-  ${media.mdScreen`
-    width: 75%;
-    margin: auto;
   `}
 `;
 
@@ -42,10 +35,10 @@ const Subtitle = styled.h2`
 `;
 
 const TitleSection = (props) => (
-  <TitleContainer>
+  <PageContent>
     <MainTitle color={props.title_color}>{props.name}s</MainTitle>
     <Subtitle color={props.subtitle_color} show={props.show_subtitle}>Browse more {props.name} events</Subtitle>
-  </TitleContainer>
+  </PageContent>
 )
 
 function FeaturedSection(props) {
@@ -185,28 +178,18 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <CardsSection>
-          <PageContent>
-            <FeaturedSection state={this.state} />
-          </PageContent>
-        </CardsSection>
+        <FeaturedSection state={this.state} />
         <CardsSection color="#81C0BB">
-          <PageContent>
-            <TitleSection name="Upcoming Event" show_subtitle="false" title_color="#F8FFEB"/>
-            <EventsSection state={this.state} />
-          </PageContent>
+          <TitleSection name="Upcoming Event" show_subtitle="false" title_color="#F8FFEB"/>
+          <EventsSection state={this.state} />
         </CardsSection>
         <CardsSection color="#FFE5CB">
-          <PageContent>
-            <TitleSection name="Organization" title_color="#E09850" subtitle_color="#7E6A56"/>
-            <OrgsSection orgs={this.state.orgs} />
-          </PageContent>
+          <TitleSection name="Organization" title_color="#E09850" subtitle_color="#7E6A56"/>
+          <OrgsSection orgs={this.state.orgs} />
         </CardsSection>
         <CardsSection color="#945858">
-          <PageContent>
-            <TitleSection name="Office" title_color="#FEF5EA" subtitle_color="#573030"/>
-            <OfficesSection offices={this.state.offices} />
-          </PageContent>
+          <TitleSection name="Office" title_color="#FEF5EA" subtitle_color="#573030"/>
+          <OfficesSection offices={this.state.offices} />
         </CardsSection>
       </div>
     );

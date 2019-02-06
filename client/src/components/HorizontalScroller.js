@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import animateScrollTo from 'animated-scroll-to'
 import theme from '../style/style-theme';
 import { media } from '../style/style-utils';
-import FullWidthContainer from './FullWidthContainer';
+import PageContent from '../components/PageContent';
 import ArrowButton from './ArrowButton';
 
 const ScrollerContainer = styled.div`
@@ -15,7 +15,7 @@ const ScrollerContainer = styled.div`
   `}
 `;
 
-const ScrollList = styled.ul`
+const ScrollList = styled(PageContent)`
   ${props => getHorizontalScrollerDisplay(props.display)};
   --item-width: 9em;
   --item-spacing: 1em;
@@ -25,11 +25,9 @@ const ScrollList = styled.ul`
   padding: 0 calc((100vw - var(--item-width) - var(--item-spacing))/2);
 
   ${media.mdScreen`
-    --item-width: calc((100% - var(--item-display)*var(--item-spacing))/
-      var(--item-display));
+    --item-width: calc(100%/var(--item-display));
 
     display: flex;
-    width: 75%;
     padding: 0;
     overflow-x: hidden;
   `}
