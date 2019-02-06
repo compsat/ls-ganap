@@ -42,7 +42,8 @@ const restructureHostsData = (hosts, originalStructure) => {
   const structuredCoa = groupHosts(
     "cluster",
     hosts.clusters,
-    structuredOrgs[coaIndex].items
+    // Exclude COA from final restructuring
+    structuredOrgs[coaIndex].items.filter((item) => item.id !== 54)
   );
   originalStructure[orgsIndex].items[coaIndex].items = structuredCoa;
 
