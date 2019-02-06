@@ -54,12 +54,12 @@ function FeaturedSection(props) {
     return (
       <ScrollerSection
         name="featured"
-        card_type="featured" 
-        cards_display="1" 
+        card_type="featured"
+        cards_display="1"
         featured_events={props.state.featured_events}
-        venues={props.state.venues} 
+        venues={props.state.venues}
         orgs={props.state.orgs}
-        sanggu={props.state.sanggu} 
+        sanggu={props.state.sanggu}
         offices={props.state.offices} />
     );
   }
@@ -70,14 +70,14 @@ function EventsSection(props) {
   const isLoaded = props.state.venues && props.state.orgs && props.state.sanggu && props.state.offices && props.state.events;
   if (isLoaded) {
     return (
-      <ScrollerSection 
+      <ScrollerSection
         name="events"
-        card_type="event" 
-        cards_display="3" 
+        card_type="event"
+        cards_display="3"
         events={props.state.events}
-        venues={props.state.venues} 
+        venues={props.state.venues}
         orgs={props.state.orgs}
-        sanggu={props.state.sanggu} 
+        sanggu={props.state.sanggu}
         offices={props.state.offices} />
     );
   }
@@ -90,8 +90,8 @@ function OrgsSection(props) {
     return (
       <ScrollerSection
         name="orgs"
-        card_type="profile" 
-        cards_display="5" 
+        card_type="profile"
+        cards_display="5"
         orgs={props.orgs} />
     );
   }
@@ -104,8 +104,8 @@ function OfficesSection(props) {
     return (
       <ScrollerSection
         name="offices"
-        card_type="profile" 
-        cards_display="5" 
+        card_type="profile"
+        cards_display="5"
         offices={props.offices} />
     );
   }
@@ -119,12 +119,12 @@ class Home extends Component {
   }
 
   componentWillMount(){
-    var venues_url = 'http://ls-ganap-api.herokuapp.com/venues/'
-    var orgs_url = 'http://ls-ganap-api.herokuapp.com/orgs/'
-    var sanggu_url = 'http://ls-ganap-api.herokuapp.com/sanggu/'
-    var offices_url = 'http://ls-ganap-api.herokuapp.com/offices/'
-    var events_url = 'http://ls-ganap-api.herokuapp.com/events/'
-    var featured_events_url = 'http://ls-ganap-api.herokuapp.com/events/'
+    var venues_url = '/venues'
+    var orgs_url = '/orgs'
+    var sanggu_url = '/sanggu'
+    var offices_url = '/offices'
+    var events_url = '/events'
+    var featured_events_url = '/events'
 
     axios.all([
       axios.get(venues_url),
