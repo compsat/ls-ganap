@@ -22,8 +22,9 @@ python3 manage.py loaddata offices.yaml
 python3 manage.py loaddata sanggu.yaml
 # python3 manage.py loaddata test.yaml
 python3 manage.py loaddata venues.yaml
-python3 manage.py loaddata mock_events.yaml
-python3 manage.py loaddata mock_event_logistics.yaml
+python3 manage.py loaddata new_mock_events.yaml
+# python3 manage.py loaddata mock_events.yaml
+# python3 manage.py loaddata mock_event_logistics.yaml
 
 # Start server
 echo "Starting server"
