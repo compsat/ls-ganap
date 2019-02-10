@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ScrollerSection from './ScrollerSection';
 import styled from 'styled-components';
-import FullWidthContainer from '../components/FullWidthContainer';
-import PageContent from '../components/PageContent';
-import Loading from '../components/Loading';
+import FullWidthContainer from '../common/FullWidthContainer';
+import PageContent from '../common/PageContent';
+import Loading from '../common/Loading';
 import axios from 'axios'
 import { media } from '../style/style-utils';
 

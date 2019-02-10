@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card.js'
-import HorizontalScroller from '../components/HorizontalScroller.js';
+import HorizontalScroller from '../common/HorizontalScroller.js';
 
 class ScrollerSection extends Component {
   constructor(props){
@@ -37,8 +37,8 @@ class ScrollerSection extends Component {
         // Change sanggu ID to org name for each sanggu_host
         for (var officeId_key in event.office_hosts){
           var officeId = event.office_hosts[officeId_key]
-          event.office_hosts[officeId_key] = this.props.offices[officeId].abbreviation 
-          event.all_hosts.push(this.props.offices[officeId].abbreviation)        
+          event.office_hosts[officeId_key] = this.props.offices[officeId].abbreviation
+          event.all_hosts.push(this.props.offices[officeId].abbreviation)
         }
 
         // Format each in event_logistics
@@ -54,7 +54,7 @@ class ScrollerSection extends Component {
         }
 
         temp_items.push(event);
-        
+
       }
     }
 
@@ -75,7 +75,7 @@ class ScrollerSection extends Component {
       console.log('ITEMS', items);
       this.setState({ items });
     }
-    
+
     if (this.props.name === 'orgs') {
       var orgs = this.props.orgs
       var items = []
@@ -83,7 +83,7 @@ class ScrollerSection extends Component {
         items.push(orgs[org_key]);
       }
       this.setState({ items });
-    } 
+    }
 
     if (this.props.name === 'offices') {
       var offices = this.props.offices
@@ -92,16 +92,16 @@ class ScrollerSection extends Component {
         items.push(offices[offices_key])
       }
       this.setState({ items });
-    } 
+    }
   }
 
   render() {
     return(
       <HorizontalScroller display={this.props.cards_display}>
         {this.state.items.map(item => (
-          <Card 
-            key={item.id} 
-            item={item} 
+          <Card
+            key={item.id}
+            item={item}
             card_type={this.props.card_type} />
         ))}
       </HorizontalScroller>

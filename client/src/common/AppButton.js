@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 import theme from "../style/style-theme";
-import AppText from "../components/AppText";
+import AppText from "../common/AppText";
 
 const AppButtonActive = css`
   background: ${theme.colors.accent};

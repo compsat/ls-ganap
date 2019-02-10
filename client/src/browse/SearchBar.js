@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { DebounceInput } from 'react-debounce-input';
-import AppBorder from '../components/AppBorder';
-import AppText from '../components/AppText';
+import AppBorder from '../common/AppBorder';
+import AppText from '../common/AppText';
 import { media } from '../style/style-utils';
 import SVG from 'react-inlinesvg';
 

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import InvisibleToggle from './InvisibleToggle';
-import AppBorder from '../components/AppBorder';
-import AppSubheading from '../components/AppSubheading';
+import AppBorder from '../common/AppBorder';
+import AppSubheading from '../common/AppSubheading';
 import { media } from '../style/style-utils';
 import SVG from 'react-inlinesvg';
 

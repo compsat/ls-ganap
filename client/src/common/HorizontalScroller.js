@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import animateScrollTo from 'animated-scroll-to'
 import theme from '../style/style-theme';
 import { media } from '../style/style-utils';
-import PageContent from '../components/PageContent';
+import PageContent from '../common/PageContent';
 import ArrowButton from './ArrowButton';
 
 const ScrollerContainer = styled.div`

@@ -6,12 +6,12 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from "redux-logger";
 import rootReducer from './reducers';
 import Loadable from 'react-loadable';
-import Loading from './components/Loading';
+import Loading from './common/Loading';
 import { ThemeProvider } from 'styled-components';
 import theme from './style/style-theme';
-import MainNav from './components/MainNav';
-import PageContent from './components/PageContent';
-import Footer from './components/Footer';
+import MainNav from './common/MainNav';
+import PageContent from './common/PageContent';
+import Footer from './common/Footer';
 
 const store = createStore(
   rootReducer,
@@ -23,8 +23,8 @@ const Home = Loadable({
   loading: Loading,
 });
 
-const BrowseView = Loadable({
-  loader: () => import('./containers/BrowseViewContainer'),
+const Browse = Loadable({
+  loader: () => import('./containers/BrowseContainer'),
   loading: Loading,
 });
 
@@ -43,7 +43,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Provider store={store}>
-                  <Route path="/browse" component={BrowseView} />
+                  <Route path="/browse" component={Browse} />
                 </Provider>
               </Switch>
             </MainContent>

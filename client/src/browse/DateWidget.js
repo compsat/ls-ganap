@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import WidgetContainer from "./WidgetContainer";
-import AppRadio from "../components/AppRadio";
+import AppRadio from "../common/AppRadio";
 
 const DateWidgetChoice = AppRadio.extend`
   display: block;
