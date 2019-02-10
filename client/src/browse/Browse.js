@@ -6,7 +6,7 @@ import SVG from "react-inlinesvg";
 
 import SearchBarContainer from "../containers/SearchBarContainer";
 import FilterBarContainer from "../containers/FilterBarContainer";
-import AppText from "../components/AppText";
+import AppText from "../common/AppText";
 import BrowseEventCardContainer from "../containers/BrowseEventCardContainer";
 
 const SearchHeader = styled.header`

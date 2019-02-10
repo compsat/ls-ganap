@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import InvisibleToggle from './InvisibleToggle';
-import AppRadio from '../components/AppRadio';
+import AppRadio from '../common/AppRadio';
 
 const List = styled.ul`
   margin-left: 1.5em;

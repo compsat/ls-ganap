@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { format } from "date-fns";
 
-import BrowseView from "../browse/BrowseView";
+import Browse from "../browse/Browse";
 import { fetchEvents } from "../actions/events";
 import { fetchVenues } from "../actions/venues";
 
@@ -11,16 +11,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchEvents: ({
-    host,
-    tags,
-    dateRange,
-    query,
-    page
-  }) => {
+  fetchEvents: ({ host, tags, dateRange, query, page }) => {
     let params = {};
 
-    params = withParam(host, params, (newParams) => {
+    params = withParam(host, params, newParams => {
       if (host.hostGroupId) {
         newParams["host_query"] = host.hostGroupId;
       } else {
@@ -29,11 +23,11 @@ const mapDispatchToProps = dispatch => ({
 
       return newParams;
     });
-    params = withParam(tags, params, (newParams) => ({
+    params = withParam(tags, params, newParams => ({
       ...newParams,
-      tags,
+      tags
     }));
-    params = withParam(dateRange, params, (newParams) => {
+    params = withParam(dateRange, params, newParams => {
       if (dateRange.startDate) {
         newParams["start_date"] = format(dateRange.startDate, "YYYY-MM-DD");
       }
@@ -44,16 +38,16 @@ const mapDispatchToProps = dispatch => ({
 
       return newParams;
     });
-    params = withParam(query, params, (newParams) => ({
+    params = withParam(query, params, newParams => ({
       ...newParams,
-      search: query,
+      search: query
     }));
-    params = withParam(page, params, (newParams) => ({
+    params = withParam(page, params, newParams => ({
       ...newParams,
-      page,
+      page
     }));
 
-    dispatch(fetchEvents(params))
+    dispatch(fetchEvents(params));
   },
   fetchVenues: () => dispatch(fetchVenues())
 });
@@ -66,9 +60,9 @@ const withParam = (param, paramsObject, callback) => {
   } else {
     return callback(paramsObject);
   }
-}
+};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(BrowseView);
+)(Browse);

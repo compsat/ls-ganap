@@ -5,7 +5,7 @@ import WidgetToggle from './WidgetToggle';
 import HostWidgetContainer from '../containers/HostWidgetContainer';
 import TagsWidgetContainer from '../containers/TagsWidgetContainer';
 import DateWidgetContainer from '../containers/DateWidgetContainer';
-import AppBorder from '../components/AppBorder';
+import AppBorder from '../common/AppBorder';
 
 const FilterBarContainer = AppBorder.extend`
   position: relative;

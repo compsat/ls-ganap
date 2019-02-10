@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import MediaCard from "../components/MediaCard";
-import AppSubheading from "../components/AppSubheading";
-import AppText from "../components/AppText";
-import AppButton from "../components/AppButton";
+import MediaCard from "../common/MediaCard";
+import AppSubheading from "../common/AppSubheading";
+import AppText from "../common/AppText";
+import AppButton from "../common/AppButton";
 
 const BrowseMediaCard = styled(MediaCard)`
   min-height: 12em;

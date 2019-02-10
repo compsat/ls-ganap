@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import InvisibleToggle from './InvisibleToggle';
 import WidgetContainer from './WidgetContainer';
-import AppButton from "../components/AppButton";
+import AppButton from "../common/AppButton";
 
 const TagLi = styled.li`
   display: inline-block;
