@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import cloudinary
 import os
 from datetime import datetime, timedelta
-from decouple import config
+from decouple import config, Csv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'rest_framework_jwt', 
     'cloudinary_storage', 
-    'cloudinary', 
+    'cloudinary',
+    'corsheaders',
 ]
 
 AUTH_USER_MODEL = 'main_events.User'
@@ -110,12 +111,15 @@ JWT_AUTH = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
 
 ROOT_URLCONF = 'ls_ganap.urls'
 
