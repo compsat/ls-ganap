@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { media } from "../style/style-utils";
 import InfiniteScroll from "react-infinite-scroller";
-import SVG from "react-inlinesvg";
 
 import SearchBarContainer from "../containers/SearchBarContainer";
 import FilterBarContainer from "../containers/FilterBarContainer";
 import AppText from "../common/AppText";
-import BrowseEventCardContainer from "../containers/BrowseEventCardContainer";
+import Loading from '../common/Loading';
 
 const SearchHeader = styled.header`
   ${media.mdScreen`
@@ -48,12 +47,6 @@ const ResultsContainer = styled.div`
 `;
 
 const NoResultsP = AppText.withComponent("p");
-
-const SpinnerIcon = styled(SVG)`
-  display: block;
-  width: 2em;
-  margin: 0 auto;
-`;
 
 class BrowseView extends Component {
   constructor(props) {
@@ -107,7 +100,7 @@ class BrowseView extends Component {
                 <InfiniteScroll
                   loadMore={this.loadMoreEvents}
                   hasMore={!this.props.entities.events.failedToFetch}
-                  loader={<SpinnerIcon src={require("../assets/icon-spinner.svg")} />}
+                  loader={<Loading />}
                 >
                   {this.props.entities.events.items.map(event => (
                     <li key={event.id}>
