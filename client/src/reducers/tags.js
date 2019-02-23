@@ -2,7 +2,7 @@ import {
   FETCH_TAGS_REQUEST,
   FETCH_TAGS_SUCCESS,
   FETCH_TAGS_FAILURE
-} from "../actions/tags";
+} from "actions/tags";
 
 const tags = (
   state = {

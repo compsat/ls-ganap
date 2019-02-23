@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import theme from './style-theme';
+import theme from 'style/style-theme';
 
 export const media = Object.keys(theme.breakpoints).reduce((acc, label) => {
     acc[label] = (...args) => css`

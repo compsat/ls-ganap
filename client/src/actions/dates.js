@@ -1,4 +1,4 @@
-import { fetchEvents } from "./events";
+import { fetchEvents } from "actions/events";
 
 export const selectDateRange = dateRange => {
   return dispatch => {

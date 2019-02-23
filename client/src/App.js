@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from "redux-logger";
-import rootReducer from './reducers';
+import rootReducer from 'reducers';
 import Loadable from 'react-loadable';
-import Loading from './common/Loading';
+import Loading from 'components/common/Loading';
 import { ThemeProvider } from 'styled-components';
-import theme from './style/style-theme';
-import MainNav from './common/MainNav';
-import PageContent from './common/PageContent';
-import Footer from './common/Footer';
+import theme from 'style/style-theme';
+import MainNav from 'components/common/MainNav';
+import PageContent from 'components/common/PageContent';
+import Footer from 'components/common/Footer';
 
 const store = createStore(
   rootReducer,
@@ -19,12 +19,12 @@ const store = createStore(
 );
 
 const Home = Loadable({
-  loader: () => import('./home/Home'),
+  loader: () => import('components/routes/home/Home'),
   loading: Loading,
 });
 
 const Browse = Loadable({
-  loader: () => import('./containers/BrowseContainer'),
+  loader: () => import('containers/browse/BrowseContainer'),
   loading: Loading,
 });
 

@@ -3,7 +3,7 @@ import {
   TOGGLE_TAG,
   SET_DATE_RANGE,
   UPDATE_QUERY
-} from "../actions/filters";
+} from "actions/filters";
 
 const filters = (
   state = {
