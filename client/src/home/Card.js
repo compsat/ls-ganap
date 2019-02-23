@@ -1,5 +1,7 @@
 import React from 'react';
-import HomeMediaCard from '../home/HomeMediaCard.js';
+import AppCardBase from '../common/AppCardBase';
+import AppCardImage from '../common/AppCardImage';
+import AppCardTextBox from '../common/AppCardTextBox';
 import FeaturedCard from './FeaturedCard'
 import styled from 'styled-components';
 
@@ -21,21 +23,36 @@ const ProfileCardTitle = CardTitle.extend`
 `;
 
 const EventCard = (props) => (
-    <HomeMediaCard imgSrc={props.item.poster_url} imgAlt={props.item.photo_alt}>
-        <CardTitle>{props.item.name}</CardTitle>
-        <CardDetails>
-            <p>{props.item.event_logistics[0].date};
-                {props.item.event_logistics[0].start_time}-{props.item.event_logistics[0].end_time}</p>
-            <p>{props.item.event_logistics[0].venue}</p>
-            <p>{props.item.all_hosts.join(', ')}</p>
-        </CardDetails>
-    </HomeMediaCard>
+    <AppCardBase>
+        <AppCardImage
+            src={props.item.poster_url}
+            aspectRatio={4/3}
+            alt={props.item.photo_alt}
+        />
+        <AppCardTextBox lines="5">
+            <CardTitle>{props.item.name}</CardTitle>
+            <CardDetails>
+                <p>{props.item.event_logistics[0].date};
+                    {props.item.event_logistics[0].start_time}-{props.item.event_logistics[0].end_time}</p>
+                <p>{props.item.event_logistics[0].venue}</p>
+                <p>{props.item.all_hosts.join(', ')}</p>
+            </CardDetails>
+        </AppCardTextBox>
+    </AppCardBase>
 );
 
 const ProfileCard = (props) => (
-    <HomeMediaCard imgHeight="100px" imgSrc={props.item.logo_url} imgAlt={props.item.photo_alt} imgSize='188px'>
-        <ProfileCardTitle>{props.item.name}</ProfileCardTitle>
-    </HomeMediaCard>
+    <AppCardBase>
+        <AppCardImage
+            src={props.item.logo_url}
+            size={"75%"}
+            aspectRatio={1}
+            alt={props.item.photo_alt}
+        />
+        <AppCardTextBox lines="3">
+            <ProfileCardTitle>{props.item.name}</ProfileCardTitle>
+        </AppCardTextBox>
+    </AppCardBase>
 );
 
 const Card = (props) => {
