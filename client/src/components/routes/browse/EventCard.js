@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { media } from 'style/style-utils';
-import AppCard from 'components/common/AppCard';
 import AppCardBase from 'components/common/AppCardBase';
 import AppCardImage from 'components/common/AppCardImage';
 import AppCardTextBox from 'components/common/AppCardTextBox';

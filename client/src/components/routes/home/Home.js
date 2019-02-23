@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ScrollerSection from 'components/routes/home/ScrollerSection';
 import styled from 'styled-components';
-import FullWidthContainer from 'components/common/FullWidthContainer';
 import PageContent from 'components/common/PageContent';
 import Loading from 'components/common/Loading';
 import axios from 'axios'
