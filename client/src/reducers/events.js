@@ -2,7 +2,7 @@ import {
   FETCH_EVENTS_REQUEST,
   FETCH_EVENTS_SUCCESS,
   FETCH_EVENTS_FAILURE
-} from "../actions/events";
+} from "actions/events";
 
 const events = (
   state = {

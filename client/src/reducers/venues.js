@@ -2,7 +2,7 @@ import {
   FETCH_VENUES_REQUEST,
   FETCH_VENUES_SUCCESS,
   FETCH_VENUES_FAILURE
-} from "../actions/venues";
+} from "actions/venues";
 
 const venues = (
   state = {

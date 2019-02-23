@@ -2,7 +2,7 @@ import {
   FETCH_HOSTS_REQUEST,
   FETCH_HOSTS_SUCCESS,
   FETCH_HOSTS_FAILURE
-} from "../actions/hosts";
+} from "actions/hosts";
 
 const hosts = (
   state = {
