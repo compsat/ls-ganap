@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import BrowseEventCard from "../browse/BrowseEventCard";
+import EventCard from "../browse/EventCard";
 
 const mapStateToProps = state => ({
   hosts: state.entities.hosts.items,
@@ -8,4 +8,4 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps
-)(BrowseEventCard);
+)(EventCard);

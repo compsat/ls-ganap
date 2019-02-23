@@ -6,6 +6,7 @@ import InfiniteScroll from "react-infinite-scroller";
 import SearchBarContainer from "../containers/SearchBarContainer";
 import FilterBarContainer from "../containers/FilterBarContainer";
 import AppText from "../common/AppText";
+import EventCardContainer from "../containers/EventCardContainer";
 import Loading from '../common/Loading';
 
 const SearchHeader = styled.header`
@@ -104,7 +105,7 @@ class BrowseView extends Component {
                 >
                   {this.props.entities.events.items.map(event => (
                     <li key={event.id}>
-                      <BrowseEventCardContainer event={event} />
+                      <EventCardContainer event={event} />
                     </li>
                   ))}
                 </InfiniteScroll>
