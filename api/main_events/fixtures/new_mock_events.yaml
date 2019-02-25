@@ -1,0 +1,543 @@
+# bluehacks
+- model: main_events.event
+  pk: 1
+  fields:
+    created_at: 2019-02-06 23:36
+    updated_at: 2019-02-06 23:36
+    name: Blue Hacks 2019
+    description: Blue Hacks 2019 is a two-day hackathon that provides an opportunity for students from different colleges and universities to apply their skills in developing applications that address relevant societal matters. 
+    is_approved: True
+    is_premium: False
+    event_url: http://bluehacks.compsat.org/
+    poster_url: "/images/Blue_Hacks_xkeqpw" 
+    tags: [1]
+    sanggu_hosts: []
+    office_hosts: [127]
+    org_hosts: [50]
+    created_by: 50
+
+- model: main_events.eventlogistic
+  pk: 1
+  fields:
+    event: 1
+    date: '2020-02-23'
+    start_time: '08:00:00'
+    end_time: '23:59:00'
+    venue:
+    outside_venue_name: "5th Floor Rizal Library"
+- model: main_events.eventlogistic
+  pk: 2
+  fields:
+    event: 1
+    date: '2020-02-24'
+    start_time: '00:00:00'
+    end_time: '18:00:00'
+    venue:
+    outside_venue_name: "5th Floor Rizal Library"
+
+# SOM WEEK    
+- model: main_events.event
+  pk: 2
+  fields:
+    created_at: 2019-02-08 23:36
+    updated_at: 2019-02-08 23:36
+    name: JGSOM Week 2019
+    description:  Every year JGSOM (John Gokongwei School of Management) of the Ateneo de Manila University celebrates this weeklong event wherein the different school organizations showcase their talents and compete among each other.
+    is_approved: True
+    is_premium: False
+    event_url: https://www.facebook.com/JGSOMWeek/
+    poster_url: "https://res.cloudinary.com/dj3kdihst/image/upload/v1/media/images/JGSOM_Week_fp8gei" 
+    tags: [3]
+    sanggu_hosts: [61, 58]
+    office_hosts: []
+    org_hosts: [54]
+    created_by: 61
+
+- model: main_events.eventlogistic
+  pk: 3
+  fields:
+    event: 2
+    date: '2019-02-11'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 133
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 4
+  fields:
+    event: 2
+    date: '2019-02-12'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 133
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 5
+  fields:
+    event: 2
+    date: '2019-02-13'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 133
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 6
+  fields:
+    event: 2
+    date: '2019-02-14'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 133
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 7
+  fields:
+    event: 2
+    date: '2019-02-15'
+    start_time: '00:00:00'
+    end_time: '18:00:00'
+    venue: 133
+    outside_venue_name: ""
+
+
+# Locker Deadline 
+- model: main_events.event
+  pk: 3
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: DSWS Locker Deadline
+    description: Do not forget to empty your locker and remove the padlocks, or you will get a hold order.
+    is_approved: True
+    is_premium: False
+    poster_url: "/images/Locker_Registration_w7kxhj" 
+    event_url: ""
+    tags: [8, 2]
+    sanggu_hosts: [60, 58]
+    office_hosts: []
+    org_hosts: []
+    created_by: 60
+
+- model: main_events.eventlogistic
+  pk: 8
+  fields:
+    event: 3
+    date: '2019-05-18'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 37
+    outside_venue_name: ""
+
+
+# AJSS @ 50
+- model: main_events.event
+  pk: 4
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: AJSS @ 50
+    description: 50th Ateneo Junior Summer Seminar (AJSS) Grand Reunion. Spread the word! The AJSS is excited to welcome you back to where it all began.
+    is_approved: True
+    is_premium: False
+    poster_url: "/images/AJSS_50_putrcp" 
+    event_url: bit.ly/AJSS50RSVP
+    tags: [5]
+    sanggu_hosts: []
+    office_hosts: [79, 115]
+    org_hosts: []
+    created_by: 115
+
+- model: main_events.eventlogistic
+  pk: 9
+  fields:
+    event: 4
+    date: '2019-06-02'
+    start_time: '11:00:00'
+    end_time: '17:00:00'
+    venue: 81
+    outside_venue_name: ""
+
+
+# Entablado play
+
+- model: main_events.event
+  pk: 5
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: Uyayi ng Ulan
+    description: Inihahandog ng Ateneo ENTABLADO ang Uyayi ng Ulan, sa panulat ni Nicolas Pichay at sa direksyon ni Dr. Jerry Respeto.
+    is_approved: True
+    is_premium: False
+    poster_url: "/images/Uyayi_ng_Ulan_gtjdbg" 
+    event_url: https://www.facebook.com/ateneo.entablado/photos/pb.1625601137722251.-2207520000.1549465464./2275892869359738/?type=3&theater
+    tags: [8]
+    sanggu_hosts: []
+    office_hosts: []
+    org_hosts: [37]
+    created_by: 37
+
+- model: main_events.eventlogistic
+  pk: 10
+  fields:
+    event: 4
+    date: '2019-02-23'
+    start_time: '11:00:00'
+    end_time: '13:00:00'
+    venue: 104
+    outside_venue_name: ""
+
+# Never Too Late to Feel Great
+- model: main_events.event
+  pk: 6
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: Never Too Late to Feel Great
+    description: Make fitness and fun your resolution for this year by joining the “Never Too Late To Feel Great” Loyola Schools Fitness Programs. Enlistment will be ongoing from 21 January to 2 February 2019 on a first-come, first-served basis at the LS Office of Health Services, Room 105, Social Sciences Building.
+    is_approved: True
+    is_premium: False
+    poster_url: "images/Never_Too_Late_to_Feel_Great_skdstf" 
+    event_url: https://www.facebook.com/admuLSHS/photos/a.446380492076129/2072486076132221/?type=3&theater
+    tags: [2]
+    sanggu_hosts: []
+    office_hosts: [97, 112, 118]
+    org_hosts: []
+    created_by: 97
+
+- model: main_events.eventlogistic
+  pk: 11
+  fields:
+    event: 6
+    date: '2019-03-04'
+    start_time: '17:30:00'
+    end_time: '18:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 12
+  fields:
+    event: 6
+    date: '2019-03-05'
+    start_time: '17:30:00'
+    end_time: '18:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 13
+  fields:
+    event: 6
+    date: '2019-03-06'
+    start_time: '17:00:00'
+    end_time: '18:00:00'
+    venue: 136
+    outside_venue_name: ""
+
+# Kythe Bazaar
+- model: main_events.event
+  pk: 7
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: Kythe Bazaar
+    description: Join us as we continue to celebrate life in this year’s Kythe Bazaar. This will be happening on March 2-3, 2019 at the UP Town Centre Amphitheater! 
+    is_approved: True
+    is_premium: False
+    poster_url: "/images/Kythe_Bazaar_zqclb2" 
+    event_url: https://www.facebook.com/official.kytheateneo/photos/a.230722233618846/2244509848906731/?type=3&theater
+    tags: [2]
+    sanggu_hosts: []
+    office_hosts: []
+    org_hosts: [39]
+    created_by: 39
+
+- model: main_events.eventlogistic
+  pk: 14
+  fields:
+    event: 7
+    date: '2019-03-02'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 
+    outside_venue_name: "UP Town Center Amphitheater"
+- model: main_events.eventlogistic
+  pk: 15
+  fields:
+    event: 7
+    date: '2019-03-03'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 
+    outside_venue_name: "UP Town Center Amphitheater"
+
+# bluehacks
+- model: main_events.event
+  pk: 8
+  fields:
+    created_at: 2019-02-06 23:36
+    updated_at: 2019-02-06 23:36
+    name: Blue Hacks 2019
+    description: Blue Hacks 2019 is a two-day hackathon that provides an opportunity for students from different colleges and universities to apply their skills in developing applications that address relevant societal matters. 
+    is_approved: True
+    is_premium: False
+    event_url: http://bluehacks.compsat.org/
+    poster_url: "" 
+    tags: [1]
+    sanggu_hosts: []
+    office_hosts: [127]
+    org_hosts: [50]
+    created_by: 50
+
+- model: main_events.eventlogistic
+  pk: 16
+  fields:
+    event: 8
+    date: '2019-02-23'
+    start_time: '08:00:00'
+    end_time: '23:59:00'
+    venue:
+    outside_venue_name: "5th Floor Rizal Library"
+- model: main_events.eventlogistic
+  pk: 17
+  fields:
+    event: 8
+    date: '2019-02-24'
+    start_time: '00:00:00'
+    end_time: '18:00:00'
+    venue:
+    outside_venue_name: "5th Floor Rizal Library"
+
+# SOM WEEK    
+- model: main_events.event
+  pk: 9
+  fields:
+    created_at: 2019-02-08 23:36
+    updated_at: 2019-02-08 23:36
+    name: JGSOM Week 2019
+    description:  Every year JGSOM (John Gokongwei School of Management) of the Ateneo de Manila University celebrates this weeklong event wherein the different school organizations showcase their talents and compete among each other.
+    is_approved: True
+    is_premium: False
+    event_url: https://www.facebook.com/JGSOMWeek/
+    poster_url: "../JGSOM_Week_fp8gei" 
+    tags: [3]
+    sanggu_hosts: [61, 58]
+    office_hosts: []
+    org_hosts: [54]
+    created_by: 61
+
+- model: main_events.eventlogistic
+  pk: 18
+  fields:
+    event: 9
+    date: '2019-02-11'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 133
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 19
+  fields:
+    event: 9
+    date: '2019-02-12'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 133
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 20
+  fields:
+    event: 9
+    date: '2019-02-13'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 133
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 21
+  fields:
+    event: 9
+    date: '2019-02-14'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 133
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 22
+  fields:
+    event: 9
+    date: '2019-02-15'
+    start_time: '00:00:00'
+    end_time: '18:00:00'
+    venue: 133
+    outside_venue_name: ""
+
+
+# Locker Deadline 
+- model: main_events.event
+  pk: 10
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: DSWS Locker Deadline
+    description: Do not forget to empty your locker and remove the padlocks, or you will get a hold order.
+    is_approved: True
+    is_premium: False
+    poster_url: "/images/Locker_Registration_png1zq" 
+    event_url: ""
+    tags: [8, 2]
+    sanggu_hosts: [60, 58]
+    office_hosts: []
+    org_hosts: []
+    created_by: 60
+
+- model: main_events.eventlogistic
+  pk: 23
+  fields:
+    event: 10
+    date: '2019-05-18'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 37
+    outside_venue_name: ""
+
+
+# AJSS @ 50
+- model: main_events.event
+  pk: 11
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: AJSS @ 50
+    description: 50th Ateneo Junior Summer Seminar (AJSS) Grand Reunion. Spread the word! The AJSS is excited to welcome you back to where it all began.
+    is_approved: True
+    is_premium: False
+    poster_url: "/images/AJSS_50_putrcp" 
+    event_url: bit.ly/AJSS50RSVP
+    tags: [5]
+    sanggu_hosts: []
+    office_hosts: [79, 115]
+    org_hosts: []
+    created_by: 115
+
+- model: main_events.eventlogistic
+  pk: 24
+  fields:
+    event: 11
+    date: '2019-06-02'
+    start_time: '11:00:00'
+    end_time: '17:00:00'
+    venue: 81
+    outside_venue_name: ""
+
+
+# Entablado play
+
+- model: main_events.event
+  pk: 12
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: Uyayi ng Ulan
+    description: Inihahandog ng Ateneo ENTABLADO ang Uyayi ng Ulan, sa panulat ni Nicolas Pichay at sa direksyon ni Dr. Jerry Respeto.
+    is_approved: True
+    is_premium: False
+    poster_url: "/images/Uyayi_ng_Ulan_gtjdbg" 
+    event_url: https://www.facebook.com/ateneo.entablado/photos/pb.1625601137722251.-2207520000.1549465464./2275892869359738/?type=3&theater
+    tags: [8]
+    sanggu_hosts: []
+    office_hosts: []
+    org_hosts: [37]
+    created_by: 37
+
+- model: main_events.eventlogistic
+  pk: 25
+  fields:
+    event: 12
+    date: '2019-02-23'
+    start_time: '11:00:00'
+    end_time: '13:00:00'
+    venue: 104
+    outside_venue_name: ""
+
+# Never Too Late to Feel Great
+- model: main_events.event
+  pk: 13
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: Never Too Late to Feel Great
+    description: Make fitness and fun your resolution for this year by joining the “Never Too Late To Feel Great” Loyola Schools Fitness Programs. Enlistment will be ongoing from 21 January to 2 February 2019 on a first-come, first-served basis at the LS Office of Health Services, Room 105, Social Sciences Building.
+    is_approved: True
+    is_premium: False
+    poster_url: "images/Never_Too_Late_to_Feel_Great_skdstf" 
+    event_url: https://www.facebook.com/admuLSHS/photos/a.446380492076129/2072486076132221/?type=3&theater
+    tags: [2]
+    sanggu_hosts: []
+    office_hosts: [97, 112, 118]
+    org_hosts: []
+    created_by: 97
+
+- model: main_events.eventlogistic
+  pk: 26
+  fields:
+    event: 13
+    date: '2019-03-04'
+    start_time: '17:30:00'
+    end_time: '18:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 27
+  fields:
+    event: 13
+    date: '2019-03-05'
+    start_time: '17:30:00'
+    end_time: '18:00:00'
+    venue: 136
+    outside_venue_name: ""
+- model: main_events.eventlogistic
+  pk: 28
+  fields:
+    event: 13
+    date: '2019-03-06'
+    start_time: '17:00:00'
+    end_time: '18:00:00'
+    venue: 136
+    outside_venue_name: ""
+
+# Kythe Bazaar
+- model: main_events.event
+  pk: 14
+  fields:
+    created_at: 2019-02-15 23:36
+    updated_at: 2019-02-15 23:36
+    name: Kythe Bazaar
+    description: Join us as we continue to celebrate life in this year’s Kythe Bazaar. This will be happening on March 2-3, 2019 at the UP Town Centre Amphitheater! 
+    is_approved: True
+    is_premium: False
+    poster_url: "/images/Kythe_Bazaar_zqclb2" 
+    event_url: https://www.facebook.com/official.kytheateneo/photos/a.230722233618846/2244509848906731/?type=3&theater
+    tags: [2]
+    sanggu_hosts: []
+    office_hosts: []
+    org_hosts: [39]
+    created_by: 39
+
+- model: main_events.eventlogistic
+  pk: 29
+  fields:
+    event: 14
+    date: '2019-03-02'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 
+    outside_venue_name: "UP Town Center Amphitheater"
+- model: main_events.eventlogistic
+  pk: 30
+  fields:
+    event: 14
+    date: '2019-03-03'
+    start_time: '08:00:00'
+    end_time: '17:00:00'
+    venue: 
+    outside_venue_name: "UP Town Center Amphitheater" 
