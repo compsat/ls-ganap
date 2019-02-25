@@ -200,11 +200,6 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
-# cloudinary.config( 
-#   cloud_name = "dj3kdihst", 
-#   api_key = "754783492635919", 
-#   api_secret = "VpXxn90G434iwhcjxrHMMRwbPMY" 
-# )
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUD_NAME'),
@@ -213,6 +208,12 @@ CLOUDINARY_STORAGE = {
 
 }
 
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    'localhost:3000','ls-ganap-api.herokuapp.com'
+
+]
 
 
 # Extra places for collectstatic to find static files.
