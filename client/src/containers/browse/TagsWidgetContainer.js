@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
-import { toggleTag } from 'actions/filters';
-import { fetchTags } from 'actions/tags';
+import { connect } from "react-redux";
+import { toggleTag } from "actions/filters";
+import { fetchTags } from "actions/tags";
 
-import TagsWidget from 'components/routes/browse/TagsWidget';
+import TagsWidget from "components/routes/browse/TagsWidget";
 
 const mapStateToProps = state => ({
   activeTags: state.filters.tags,
@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleTag: (tagId) => dispatch(toggleTag(tagId)),
+  toggleTag: tagId => dispatch(toggleTag(tagId)),
   fetchTags: () => dispatch(fetchTags())
 });
 

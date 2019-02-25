@@ -1,7 +1,7 @@
-import AppText from 'components/common//AppText';
+import AppText from "components/common/AppText";
 
 const AppHeading = AppText.extend`
-  font-family: 'Calluna';
+  font-family: "Calluna";
   font-weight: 900;
 `;
 

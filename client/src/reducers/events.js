@@ -6,6 +6,7 @@ import {
 
 const events = (
   state = {
+    hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
     items: [],
@@ -16,17 +17,27 @@ const events = (
   switch (action.type) {
     case FETCH_EVENTS_REQUEST:
       return Object.assign({}, state, {
+        hasInitiatedFetch: true,
         isFetching: true
       });
     case FETCH_EVENTS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.page === 1
-          ? action.events
-          : [
-            ...state.items,
-            ...action.events
-          ],
+        items:
+          action.page === 1
+            ? action.events.reduce((item, event) => {
+                return Object.assign(item, {
+                  [event.id]: event
+                });
+              }, {})
+            : {
+                ...state.items,
+                ...action.events.reduce((item, event) => {
+                  return Object.assign(item, {
+                    [event.id]: event
+                  });
+                }, {})
+              },
         page: action.page
       });
     case FETCH_EVENTS_FAILURE:

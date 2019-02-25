@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import InvisibleToggle from 'components/routes/browse/InvisibleToggle';
-import AppRadio from 'components/common/AppRadio';
+import React, { Component } from "react";
+import styled from "styled-components";
+
+import AppRadio from "components/common/AppRadio";
+import InvisibleToggle from "components/routes/browse/InvisibleToggle";
 
 const List = styled.ul`
   margin-left: 1.5em;
-`
+`;
 
 class HostList extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeHost: "",
+      activeHost: ""
     };
   }
 
@@ -22,7 +23,7 @@ class HostList extends Component {
 
     this.setState({ activeHost });
     this.props.setActiveHost(activeHost || this.props.parentActiveHost);
-  }
+  };
 
   render() {
     return (
@@ -32,7 +33,7 @@ class HostList extends Component {
             <AppRadio checked={this.state.activeHost.name === item.name}>
               <InvisibleToggle
                 checked={this.state.activeHost.name === item.name}
-                onChange={(e) => this.handleItemClick(e, item)}
+                onChange={e => this.handleItemClick(e, item)}
               />
               {item.name}
             </AppRadio>

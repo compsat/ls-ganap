@@ -3,14 +3,20 @@ import { interpolate } from "style/style-utils";
 
 const AppText = styled.span`
   font-family: "Nirmala UI";
-  ${props => interpolate(
-    "font-size",
-    `${props.theme.sizes.minSiteWidth}`,
-    `${props.theme.sizes.maxSiteWidth}`,
-    `${props.theme.type.minScale ** ((+props.size || 1) + 1) * 11}px`,
-    `${props.theme.type.maxScale ** ((+props.size || 1) + 1) * 11}px`
-  )};
-  text-align: ${props => props.align || "left"};
+  ${props =>
+    interpolate(
+      "font-size",
+      `${props.theme.sizes.minSiteWidth}`,
+      `${props.theme.sizes.maxSiteWidth}`,
+      `${props.theme.type.minScale ** ((+props.size || 1) + 1) * 11}px`,
+      `${props.theme.type.maxScale ** ((+props.size || 1) + 1) * 11}px`
+    )};
+  ${props =>
+    props.align &&
+    `
+    display: block;
+    text-align: ${props.align}
+  `};
 `;
 
 export default AppText;

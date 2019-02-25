@@ -1,10 +1,9 @@
 import { connect } from "react-redux";
-
 import FilterBar from "components/routes/browse/FilterBar";
 
 const mapStateToProps = state => ({
   host: state.filters.host.abbreviation || state.filters.host.name,
-  tags: state.entities.tags.items
+  tags: Object.values(state.entities.tags.items)
     .filter(tag => {
       return state.filters.tags.includes(tag.id);
     })

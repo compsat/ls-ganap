@@ -1,12 +1,15 @@
 import { connect } from "react-redux";
 import { format } from "date-fns";
 
-import Browse from "components/routes/browse/Browse";
 import { fetchEvents } from "actions/events";
-import { fetchVenues } from "actions/venues";
+import Browse from "components/routes/browse/Browse";
+import { makeCanDisplayEvents } from "selectors/eventsSelectors";
+
+const canDisplayEvents = makeCanDisplayEvents();
 
 const mapStateToProps = state => ({
-  entities: state.entities,
+  events: state.entities.events,
+  canDisplayEvents: canDisplayEvents(state),
   filters: state.filters
 });
 
@@ -48,8 +51,7 @@ const mapDispatchToProps = dispatch => ({
     }));
 
     dispatch(fetchEvents(params));
-  },
-  fetchVenues: () => dispatch(fetchVenues())
+  }
 });
 
 const withParam = (param, paramsObject, callback) => {

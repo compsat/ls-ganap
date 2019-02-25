@@ -5,6 +5,7 @@
   "dependencies": {
     "animated-scroll-to": "^1.2.2",
     "axios": "^0.18.0",
+    "camelcase": "^5.0.0",
     "date-fns": "^1.30.1",
     "react": "^16.4.0",
     "react-debounce-input": "^3.2.0",
@@ -18,6 +19,7 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "reset-css": "^4.0.1",
     "styled-components": "^3.3.2"
   },
