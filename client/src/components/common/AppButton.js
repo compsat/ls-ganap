@@ -1,31 +1,41 @@
-import { css } from 'styled-components';
-import theme from "style/style-theme";
+import { css } from "styled-components";
 import AppText from "components/common/AppText";
 
 const AppButtonActive = css`
-  background: ${theme.colors.accent};
-  color: ${theme.colors.white};
+  box-shadow: inset 0 0 999em rgba(0, 0, 0, 0.5);
 `;
 
 const AppButton = AppText.withComponent("button").extend`
   display: inline-block;
-  padding-top: .3em;
-  padding-right: .66em;
-  padding-left: .66em;
-  padding-bottom: .35em;
-  border-width: ${props => props.theme.sizes.borderWidth};
-  border-style: solid;
-  border-color: ${props => props.theme.colors.accent};
-  border-radius: .5em;
+  padding-top: .6em;
+  padding-right: .9em;
+  padding-left: .9em;
+  padding-bottom: .66em;
+  border-width: 0;
+  border-radius: .25em;
   margin-right: .5em;
   margin-bottom: .5em;
-  background: none;
-  color: ${props => props.theme.colors.accent};
+  ${props =>
+    props.empty
+      ? `
+    background: none;
+    color: #404937;
+  `
+      : `
+    background: #404937;
+    color: ${props.theme.colors.white};
+  `}
+  text-transform: uppercase;
+  text-decoration: none;
   outline: none;
   cursor: pointer;
 
-  &:hover { ${AppButtonActive} }
-  ${props => props.active && AppButtonActive }
+  ${props =>
+    !props.empty &&
+    `
+    &:hover { ${AppButtonActive} }
+    ${props.active && AppButtonActive}
+  `}
 `;
 
 export default AppButton;

@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import onClickOutside from 'react-onclickoutside';
-import WidgetToggle from 'components/routes/browse/WidgetToggle';
-import HostWidgetContainer from 'containers/browse/HostWidgetContainer';
-import TagsWidgetContainer from 'containers/browse/TagsWidgetContainer';
-import DateWidgetContainer from 'containers/browse/DateWidgetContainer';
-import AppBorder from 'components/common/AppBorder';
+import React, { Component } from "react";
+import styled from "styled-components";
+import onClickOutside from "react-onclickoutside";
+
+import AppBorder from "components/common/AppBorder";
+import WidgetToggle from "components/routes/browse/WidgetToggle";
+import HostWidgetContainer from "containers/browse/HostWidgetContainer";
+import TagsWidgetContainer from "containers/browse/TagsWidgetContainer";
+import DateWidgetContainer from "containers/browse/DateWidgetContainer";
 
 const FilterBarContainer = AppBorder.extend`
   position: relative;
@@ -25,55 +26,55 @@ class FilterBar extends Component {
     super(props);
 
     this.state = {
-      activeFilter: '',
-      host: '',
+      activeFilter: "",
+      host: "",
       tags: [],
-      date: '',
-    }
+      date: ""
+    };
   }
 
-  setFilterState = (state) => {
+  setFilterState = state => {
     this.props.onFiltersChange(state);
     this.setState(state);
-  }
+  };
 
   handleWidgetToggle = (e, label) => {
     const checked = e.target.checked;
     const activeFilter = checked ? label : "";
 
-    this.setState({activeFilter});
-  }
+    this.setState({ activeFilter });
+  };
 
-  handleClickOutside = (e) => {
-    this.setState({activeFilter: ''});
-  }
+  handleClickOutside = e => {
+    this.setState({ activeFilter: "" });
+  };
 
   render() {
     return (
       <FilterBarContainer className={this.props.className}>
         <FilterBarWidgetToggle
-          checked={this.state.activeFilter === 'Host'}
-          toggleHandler={(e) => this.handleWidgetToggle(e, 'Host')}
+          checked={this.state.activeFilter === "Host"}
+          toggleHandler={e => this.handleWidgetToggle(e, "Host")}
           label="Host"
           value={this.props.host}
         >
-          <HostWidgetContainer/>
+          <HostWidgetContainer />
         </FilterBarWidgetToggle>
         <FilterBarWidgetToggle
-          checked={this.state.activeFilter === 'Tags'}
-          toggleHandler={(e) => this.handleWidgetToggle(e, 'Tags')}
+          checked={this.state.activeFilter === "Tags"}
+          toggleHandler={e => this.handleWidgetToggle(e, "Tags")}
           label="Tags"
           value={this.props.tags}
         >
-          <TagsWidgetContainer/>
+          <TagsWidgetContainer />
         </FilterBarWidgetToggle>
         <FilterBarWidgetToggle
-          checked={this.state.activeFilter === 'Date'}
-          toggleHandler={(e) => this.handleWidgetToggle(e, 'Date')}
+          checked={this.state.activeFilter === "Date"}
+          toggleHandler={e => this.handleWidgetToggle(e, "Date")}
           label="Date"
           value={this.props.dateRange}
         >
-          <DateWidgetContainer/>
+          <DateWidgetContainer />
         </FilterBarWidgetToggle>
       </FilterBarContainer>
     );

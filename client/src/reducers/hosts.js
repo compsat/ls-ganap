@@ -6,37 +6,39 @@ import {
 
 const hosts = (
   state = {
+    hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
-    event_hosts: [],
-    clusters: [],
-    org_types: [],
-    items: []
+    sangguHosts: [],
+    officeHosts: [],
+    orgHosts: []
   },
   action
 ) => {
   switch (action.type) {
     case FETCH_HOSTS_REQUEST:
       return Object.assign({}, state, {
+        hasInitiatedFetch: true,
         isFetching: true
       });
     case FETCH_HOSTS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        event_hosts: action.event_host_types,
-        clusters: action.clusters,
-        org_types: action.org_types,
-        items: [
-          ...mixInProps(action.event_hosts.sanggu_list, {
-            event_host: 0
-          }),
-          ...mixInProps(action.event_hosts.office_list, {
-            event_host: 1
-          }),
-          ...mixInProps(action.event_hosts.org_list, {
-            event_host: 2
-          })
-        ]
+        orgHosts: action.orgHosts.reduce((item, orgHost) => {
+          return Object.assign(item, {
+            [orgHost.id]: orgHost
+          });
+        }, {}),
+        sangguHosts: action.sangguHosts.reduce((item, sangguHost) => {
+          return Object.assign(item, {
+            [sangguHost.id]: sangguHost
+          });
+        }, {}),
+        officeHosts: action.officeHosts.reduce((item, officeHost) => {
+          return Object.assign(item, {
+            [officeHost.id]: officeHost
+          });
+        }, {})
       });
     case FETCH_HOSTS_FAILURE:
       return Object.assign({}, state, {
@@ -46,14 +48,6 @@ const hosts = (
     default:
       return state;
   }
-};
-
-const mixInProps = (objArray, props) => {
-  return objArray.map(obj => ({
-    ...obj,
-    ...props,
-    active: false
-  }));
 };
 
 export default hosts;

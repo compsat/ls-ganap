@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import styled from "styled-components";
 import SVG from "react-inlinesvg";
 
@@ -10,9 +10,7 @@ const SpinnerIcon = styled(SVG)`
 
 class Loading extends Component {
   render() {
-    return (
-      <SpinnerIcon src={require("assets/icon-spinner.svg")} />
-    );
+    return <SpinnerIcon src={require("assets/icon-spinner.svg")} />;
   }
 }
 

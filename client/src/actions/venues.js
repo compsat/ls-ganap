@@ -17,16 +17,22 @@ export const fetchVenuesFailure = () => ({
 });
 
 export const fetchVenues = () => {
-  return dispatch => {
-    dispatch(fetchVenuesRequest());
+  return (dispatch, getState) => {
+    const {
+      entities: { venues }
+    } = getState();
 
-    return axios
-      .get("/venues")
-      .then(response => {
-        dispatch(fetchVenuesSuccess(response.data.results));
-      })
-      .catch(error => {
-        dispatch(fetchVenuesFailure());
-      });
+    if (!venues.hasInitiatedFetch) {
+      dispatch(fetchVenuesRequest());
+
+      return axios
+        .get("/venues")
+        .then(response => {
+          dispatch(fetchVenuesSuccess(response.data.results));
+        })
+        .catch(error => {
+          dispatch(fetchVenuesFailure());
+        });
+    }
   };
 };

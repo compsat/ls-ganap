@@ -1,10 +1,10 @@
 import {
-  FETCH_VENUES_REQUEST,
-  FETCH_VENUES_SUCCESS,
-  FETCH_VENUES_FAILURE
-} from "actions/venues";
+  FETCH_CLUSTERS_REQUEST,
+  FETCH_CLUSTERS_SUCCESS,
+  FETCH_CLUSTERS_FAILURE
+} from "actions/clusters";
 
-const venues = (
+const clusters = (
   state = {
     hasInitiatedFetch: false,
     isFetching: false,
@@ -14,21 +14,21 @@ const venues = (
   action
 ) => {
   switch (action.type) {
-    case FETCH_VENUES_REQUEST:
+    case FETCH_CLUSTERS_REQUEST:
       return Object.assign({}, state, {
         hasInitiatedFetch: true,
         isFetching: true
       });
-    case FETCH_VENUES_SUCCESS:
+    case FETCH_CLUSTERS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.venues.reduce((item, venue) => {
+        items: action.clusters.reduce((item, cluster) => {
           return Object.assign(item, {
-            [venue.id]: venue
+            [cluster.id]: cluster
           });
         }, {})
       });
-    case FETCH_VENUES_FAILURE:
+    case FETCH_CLUSTERS_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
         failedToFetch: true
@@ -38,4 +38,4 @@ const venues = (
   }
 };
 
-export default venues;
+export default clusters;

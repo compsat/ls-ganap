@@ -1,5 +1,5 @@
-import { media } from 'style/style-utils';
-import AppBorder from 'components/common/AppBorder';
+import AppBorder from "components/common/AppBorder";
+import { media } from "style/style-utils";
 
 const WidgetContainer = AppBorder.extend`
   background: ${props => props.theme.colors.white};

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { media } from "style/style-utils";
 import InfiniteScroll from "react-infinite-scroller";
 
-import SearchBarContainer from "containers/browse//SearchBarContainer";
-import FilterBarContainer from "containers/browse//FilterBarContainer";
 import AppText from "components/common/AppText";
-import EventCardContainer from "containers/browse//EventCardContainer";
-import Loading from 'components/common/Loading';
+import Loading from "components/common/Loading";
+import EventCard from "components/routes/browse/EventCard";
+import EventCardContainer from "containers/EventCardContainer";
+import FilterBarContainer from "containers/browse/FilterBarContainer";
+import SearchBarContainer from "containers/browse/SearchBarContainer";
+import { media } from "style/style-utils";
 
 const SearchHeader = styled.header`
   ${media.mdScreen`
@@ -54,15 +55,14 @@ class BrowseView extends Component {
     super(props);
 
     this.state = {
-      hasMounted: false,
+      hasMounted: false
     };
   }
 
   componentDidMount() {
-    this.props.fetchVenues();
     this.props.fetchEvents({
       ...this.props.filters,
-      page: 1,
+      page: 1
     });
     this.setState({ hasMounted: true });
   }
@@ -72,19 +72,19 @@ class BrowseView extends Component {
 
     this.props.fetchEvents({
       ...this.props.filters,
-      page: 1,
+      page: 1
     });
   }
 
   loadMoreEvents = () => {
     if (!this.state.hasMounted) return;
-    if (this.props.entities.events.isFetching) return;
+    if (this.props.events.isFetching) return;
 
     this.props.fetchEvents({
       ...this.props.filters,
-      page: this.props.entities.events.page + 1,
+      page: this.props.events.page + 1
     });
-  }
+  };
 
   render() {
     return (
@@ -95,24 +95,22 @@ class BrowseView extends Component {
         <MainContentBox>
           <BrowseFilterBar />
           <ResultsContainer>
-            {this.props.entities.events.isFetching ||
-              this.props.entities.events.items.length > 0
-              ? (
-                <InfiniteScroll
-                  loadMore={this.loadMoreEvents}
-                  hasMore={!this.props.entities.events.failedToFetch}
-                  loader={<Loading />}
-                >
-                  {this.props.entities.events.items.map(event => (
+            {Object.values(this.props.events.items).length > 0 ? (
+              <InfiniteScroll
+                loadMore={this.loadMoreEvents}
+                hasMore={!this.props.events.failedToFetch}
+                loader={<Loading />}
+              >
+                {this.props.canDisplayEvents &&
+                  Object.values(this.props.events.items).map(event => (
                     <li key={event.id}>
-                      <EventCardContainer event={event} />
+                      <EventCardContainer component={EventCard} id={event.id} />
                     </li>
                   ))}
-                </InfiniteScroll>
-              ) : (
-                <NoResultsP align="center">No events found.</NoResultsP>
-              )
-            }
+              </InfiniteScroll>
+            ) : (
+              <NoResultsP align="center">No events found.</NoResultsP>
+            )}
           </ResultsContainer>
         </MainContentBox>
       </main>

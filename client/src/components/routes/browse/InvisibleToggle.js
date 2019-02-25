@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const InvisibleToggle = styled.input.attrs({
-  type: 'checkbox'
+  type: "checkbox"
 })`
   position: absolute;
   top: 0;
@@ -11,6 +11,6 @@ const InvisibleToggle = styled.input.attrs({
   margin: 0;
   opacity: 0;
   cursor: pointer;
-`
+`;
 
 export default InvisibleToggle;

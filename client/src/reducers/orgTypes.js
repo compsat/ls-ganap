@@ -1,10 +1,10 @@
 import {
-  FETCH_VENUES_REQUEST,
-  FETCH_VENUES_SUCCESS,
-  FETCH_VENUES_FAILURE
-} from "actions/venues";
+  FETCH_ORG_TYPES_REQUEST,
+  FETCH_ORG_TYPES_SUCCESS,
+  FETCH_ORG_TYPES_FAILURE
+} from "actions/orgTypes";
 
-const venues = (
+const orgTypes = (
   state = {
     hasInitiatedFetch: false,
     isFetching: false,
@@ -14,21 +14,21 @@ const venues = (
   action
 ) => {
   switch (action.type) {
-    case FETCH_VENUES_REQUEST:
+    case FETCH_ORG_TYPES_REQUEST:
       return Object.assign({}, state, {
         hasInitiatedFetch: true,
         isFetching: true
       });
-    case FETCH_VENUES_SUCCESS:
+    case FETCH_ORG_TYPES_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.venues.reduce((item, venue) => {
+        items: action.orgTypes.reduce((item, orgType) => {
           return Object.assign(item, {
-            [venue.id]: venue
+            [orgType.id]: orgType
           });
         }, {})
       });
-    case FETCH_VENUES_FAILURE:
+    case FETCH_ORG_TYPES_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
         failedToFetch: true
@@ -38,4 +38,4 @@ const venues = (
   }
 };
 
-export default venues;
+export default orgTypes;

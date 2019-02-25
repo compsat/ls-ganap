@@ -23,12 +23,10 @@ const AppCardImage = ({
   src = "",
   size = "cover",
   aspectRatio,
-  alt = "",
+  alt = ""
 }) => (
   <AspectRatioContainer className={className}>
-    {aspectRatio && (
-      <svg viewBox={`0 0 1 ${aspectRatio}`} />
-    )}
+    {aspectRatio && <svg viewBox={`0 0 1 ${aspectRatio}`} />}
     <BackgroundImage
       role="img"
       src={src}
