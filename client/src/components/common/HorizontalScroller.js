@@ -151,7 +151,7 @@ class HorizontalScroller extends Component {
           display={this.props.display}
           gutter={this.props.gutter}
         >
-          {this.props.hasLoaded ? (
+          {this.props.hasLoaded || true ? (
             React.Children.map(children, child => (
               <ScrollItem key={child.props.id}>{child}</ScrollItem>
             ))
