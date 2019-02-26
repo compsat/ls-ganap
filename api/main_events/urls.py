@@ -15,6 +15,7 @@ urlpatterns = [
     path('events/between/', event_view.FilterEventsBetweenDates.as_view()),
     path('events/week/<str:date>/', event_view.FilterEventByWeek.as_view()),
     path('events/month/<str:date>/', event_view.FilterEventByMonth.as_view()),
+    path('events/featured/', event_view.FeaturedEventList.as_view()),
     path('events/unapproved/', event_view.UnapprovedEventList.as_view()),
     path('event_hosts/', host_view.HostList.as_view(), name='host-list'),
     path('event_hosts/<int:pk>/', host_view.HostDetail.as_view()),
