@@ -1,4 +1,4 @@
-from main_events.models import Event, EventLogistic, OrgHost, SangguHost, OfficeHost
+from main_events.models import Event, EventLogistic, OrgHost, SangguHost, OfficeHost, Tag
 from main_events.serializers import event_serializer
 from django.http import Http404
 from rest_framework.views import APIView
@@ -447,6 +447,9 @@ class EventList(APIView):
         host = self.request.GET.get("host")
 
         if host_query:
+            if int(host_query) > len(host_map) or int(host_query) <= 0:
+                return Response(status=status.HTTP_204_NO_CONTENT)
+
             events = events.filter(host_map[host_query]).distinct()
 
         if search:
@@ -463,10 +466,17 @@ class EventList(APIView):
             ).distinct()
 
         if tags:
+            validTag = False
             tags_list = tags.split(',')
             queries = Q()
             for tag in tags_list:
+                if Tag.objects.filter(pk=tag).exists():
+                    validTag = True
+
                 queries = queries | Q(tags__pk=tag)
+
+            if not validTag:
+                return Response(status=status.HTTP_204_NO_CONTENT)
 
             events = events.filter(queries).distinct()
 
@@ -506,6 +516,8 @@ class EventList(APIView):
                     events = events.filter(sanggu_hosts__pk=host)
                 elif OfficeHost.objects.filter(pk=host_pk).exists():
                     events = events.filter(office_hosts__pk=host)
+                else:
+                    return Response(status=status.HTTP_204_NO_CONTENT)
             except ValueError:
                 pass
 
@@ -548,7 +560,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         # pk = self.kwargs['pk']
-        queryset = Event.objects.approved_events(self.request.user)
+        queryset = Event.objects.approved_events_only(self.request.user)
 
         # if self.request.user.is_authenticated:
         #     user = self.request.user
@@ -569,6 +581,15 @@ class UnapprovedEventList(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
         return Event.objects.filter(Q(is_approved=False) & (Q(sanggu_hosts__user=user) | Q(org_hosts__user=user) | Q(office_hosts__user=user))).order_by('first_date')
+
+class FeaturedEventList(generics.ListAPIView):
+    """
+    get: Gets all the unapproved events of the authenticated user.
+    """
+    serializer_class = event_serializer.EventSerializer
+
+    def get_queryset(self):
+        return Event.objects.approved_events_only().filter(is_premium=True).order_by('first_date')
 
 class EventLogisticCreate(APIView):
     """
