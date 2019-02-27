@@ -28,9 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = [
-    '0.0.0.0',
-    'localhost',
-    '192.168.254.115'
+    "*"
 ]
 
 
@@ -119,7 +117,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
+
 
 ROOT_URLCONF = 'ls_ganap.urls'
 
@@ -210,10 +208,11 @@ CLOUDINARY_STORAGE = {
 
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = [
-    'localhost:3000','ls-ganap-api.herokuapp.com'
+# CORS_ORIGIN_WHITELIST = [
+#     'localhost:3000','ls-ganap-api.herokuapp.com'
+# ]
 
-]
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST')
 
 
 # Extra places for collectstatic to find static files.
