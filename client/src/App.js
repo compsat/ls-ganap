@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import React, { Component } from "react";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
 import { createLogger } from "redux-logger";
-import rootReducer from './reducers';
-import Loadable from 'react-loadable';
-import Loading from './components/Loading';
-import { ThemeProvider } from 'styled-components';
-import theme from './style/style-theme';
-import MainNav from './components/MainNav';
-import PageContent from './components/PageContent';
-import Footer from './components/Footer';
+import thunkMiddleware from "redux-thunk";
+import { ThemeProvider } from "styled-components";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Loadable from "react-loadable";
+
+import Footer from "components/common/Footer";
+import Loading from "components/common/Loading";
+import MainNav from "components/common/MainNav";
+import PageContent from "components/common/PageContent";
+import rootReducer from "reducers";
+import theme from "style/style-theme";
 
 const store = createStore(
   rootReducer,
@@ -19,37 +20,37 @@ const store = createStore(
 );
 
 const Home = Loadable({
-  loader: () => import('./home/Home'),
-  loading: Loading,
+  loader: () => import("components/routes/home/Home"),
+  loading: Loading
 });
 
-const BrowseView = Loadable({
-  loader: () => import('./containers/BrowseViewContainer'),
-  loading: Loading,
+const Browse = Loadable({
+  loader: () => import("containers/browse/BrowseContainer"),
+  loading: Loading
 });
 
 const MainContent = PageContent.extend`
   padding-top: ${props => props.theme.sizes.navHeight};
-`
+`;
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <ThemeProvider theme={theme}>
-          <React.Fragment>
-            <MainNav />
-            <MainContent>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Provider store={store}>
-                  <Route path="/browse" component={BrowseView} />
-                </Provider>
-              </Switch>
-            </MainContent>
-            <Footer />
-          </React.Fragment>
-        </ThemeProvider>
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            <React.Fragment>
+              <MainNav />
+              <MainContent>
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/browse" component={Browse} />
+                </Switch>
+              </MainContent>
+              <Footer />
+            </React.Fragment>
+          </ThemeProvider>
+        </Provider>
       </Router>
     );
   }

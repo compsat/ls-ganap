@@ -208,11 +208,9 @@ CLOUDINARY_STORAGE = {
 
 
 CORS_ALLOW_CREDENTIALS = True
-# CORS_ORIGIN_WHITELIST = [
-#     'localhost:3000','ls-ganap-api.herokuapp.com'
-# ]
 
 CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST')
+
 
 
 # Extra places for collectstatic to find static files.

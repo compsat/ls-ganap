@@ -13,7 +13,7 @@ export const toggleTag = tagId => ({
 export const SET_DATE_RANGE = "SET_DATE_RANGE";
 export const setDateRange = dateRange => ({
   type: SET_DATE_RANGE,
-  dateRange,
+  dateRange
 });
 
 export const UPDATE_QUERY = "UPDATE_QUERY";
@@ -24,8 +24,8 @@ export const updateQuery = query => ({
 
 const buildHostObject = host => {
   const nameToHostGroupIdMap = {
-    "Sanggunian": 1,
-    "Offices": 2,
+    Sanggunian: 1,
+    Offices: 2,
     "Student Organizations": 3,
     "Confederation of Publications": 4,
     "Council of Organizations of the Ateneo": 5,
@@ -44,6 +44,6 @@ const buildHostObject = host => {
     name: host.name,
     hostGroupId: nameToHostGroupIdMap[host.name],
     id: host.id,
-    abbreviation: host.abbreviation,
+    abbreviation: host.abbreviation
   };
 };
