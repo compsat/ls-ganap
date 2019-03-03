@@ -9,7 +9,8 @@ __pycache__/
 .DS_Store
 
 
-api/.env
+*/.env
 
 venv
 
+api/user_credentials.csv
