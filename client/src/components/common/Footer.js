@@ -24,6 +24,7 @@ const StyledFooter = styled.footer`
 
   display: flex;
   align-items: center;
+  z-index: 999;
 
   border-bottom: solid 10px #c5a478;
 
