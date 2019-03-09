@@ -4,6 +4,7 @@ __pycache__/
 
 # editor
 .vscode/
+client
 
 # misc
 .DS_Store
