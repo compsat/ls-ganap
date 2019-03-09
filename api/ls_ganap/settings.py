@@ -144,13 +144,16 @@ WSGI_APPLICATION = 'ls_ganap.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('PORT'),
-    }  
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': config('DB_NAME'),
+        # 'USER': config('DB_USER'),
+        # 'HOST': config('DB_HOST'),
+        # 'PORT': config('PORT'),  
+    # } 
+    'default' : dj_database_url.config(
+        default=config('DATABASE_URL')
+    )  
 }
 
 
