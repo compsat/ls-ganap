@@ -653,7 +653,7 @@
     abbreviation: 'Guidon'
     description: 'Pursuing and revealing the truth, stimulating discourse, and fueling change. For the past 85 years, The GUIDON has served and informed countless Ateneans. Through holistic training, members of The GUIDON are molded into skilled and principled student-leaders with talent, passion and commitment. As it strives for excellence in campus journalism, The GUIDON does not just look into the life inside the Ateneo. It goes beyond.'
     color: '#0000EE'
-    logo_url: ../guidon
+    logo_url: ../Guidon
     event_host: 1
     org_type: 2
 - model: main_events.orghost
@@ -664,7 +664,7 @@
     abbreviation: 'Heights'
     description: "The Official Literary and Artistic Publication and Organization of the Ateneo De Manila University. HEIGHTS' six staffs collaborate to produce and promote two annual artistic and literary folios and a seniors' folio. We also host the Creative Talk Series, several org-exclusive training talks, the Ateneo-Heights Writers Workshop and Ateneo-Heights Artists Workshop. Mission & Vision As a publication, HEIGHTS seeks to uphold the literary and artistic excellence of and for the Ateneo community. Through its published materials, HEIGHTS aims to embody the best Atenean literature and art, and provide a platform for Atenean writers and artists to showcase their work. As an organization, HEIGHTS seeks to foster a deep appreciation of Filipino literature and art. Through its various projects, HEIGHTS aims to highlight the relevance of literature and art within the Ateneo community."
     color: '#0000EE'
-    logo_url: ../heights
+    logo_url: ../Heights
     event_host: 1
     org_type: 2
 - model: main_events.orghost
@@ -675,6 +675,6 @@
     abbreviation: 'Matanglawin'
     description: "Mapanghamon ang ating panahon. Kailangan ang mga matang nangangahas tumitig at magsuri sa paligid. Kailangan ang isang tanglaw ng katotohanan sa gitna ng dilim na laganap na pambubulag at pagbubulag-bulagan. Kailangan ang mga kuko ng lawing daragit sa mga dagang ngumangatngat sa yaman ng bansa at ahas na lumilingkis sa dangal at karapatan ng mga maralita. Kaya't ang Matanglawin ay bumabangon upang tumugon. Tumutugon ang Matanglawin, una, bilang pahayagan ng malaya at mapagpalayang pagpapalitan ng kuro-kuro tungkol sa mahahalagang usaping pampaaralan at panlipunan; at ikalawa, bilang isang kapatiran ng mga mag-aaral na may malalim na pananagutan sa Diyos at sa Kanyang bayan. Ang Matanglawin ay hindi nagsisimula sa wala. Saksi ito sa nakatanim nang binhi ng pagtataya at pagkilos ng ilang Atenista. Subalit hindi rin ito nagtatapos sa simula. Hangad nitong diligin at payabungin ang dati nang supling, at maghasik pa ng gayong diwa sa higit na maraming mag-aaral. Hangad din nitong ikalat ang gayong diwa sa iba pang mga manghahasik ng diwa at sa iba pang mga pamayanang kinasasangkutan ng mga Atenistang kumikilos palabas ng kampus."
     color: '#0000EE'
-    logo_url: ../matanglawin
+    logo_url: ../Matanglawin
     event_host: 1
     org_type: 2
