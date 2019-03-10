@@ -13,6 +13,7 @@ import cloudinary
 import os
 from datetime import datetime, timedelta
 from decouple import config, Csv
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -146,13 +147,16 @@ WSGI_APPLICATION = 'ls_ganap.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('PORT'),
-    }  
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': config('DB_NAME'),
+        # 'USER': config('DB_USER'),
+        # 'HOST': config('DB_HOST'),
+        # 'PORT': config('PORT'),  
+    # } 
+    'default' : dj_database_url.config(
+        default=config('DATABASE_URL')
+    )  
 }
 
 
@@ -200,29 +204,27 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUD_NAME'),
-    'API_KEY': config('CLOUD_API_KEY'),
-    'API_SECRET': config('CLOUD_API_SECRET'),
-
-}
-
-
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST')
-
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'  # or any prefix you choose
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST')
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'API_KEY': config('CLOUD_API_KEY'),
+    'API_SECRET': config('CLOUD_API_SECRET'),
+}
 
 
 
