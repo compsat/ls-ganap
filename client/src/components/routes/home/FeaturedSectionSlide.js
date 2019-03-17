@@ -7,6 +7,7 @@ import AppHeading from "components/common/AppHeading";
 import AppSubheading from "components/common/AppSubheading";
 import AppText from "components/common/AppText";
 import { media } from "style/style-utils";
+import { Link } from "react-router-dom";
 
 const SlideArticle = styled.article`
   display: flex;
@@ -39,6 +40,7 @@ const SlideDescription = AppText.withComponent("p").extend`
 `;
 
 const FeaturedSectionSlide = ({
+  eventId,
   name,
   formattedHosts,
   formattedDate,
@@ -59,7 +61,7 @@ const FeaturedSectionSlide = ({
       <SlideTextP style={{ marginBottom: "1rem" }}>{venue}</SlideTextP>
       <SlideDescription>{description}</SlideDescription>
       <AppButton>Add to My Calendar</AppButton>
-      <AppButton empty>Read More</AppButton>
+      <Link to={`/events/${eventId}`}><AppButton empty>Read More</AppButton></Link>
     </TextBox>
   </SlideArticle>
 );
