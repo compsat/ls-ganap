@@ -60,7 +60,7 @@ const FeaturedSectionSlide = ({
       <SlideTextP>{formattedTime}</SlideTextP>
       <SlideTextP style={{ marginBottom: "1rem" }}>{venue}</SlideTextP>
       <SlideDescription>{description}</SlideDescription>
-      <AppButton>Add to My Calendar</AppButton>
+      <a href={`${process.env.REACT_APP_API_URL}/gcal/events/${eventId}`}><AppButton>Add to My Calendar</AppButton></a>
       <Link to={`/events/${eventId}`}><AppButton empty>Read More</AppButton></Link>
     </TextBox>
   </SlideArticle>

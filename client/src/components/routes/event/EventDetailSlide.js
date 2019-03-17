@@ -53,6 +53,7 @@ const formatLogistics = (formattedAllDates, formattedAllTimes, allVenues) => {
 }
 
 const EventDetailSlide = ({
+  eventId,
   name,
   allHosts,
   formattedAllDates,
@@ -71,7 +72,7 @@ const EventDetailSlide = ({
       </SlideSubheadingP>
       {formatLogistics(formattedAllDates, formattedAllTimes, allVenues)}
       <SlideDescription>{description}</SlideDescription>
-      <AppButton>Add to My Calendar</AppButton>
+      <a href={`${process.env.REACT_APP_API_URL}/gcal/events/${eventId}`}><AppButton>Add to My Calendar</AppButton></a>
     </TextBox>
   </SlideArticle>
 );
