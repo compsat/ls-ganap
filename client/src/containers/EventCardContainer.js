@@ -59,17 +59,15 @@ const formatHosts = hosts => {
 };
 
 const formatAllHosts = hosts => {
-  const hostNames = hosts.map(host => host.abbreviation || host.name);
+  const hostNames = hosts.map(host => host.name);
   let hostsString = "";
 
-  if (hostNames.length > 1) {
-    for(var i = 0; i < hostNames.length; i++) {
-      if(i === 0) {
-        hostsString += `Hosted by ${hostNames[0]}`;
-      }
-      else {
-        hostsString += `${i === hostNames.length-1 ? " and " : ", "} ${hostNames[i]}`
-      }
+  for(var i = 0; i < hostNames.length; i++) {
+    if(i === 0) {
+      hostsString += `Hosted by ${hostNames[0]}`;
+    }
+    else {
+      hostsString += `${i === hostNames.length-1 ? " and " : ", "} ${hostNames[i]}`
     }
   }
 
