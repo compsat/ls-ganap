@@ -29,6 +29,11 @@ const Browse = Loadable({
   loading: Loading
 });
 
+const EventDetail = Loadable({
+  loader: () => import("components/routes/event/EventDetail"),
+  loading: Loading,
+});
+
 const MainContent = PageContent.extend`
   padding-top: ${props => props.theme.sizes.navHeight};
 `;
@@ -45,6 +50,7 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/browse" component={Browse} />
+                  <Route path="/events/:id" component={EventDetail} />
                 </Switch>
               </MainContent>
               <Footer />
