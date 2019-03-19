@@ -40,6 +40,7 @@ const SlideDescription = AppText.withComponent("p").extend`
 
 const formatLogistics = (formattedAllDates, formattedAllTimes, allVenues) => {
   const logisticComponents = []
+  console.log(allVenues)
   for(var i = 0; i < formattedAllDates.length; i++) {
     logisticComponents.push(
       <div>
