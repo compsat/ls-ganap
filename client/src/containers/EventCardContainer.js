@@ -13,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
     "description"
   ]);
   const event = denormalizeEvent(state);
-  console.log(event)
 
   return {
     eventId: ownProps.id,
