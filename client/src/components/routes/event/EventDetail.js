@@ -1,10 +1,15 @@
 import React from "react";
 
-import EventDetailContainer from "containers/event/EventDetailContainer";
+import EventCardContainer from "containers/EventCardContainer";
+import EventDetailSlide from "components/routes/event/EventDetailSlide";
 
 const EventDetail = (props) => (
   <main>
-    <EventDetailContainer eventId={props.match.params.id}/>
+  	<EventCardContainer 
+  	   component={EventDetailSlide} 
+  	   id={props.match.params.id} 
+  	   key={props.match.params.id} 
+  	 />
   </main>
 );
 
