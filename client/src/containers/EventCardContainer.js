@@ -15,16 +15,26 @@ const mapStateToProps = (state, ownProps) => {
   const event = denormalizeEvent(state);
 
   return {
+    eventId: ownProps.id,
     name: event.name,
     formattedHosts: formatHosts(event.hosts),
+    allHosts: formatAllHosts(event.hosts),
     formattedDate: format(
       new Date(event.event_logistics[0].date),
       "MMM D, YYYY"
     ),
     formattedTime: formatTime(event.event_logistics[0].start_time),
+    formattedAllDates: event.event_logistics.map(logistic => format(
+      new Date(logistic.date),
+      "MMM D, YYYY"
+    )),
+    formattedAllTimes: event.event_logistics.map(logistic => formatTime(logistic.start_time) + " - " + formatTime(logistic.end_time)),
     venue: event.event_logistics[0].venue
       ? event.event_logistics[0].venue.name
       : event.event_logistics[0].outside_venue_name,
+    allVenues: event.event_logistics.map(logistic => logistic.venue
+      ? logistic.venue.name
+      : logistic.outside_venue_name),
     poster_url: event.poster_url,
     description: event.description
   };
@@ -42,6 +52,22 @@ const formatHosts = hosts => {
     hostsString += ` and ${hostNames.length - 1} other${
       hostNames.length - 1 > 1 ? "s" : ""
     }`;
+  }
+
+  return hostsString;
+};
+
+const formatAllHosts = hosts => {
+  const hostNames = hosts.map(host => host.name);
+  let hostsString = "";
+
+  for(var i = 0; i < hostNames.length; i++) {
+    if(i === 0) {
+      hostsString += `Hosted by ${hostNames[0]}`;
+    }
+    else {
+      hostsString += `${i === hostNames.length-1 ? " and " : ", "} ${hostNames[i]}`
+    }
   }
 
   return hostsString;

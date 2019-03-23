@@ -19,6 +19,11 @@ const Browse = Loadable({
   loading: Loading
 });
 
+const EventDetail = Loadable({
+  loader: () => import("components/routes/event/EventDetail"),
+  loading: Loading,
+});
+
 const Login = Loadable({
   loader: () => import("containers/login/LoginContainer"),
   loading: Loading
@@ -44,6 +49,7 @@ class App extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/browse" component={Browse} />
                 <Route path="/login" component={Login} />
+                <Route path="/events/:id" component={EventDetail} />
               </Switch>
             </MainContent>
             <Footer />

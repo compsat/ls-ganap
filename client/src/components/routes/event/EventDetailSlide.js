@@ -7,7 +7,6 @@ import AppHeading from "components/common/AppHeading";
 import AppSubheading from "components/common/AppSubheading";
 import AppText from "components/common/AppText";
 import { media } from "style/style-utils";
-import { Link } from "react-router-dom";
 
 const SlideArticle = styled.article`
   display: flex;
@@ -39,13 +38,13 @@ const SlideDescription = AppText.withComponent("p").extend`
   margin-bottom: 2rem;
 `;
 
-const FeaturedSectionSlide = ({
+const EventDetailSlide = ({
   eventId,
   name,
-  formattedHosts,
-  formattedDate,
-  formattedTime,
-  venue,
+  allHosts,
+  formattedAllDates,
+  formattedAllTimes,
+  allVenues,
   poster_url,
   description
 }) => (
@@ -54,16 +53,19 @@ const FeaturedSectionSlide = ({
     <TextBox>
       <SlideHeadingH2 size={4}>{name}</SlideHeadingH2>
       <SlideSubheadingP size={2} style={{ marginBottom: "1rem" }}>
-        {formattedHosts}
+        {allHosts}
       </SlideSubheadingP>
-      <SlideTextP>{formattedDate}</SlideTextP>
-      <SlideTextP>{formattedTime}</SlideTextP>
-      <SlideTextP style={{ marginBottom: "1rem" }}>{venue}</SlideTextP>
+      {formattedAllDates.map((detail, index) => (
+        <div>
+          <SlideTextP>{formattedAllDates[index]}</SlideTextP>
+          <SlideTextP>{formattedAllTimes[index]}</SlideTextP>
+          <SlideTextP style={{ marginBottom: "1rem" }}>{allVenues[index]}</SlideTextP>
+        </div>
+      ))}
       <SlideDescription>{description}</SlideDescription>
       <a href={`${process.env.REACT_APP_API_URL}/gcal/events/${eventId}`}><AppButton>Add to My Calendar</AppButton></a>
-      <Link to={`/events/${eventId}`}><AppButton empty>Read More</AppButton></Link>
     </TextBox>
   </SlideArticle>
 );
 
-export default FeaturedSectionSlide;
+export default EventDetailSlide;

@@ -8,6 +8,7 @@ import AppCardTextBox from "components/common/AppCardTextBox";
 import AppSubheading from "components/common/AppSubheading";
 import AppText from "components/common/AppText";
 import { media } from "style/style-utils";
+import { Link } from "react-router-dom";
 
 const EventCardBase = AppCardBase.extend`
   display: flex;
@@ -55,11 +56,11 @@ const EventCard = ({
       <AppTextP>{formattedTime}</AppTextP>
       <MarginAfterP>{venue}</MarginAfterP>
       <AppButtonAnchor
-        href={`${process.env.REACT_APP_API_URL}gcal/events/${id}`}
+        href={`${process.env.REACT_APP_API_URL}/gcal/events/${id}`}
       >
         Add to Calendar
       </AppButtonAnchor>
-      <AppButton empty>Read More</AppButton>
+      <Link to={`/events/${id}`}><AppButton empty>Read More</AppButton></Link>
     </AppCardTextBox>
   </EventCardBase>
 );
