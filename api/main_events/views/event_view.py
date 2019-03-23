@@ -523,6 +523,9 @@ class EventList(APIView):
 
         if request.method == 'GET' and 'page' in request.GET:
             page = paginator.paginate_queryset(events, request)
+            if page is None:
+                return Response(status=status.HTTP_204_NO_CONTENT)
+                
             serializer = event_serializer.EventSerializer(page, many=True)
         
             return paginator.get_paginated_response(serializer.data)
@@ -560,7 +563,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         # pk = self.kwargs['pk']
-        queryset = Event.objects.approved_events_only(self.request.user)
+        queryset = Event.objects.approved_events_only()
 
         # if self.request.user.is_authenticated:
         #     user = self.request.user
