@@ -64,13 +64,8 @@ const getVenues = state => state.entities.venues;
 export const makeCanDisplayEvents = () => {
   return createSelector(
     [getEvents, getHosts, getVenues],
-    (...args) => {
-      return args.every(
-        entity =>
-          entity.hasInitiatedFetch &&
-          !entity.isFetching &&
-          !entity.failedToFetch
-      );
+    (events, hosts, venues) => {
+      return events.items && (hosts.officeHosts || hosts.orgHosts || hosts.sangguHosts) && venues.items
     }
   );
 };
