@@ -43,7 +43,7 @@ const NavList = styled.ul`
   padding: 0;
 
   ${media.mdScreen`
-    grid-template-columns: 1fr 150px 150px;
+    grid-template-columns: 1fr 150px 150px 120px;
     width: 100%
   `}
 `;
