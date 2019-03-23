@@ -7,6 +7,7 @@ import searchIcon from "assets/icon-search.png";
 import logo from "assets/ls-ganap-logo.png";
 import FullWidthContainer from "components/common/FullWidthContainer";
 import PageContent from "components/common/PageContent";
+import AuthButtonContainer from "containers/AuthButtonContainer";
 import { media } from "style/style-utils";
 
 const NavLink = ({ className, route, children }) => (
@@ -120,6 +121,9 @@ class MainNav extends Component {
                 <Icon source={searchIcon} alt="Search Icon" />
               </MobileLink>
               <DesktopLink route="/browse">Browse</DesktopLink>
+            </NavListItem>
+            <NavListItem>
+              <AuthButtonContainer />
             </NavListItem>
           </NavList>
         </PageContent>
