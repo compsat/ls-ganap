@@ -8,5 +8,6 @@ class MyJWTAuthentication(authentication.JSONWebTokenAuthentication):
 def jwt_response_payload_handler(token, user=None, request=None):
     return {
         'token': token,
-        'email': user.email
+        'email': user.email,
+        'id': user.id
     }
