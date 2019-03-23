@@ -14,7 +14,8 @@ const auth = (
     isPosting: false,
     failedToPost: false,
     isAuthenticated: false,
-    email: ""
+    email: "",
+    userId: null
   },
   action
 ) => {
@@ -30,7 +31,8 @@ const auth = (
       return Object.assign({}, state, {
         isPosting: false,
         isAuthenticated: true,
-        email: action.email
+        email: action.email,
+        userId: action.userId || state.userId
       });
     case POST_AUTH_TOKEN_FAILURE:
     case VERIFY_AUTH_TOKEN_FAILURE:

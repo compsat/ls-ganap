@@ -148,7 +148,10 @@ class Login extends Component {
     } else {
       return (
         <Redirect
-          to={(props.location.state && props.location.state.referrer) || "/"}
+          to={
+            (props.location.state && props.location.state.referrer) ||
+            "/dashboard"
+          }
         />
       );
     }

@@ -5,6 +5,8 @@ import eventsBrowse from "reducers/domainData/eventsBrowse";
 import eventsFeatured from "reducers/domainData/eventsFeatured";
 import eventsUpcoming from "reducers/domainData/eventsUpcoming";
 import eventsSingle from "reducers/domainData/eventsSingle";
+import eventsApproved from "reducers/domainData/eventsApproved";
+import eventsPending from "reducers/domainData/eventsPending";
 import hosts from "reducers/domainData/hosts";
 import offices from "reducers/domainData/offices";
 import orgTypes from "reducers/domainData/orgTypes";
@@ -17,6 +19,8 @@ const domainData = combineReducers({
   eventsFeatured,
   eventsUpcoming,
   eventsSingle,
+  eventsApproved,
+  eventsPending,
   hosts,
   offices,
   orgTypes,
