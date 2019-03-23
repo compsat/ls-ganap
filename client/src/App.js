@@ -29,6 +29,11 @@ const Login = Loadable({
   loading: Loading
 });
 
+const Dashboard = Loadable({
+  loader: () => import("containers/dashboard/DashboardContainer"),
+  loading: Loading
+});
+
 const MainContent = PageContent.extend`
   padding-top: ${props => props.theme.sizes.navHeight};
 `;
@@ -50,6 +55,7 @@ class App extends Component {
                 <Route path="/browse" component={Browse} />
                 <Route path="/login" component={Login} />
                 <Route path="/events/:id" component={EventDetail} />
+                <Route path="/dashboard" component={Dashboard} />
               </Switch>
             </MainContent>
             <Footer />

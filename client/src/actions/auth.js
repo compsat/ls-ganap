@@ -6,9 +6,10 @@ export const postAuthTokenRequest = () => ({
 });
 
 export const POST_AUTH_TOKEN_SUCCESS = "POST_AUTH_TOKEN_SUCCESS";
-export const postAuthTokenSuccess = email => ({
+export const postAuthTokenSuccess = (email, userId) => ({
   type: POST_AUTH_TOKEN_SUCCESS,
-  email
+  email,
+  userId
 });
 
 export const POST_AUTH_TOKEN_FAILURE = "POST_AUTH_TOKEN_FAILURE";
@@ -27,10 +28,9 @@ export const postAuthToken = (email, password) => {
       })
       .then(response => {
         const authToken = response.data.token;
-
         sessionStorage.setItem("authToken", authToken);
         axios.defaults.headers.common["Authorization"] = authToken;
-        dispatch(postAuthTokenSuccess(email));
+        dispatch(postAuthTokenSuccess(email, response.data.id));
       })
       .catch(error => {
         dispatch(postAuthTokenFailure());
