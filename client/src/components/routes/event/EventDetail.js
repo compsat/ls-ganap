@@ -5,11 +5,11 @@ import EventDetailSlide from "components/routes/event/EventDetailSlide";
 
 const EventDetail = (props) => (
   <main>
-  	<EventCardContainer 
-  	   component={EventDetailSlide} 
-  	   id={props.match.params.id} 
-  	   key={props.match.params.id} 
-  	 />
+	<EventCardContainer 
+	   component={EventDetailSlide} 
+	   id={props.match.params.id} 
+	   key={props.match.params.id}  
+	 />
   </main>
 );
 

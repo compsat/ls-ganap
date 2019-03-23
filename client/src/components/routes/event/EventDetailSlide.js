@@ -38,21 +38,6 @@ const SlideDescription = AppText.withComponent("p").extend`
   margin-bottom: 2rem;
 `;
 
-const formatLogistics = (formattedAllDates, formattedAllTimes, allVenues) => {
-  const logisticComponents = []
-  console.log(allVenues)
-  for(var i = 0; i < formattedAllDates.length; i++) {
-    logisticComponents.push(
-      <div>
-        <SlideTextP>{formattedAllDates[i]}</SlideTextP>
-        <SlideTextP>{formattedAllTimes[i]}</SlideTextP>
-        <SlideTextP style={{ marginBottom: "1rem" }}>{allVenues[i]}</SlideTextP>
-      </div>
-    )
-  }
-  return logisticComponents
-}
-
 const EventDetailSlide = ({
   eventId,
   name,
@@ -64,14 +49,19 @@ const EventDetailSlide = ({
   description
 }) => (
   <SlideArticle>
-    {console.log(allHosts)}
     <SlidePoster src={poster_url} aspectRatio={4 / 3} />
     <TextBox>
       <SlideHeadingH2 size={4}>{name}</SlideHeadingH2>
       <SlideSubheadingP size={2} style={{ marginBottom: "1rem" }}>
         {allHosts}
       </SlideSubheadingP>
-      {formatLogistics(formattedAllDates, formattedAllTimes, allVenues)}
+      {formattedAllDates.map((detail, index) => (
+        <div>
+          <SlideTextP>{formattedAllDates[index]}</SlideTextP>
+          <SlideTextP>{formattedAllTimes[index]}</SlideTextP>
+          <SlideTextP style={{ marginBottom: "1rem" }}>{allVenues[index]}</SlideTextP>
+        </div>
+      ))}
       <SlideDescription>{description}</SlideDescription>
       <a href={`${process.env.REACT_APP_API_URL}/gcal/events/${eventId}`}><AppButton>Add to My Calendar</AppButton></a>
     </TextBox>

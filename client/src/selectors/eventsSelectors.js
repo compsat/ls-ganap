@@ -39,10 +39,10 @@ class DenormalizedEvent {
   }
 
   pickEventLogistics() {
-    return this.event.event_logistics.map(eventLogistics => {
-      eventLogistics.venue = this.venues[eventLogistics.venue];
-      return eventLogistics;
-    });
+    return this.event.event_logistics.map(eventLogistics => ({
+      ...eventLogistics,
+      venue: this.venues[eventLogistics.venue]
+    }));
   }
 }
 
