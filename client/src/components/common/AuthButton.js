@@ -2,12 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media } from "style/style-utils";
+import loginIcon from "assets/icon-login.png";
 
 const NavLink = ({ className, route, children, onClick }) => (
   <Link className={className} to={route} onClick={onClick}>
     {children}
   </Link>
 );
+
+const Image = ({ className, source, alt }) => (
+  <img className={className} src={source} alt={alt} />
+);
+
+const Icon = styled(Image)`
+  max-height: 25px;
+`;
 
 const MobileLink = styled(NavLink)`
   display: block;
@@ -34,10 +43,22 @@ const DesktopLink = styled(NavLink)`
 const AuthButton = ({ isAuthenticated, handleLogOut }) => {
   if (isAuthenticated) {
     return (
-      <DesktopLink route="" onClick={handleLogOut}>Sign out</DesktopLink>
+      <React.Fragment>
+      	<MobileLink route="" onClick={handleLogOut}>
+      	  <Icon source={loginIcon} alt="Authentication Icon" />
+      	</MobileLink>
+      	<DesktopLink route="" onClick={handleLogOut}>Sign out</DesktopLink>
+      </React.Fragment>
     );
   } else {
-  	return <DesktopLink route="/login">Sign in</DesktopLink>
+  	return (
+  		<React.Fragment>
+	  		<MobileLink route="/login">
+	  		  <Icon source={loginIcon} alt="Authentication Icon" />
+	  		</MobileLink>
+	  		<DesktopLink route="/login">Sign in</DesktopLink>
+  		</React.Fragment>
+  	);
   }
 };
 

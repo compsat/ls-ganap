@@ -37,13 +37,13 @@ const Nav = FullWidthContainer.extend`
 
 const NavList = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   height: 100%;
   margin: 0;
   padding: 0;
 
   ${media.mdScreen`
-    grid-template-columns: 1fr 150px 150px 120px;
+    grid-template-columns: 1fr 150px 140px 120px;
     width: 100%
   `}
 `;
@@ -104,7 +104,7 @@ class MainNav extends Component {
           <NavList>
             <NavListItem>
               <MobileLink route="/">
-                <Icon source={homeIcon} alt="Home Icon" />
+                <Logo source={logo} alt="LS Ganap Logo" />
               </MobileLink>
               <DesktopLogo route="/">
                 <Logo source={logo} alt="LS Ganap Logo" />
@@ -112,12 +112,12 @@ class MainNav extends Component {
             </NavListItem>
             <NavListItem>
               <MobileLink route="/">
-                <Logo source={logo} alt="LS Ganap Logo" />
+                <Icon source={homeIcon} alt="Home Icon" />
               </MobileLink>
               <DesktopLink route="/">Home</DesktopLink>
             </NavListItem>
             <NavListItem>
-              <MobileLink route="/">
+              <MobileLink route="/browse">
                 <Icon source={searchIcon} alt="Search Icon" />
               </MobileLink>
               <DesktopLink route="/browse">Browse</DesktopLink>
