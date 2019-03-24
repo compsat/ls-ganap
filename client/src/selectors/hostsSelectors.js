@@ -1,6 +1,12 @@
 import { createSelector } from "reselect";
+import { denormalize } from "normalizr";
 
-const getHostTypesItems = state => [
+import cluster from "entities/clusters";
+import office from "entities/offices";
+import org from "entities/orgs";
+import sanggu from "entities/sanggu";
+
+const getHostTypesItems = () => [
   {
     id: 1,
     name: "Student Organizations"
@@ -14,24 +20,11 @@ const getHostTypesItems = state => [
     name: "Offices"
   }
 ];
-const getOrgTypesItems = state => state.entities.orgTypes.items;
-const getClustersItems = state => state.entities.clusters.items;
-const getOrgHostsItems = state => state.entities.hosts.orgHosts;
-const getSangguHostsItems = state => state.entities.hosts.sangguHosts;
-const getOfficeHostsItems = state => state.entities.hosts.officeHosts;
-
-export const makeFlattenHostList = () => {
-  return createSelector(
-    [getOrgHostsItems, getSangguHostsItems, getOfficeHostsItems],
-    (orgHosts, sangguHosts, officeHosts) => {
-      return {
-        ...orgHosts,
-        ...sangguHosts,
-        ...officeHosts
-      };
-    }
-  );
-};
+const getOrgTypesItems = state => state.entities.orgTypes;
+const getClustersItems = state => state.entities.clusters;
+const getOfficeHostsItems = state => state.entities.offices;
+const getOrgHostsItems = state => state.entities.orgs;
+const getSangguHostsItems = state => state.entities.sanggu;
 
 const makeDecorateHostList = (selector, decoration) => {
   return createSelector(
@@ -118,4 +111,43 @@ const makeMapByProp = (list, prop) => {
     }
     return map;
   }, {});
+};
+
+const getHostEntity = (state, props) =>
+  state.entities[props.hostType || "orgs"][props.id];
+const getClusters = state => state.entities.clusters;
+const getOffices = state => state.entities.offices;
+const getOrgs = state => state.entities.orgs;
+const getSanggu = state => state.entities.sanggu;
+
+export const makeDenormalizeHost = (hostType, hostId) => {
+  return createSelector(
+    [getHostEntity, getClusters, getOffices, getOrgs, getSanggu],
+    (hostEntity, clusters, offices, orgs, sangguEntities) => {
+      let schema;
+
+      switch (hostType) {
+        case "clusters":
+          schema = cluster;
+          break;
+        case "offices":
+          schema = office;
+          break;
+        default:
+        case "orgs":
+          schema = org;
+          break;
+        case "sanggu":
+          schema = sanggu;
+      }
+
+      return denormalize(hostId, schema, {
+        hosts: { [hostEntity.id]: hostEntity },
+        clusters,
+        offices,
+        orgs,
+        sangguEntities
+      });
+    }
+  );
 };

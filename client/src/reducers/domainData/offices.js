@@ -9,8 +9,8 @@ const offices = (
     hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
-    items: [],
-    page: 0
+    result: [],
+    page: 1
   },
   action
 ) => {
@@ -23,21 +23,10 @@ const offices = (
     case FETCH_OFFICES_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items:
+        result:
           action.page === 1
-            ? action.offices.reduce((item, office) => {
-                return Object.assign(item, {
-                  [office.id]: office
-                });
-              }, {})
-            : {
-                ...state.items,
-                ...action.offices.reduce((item, office) => {
-                  return Object.assign(item, {
-                    [office.id]: office
-                  });
-                }, {})
-              },
+            ? [...action.offices]
+            : [...state.result, ...action.offices],
         page: action.page
       });
     case FETCH_OFFICES_FAILURE:

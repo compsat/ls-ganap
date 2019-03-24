@@ -1,4 +1,8 @@
 import axios from "axios";
+import { normalize } from "normalizr";
+
+import { addEntityTags } from "actions/entities";
+import tag from "entities/tags";
 
 export const FETCH_TAGS_REQUEST = "FETCH_TAGS_REQUEST";
 export const fetchTagsRequest = () => ({
@@ -17,16 +21,26 @@ export const fetchTagsFailure = () => ({
 });
 
 export const fetchTags = () => {
-  return dispatch => {
-    dispatch(fetchTagsRequest());
+  return (dispatch, getState) => {
+    const {
+      domainData: { tags }
+    } = getState();
 
-    return axios
-      .get("/tags")
-      .then(response => {
-        dispatch(fetchTagsSuccess(response.data.results));
-      })
-      .catch(error => {
-        dispatch(fetchTagsFailure());
-      });
+    if (!tags.hasInitiatedFetch || tags.failedToFetch) {
+      dispatch(fetchTagsRequest());
+
+      return axios
+        .get("/tags")
+        .then(response => {
+          const payload = response.data.results;
+          const normalizedData = normalize(payload, [tag]);
+
+          dispatch(addEntityTags(normalizedData.entities.tags));
+          dispatch(fetchTagsSuccess(normalizedData.result));
+        })
+        .catch(error => {
+          dispatch(fetchTagsFailure());
+        });
+    }
   };
 };

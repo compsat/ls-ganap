@@ -1,3 +1,5 @@
 import { schema } from "normalizr";
 
-export const org = new schema.Entity("orgs");
+const org = new schema.Entity("orgs");
+
+export default org;

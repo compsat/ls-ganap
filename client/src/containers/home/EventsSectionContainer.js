@@ -1,28 +1,19 @@
 import { connect } from "react-redux";
-import { endOfWeek, format } from "date-fns";
 
-import { fetchEvents } from "actions/events";
+import { fetchEventsUpcoming } from "actions/eventsUpcoming";
 import EventsSection from "components/routes/home/EventsSection";
-import { makeCanDisplayEvents } from "selectors/eventsSelectors";
-
-const canDisplayEvents = makeCanDisplayEvents();
 
 const mapStateToProps = state => ({
-  events: state.entities.events,
-  canDisplayEvents: canDisplayEvents(state)
+  eventsUpcoming: state.domainData.eventsUpcoming.result,
+  canDisplayEvents:
+    (state.domainData.hosts.officeHosts ||
+      state.domainData.hosts.orgHosts ||
+      state.domainData.sangguHosts) &&
+    state.domainData.venues.result
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchEvents: () => {
-    const today = new Date();
-
-    dispatch(
-      fetchEvents({
-        start_date: format(today, "YYYY-MM-DD"),
-        end_date: format(endOfWeek(today), "YYYY-MM-DD")
-      })
-    );
-  }
+  fetchEventsUpcoming: () => dispatch(fetchEventsUpcoming())
 });
 
 export default connect(

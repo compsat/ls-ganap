@@ -1,4 +1,8 @@
 import axios from "axios";
+import { normalize } from "normalizr";
+
+import { addEntityClusters } from "actions/entities";
+import cluster from "entities/clusters";
 
 export const FETCH_CLUSTERS_REQUEST = "FETCH_CLUSTERS_REQUEST";
 export const fetchClustersRequest = () => ({
@@ -19,16 +23,20 @@ export const fetchClustersFailure = () => ({
 export const fetchClusters = () => {
   return (dispatch, getState) => {
     const {
-      entities: { clusters }
+      domainData: { clusters }
     } = getState();
 
-    if (!clusters.hasInitiatedFetch) {
+    if (!clusters.hasInitiatedFetch || clusters.failedToFetch) {
       dispatch(fetchClustersRequest());
 
       return axios
         .get("/clusters")
         .then(response => {
-          dispatch(fetchClustersSuccess(response.data.results));
+          const payload = response.data.results;
+          const normalizedData = normalize(payload, [cluster]);
+
+          dispatch(addEntityClusters(normalizedData.entities.clusters));
+          dispatch(fetchClustersSuccess(normalizedData.result));
         })
         .catch(error => {
           dispatch(fetchClustersFailure());

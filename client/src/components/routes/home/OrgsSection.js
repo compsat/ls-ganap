@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 
-import AppCardBase from "components/common/AppCardBase";
-import AppCardImage from "components/common/AppCardImage";
-import AppCardTextBox from "components/common/AppCardTextBox";
 import AppHeading from "components/common/AppHeading";
 import AppSubheading from "components/common/AppSubheading";
-import AppText from "components/common/AppText";
 import PageContent from "components/common/PageContent";
 import HorizontalScroller from "components/common/HorizontalScroller";
 import CardsSection from "components/routes/home/CardsSection";
+import HostCardContainer from "containers/home/HostCardContainer";
 
 const OrgsCardsSection = CardsSection.extend`
   background-color: #ffe5cb;
@@ -47,18 +44,8 @@ class OrgsSection extends Component {
             !this.props.clusters.isFetching
           }
         >
-          {Object.values(this.props.clusters.items).map(cluster => (
-            <AppCardBase key={cluster.id}>
-              <AppCardImage
-                src={cluster.logo_url}
-                size={"75%"}
-                aspectRatio={1}
-                alt={cluster.name}
-              />
-              <AppCardTextBox lines={3} center={true}>
-                <AppText>{cluster.name}</AppText>
-              </AppCardTextBox>
-            </AppCardBase>
+          {this.props.clusters.map(id => (
+            <HostCardContainer hostType="clusters" id={id} key={id} />
           ))}
         </HorizontalScroller>
       </OrgsCardsSection>

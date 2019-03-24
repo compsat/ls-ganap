@@ -1,3 +1,5 @@
 import { schema } from "normalizr";
 
-export const venue = new schema.Entity("venues");
+const venue = new schema.Entity("venues");
+
+export default venue;

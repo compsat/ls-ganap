@@ -1,12 +1,14 @@
 import { connect } from "react-redux";
+import { denormalize } from "normalizr";
+
+import tag from "entities/tags";
 import FilterBar from "components/routes/browse/FilterBar";
 
 const mapStateToProps = state => ({
   host: state.filters.host.abbreviation || state.filters.host.name,
-  tags: Object.values(state.entities.tags.items)
-    .filter(tag => {
-      return state.filters.tags.includes(tag.id);
-    })
+  tags: denormalize(state.filters.tags, [tag], {
+    tags: state.entities.tags
+  })
     .map(tag => tag.name)
     .join(", "),
   dateRange: state.filters.dateRange.key

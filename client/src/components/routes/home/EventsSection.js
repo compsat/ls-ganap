@@ -18,7 +18,7 @@ const SectionHeading = AppHeading.withComponent("h2").extend`
 
 class EventsSection extends Component {
   componentDidMount() {
-    this.props.fetchEvents();
+    this.props.fetchEventsUpcoming();
   }
 
   render() {
@@ -28,12 +28,8 @@ class EventsSection extends Component {
           <SectionHeading size="6">Upcoming events</SectionHeading>
         </PageContent>
         <HorizontalScroller display={4} hasLoaded={this.props.canDisplayEvents}>
-          {Object.values(this.props.events.items).map(event => (
-            <EventCardContainer
-              key={event.id}
-              component={EventCard}
-              id={event.id}
-            />
+          {this.props.eventsUpcoming.map(id => (
+            <EventCardContainer key={id} component={EventCard} id={id} />
           ))}
         </HorizontalScroller>
       </EventsCardsSection>

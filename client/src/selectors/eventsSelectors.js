@@ -1,71 +1,27 @@
 import { createSelector } from "reselect";
-import camelCase from "camelcase";
+import { denormalize } from "normalizr";
 
-import { makeFlattenHostList } from "selectors/hostsSelectors";
+import event from "entities/events";
 
-const getEventsItems = state => state.entities.events.items;
-const getHostsItems = makeFlattenHostList();
-const getVenuesItems = state => state.entities.venues.items;
-
-class DenormalizedEvent {
-  constructor(event, hosts, venues) {
-    this.event = event;
-    this.hosts = hosts;
-    this.venues = venues;
-  }
-
-  pick(args) {
-    return args.reduce((denormalizedEvent, arg) => {
-      const argMethodName = `pick${camelCase(arg, { pascalCase: true })}`;
-
-      if (this.__proto__[argMethodName]) {
-        denormalizedEvent[arg] = this.__proto__[argMethodName].bind(this)();
-      } else {
-        denormalizedEvent[arg] = this.event[arg];
-      }
-
-      return denormalizedEvent;
-    }, {});
-  }
-
-  pickHosts() {
-    const eventHostsIds = [
-      ...this.event.org_hosts,
-      ...this.event.sanggu_hosts,
-      ...this.event.office_hosts
-    ];
-
-    return eventHostsIds.map(id => this.hosts[id]);
-  }
-
-  pickEventLogistics() {
-    return this.event.event_logistics.map(eventLogistics => ({
-      ...eventLogistics,
-      venue: this.venues[eventLogistics.venue]
-    }));
-  }
-}
-
-export const makeDenormalizeEvent = (eventId, selectedProps) => {
-  return createSelector(
-    [getEventsItems, getHostsItems, getVenuesItems],
-    (events, hosts, venues) => {
-      return new DenormalizedEvent(events[eventId], hosts, venues).pick(
-        selectedProps
-      );
-    }
-  );
-};
-
-const getEvents = state => state.entities.events;
-const getHosts = state => state.entities.hosts;
+const getEventEntity = (state, props) => state.entities.events[props.id];
+const getOrgs = state => state.entities.orgs;
+const getOffices = state => state.entities.offices;
+const getSanggu = state => state.entities.sanggu;
 const getVenues = state => state.entities.venues;
+const getTags = state => state.entities.tags;
 
-export const makeCanDisplayEvents = () => {
+export const makeDenormalizeEvent = eventId => {
   return createSelector(
-    [getEvents, getHosts, getVenues],
-    (events, hosts, venues) => {
-      return events.items && (hosts.officeHosts || hosts.orgHosts || hosts.sangguHosts) && venues.items
+    [getEventEntity, getOrgs, getOffices, getSanggu, getVenues, getTags],
+    (eventEntity, orgs, offices, sanggu, venues, tags) => {
+      return denormalize(eventId, event, {
+        events: { [eventEntity.id]: eventEntity },
+        orgs,
+        offices,
+        sanggu,
+        venues,
+        tags
+      });
     }
   );
 };

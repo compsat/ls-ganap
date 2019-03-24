@@ -1,4 +1,8 @@
 import axios from "axios";
+import { normalize } from "normalizr";
+
+import { addEntityOrgTypes } from "actions/entities";
+import orgType from "entities/orgTypes";
 
 export const FETCH_ORG_TYPES_REQUEST = "FETCH_ORG_TYPES_REQUEST";
 export const fetchOrgTypesRequest = () => ({
@@ -19,16 +23,20 @@ export const fetchOrgTypesFailure = () => ({
 export const fetchOrgTypes = () => {
   return (dispatch, getState) => {
     const {
-      entities: { orgTypes }
+      domainData: { orgTypes }
     } = getState();
 
-    if (!orgTypes.hasInitiatedFetch) {
+    if (!orgTypes.hasInitiatedFetch || orgTypes.failedToFetch) {
       dispatch(fetchOrgTypesRequest());
 
       return axios
         .get("/org_types")
         .then(response => {
-          dispatch(fetchOrgTypesSuccess(response.data.results));
+          const payload = response.data.results;
+          const normalizedData = normalize(payload, [orgType]);
+
+          dispatch(addEntityOrgTypes(normalizedData.entities.orgTypes));
+          dispatch(fetchOrgTypesSuccess(normalizedData.result));
         })
         .catch(error => {
           dispatch(fetchOrgTypesFailure());

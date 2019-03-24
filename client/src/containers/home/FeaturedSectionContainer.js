@@ -1,18 +1,19 @@
 import { connect } from "react-redux";
 
-import { fetchEvents } from "actions/events";
+import { fetchEventsFeatured } from "actions/eventsFeatured";
 import FeaturedSection from "components/routes/home/FeaturedSection";
-import { makeCanDisplayEvents } from "selectors/eventsSelectors";
-
-const canDisplayEvents = makeCanDisplayEvents();
 
 const mapStateToProps = state => ({
-  events: state.entities.events,
-  canDisplayEvents: canDisplayEvents(state)
+  eventsFeatured: state.domainData.eventsFeatured.result,
+  canDisplayEvents:
+    (state.domainData.hosts.officeHosts ||
+      state.domainData.hosts.orgHosts ||
+      state.domainData.sangguHosts) &&
+    state.domainData.venues.result
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchEvents: () => dispatch(fetchEvents())
+  fetchEventsFeatured: () => dispatch(fetchEventsFeatured())
 });
 
 export default connect(

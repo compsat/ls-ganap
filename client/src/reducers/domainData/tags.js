@@ -9,7 +9,7 @@ const tags = (
     hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
-    items: []
+    result: []
   },
   action
 ) => {
@@ -22,16 +22,7 @@ const tags = (
     case FETCH_TAGS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.tags
-          .map(tag => ({
-            ...tag,
-            active: false
-          }))
-          .reduce((item, tag) => {
-            return Object.assign(item, {
-              [tag.id]: tag
-            });
-          }, {})
+        result: action.tags
       });
     case FETCH_TAGS_FAILURE:
       return Object.assign({}, state, {

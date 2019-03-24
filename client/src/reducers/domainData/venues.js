@@ -9,7 +9,7 @@ const venues = (
     hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
-    items: []
+    result: []
   },
   action
 ) => {
@@ -22,11 +22,7 @@ const venues = (
     case FETCH_VENUES_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.venues.reduce((item, venue) => {
-          return Object.assign(item, {
-            [venue.id]: venue
-          });
-        }, {})
+        result: action.venues
       });
     case FETCH_VENUES_FAILURE:
       return Object.assign({}, state, {

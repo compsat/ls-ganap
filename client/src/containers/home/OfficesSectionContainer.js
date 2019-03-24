@@ -4,7 +4,7 @@ import { fetchOffices } from "actions/offices";
 import OfficesSection from "components/routes/home/OfficesSection";
 
 const mapStateToProps = state => ({
-  offices: state.entities.offices
+  offices: state.domainData.offices.result
 });
 
 const mapDispatchToProps = dispatch => ({

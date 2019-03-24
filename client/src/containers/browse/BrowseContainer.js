@@ -1,20 +1,21 @@
 import { connect } from "react-redux";
 import { format } from "date-fns";
 
-import { fetchEvents } from "actions/events";
+import { fetchEventsBrowse } from "actions/eventsBrowse";
 import Browse from "components/routes/browse/Browse";
-import { makeCanDisplayEvents } from "selectors/eventsSelectors";
-
-const canDisplayEvents = makeCanDisplayEvents();
 
 const mapStateToProps = state => ({
-  events: state.entities.events,
-  canDisplayEvents: canDisplayEvents(state),
+  eventsBrowse: state.domainData.eventsBrowse,
+  canDisplayEvents:
+    (state.domainData.hosts.officeHosts ||
+      state.domainData.hosts.orgHosts ||
+      state.domainData.sangguHosts) &&
+    state.domainData.venues.result,
   filters: state.filters
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchEvents: ({ host, tags, dateRange, query, page }) => {
+  fetchEventsBrowse: ({ host, tags, dateRange, query, page }) => {
     let params = {};
 
     params = withParam(host, params, newParams => {
@@ -50,7 +51,7 @@ const mapDispatchToProps = dispatch => ({
       page
     }));
 
-    dispatch(fetchEvents(params));
+    dispatch(fetchEventsBrowse(params));
   }
 });
 
