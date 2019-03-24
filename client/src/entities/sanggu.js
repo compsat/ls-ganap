@@ -1,3 +1,5 @@
 import { schema } from "normalizr";
 
-export const sanggu = new schema.Entity("sanggu");
+const sanggu = new schema.Entity("sanggu");
+
+export default sanggu;

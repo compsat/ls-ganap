@@ -1,34 +1,30 @@
 import {
-  FETCH_CLUSTERS_REQUEST,
-  FETCH_CLUSTERS_SUCCESS,
-  FETCH_CLUSTERS_FAILURE
-} from "actions/clusters";
+  FETCH_EVENTS_UPCOMING_REQUEST,
+  FETCH_EVENTS_UPCOMING_SUCCESS,
+  FETCH_EVENTS_UPCOMING_FAILURE
+} from "actions/eventsUpcoming";
 
-const clusters = (
+const eventsUpcoming = (
   state = {
     hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
-    items: []
+    result: []
   },
   action
 ) => {
   switch (action.type) {
-    case FETCH_CLUSTERS_REQUEST:
+    case FETCH_EVENTS_UPCOMING_REQUEST:
       return Object.assign({}, state, {
         hasInitiatedFetch: true,
         isFetching: true
       });
-    case FETCH_CLUSTERS_SUCCESS:
+    case FETCH_EVENTS_UPCOMING_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.clusters.reduce((item, cluster) => {
-          return Object.assign(item, {
-            [cluster.id]: cluster
-          });
-        }, {})
+        result: action.events
       });
-    case FETCH_CLUSTERS_FAILURE:
+    case FETCH_EVENTS_UPCOMING_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
         failedToFetch: true
@@ -38,4 +34,4 @@ const clusters = (
   }
 };
 
-export default clusters;
+export default eventsUpcoming;

@@ -9,9 +9,9 @@ const hosts = (
     hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
-    sangguHosts: [],
     officeHosts: [],
-    orgHosts: []
+    orgHosts: [],
+    sangguHosts: []
   },
   action
 ) => {
@@ -24,21 +24,9 @@ const hosts = (
     case FETCH_HOSTS_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        orgHosts: action.orgHosts.reduce((item, orgHost) => {
-          return Object.assign(item, {
-            [orgHost.id]: orgHost
-          });
-        }, {}),
-        sangguHosts: action.sangguHosts.reduce((item, sangguHost) => {
-          return Object.assign(item, {
-            [sangguHost.id]: sangguHost
-          });
-        }, {}),
-        officeHosts: action.officeHosts.reduce((item, officeHost) => {
-          return Object.assign(item, {
-            [officeHost.id]: officeHost
-          });
-        }, {})
+        officeHosts: action.officeHosts,
+        orgHosts: action.orgHosts,
+        sangguHosts: action.sangguHosts
       });
     case FETCH_HOSTS_FAILURE:
       return Object.assign({}, state, {

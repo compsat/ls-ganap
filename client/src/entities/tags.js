@@ -1,3 +1,5 @@
 import { schema } from "normalizr";
 
-export const tag = new schema.Entity("tags");
+const tag = new schema.Entity("tags");
+
+export default tag;

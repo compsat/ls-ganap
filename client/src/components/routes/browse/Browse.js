@@ -50,7 +50,7 @@ const ResultsContainer = styled.div`
 
 const NoResultsP = AppText.withComponent("p");
 
-class BrowseView extends Component {
+class Browse extends Component {
   constructor(props) {
     super(props);
 
@@ -60,7 +60,7 @@ class BrowseView extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchEvents({
+    this.props.fetchEventsBrowse({
       ...this.props.filters,
       page: 1
     });
@@ -70,7 +70,7 @@ class BrowseView extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.filters === this.props.filters) return;
 
-    this.props.fetchEvents({
+    this.props.fetchEventsBrowse({
       ...this.props.filters,
       page: 1
     });
@@ -78,11 +78,11 @@ class BrowseView extends Component {
 
   loadMoreEvents = () => {
     if (!this.state.hasMounted) return;
-    if (this.props.events.isFetching) return;
+    if (this.props.eventsBrowse.isFetching) return;
 
-    this.props.fetchEvents({
+    this.props.fetchEventsBrowse({
       ...this.props.filters,
-      page: this.props.events.page + 1
+      page: this.props.eventsBrowse.page + 1
     });
   };
 
@@ -95,21 +95,24 @@ class BrowseView extends Component {
         <MainContentBox>
           <BrowseFilterBar />
           <ResultsContainer>
-            {Object.values(this.props.events.items).length > 0 ? (
+            {this.props.eventsBrowse.hasInitiatedFetch &&
+            !this.props.eventsBrowse.isFetching &&
+            !this.props.eventsBrowse.result.length ? (
+              <NoResultsP align="center">No events found.</NoResultsP>
+            ) : !this.props.canDisplayEvents ? (
+              <Loading />
+            ) : (
               <InfiniteScroll
                 loadMore={this.loadMoreEvents}
-                hasMore={!this.props.events.failedToFetch}
+                hasMore={!this.props.eventsBrowse.failedToFetch}
                 loader={<Loading />}
               >
-                {this.props.canDisplayEvents &&
-                  Object.values(this.props.events.items).map(event => (
-                    <li key={event.id}>
-                      <EventCardContainer component={EventCard} id={event.id} />
-                    </li>
-                  ))}
+                {this.props.eventsBrowse.result.map(id => (
+                  <li key={id}>
+                    <EventCardContainer component={EventCard} id={id} />
+                  </li>
+                ))}
               </InfiniteScroll>
-            ) : (
-              <NoResultsP align="center">No events found.</NoResultsP>
             )}
           </ResultsContainer>
         </MainContentBox>
@@ -118,4 +121,4 @@ class BrowseView extends Component {
   }
 }
 
-export default BrowseView;
+export default Browse;

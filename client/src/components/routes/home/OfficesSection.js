@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 
-import AppCardBase from "components/common/AppCardBase";
-import AppCardImage from "components/common/AppCardImage";
-import AppCardTextBox from "components/common/AppCardTextBox";
 import AppHeading from "components/common/AppHeading";
 import AppSubheading from "components/common/AppSubheading";
-import AppText from "components/common/AppText";
 import PageContent from "components/common/PageContent";
 import HorizontalScroller from "components/common/HorizontalScroller";
 import CardsSection from "components/routes/home/CardsSection";
+import HostCardContainer from "containers/home/HostCardContainer";
 
 const OfficesCardsSection = CardsSection.extend`
   background-color: #dff2cb;
@@ -46,18 +43,8 @@ class OfficesSection extends Component {
             !this.props.offices.isFetching
           }
         >
-          {Object.values(this.props.offices.items).map(office => (
-            <AppCardBase key={office.id}>
-              <AppCardImage
-                src={office.logo_url}
-                size={"75%"}
-                aspectRatio={1}
-                alt={office.name}
-              />
-              <AppCardTextBox lines={3} center={true}>
-                <AppText>{office.name}</AppText>
-              </AppCardTextBox>
-            </AppCardBase>
+          {this.props.offices.map(id => (
+            <HostCardContainer hostType="offices" id={id} key={id} />
           ))}
         </HorizontalScroller>
       </OfficesCardsSection>

@@ -4,7 +4,7 @@ import { fetchClusters } from "actions/clusters";
 import OrgsSection from "components/routes/home/OrgsSection";
 
 const mapStateToProps = state => ({
-  clusters: state.entities.clusters
+  clusters: state.domainData.clusters.result
 });
 
 const mapDispatchToProps = dispatch => ({

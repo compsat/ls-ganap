@@ -9,7 +9,7 @@ const orgTypes = (
     hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
-    items: []
+    result: []
   },
   action
 ) => {
@@ -22,11 +22,7 @@ const orgTypes = (
     case FETCH_ORG_TYPES_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        items: action.orgTypes.reduce((item, orgType) => {
-          return Object.assign(item, {
-            [orgType.id]: orgType
-          });
-        }, {})
+        result: action.orgTypes
       });
     case FETCH_ORG_TYPES_FAILURE:
       return Object.assign({}, state, {

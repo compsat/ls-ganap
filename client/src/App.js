@@ -21,7 +21,7 @@ const Browse = Loadable({
 
 const EventDetail = Loadable({
   loader: () => import("components/routes/event/EventDetail"),
-  loading: Loading,
+  loading: Loading
 });
 
 const Login = Loadable({

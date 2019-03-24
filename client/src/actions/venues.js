@@ -1,4 +1,8 @@
 import axios from "axios";
+import { normalize } from "normalizr";
+
+import { addEntityVenues } from "actions/entities";
+import venue from "entities/venues";
 
 export const FETCH_VENUES_REQUEST = "FETCH_VENUES_REQUEST";
 export const fetchVenuesRequest = () => ({
@@ -19,16 +23,20 @@ export const fetchVenuesFailure = () => ({
 export const fetchVenues = () => {
   return (dispatch, getState) => {
     const {
-      entities: { venues }
+      domainData: { venues }
     } = getState();
 
-    if (!venues.hasInitiatedFetch) {
+    if (!venues.hasInitiatedFetch || venue.failedToFetch) {
       dispatch(fetchVenuesRequest());
 
       return axios
         .get("/venues")
         .then(response => {
-          dispatch(fetchVenuesSuccess(response.data.results));
+          const payload = response.data.results;
+          const normalizedData = normalize(payload, [venue]);
+
+          dispatch(addEntityVenues(normalizedData.entities.venues));
+          dispatch(fetchVenuesSuccess(normalizedData.result));
         })
         .catch(error => {
           dispatch(fetchVenuesFailure());
