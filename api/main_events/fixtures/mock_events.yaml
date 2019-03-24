@@ -135,7 +135,7 @@
     description: Job Fair offers...
     is_approved: True
     poster_url: images/logo-big.3d72fc4b_hv3won
-    is_premium: False
+    is_premium: True
     event_url: http://bluehacks.compsat.org/
     tags: [1,2,3,4,6]
     sanggu_hosts: [61]
@@ -149,9 +149,9 @@
     updated_at: 2018-09-14 23:36
     name: Business Talks
     description: We offer...
-    is_approved: False
+    is_approved: True
     poster_url: images/logo-big.3d72fc4b_hv3won
-    is_premium: False
+    is_premium: True
     event_url: http://bluehacks.compsat.org/
     tags: [3]
     sanggu_hosts: []
@@ -550,9 +550,9 @@
       nostrud ex incididunt duis. Pariatur irure consectetur adipisicing sunt ipsum
       est.
     poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
-    is_premium: false
+    is_premium: True
     event_url: http://bluehacks.compsat.org/
-    is_approved: true
+    is_approved: True
     tags: [2,4,3]
     sanggu_hosts: [58,64]
     office_hosts: []
@@ -570,9 +570,9 @@
       qui adipisicing adipisicing deserunt elit. Eiusmod quis sunt proident ipsum
       veniam velit irure nostrud officia adipisicing dolor et.
     poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
-    is_premium: false
+    is_premium: True
     event_url: http://bluehacks.compsat.org/
-    is_approved: true
+    is_approved: True
     tags: [2,5,3,4]
     sanggu_hosts: []
     office_hosts: []
@@ -1911,7 +1911,7 @@
       occaecat in ut sunt eu Lorem anim aliquip ex dolor Lorem ipsum. Nisi cupidatat
       sit sit veniam id nisi voluptate ipsum anim do cupidatat amet voluptate.
     poster_url: https://res.cloudinary.com/dj3kdihst/image/upload/v1/aiesec
-    is_premium: false
+    is_premium: True
     event_url: http://bluehacks.compsat.org/
     is_approved: true
     tags: [2,5,6]
