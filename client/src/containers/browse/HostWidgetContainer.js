@@ -8,7 +8,8 @@ import { makeStructureHosts } from "selectors/hostsSelectors";
 const structureHosts = makeStructureHosts();
 
 const mapStateToProps = state => ({
-  hosts: structureHosts(state)
+  hosts: structureHosts(state),
+  filteredHost: state.filters.host.name || "",
 });
 
 const mapDispatchToProps = dispatch => ({

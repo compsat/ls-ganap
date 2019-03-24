@@ -24,6 +24,7 @@ class HostFilterWidget extends Component {
           item={this.props.hosts}
           parentActiveHost=""
           setActiveHost={this.props.selectHost}
+          filteredHost={this.props.filteredHost}
         />
       </WidgetContainer>
     );
