@@ -11,7 +11,7 @@
   pk: 2
   fields:
     event: 1
-    date: '2019-01-21'
+    date: '2019-03-26'
     start_time: '17:00:00'
     end_time: '18:30:00'
     venue: 13
@@ -20,7 +20,7 @@
   pk: 3
   fields:
     event: 2
-    date: '2018-11-05'
+    date: '2020-11-05'
     start_time: '08:30:00'
     end_time: '17:30:00'
     venue: 5
@@ -29,7 +29,7 @@
   pk: 4
   fields:
     event: 3
-    date: '2018-08-15'
+    date: '2020-08-15'
     start_time: '17:00:00'
     end_time: '19:00:00'
     venue: 24
@@ -38,7 +38,7 @@
   pk: 5
   fields:
     event: 3
-    date: '2018-10-02'
+    date: '2020-10-02'
     start_time: '17:00:00'
     end_time: '19:00:00'
     venue: 13
@@ -65,7 +65,7 @@
   pk: 8
   fields:
     event: 5
-    date: '2018-09-01'
+    date: '2020-09-01'
     start_time: '20:00:00'
     end_time: '22:00:00'
     venue: 104
@@ -74,7 +74,7 @@
   pk: 9
   fields:
     event: 5
-    date: '2018-09-05'
+    date: '2020-09-05'
     start_time: '20:00:00'
     end_time: '22:00:00'
     venue: 104
@@ -83,7 +83,7 @@
   pk: 10
   fields:
     event: 5
-    date: '2018-09-07'
+    date: '2020-09-07'
     start_time: '20:00:00'
     end_time: '22:00:00'
     venue: 104
@@ -92,7 +92,7 @@
   pk: 11
   fields:
     event: 5
-    date: '2018-09-10'
+    date: '2020-09-10'
     start_time: '20:00:00'
     end_time: '22:00:00'
     venue: 104
@@ -101,7 +101,7 @@
   pk: 12
   fields:
     event: 6
-    date: '2018-12-10'
+    date: '2020-12-10'
     start_time: '12:00:00'
     end_time: '15:00:00'
     venue: 80
@@ -110,7 +110,7 @@
   pk: 13
   fields:
     event: 7
-    date: '2018-12-10'
+    date: '2020-12-10'
     start_time: '08:00:00'
     end_time: '17:00:00'
     venue: 40
@@ -119,7 +119,7 @@
   pk: 14
   fields:
     event: 8
-    date: '2018-09-01'
+    date: '2020-09-01'
     start_time: '08:00:00'
     end_time: '14:00:00'
     venue: 64
@@ -128,7 +128,7 @@
   pk: 15
   fields:
     event: 9
-    date: '2019-02-03'
+    date: '2019-03-25'
     start_time: '08:00:00'
     end_time: '17:00:00'
     venue: 136
@@ -137,7 +137,7 @@
   pk: 16
   fields:
     event: 9
-    date: '2019-02-04'
+    date: '2019-03-26'
     start_time: '08:00:00'
     end_time: '17:00:00'
     venue: 136
@@ -146,7 +146,7 @@
   pk: 17
   fields:
     event: 9
-    date: '2019-02-05'
+    date: '2019-03-27'
     start_time: '08:00:00'
     end_time: '17:00:00'
     venue: 136
@@ -155,7 +155,7 @@
   pk: 18
   fields:
     event: 9
-    date: '2019-02-06'
+    date: '2019-03-28'
     start_time: '08:00:00'
     end_time: '17:00:00'
     venue: 136
@@ -164,7 +164,7 @@
   pk: 19
   fields:
     event: 9
-    date: '2019-02-07'
+    date: '2019-03-29'
     start_time: '08:00:00'
     end_time: '17:00:00'
     venue: 136
@@ -173,7 +173,7 @@
   pk: 20
   fields:
     event: 10
-    date: '2018-10-10'
+    date: '2020-10-10'
     start_time: '14:00:00'
     end_time: '17:00:00'
     venue: 22
@@ -182,7 +182,7 @@
   pk: 21
   fields:
     event: 10
-    date: '2018-10-17'
+    date: '2020-10-17'
     start_time: '14:00:00'
     end_time: '17:00:00'
     venue: 121
@@ -191,7 +191,7 @@
   pk: 22
   fields:
     event: 10
-    date: '2018-10-24'
+    date: '2020-10-24'
     start_time: '14:00:00'
     end_time: '17:00:00'
     venue: 42
@@ -200,7 +200,7 @@
   pk: 23
   fields:
     event: 11
-    date: '2019-02-16'
+    date: '2019-03-29'
     start_time: '10:30:00'
     end_time: '15:00:00'
     venue: 54
@@ -209,7 +209,7 @@
   pk: 24
   fields:
     event: 12
-    date: '2018-11-05'
+    date: '2020-11-05'
     start_time: '09:00:00'
     end_time: '16:00:00'
     venue: 47
@@ -218,7 +218,7 @@
   pk: 25
   fields:
     event: 13
-    date: '2018-12-09'
+    date: '2020-12-09'
     start_time: '09:30:00'
     end_time: '18:00:00'
     venue: 7
@@ -227,7 +227,7 @@
   pk: 26
   fields:
     event: 14
-    date: '2018-11-01'
+    date: '2020-11-01'
     start_time: '12:00:00'
     end_time: '18:00:00'
     venue: 69
@@ -254,7 +254,7 @@
   pk: 29
   fields:
     event: 17
-    date: '2018-10-14'
+    date: '2020-10-14'
     start_time: '09:30:00'
     end_time: '17:30:00'
     venue: 97
@@ -263,7 +263,7 @@
   pk: 30
   fields:
     event: 18
-    date: '2018-11-26'
+    date: '2020-11-26'
     start_time: '12:30:00'
     end_time: '16:00:00'
     venue: 89
@@ -281,7 +281,7 @@
   pk: 32
   fields:
     event: 20
-    date: '2018-12-25'
+    date: '2020-12-25'
     start_time: '14:00:00'
     end_time: '19:00:00'
     venue: 49
@@ -299,7 +299,7 @@
   pk: 34
   fields:
     event: 20
-    date: '2018-12-27'
+    date: '2020-12-27'
     start_time: '11:30:00'
     end_time: '19:00:00'
     venue: 66
@@ -317,7 +317,7 @@
   pk: 36
   fields:
     event: 22
-    date: '2018-10-14'
+    date: '2020-10-14'
     start_time: '12:30:00'
     end_time: '19:30:00'
     venue: 127
@@ -326,7 +326,7 @@
   pk: 37
   fields:
     event: 23
-    date: '2018-12-03'
+    date: '2020-12-03'
     start_time: '13:00:00'
     end_time: '18:00:00'
     venue: 6
@@ -344,7 +344,7 @@
   pk: 39
   fields:
     event: 25
-    date: '2018-12-27'
+    date: '2020-12-27'
     start_time: '09:30:00'
     end_time: '19:00:00'
     venue: 8
@@ -353,7 +353,7 @@
   pk: 40
   fields:
     event: 26
-    date: '2018-11-16'
+    date: '2020-11-16'
     start_time: '11:30:00'
     end_time: '16:00:00'
     venue: 119
@@ -362,7 +362,7 @@
   pk: 41
   fields:
     event: 27
-    date: '2018-12-04'
+    date: '2020-12-04'
     start_time: '11:30:00'
     end_time: '19:30:00'
     venue: 20
@@ -380,7 +380,7 @@
   pk: 43
   fields:
     event: 29
-    date: '2018-10-16'
+    date: '2020-10-16'
     start_time: '12:30:00'
     end_time: '19:30:00'
     venue: 4
@@ -389,7 +389,7 @@
   pk: 44
   fields:
     event: 30
-    date: '2018-10-25'
+    date: '2020-10-25'
     start_time: '14:30:00'
     end_time: '16:30:00'
     venue: 9
@@ -398,7 +398,7 @@
   pk: 45
   fields:
     event: 30
-    date: '2018-10-16'
+    date: '2020-10-16'
     start_time: '11:00:00'
     end_time: '17:00:00'
     venue: 132
@@ -407,7 +407,7 @@
   pk: 46
   fields:
     event: 30
-    date: '2019-03-23'
+    date: '2019-03-31'
     start_time: '11:30:00'
     end_time: '18:00:00'
     venue: 109
@@ -425,7 +425,7 @@
   pk: 48
   fields:
     event: 32
-    date: '2018-11-28'
+    date: '2020-11-28'
     start_time: '11:30:00'
     end_time: '16:30:00'
     venue: 89
@@ -434,7 +434,7 @@
   pk: 49
   fields:
     event: 33
-    date: '2018-11-24'
+    date: '2020-11-24'
     start_time: '09:30:00'
     end_time: '19:00:00'
     venue: 100
@@ -461,7 +461,7 @@
   pk: 52
   fields:
     event: 36
-    date: '2018-12-15'
+    date: '2020-12-15'
     start_time: '12:30:00'
     end_time: '18:00:00'
     venue: 51
@@ -470,7 +470,7 @@
   pk: 53
   fields:
     event: 37
-    date: '2018-11-28'
+    date: '2020-11-28'
     start_time: '11:30:00'
     end_time: '15:30:00'
     venue: 70
@@ -479,7 +479,7 @@
   pk: 54
   fields:
     event: 38
-    date: '2018-11-19'
+    date: '2020-11-19'
     start_time: '12:00:00'
     end_time: '15:00:00'
     venue: 57
@@ -488,7 +488,7 @@
   pk: 55
   fields:
     event: 39
-    date: '2018-12-19'
+    date: '2020-12-19'
     start_time: '10:00:00'
     end_time: '18:00:00'
     venue: 53
@@ -497,7 +497,7 @@
   pk: 56
   fields:
     event: 40
-    date: '2018-10-05'
+    date: '2020-10-05'
     start_time: '14:00:00'
     end_time: '19:30:00'
     venue: 17
@@ -515,7 +515,7 @@
   pk: 58
   fields:
     event: 40
-    date: '2019-01-16'
+    date: '2019-03-27'
     start_time: '08:00:00'
     end_time: '19:30:00'
     venue: 60
@@ -524,7 +524,7 @@
   pk: 59
   fields:
     event: 41
-    date: '2018-12-30'
+    date: '2020-12-30'
     start_time: '14:00:00'
     end_time: '17:00:00'
     venue: 68
@@ -542,7 +542,7 @@
   pk: 61
   fields:
     event: 43
-    date: '2018-12-01'
+    date: '2020-12-01'
     start_time: '13:30:00'
     end_time: '18:30:00'
     venue: 50
@@ -578,7 +578,7 @@
   pk: 65
   fields:
     event: 47
-    date: '2018-12-01'
+    date: '2020-12-01'
     start_time: '14:30:00'
     end_time: '15:30:00'
     venue: 34
@@ -596,7 +596,7 @@
   pk: 67
   fields:
     event: 49
-    date: '2018-12-16'
+    date: '2020-12-16'
     start_time: '12:30:00'
     end_time: '19:30:00'
     venue: 60
@@ -614,7 +614,7 @@
   pk: 69
   fields:
     event: 50
-    date: '2018-11-02'
+    date: '2020-11-02'
     start_time: '10:00:00'
     end_time: '17:30:00'
     venue: 48
@@ -623,7 +623,7 @@
   pk: 70
   fields:
     event: 50
-    date: '2019-01-08'
+    date: '2019-03-27'
     start_time: '11:30:00'
     end_time: '15:00:00'
     venue: 55
@@ -632,7 +632,7 @@
   pk: 71
   fields:
     event: 51
-    date: '2018-11-02'
+    date: '2020-11-02'
     start_time: '10:30:00'
     end_time: '15:30:00'
     venue: 26
@@ -650,7 +650,7 @@
   pk: 73
   fields:
     event: 53
-    date: '2018-10-20'
+    date: '2020-10-20'
     start_time: '13:30:00'
     end_time: '16:30:00'
     venue: 87
@@ -704,7 +704,7 @@
   pk: 79
   fields:
     event: 59
-    date: '2018-10-05'
+    date: '2020-10-05'
     start_time: '12:30:00'
     end_time: '15:00:00'
     venue: 77
@@ -713,7 +713,7 @@
   pk: 80
   fields:
     event: 60
-    date: '2018-10-01'
+    date: '2020-10-01'
     start_time: '10:00:00'
     end_time: '19:30:00'
     venue: 90
@@ -731,7 +731,7 @@
   pk: 82
   fields:
     event: 60
-    date: '2018-10-23'
+    date: '2020-10-23'
     start_time: '08:30:00'
     end_time: '18:30:00'
     venue: 21
@@ -749,7 +749,7 @@
   pk: 84
   fields:
     event: 62
-    date: '2018-12-20'
+    date: '2020-12-20'
     start_time: '12:00:00'
     end_time: '19:00:00'
     venue: 62
@@ -776,7 +776,7 @@
   pk: 87
   fields:
     event: 65
-    date: '2018-11-21'
+    date: '2020-11-21'
     start_time: '11:00:00'
     end_time: '18:30:00'
     venue: 101
@@ -785,7 +785,7 @@
   pk: 88
   fields:
     event: 66
-    date: '2018-10-15'
+    date: '2020-10-15'
     start_time: '13:00:00'
     end_time: '17:30:00'
     venue: 24
@@ -803,7 +803,7 @@
   pk: 90
   fields:
     event: 68
-    date: '2018-12-29'
+    date: '2020-12-29'
     start_time: '12:30:00'
     end_time: '19:00:00'
     venue: 43
@@ -821,7 +821,7 @@
   pk: 92
   fields:
     event: 70
-    date: '2018-10-13'
+    date: '2020-10-13'
     start_time: '10:00:00'
     end_time: '18:00:00'
     venue: 58
@@ -839,7 +839,7 @@
   pk: 94
   fields:
     event: 70
-    date: '2018-10-31'
+    date: '2020-10-31'
     start_time: '12:30:00'
     end_time: '19:30:00'
     venue: 108
@@ -866,7 +866,7 @@
   pk: 97
   fields:
     event: 73
-    date: '2018-10-06'
+    date: '2020-10-06'
     start_time: '13:30:00'
     end_time: '18:00:00'
     venue: 50
@@ -884,7 +884,7 @@
   pk: 99
   fields:
     event: 75
-    date: '2018-11-29'
+    date: '2019-04-01'
     start_time: '11:30:00'
     end_time: '19:00:00'
     venue: 86
@@ -893,7 +893,7 @@
   pk: 100
   fields:
     event: 76
-    date: '2018-12-07'
+    date: '2020-12-07'
     start_time: '08:30:00'
     end_time: '19:00:00'
     venue: 51
@@ -902,7 +902,7 @@
   pk: 101
   fields:
     event: 77
-    date: '2018-10-14'
+    date: '2020-10-14'
     start_time: '13:00:00'
     end_time: '16:30:00'
     venue: 52
@@ -911,7 +911,7 @@
   pk: 102
   fields:
     event: 78
-    date: '2018-10-27'
+    date: '2020-10-27'
     start_time: '08:00:00'
     end_time: '19:00:00'
     venue: 120
@@ -929,7 +929,7 @@
   pk: 104
   fields:
     event: 80
-    date: '2018-12-16'
+    date: '2020-12-16'
     start_time: '11:30:00'
     end_time: '15:30:00'
     venue: 14
@@ -938,7 +938,7 @@
   pk: 105
   fields:
     event: 80
-    date: '2018-12-23'
+    date: '2020-12-23'
     start_time: '13:00:00'
     end_time: '16:30:00'
     venue: 45
@@ -956,7 +956,7 @@
   pk: 107
   fields:
     event: 81
-    date: '2018-10-03'
+    date: '2020-10-03'
     start_time: '09:30:00'
     end_time: '16:00:00'
     venue: 16
@@ -983,7 +983,7 @@
   pk: 110
   fields:
     event: 84
-    date: '2018-11-27'
+    date: '2020-11-27'
     start_time: '11:30:00'
     end_time: '15:00:00'
     venue: 80
@@ -1019,7 +1019,7 @@
   pk: 114
   fields:
     event: 88
-    date: '2018-10-12'
+    date: '2020-10-12'
     start_time: '11:30:00'
     end_time: '17:00:00'
     venue: 74
@@ -1037,7 +1037,7 @@
   pk: 116
   fields:
     event: 90
-    date: '2018-12-23'
+    date: '2020-12-23'
     start_time: '12:00:00'
     end_time: '15:00:00'
     venue: 22
@@ -1055,7 +1055,7 @@
   pk: 118
   fields:
     event: 90
-    date: '2018-12-16'
+    date: '2020-12-16'
     start_time: '14:00:00'
     end_time: '19:00:00'
     venue: 80
@@ -1091,7 +1091,7 @@
   pk: 122
   fields:
     event: 94
-    date: '2018-12-24'
+    date: '2020-12-24'
     start_time: '12:00:00'
     end_time: '16:30:00'
     venue: 115
@@ -1100,7 +1100,7 @@
   pk: 123
   fields:
     event: 95
-    date: '2018-11-21'
+    date: '2020-11-21'
     start_time: '19:00:00'
     end_time: '23:30:00'
     venue:
@@ -1118,7 +1118,7 @@
   pk: 125
   fields:
     event: 97
-    date: '2018-09-20'
+    date: '2020-09-20'
     start_time: '12:00:00'
     end_time: '16:30:00'
     venue: 1
@@ -1127,7 +1127,7 @@
   pk: 126
   fields:
     event: 98
-    date: '2018-12-08'
+    date: '2020-12-08'
     start_time: '15:00:00'
     end_time: '16:30:00'
     venue: 44
@@ -1145,7 +1145,7 @@
   pk: 128
   fields:
     event: 100
-    date: '2018-09-20'
+    date: '2020-09-20'
     start_time: '08:00:00'
     end_time: '12:30:00'
     venue: 103
