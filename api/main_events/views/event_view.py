@@ -587,7 +587,7 @@ class UnapprovedEventList(generics.ListAPIView):
 
 class FeaturedEventList(generics.ListAPIView):
     """
-    get: Gets all the unapproved events of the authenticated user.
+    get: Gets all the featured events.
     """
     serializer_class = event_serializer.EventSerializer
 
