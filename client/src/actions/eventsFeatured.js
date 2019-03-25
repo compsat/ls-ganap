@@ -31,7 +31,7 @@ export const fetchEventsFeatured = () => {
     return axios
       .get("/events/featured/")
       .then(response => {
-        const payload = response.data.results;
+        const payload = response.data;
         const normalizedData = normalize(payload, [event]);
 
         dispatch(addEntityEvents(normalizedData.entities.events));
