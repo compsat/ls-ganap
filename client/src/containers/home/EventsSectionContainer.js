@@ -5,11 +5,12 @@ import EventsSection from "components/routes/home/EventsSection";
 
 const mapStateToProps = state => ({
   eventsUpcoming: state.domainData.eventsUpcoming.result,
-  canDisplayEvents:
-    (state.domainData.hosts.officeHosts ||
-      state.domainData.hosts.orgHosts ||
-      state.domainData.sangguHosts) &&
-    state.domainData.venues.result
+  canDisplayEvents: !!(
+    (state.domainData.hosts.officeHosts.length ||
+      state.domainData.hosts.orgHosts.length ||
+      state.domainData.hosts.sangguHosts.length) &&
+    state.domainData.venues.result.length
+  )
 });
 
 const mapDispatchToProps = dispatch => ({
