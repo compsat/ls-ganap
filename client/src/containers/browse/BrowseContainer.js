@@ -6,11 +6,12 @@ import Browse from "components/routes/browse/Browse";
 
 const mapStateToProps = state => ({
   eventsBrowse: state.domainData.eventsBrowse,
-  canDisplayEvents:
-    (state.domainData.hosts.officeHosts ||
-      state.domainData.hosts.orgHosts ||
-      state.domainData.sangguHosts) &&
-    state.domainData.venues.result,
+  canDisplayEvents: !!(
+    (state.domainData.hosts.officeHosts.length ||
+      state.domainData.hosts.orgHosts.length ||
+      state.domainData.hosts.sangguHosts.length) &&
+    state.domainData.venues.result.length
+  ),
   filters: state.filters
 });
 
