@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 
 import { fetchClusters } from "actions/clusters";
-import { selectHost } from "actions/filters";
 import OrgsSection from "components/routes/home/OrgsSection";
 
 const mapStateToProps = state => ({
@@ -9,8 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchClusters: () => dispatch(fetchClusters()),
-  selectHost: (host) => dispatch(selectHost(host))
+  fetchClusters: () => dispatch(fetchClusters())
 });
 
 export default connect(

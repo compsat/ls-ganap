@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 
 import { fetchOffices } from "actions/offices";
-import { selectHost } from "actions/filters";
 import OfficesSection from "components/routes/home/OfficesSection";
 
 const mapStateToProps = state => ({
@@ -14,7 +13,6 @@ const mapDispatchToProps = dispatch => ({
       dispatch(fetchOffices(i));
     }
   },
-  selectHost: (host) => dispatch(selectHost(host))
 });
 
 export default connect(
