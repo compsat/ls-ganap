@@ -29,7 +29,7 @@ export const postAuthToken = (email, password) => {
       .then(response => {
         const authToken = response.data.token;
         sessionStorage.setItem("authToken", authToken);
-        axios.defaults.headers.common["Authorization"] = authToken;
+        axios.defaults.headers.common["Authorization"] = "JWT " + authToken;
         dispatch(postAuthTokenSuccess(email, response.data.id));
       })
       .catch(error => {
@@ -44,9 +44,10 @@ export const verifyAuthTokenRequest = () => ({
 });
 
 export const VERIFY_AUTH_TOKEN_SUCCESS = "VERIFY_AUTH_TOKEN_SUCCESS";
-export const verifyAuthTokenSuccess = email => ({
+export const verifyAuthTokenSuccess = (email, userId) => ({
   type: VERIFY_AUTH_TOKEN_SUCCESS,
-  email
+  email,
+  userId
 });
 
 export const VERIFY_AUTH_TOKEN_FAILURE = "VERIFY_AUTH_TOKEN_FAILURE";
@@ -66,8 +67,8 @@ export const verifyAuthToken = token => {
           token
         })
         .then(response => {
-          axios.defaults.headers.common["Authorization"] = token;
-          dispatch(verifyAuthTokenSuccess(response.data.email));
+          axios.defaults.headers.common["Authorization"] = "JWT " + token;
+          dispatch(verifyAuthTokenSuccess(response.data.email, response.data.id));
         })
         .catch(error => {
           sessionStorage.removeItem("authToken");
