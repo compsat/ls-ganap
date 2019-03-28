@@ -22,7 +22,7 @@ export const fetchEventsPendingFailure = () => ({
   type: FETCH_EVENTS_PENDING_FAILURE
 });
 
-export const fetchEventsPending = (params = {}) => {
+export const fetchEventsPending = () => {
   return dispatch => {
     dispatch(fetchHosts());
     dispatch(fetchVenues());
@@ -31,7 +31,7 @@ export const fetchEventsPending = (params = {}) => {
     return axios
       .get("/events/unapproved")
       .then(response => {
-        const payload = response.data.results;
+        const payload = response.data;
         const normalizedData = normalize(payload, [event]);
 
         dispatch(addEntityEvents(normalizedData.entities.events));

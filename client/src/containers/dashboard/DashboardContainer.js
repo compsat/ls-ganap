@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
       state.domainData.hosts.sangguHosts.length) &&
     state.domainData.venues.result.length
   ),
-  // eventsPending: state.domainData.eventsPending.result,
+  eventsPending: state.domainData.eventsPending.result,
   eventsApproved: state.domainData.eventsApproved.result,
   userId: state.auth.userId
 });

@@ -6,6 +6,8 @@ import EventCard from "components/routes/browse/EventCard";
 import EventCardContainer from "containers/EventCardContainer";
 import { media } from "style/style-utils";
 
+import axios from "axios";
+
 const MainContentBox = styled.div`
   ${media.mdScreen`
     display: flex;
@@ -47,7 +49,7 @@ class Dashboard extends Component {
                 );
               })}
           </EventsApprovedBox>
-          {/* <EventsPendingBox>
+          <EventsPendingBox>
             <AppHeading>Pending Events</AppHeading>
             {this.props.canDisplayEvents &&
               this.props.eventsPending.map(id => (
@@ -55,7 +57,7 @@ class Dashboard extends Component {
                   <EventCardContainer component={EventCard} id={id} />
                 </li>
               ))}
-          </EventsPendingBox> */}
+          </EventsPendingBox>
         </MainContentBox>
       </main>
     );
