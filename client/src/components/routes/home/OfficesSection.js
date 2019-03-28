@@ -7,9 +7,6 @@ import HorizontalScroller from "components/common/HorizontalScroller";
 import CardsSection from "components/routes/home/CardsSection";
 import HostCardContainer from "containers/home/HostCardContainer";
 
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-
 const OfficesCardsSection = CardsSection.extend`
   background-color: #dff2cb;
 `;
@@ -23,17 +20,6 @@ const SectionSubheading = AppSubheading.withComponent("a").extend`
   margin-bottom: 2rem;
   color: #404937;
   text-decoration: none;
-`;
-
-const AppCardLink = ({ className, route, children, onClick }) => (
-  <Link className={className} to={route} onClick={onClick}>
-    {children}
-  </Link>
-);
-
-const StyledAppCardLink = styled(AppCardLink)`
-  text-decoration: none;
-  color: black;
 `;
 
 class OfficesSection extends Component {
