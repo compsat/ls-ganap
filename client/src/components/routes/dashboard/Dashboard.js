@@ -8,6 +8,19 @@ import { media } from "style/style-utils";
 
 import axios from "axios";
 
+const DashboardHeading = styled(AppHeading)`
+  font-size: 1.7em;
+  ${media.mdScreen`
+    font-size: 1.7em;
+  `}
+`
+
+const DashboardPendingHeading = styled(DashboardHeading)`
+  ${media.mdScreen`
+    margin-left: 1rem;
+  `}
+`
+
 const MainContentBox = styled.div`
   ${media.mdScreen`
     display: flex;
@@ -15,18 +28,35 @@ const MainContentBox = styled.div`
     align-items: flex-start;
   `}
 `;
+
 const EventsApprovedBox = styled.div`
   ${media.mdScreen`
     width: 50%;
     float: left;
   `}
 `;
+
 const EventsPendingBox = styled.div`
   ${media.mdScreen`
     width: 50%;
     float: right;
   `}
 `;
+
+const DashboardApprovedCard = styled.div`
+  ${media.mdScreen`
+    margin-top: 1.3rem;
+    margin-right: 1.8rem;
+  `}
+`
+
+const DashboardPendingCard = styled.div`
+  ${media.mdScreen`
+    margin-top: 1.3rem;
+    margin-left: 1rem;
+    margin-right: 1.2rem;
+  `}
+`
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -39,24 +69,34 @@ class Dashboard extends Component {
       <main>
         <MainContentBox>
           <EventsApprovedBox>
-            <AppHeading>Approved Events</AppHeading>
+            <DashboardHeading>Approved Events</DashboardHeading>
             {this.props.canDisplayEvents &&
-              this.props.eventsApproved.map(id => {
-                return (
-                  <li key={id}>
-                    <EventCardContainer component={EventCard} id={id} />
-                  </li>
-                );
-              })}
+              this.props.eventsApproved.map(id =>
+                (
+                  <DashboardApprovedCard>
+                    <EventCardContainer 
+                      component={EventCard} 
+                      id={id} 
+                      key={id}
+                    />
+                  </DashboardApprovedCard>
+                )
+              )}
           </EventsApprovedBox>
           <EventsPendingBox>
-            <AppHeading>Pending Events</AppHeading>
+            <DashboardPendingHeading>Pending Events</DashboardPendingHeading>
             {this.props.canDisplayEvents &&
-              this.props.eventsPending.map(id => (
-                <li key={id}>
-                  <EventCardContainer component={EventCard} id={id} />
-                </li>
-              ))}
+              this.props.eventsPending.map(id => 
+                (
+                  <DashboardPendingCard>
+                    <EventCardContainer 
+                      component={EventCard} 
+                      id={id} 
+                      key={id}
+                    />
+                  </DashboardPendingCard>
+                )
+              )}
           </EventsPendingBox>
         </MainContentBox>
       </main>
