@@ -29,10 +29,12 @@ export const fetchEventsUpcoming = () => {
     dispatch(fetchVenues());
     dispatch(fetchEventsUpcomingRequest());
 
-    const today = format(new Date(), "YYYY-MM-DD");
+    let today = new Date();
+    const last_date = format(new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7), "YYYY-MM-DD");
+    today = format(today, "YYYY-MM-DD");
 
     return axios
-      .get(`/events/week/${today}`)
+      .get(`/events/between/?start_date=${today}&end_date=${last_date}`)
       .then(response => {
         const payload = response.data.results;
         const normalizedData = normalize(payload, [event]);
