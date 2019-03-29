@@ -5,7 +5,7 @@ from main_events.soft_deletion_model import *
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from cloudinary.models import CloudinaryField
-from django.db.models import Min, Q
+from django.db.models import Min, Q, Case, Count, When
 from django.db.models.signals import m2m_changed
 from django.dispatch import receiver
 
@@ -153,7 +153,6 @@ class Tag(models.Model):
 class EventManager(SoftDeletionManager):
 	def get_queryset(self):
 		return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
-		# return super(EventManager, self).get_queryset().filter(is_approved=True).annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
 
 	def by_first_date(self): 
 		qs = super(EventManager, self).get_queryset() 
@@ -161,9 +160,6 @@ class EventManager(SoftDeletionManager):
 
 	def approved_events_only(self):
 		return super(EventManager, self).get_queryset().filter(is_approved=True).annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
-
-	# def all_events(self):
-	# 	return super(EventManager, self).get_queryset().annotate(first_date=Min('event_logistics__date', filter=Q(event_logistics__date__gte=timezone.now())))
 
 	def approved_events(self, user):
 		if user.is_authenticated:
@@ -260,16 +256,19 @@ m2m_changed.connect(hosts_added, sender=Event.org_hosts.through)
 m2m_changed.connect(hosts_added, sender=Event.sanggu_hosts.through)
 m2m_changed.connect(hosts_added, sender=Event.office_hosts.through)
 
+class EventLogisticManager(models.Manager):
+	def get_queryset(self):
+		return super(EventLogisticManager, self).get_queryset().annotate(is_done=Count(Case(When(date__gte=timezone.now(), then=1)))).order_by('-is_done', 'date', 'start_time')
+
 class EventLogistic(models.Model):
+	objects = EventLogisticManager()
+
 	event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_logistics')
 	date = models.DateField()
 	start_time = models.TimeField()
 	end_time = models.TimeField()
 	venue = models.ForeignKey(Venue, null=True, blank=True, on_delete=models.SET_NULL)
 	outside_venue_name = models.CharField(max_length=200, blank=True)
-
-	class Meta:
-		ordering = ('date', 'start_time',)
 
 	def save(self, *args, **kwargs):
 		from main_events.views.event_auth_view import change_logistics, new_logistic
