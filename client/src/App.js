@@ -20,7 +20,7 @@ const Browse = Loadable({
 });
 
 const EventDetail = Loadable({
-  loader: () => import("components/routes/event/EventDetail"),
+  loader: () => import("containers/event/EventDetailSectionContainer"),
   loading: Loading
 });
 
