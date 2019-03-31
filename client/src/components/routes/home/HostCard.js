@@ -20,14 +20,14 @@ const StyledAppCardLink = styled(AppCardLink)`
 `;
 
 const HostCard = ({ host, id, name, logoUrl, selectHost }) => (
-	<StyledAppCardLink route="/browse" onClick={() => selectHost(host)}>
-	  <AppCardBase key={id}>
-	    <AppCardImage src={logoUrl} size={"75%"} aspectRatio={1} alt={name} />
-	    <AppCardTextBox lines={3} center={true}>
-	      <AppText>{name}</AppText>
-	    </AppCardTextBox>
-	  </AppCardBase>
-	</StyledAppCardLink>
+  <StyledAppCardLink route="/browse" onClick={() => selectHost(host)}>
+    <AppCardBase key={id}>
+      <AppCardImage src={logoUrl} size={"75%"} aspectRatio={1} alt={name} />
+      <AppCardTextBox lines={3} center={true}>
+        <AppText>{name}</AppText>
+      </AppCardTextBox>
+    </AppCardBase>
+  </StyledAppCardLink>
 );
 
 export default HostCard;
