@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
     for (let i = 1; i < 4; i++) {
       dispatch(fetchOffices(i));
     }
-  },
+  }
 });
 
 export default connect(
