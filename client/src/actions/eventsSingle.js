@@ -22,14 +22,14 @@ export const fetchEventsSingleFailure = () => ({
   type: FETCH_EVENTS_SINGLE_FAILURE
 });
 
-export const fetchEventsSingle = (pk) => {
+export const fetchEventsSingle = id => {
   return dispatch => {
     dispatch(fetchHosts());
     dispatch(fetchVenues());
     dispatch(fetchEventsSingleRequest());
 
     return axios
-      .get(`/events/${pk}/`)
+      .get(`/events/${id}/`)
       .then(response => {
         const payload = response.data;
         const normalizedData = normalize({payload}, [event]);
