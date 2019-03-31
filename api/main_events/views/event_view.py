@@ -536,8 +536,6 @@ class EventList(APIView):
 
     def post(self, request, format=None):
         serializer = event_serializer.CreateEventSerializer(data=request.data)
-        print("data")
-        print(request.data)
         if serializer.is_valid():
             serializer.save(created_by=request.user.pk)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
