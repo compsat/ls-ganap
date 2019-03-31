@@ -10,15 +10,14 @@ class EventDetailSection extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        {this.props.eventsSingle.map(id => (
+      <main>
+        {this.props.canDisplayEvents && (
           <EventCardContainer
             component={EventDetailSlide}
             id={this.props.id}
-            key={this.props.id}
           />
         )}
-      </React.Fragment>
+      </main>
     );
   }
 }
