@@ -13,13 +13,13 @@ const DashboardHeading = styled(AppHeading)`
   ${media.mdScreen`
     font-size: 1.7em;
   `}
-`
+`;
 
 const DashboardPendingHeading = styled(DashboardHeading)`
   ${media.mdScreen`
     margin-left: 1rem;
   `}
-`
+`;
 
 const MainContentBox = styled.div`
   ${media.mdScreen`
@@ -48,7 +48,7 @@ const DashboardApprovedCard = styled.div`
     margin-top: 1.3rem;
     margin-right: 1.8rem;
   `}
-`
+`;
 
 const DashboardPendingCard = styled.div`
   ${media.mdScreen`
@@ -56,7 +56,7 @@ const DashboardPendingCard = styled.div`
     margin-left: 1rem;
     margin-right: 1.2rem;
   `}
-`
+`;
 
 class Dashboard extends Component {
   componentDidMount() {
