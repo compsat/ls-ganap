@@ -34,7 +34,7 @@ export const fetchEventsSingle = id => {
         const payload = response.data;
         const normalizedData = normalize({ payload }, [event]);
         dispatch(addEntityEvents(normalizedData.entities.events));
-        dispatch(fetchEventsSingleSuccess(normalizedData.result));
+        dispatch(fetchEventsSingleSuccess(normalizedData.result[0]));
       })
       .catch(error => {
         dispatch(fetchEventsSingleFailure());
