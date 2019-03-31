@@ -9,7 +9,6 @@ class EventDetailSection extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <main>
         {this.props.canDisplayEvents && this.props.eventsSingle && (
