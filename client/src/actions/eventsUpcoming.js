@@ -1,6 +1,6 @@
 import axios from "axios";
 import { normalize } from "normalizr";
-import { format } from "date-fns";
+import { format, addDays } from "date-fns";
 
 import { addEntityEvents } from "actions/entities";
 import { fetchHosts } from "actions/hosts";
@@ -29,9 +29,8 @@ export const fetchEventsUpcoming = () => {
     dispatch(fetchVenues());
     dispatch(fetchEventsUpcomingRequest());
 
-    let today = new Date();
-    const last_date = format(new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7), "YYYY-MM-DD");
-    today = format(today, "YYYY-MM-DD");
+    const today = format(new Date(), "YYYY-MM-DD");
+    const last_date = format(addDays(today, 7), "YYYY-MM-DD");
 
     return axios
       .get(`/events/between/?start_date=${today}&end_date=${last_date}`)
