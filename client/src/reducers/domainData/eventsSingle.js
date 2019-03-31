@@ -9,7 +9,7 @@ const eventsSingle = (
     hasInitiatedFetch: false,
     isFetching: false,
     failedToFetch: false,
-    result: [],
+    result: null,
   },
   action
 ) => {
