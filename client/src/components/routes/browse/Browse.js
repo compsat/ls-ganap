@@ -60,6 +60,7 @@ class Browse extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchEventsBrowse({
       ...this.props.filters,
       page: 1
