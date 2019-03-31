@@ -32,7 +32,7 @@ export const fetchEventsSingle = id => {
       .get(`/events/${id}/`)
       .then(response => {
         const payload = response.data;
-        const normalizedData = normalize({payload}, [event]);
+        const normalizedData = normalize({ payload }, [event]);
         dispatch(addEntityEvents(normalizedData.entities.events));
         dispatch(fetchEventsSingleSuccess(normalizedData.result));
       })
