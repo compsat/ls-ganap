@@ -9,12 +9,13 @@ class EventDetailSection extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <main>
-        {this.props.canDisplayEvents && (
+        {this.props.canDisplayEvents && this.props.eventsSingle && (
           <EventCardContainer
             component={EventDetailSlide}
-            id={this.props.id}
+            id={this.props.eventsSingle}
           />
         )}
       </main>
