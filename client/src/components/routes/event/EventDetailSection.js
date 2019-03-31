@@ -17,7 +17,7 @@ class EventDetailSection extends Component {
             id={this.props.id}
             key={this.props.id}
           />
-        ))}
+        )}
       </React.Fragment>
     );
   }
