@@ -590,7 +590,7 @@ class FeaturedEventList(generics.ListAPIView):
     serializer_class = event_serializer.EventSerializer
 
     def get_queryset(self):
-        return Event.objects.approved_events_only().filter(is_premium=True).order_by('first_date')
+        return Event.objects.approved_events_only().filter(is_premium=True, event_logistics__date__gte=timezone.now()).order_by('first_date')
 
 class EventLogisticCreate(APIView):
     """
