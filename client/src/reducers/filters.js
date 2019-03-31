@@ -7,7 +7,7 @@ import {
 
 const filters = (
   state = {
-    host: {},
+    host: { id: null, hostGroupId: null, name: "", abbreviation: "" },
     tags: [],
     dateRange: {
       key: "All",
