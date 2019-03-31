@@ -184,7 +184,7 @@ class Event(SoftDeletionModel):
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	is_approved = models.BooleanField(default=False)
-	poster_url = models.ImageField(upload_to='images/', blank=True)
+	poster_url = models.URLField(blank=True)
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField(blank=True)
 	tags = models.ManyToManyField(Tag, related_name="event_list")
