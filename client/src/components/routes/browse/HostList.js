@@ -13,7 +13,7 @@ class HostList extends Component {
     super(props);
 
     this.state = {
-      activeHost: props.filteredHost
+      activeHost: props.filteredHost || ""
     };
   }
 
