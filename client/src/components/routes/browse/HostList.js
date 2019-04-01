@@ -13,7 +13,7 @@ class HostList extends Component {
     super(props);
 
     this.state = {
-      activeHost: props.filteredHost || ""
+      activeHost: props.filteredHost
     };
   }
 
@@ -40,6 +40,7 @@ class HostList extends Component {
             {this.state.activeHost.name === item.name && item.items && (
               <HostList
                 item={item.items}
+                filteredHost={this.props.filteredHost}
                 parentActiveHost={this.state.activeHost}
                 setActiveHost={this.props.setActiveHost}
               />
