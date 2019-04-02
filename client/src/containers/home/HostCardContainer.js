@@ -9,10 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   const host = denormalizeHost(state, ownProps);
 
   return {
-  host: host,
-    id: host.id,
-    name: host.name,
-    logoUrl: host.logo_url
+    host
   };
 };
 
@@ -21,6 +18,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  mapStateToProps, 
+  mapStateToProps,
   mapDispatchToProps
 )(HostCard);
