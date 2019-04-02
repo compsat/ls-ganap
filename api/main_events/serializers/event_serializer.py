@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from main_events.models import Event, EventLogistic, Tag, SangguHost, OfficeHost, OrgHost, Venue
+from datetime import datetime
+import time
 
 class EventLogisticSerializer(serializers.ModelSerializer):
     class Meta:
@@ -39,6 +41,12 @@ class EventSerializer(serializers.ModelSerializer):
 
 class CreateEventSerializer(serializers.ModelSerializer):
     tags = serializers.PrimaryKeyRelatedField(queryset=Tag.objects.all(), many=True)
+    event_logistics = serializers.ListField(
+       child=serializers.DictField(
+            child=serializers.CharField(required=False)
+        ),
+       required=True, write_only=True
+    )
     hosts = serializers.ListField(
        child=serializers.IntegerField(),
        required=False, write_only=True
@@ -51,11 +59,35 @@ class CreateEventSerializer(serializers.ModelSerializer):
 
         return hosts
 
+    def validate_event_logistics(self, logistics):
+        for logistic in logistics:
+            try:
+                datetime.strptime(logistic['date'], "%Y-%m-%d")
+            except ValueError:
+                raise serializers.ValidationError("Date is not valid")
+
+            try:
+                time.strptime(logistic['start_time'], "%H:%M:%S")
+            except ValueError:
+                raise serializers.ValidationError("Start time is not valid")
+
+            try:
+                time.strptime(logistic['end_time'], "%H:%M:%S")
+            except ValueError:
+                raise serializers.ValidationError("End time is not valid")
+                
+            if 'venue' in logistic and not Venue.objects.filter(pk=int(logistic['venue'])).exists():
+                raise serializers.ValidationError("Venue does not exist")
+
+        return logistics
+                
     def create(self, validated_data):
         hosts_data = None
 
         if 'hosts' in validated_data:
             hosts_data = validated_data.pop('hosts', None)
+
+        event_logistics = validated_data.pop('event_logistics', None)
 
         tags_data = validated_data.pop('tags', None)
         event = Event.objects.create(**validated_data)
@@ -63,6 +95,20 @@ class CreateEventSerializer(serializers.ModelSerializer):
 
         if tags_data:
             event.tags.set(tags_data)
+
+        if event_logistics:
+            for logistic in event_logistics:
+                date = logistic['date']
+                start_time = logistic['start_time']
+                end_time = logistic['end_time']
+
+                if 'venue' in logistic and logistic['venue']:
+                    venue = logistic['venue']
+                    logistic = EventLogistic.objects.create(event=event, date=date, start_time=start_time, end_time=end_time, venue=Venue.objects.get(pk=int(venue)))
+
+                else:
+                    outside_venue_name = logistic['outside_venue_name']
+                    logistic = EventLogistic.objects.create(event=event, date=date, start_time=start_time, end_time=end_time, outside_venue_name=outside_venue_name)
 
         if hosts_data:
             for host in hosts_data:
@@ -103,5 +149,5 @@ class CreateEventSerializer(serializers.ModelSerializer):
                 'description', 
                 'poster_url', 
                 'event_url',
-                'tags']
-                
+                'tags',
+                'event_logistics']
