@@ -45,7 +45,7 @@ class CreateEventSerializer(serializers.ModelSerializer):
        child=serializers.DictField(
             child=serializers.CharField(required=False)
         ),
-       required=True, write_only=True
+       required=False, write_only=True
     )
     hosts = serializers.ListField(
        child=serializers.IntegerField(),
