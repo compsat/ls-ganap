@@ -19,12 +19,17 @@ const StyledAppCardLink = styled(AppCardLink)`
   color: black;
 `;
 
-const HostCard = ({ host, id, name, logoUrl, selectHost }) => (
+const HostCard = ({ host, selectHost }) => (
   <StyledAppCardLink route="/browse" onClick={() => selectHost(host)}>
-    <AppCardBase key={id}>
-      <AppCardImage src={logoUrl} size={"75%"} aspectRatio={1} alt={name} />
+    <AppCardBase key={host.id}>
+      <AppCardImage
+        src={host.logo_url}
+        size={"75%"}
+        aspectRatio={1}
+        alt={host.name}
+      />
       <AppCardTextBox lines={3} center={true}>
-        <AppText>{name}</AppText>
+        <AppText>{host.name}</AppText>
       </AppCardTextBox>
     </AppCardBase>
   </StyledAppCardLink>
