@@ -9,7 +9,7 @@ const structureHosts = makeStructureHosts();
 
 const mapStateToProps = state => ({
   hosts: structureHosts(state),
-  filteredHost: state.filters.host.name || "",
+  filteredHost: state.filters.host.name
 });
 
 const mapDispatchToProps = dispatch => ({
