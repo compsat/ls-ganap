@@ -153,7 +153,7 @@
 - model: main_events.venue
   pk: 39
   fields:
-    name: Faber Hall Function Room
+    name: FH 101
 - model: main_events.venue
   pk: 40
   fields:
