@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import JssProvider from "react-jss/lib/JssProvider";
+import { create } from "jss";
+import { createGenerateClassName, jssPreset } from "@material-ui/core/styles";
 import { ThemeProvider } from "styled-components";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable";
@@ -7,6 +10,7 @@ import Footer from "components/common/Footer";
 import Loading from "components/common/Loading";
 import MainNav from "components/common/MainNav";
 import PageContent from "components/common/PageContent";
+import PrivateRoute from "components/routes/PrivateRoute";
 import theme from "style/style-theme";
 
 const Home = Loadable({
@@ -34,9 +38,21 @@ const Dashboard = Loadable({
   loading: Loading
 });
 
+const NewEvent = Loadable({
+  loader: () => import("containers/events/NewEventContainer"),
+  loading: Loading
+});
+
 const MainContent = PageContent.extend`
   padding-top: ${props => props.theme.sizes.navHeight};
 `;
+
+const generateClassName = createGenerateClassName();
+const jss = create({
+  ...jssPreset(),
+  // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
+  insertionPoint: document.getElementById("jss-insertion-point")
+});
 
 class App extends Component {
   componentDidMount() {
@@ -46,21 +62,33 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <ThemeProvider theme={theme}>
-          <React.Fragment>
-            <MainNav />
-            <MainContent>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/browse" component={Browse} />
-                <Route path="/login" component={Login} />
-                <Route path="/events/:id" component={EventDetail} />
-                <Route path="/dashboard" component={Dashboard} />
-              </Switch>
-            </MainContent>
-            <Footer />
-          </React.Fragment>
-        </ThemeProvider>
+        <JssProvider jss={jss} generateClassName={generateClassName}>
+          <ThemeProvider theme={theme}>
+            <React.Fragment>
+              <MainNav />
+              <MainContent>
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/browse" component={Browse} />
+                  <Route path="/login" component={Login} />
+                  <PrivateRoute
+                    path="/dashboard"
+                    component={Dashboard}
+                    isAuthenticated={this.props.isAuthenticated}
+                  />
+                  <PrivateRoute
+                    exact
+                    path="/events/new"
+                    component={NewEvent}
+                    isAuthenticated={this.props.isAuthenticated}
+                  />
+                  <Route path="/events/:id" component={EventDetail} />
+                </Switch>
+              </MainContent>
+              <Footer />
+            </React.Fragment>
+          </ThemeProvider>
+        </JssProvider>
       </Router>
     );
   }

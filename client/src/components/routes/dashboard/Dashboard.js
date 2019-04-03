@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
+import AppButton from "components/common/AppButton";
 import AppHeading from "components/common/AppHeading";
 import EventCard from "components/routes/browse/EventCard";
 import EventCardContainer from "containers/EventCardContainer";
 import { media } from "style/style-utils";
-
-import axios from "axios";
 
 const DashboardHeading = styled(AppHeading)`
   font-size: 1.7em;
@@ -19,6 +19,15 @@ const DashboardPendingHeading = styled(DashboardHeading)`
   ${media.mdScreen`
     margin-left: 1rem;
   `}
+`;
+
+const NewEventButton = AppButton.extend`
+  float: right;
+`;
+
+const NewEventLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
 `;
 
 const MainContentBox = styled.div`
@@ -71,32 +80,23 @@ class Dashboard extends Component {
           <EventsApprovedBox>
             <DashboardHeading>Approved Events</DashboardHeading>
             {this.props.canDisplayEvents &&
-              this.props.eventsApproved.map(id =>
-                (
-                  <DashboardApprovedCard>
-                    <EventCardContainer 
-                      component={EventCard} 
-                      id={id} 
-                      key={id}
-                    />
-                  </DashboardApprovedCard>
-                )
-              )}
+              this.props.eventsApproved.map(id => (
+                <DashboardApprovedCard>
+                  <EventCardContainer component={EventCard} id={id} key={id} />
+                </DashboardApprovedCard>
+              ))}
           </EventsApprovedBox>
           <EventsPendingBox>
             <DashboardPendingHeading>Pending Events</DashboardPendingHeading>
+            <NewEventButton>
+              <NewEventLink to={"/events/new"}>New Event</NewEventLink>
+            </NewEventButton>
             {this.props.canDisplayEvents &&
-              this.props.eventsPending.map(id => 
-                (
-                  <DashboardPendingCard>
-                    <EventCardContainer 
-                      component={EventCard} 
-                      id={id} 
-                      key={id}
-                    />
-                  </DashboardPendingCard>
-                )
-              )}
+              this.props.eventsPending.map(id => (
+                <DashboardPendingCard>
+                  <EventCardContainer component={EventCard} id={id} key={id} />
+                </DashboardPendingCard>
+              ))}
           </EventsPendingBox>
         </MainContentBox>
       </main>

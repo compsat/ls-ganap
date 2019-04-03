@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import App from "App";
 import { verifyAuthToken } from "actions/auth";
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
 
 const mapDispatchToProps = dispatch => ({
   verifyAuthToken: () => {
