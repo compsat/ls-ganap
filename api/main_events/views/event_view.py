@@ -560,14 +560,13 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly, IsCreatorOrReadOnly]
 
     def get_queryset(self):
-        # pk = self.kwargs['pk']
-        queryset = Event.objects.approved_events_only()
+        queryset = Event.objects.all()
 
-        # if self.request.user.is_authenticated:
-        #     user = self.request.user
-        #     queryset = queryset.filter(Q(is_approved=True) | Q(sanggu_hosts__user=user) | Q(org_hosts__user=user) | Q(office_hosts__user=user))
-        # else:
-        #     queryset = queryset.filter(is_approved=True)
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            queryset = queryset.filter(Q(is_approved=True) | Q(sanggu_hosts__user=user) | Q(org_hosts__user=user) | Q(office_hosts__user=user))
+        else:
+            queryset = queryset.filter(is_approved=True)
 
         return queryset
 
