@@ -8,6 +8,7 @@ import AppSubheading from "components/common/AppSubheading";
 import AppText from "components/common/AppText";
 import { media } from "style/style-utils";
 import { Link } from "react-router-dom";
+import TextTruncate from "react-text-truncate";
 
 const SlideArticle = styled.article`
   display: flex;
@@ -59,9 +60,19 @@ const FeaturedSectionSlide = ({
       <SlideTextP>{formattedDate}</SlideTextP>
       <SlideTextP>{formattedTime}</SlideTextP>
       <SlideTextP style={{ marginBottom: "1rem" }}>{venue}</SlideTextP>
-      <SlideDescription>{description}</SlideDescription>
-      <a href={`${process.env.REACT_APP_API_URL}/gcal/events/${eventId}`}><AppButton>Add to My Calendar</AppButton></a>
-      <Link to={`/events/${eventId}`}><AppButton empty>Read More</AppButton></Link>
+      <SlideDescription>
+        <TextTruncate
+            line={5}
+            truncateText="…"
+            text={description}
+        />
+      </SlideDescription>
+      <a href={`${process.env.REACT_APP_API_URL}/gcal/events/${eventId}`}>
+        <AppButton>Add to My Calendar</AppButton>
+      </a>
+      <Link to={`/events/${eventId}`}>
+        <AppButton empty>Read More</AppButton>
+      </Link>
     </TextBox>
   </SlideArticle>
 );
