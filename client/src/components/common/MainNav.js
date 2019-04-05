@@ -8,6 +8,7 @@ import logo from "assets/ls-ganap-logo.png";
 import FullWidthContainer from "components/common/FullWidthContainer";
 import PageContent from "components/common/PageContent";
 import AuthButtonContainer from "containers/AuthButtonContainer";
+import DashboardButtonContainer from "containers/DashboardButtonContainer";
 import { media } from "style/style-utils";
 
 const NavLink = ({ className, route, children }) => (
@@ -37,13 +38,13 @@ const Nav = FullWidthContainer.extend`
 
 const NavList = styled.ul`
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: ${props => (props.isAuthenticated ? "2fr 1fr 1fr 1fr 1fr;" : "2fr 1fr 1fr 1fr")};
   height: 100%;
   margin: 0;
   padding: 0;
 
   ${media.mdScreen`
-    grid-template-columns: 1fr 150px 140px 130px;
+    grid-template-columns: ${props => (props.isAuthenticated ? "1fr 130px 130px 160px 130px" : "1fr 150px 140px 130px")};
     width: 100%
   `}
 `;
@@ -101,7 +102,7 @@ class MainNav extends Component {
     return (
       <Nav>
         <PageContent>
-          <NavList>
+          <NavList isAuthenticated={this.props.isAuthenticated}>
             <NavListItem>
               <MobileLink route="/">
                 <Logo source={logo} alt="LS Ganap Logo" />
@@ -122,6 +123,7 @@ class MainNav extends Component {
               </MobileLink>
               <DesktopLink route="/browse">Browse</DesktopLink>
             </NavListItem>
+            <DashboardButtonContainer />
             <NavListItem>
               <AuthButtonContainer />
             </NavListItem>
