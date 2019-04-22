@@ -65,7 +65,7 @@ class App extends Component {
         <JssProvider jss={jss} generateClassName={generateClassName}>
           <ThemeProvider theme={theme}>
             <React.Fragment>
-              <MainNav />
+              <MainNav isAuthenticated={this.props.isAuthenticated}/>
               <MainContent>
                 <Switch>
                   <Route exact path="/" component={Home} />

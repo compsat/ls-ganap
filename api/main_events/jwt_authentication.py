@@ -6,8 +6,16 @@ class MyJWTAuthentication(authentication.JSONWebTokenAuthentication):
 
 
 def jwt_response_payload_handler(token, user=None, request=None):
-    return {
-        'token': token,
-        'email': user.email,
-        'id': user.id
-    }
+	hostId = None
+	if hasattr(user, 'sanggu_host'):
+		hostId = user.sanggu_host.id
+	elif hasattr(user, 'org_host'):
+		hostId = user.org_host.id
+	elif hasattr(user, 'office_host'):
+		hostId = user.office_host.id
+
+	return {
+		'token': token,
+		'email': user.email,
+		'id': hostId
+	}

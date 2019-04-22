@@ -33,9 +33,9 @@ export const fetchEventsUpcoming = () => {
     const last_date = format(addDays(today, 7), "YYYY-MM-DD");
 
     return axios
-      .get(`/events/between/?start_date=${today}&end_date=${last_date}`)
+      .get(`/events/?start_date=${today}&end_date=${last_date}`)
       .then(response => {
-        const payload = response.data.results;
+        const payload = response.data.results.slice(0, 12);
         const normalizedData = normalize(payload, [event]);
 
         dispatch(addEntityEvents(normalizedData.entities.events));
