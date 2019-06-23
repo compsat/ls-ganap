@@ -1,9 +1,9 @@
-Django==2.2.0
+Django==2.2.2
 psycopg2-binary==2.7.5
 pytz==2018.4
-djangorestframework==3.8.2
+djangorestframework==3.9.4
 django-rest-swagger==2.1.2
-PyYAML===3.13
+PyYAML===5.1.1
 djangorestframework-jwt-custom-user==1.11.1
 six==1.11.0
 cloudinary==1.12.0
