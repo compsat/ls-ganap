@@ -20,7 +20,7 @@ CLIENT_SECRETS_FILE = 'client_secrets.json'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 # ------------------ REMOVE IN PRODUCTION ----------------------
-os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+# os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 client_secrets = {
 	"web": {"client_id" : config('CLIENT_ID'),

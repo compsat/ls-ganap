@@ -2,7 +2,6 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 from main_events.views import event_view, event_auth_view, cluster_view, host_view, org_type_view, tag_view, venue_view, user_view, org_view, sanggu_view, office_view
-# import views
 
 urlpatterns = [
     path('events/', event_view.EventList.as_view(), name='event-list'),
