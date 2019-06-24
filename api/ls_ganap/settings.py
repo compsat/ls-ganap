@@ -3,6 +3,8 @@ try:
 except ImportError:
     pass
 
+import os, settings
+
 ALLOWED_HOSTS = [
     'ganap.ateneo.edu'
 ]
@@ -21,7 +23,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'errors.log',
+            'filename': os.path.join(settings.BASE_DIR, 'ls_ganap/errors.log'),
         },
     },
     'loggers': {
