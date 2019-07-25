@@ -7,7 +7,6 @@ import os
 
 ALLOWED_HOSTS = [
     'ganap.ateneo.edu',
-    '121.58.232.235'
 ]
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
