@@ -213,7 +213,7 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'ls_ganap.storage.WhiteNoiseStaticFilesStorage'
 
 MEDIA_URL = '/media/'  # or any prefix you choose
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
