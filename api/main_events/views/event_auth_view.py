@@ -91,7 +91,6 @@ def create_events(request, pk):
 			}
 			eventTest = service.events().insert(calendarId='primary', body=EVENT).execute()
 			auth_user = eventTest['creator']['email']
-			# print(eventTest)
 
 		# Save credentials back to session in case access token was refreshed.
 		# ACTION ITEM: In a production app, you likely want to save these

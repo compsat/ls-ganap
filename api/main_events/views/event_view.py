@@ -537,7 +537,15 @@ class EventList(APIView):
     def post(self, request, format=None):
         serializer = event_serializer.CreateEventSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(created_by=request.user.pk)
+            created_by = 1
+            if hasattr(request.user, 'org_host'):
+                created_by = request.user.org_host.pk
+            elif hasattr(request.user, 'office_host'):
+                created_by = request.user.office_host.pk
+            elif hasattr(request.user, 'sanggu_host'):
+                created_by = request.user.sanggu_host.pk
+                
+            serializer.save(created_by=created_by)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
