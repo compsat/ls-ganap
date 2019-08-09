@@ -58,7 +58,6 @@ const AuthButton = ({ isAuthenticated, handleLogOut }) => {
 	  		<MobileLink route="">
           <GoogleLoginButtonContainer />
 	  		</MobileLink>
-	  		{/*<DesktopLink route="/login">Sign in</DesktopLink>*/}
         <DesktopLink route="">
           <GoogleLoginButtonContainer />
         </DesktopLink>
