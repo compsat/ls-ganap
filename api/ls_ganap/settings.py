@@ -5,6 +5,8 @@ except ImportError:
 
 import os
 
+DEBUG = config('DEBUG', cast=bool)
+
 ALLOWED_HOSTS = [
     'ganap.ateneo.edu',
 ]

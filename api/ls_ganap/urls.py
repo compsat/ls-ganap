@@ -57,9 +57,10 @@ urlpatterns = [
     ),
     path('', include('main_events.urls')),
     path('docs/', schema_view, name='docs'),
-    path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
+    path('auth/', include('rest_framework_social_oauth2.urls')),
+    # path('auth/token/', obtain_jwt_token, name='auth-jwt-get'),
     path('auth/token-reset/', refresh_jwt_token, name='auth-jwt-refresh'),
     path('auth/token-verify/', verify_jwt_token, name='auth-jwt-verify'),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-    # path('docs', SwaggerSchemaView.as_view())
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('google_auth/', include('google_auth.urls')),
 ]

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from main_events.views import event_view, event_auth_view, cluster_view, host_view, org_type_view, tag_view, venue_view, user_view, org_view, sanggu_view, office_view
+from main_events.views import event_view, event_auth_view, cluster_view, host_view, org_type_view, tag_view, venue_view, user_view, org_view, sanggu_view, office_view, oauth_login_view
 # import views
 
 urlpatterns = [
@@ -41,7 +41,8 @@ urlpatterns = [
     path('clusters/<int:pk>/', cluster_view.ClusterDetail.as_view()),
     path('venues/', venue_view.VenueList.as_view(), name='venue-list'),
     path('venues/<int:pk>/', venue_view.VenueDetail.as_view()),
-    path('user/password_reset/', user_view.UpdatePassword.as_view())
+    path('user/password_reset/', user_view.UpdatePassword.as_view()),
+    path('oauth/login/', user_view.SocialLoginView.as_view(), name='social-login')
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
