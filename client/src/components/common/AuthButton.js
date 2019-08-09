@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { media } from "style/style-utils";
 import loginIcon from "assets/icon-login.png";
+import googleIcon from "assets/google-logo.svg";
+import GoogleLoginButtonContainer from "containers/login/GoogleLoginButtonContainer";
 
 const NavLink = ({ className, route, children, onClick }) => (
   <Link className={className} to={route} onClick={onClick}>
@@ -53,10 +55,13 @@ const AuthButton = ({ isAuthenticated, handleLogOut }) => {
   } else {
   	return (
   		<React.Fragment>
-	  		<MobileLink route="/login">
-	  		  <Icon source={loginIcon} alt="Authentication Icon" />
+	  		<MobileLink route="">
+          <GoogleLoginButtonContainer />
 	  		</MobileLink>
-	  		<DesktopLink route="/login">Sign in</DesktopLink>
+	  		{/*<DesktopLink route="/login">Sign in</DesktopLink>*/}
+        <DesktopLink route="">
+          <GoogleLoginButtonContainer />
+        </DesktopLink>
   		</React.Fragment>
   	);
   }

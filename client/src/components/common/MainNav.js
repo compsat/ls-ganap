@@ -44,7 +44,7 @@ const NavList = styled.ul`
   padding: 0;
 
   ${media.mdScreen`
-    grid-template-columns: ${props => (props.isAuthenticated ? "1fr 130px 130px 160px 130px" : "1fr 150px 140px 130px")};
+    grid-template-columns: ${props => (props.isAuthenticated ? "1fr 130px 130px 160px 130px" : "1fr 150px 140px 210px")};
     width: 100%
   `}
 `;

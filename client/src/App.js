@@ -33,6 +33,11 @@ const Login = Loadable({
   loading: Loading
 });
 
+const GoogleLogin = Loadable({
+  loader: () => import("containers/login/GoogleLoginButtonContainer"),
+  loading: Loading
+});
+
 const Dashboard = Loadable({
   loader: () => import("containers/dashboard/DashboardContainer"),
   loading: Loading
@@ -70,7 +75,7 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/browse" component={Browse} />
-                  <Route path="/login" component={Login} />
+                  <Route path="/login" component={GoogleLogin} />
                   <PrivateRoute
                     path="/dashboard"
                     component={Dashboard}
