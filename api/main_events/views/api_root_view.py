@@ -8,8 +8,8 @@ def api_root(request, format=None):
 	return Response(
 		{	
 			'docs': reverse('docs', request=request, format=format),
-			'auth-token': reverse('auth-jwt-get', request=request, format=format),
-			# 'auth-token-reset': reverse('auth-jwt-refresh', request=request, format=format),
+			# 'auth-token': reverse('auth-jwt-get', request=request, format=format),
+			'auth-token-reset': reverse('auth-jwt-refresh', request=request, format=format),
 			'token-verify': reverse('auth-jwt-verify', request=request, format=format),
 			'events': reverse('event-list', request=request, format=format),
 			'event_hosts': reverse('host-list', request=request, format=format),
