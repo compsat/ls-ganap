@@ -38,33 +38,6 @@ export const postAuthToken = (email, password) => {
   };
 };
 
-// export const postAuthToken = () => {
-//   return dispatch => {
-//     dispatch(postAuthTokenRequest());
-
-//     const headers = {
-//       "Access-Control-Allow-Origin" : "*",
-//       "Access-Control-Allow-Credentials" : "true",
-//       "Access-Control-Allow-Methods" : "GET,HEAD,OPTIONS,POST,PUT",
-//       "Access-Control-Allow-Headers" : "Access-Control-Allow-Headers, Origin,Accept, Authorization, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
-//     }
-
-//     return axios
-//       .get("/google_auth/", {"headers" : headers})
-//       .then(response => {
-//         console.log(response.data)
-//         const email = response.data.email;
-//         const authToken = response.data.token;
-//         localStorage.setItem("authToken", authToken);
-//         axios.defaults.headers.common["Authorization"] = "JWT " + authToken;
-//         dispatch(postAuthTokenSuccess(email, response.data.id));
-//       })
-//       .catch(error => {
-//         dispatch(postAuthTokenFailure());
-//       });
-//   };
-// };
-
 export const VERIFY_AUTH_TOKEN_REQUEST = "VERIFY_AUTH_TOKEN_REQUEST";
 export const verifyAuthTokenRequest = () => ({
   type: VERIFY_AUTH_TOKEN_REQUEST

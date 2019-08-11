@@ -34,7 +34,14 @@ const DesktopLink = styled(NavLink)`
 `;
 
 const Image = ({ className, source, alt, onclick, disabled }) => (
-  <input type="image" className={className} src={source} alt={alt} onClick={onclick} disabled={disabled}/>
+  <input
+    type="image"
+    className={className}
+    src={source}
+    alt={alt}
+    onClick={onclick}
+    disabled={disabled}
+  />
 );
 
 const Icon = styled(Image)`
@@ -78,10 +85,10 @@ class GoogleLoginButton extends Component {
             <GoogleLogin
               clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
               render={renderProps => (
-                <Icon 
+                <Icon
                   onclick={renderProps.onClick}
                   disabled={renderProps.disabled}
-                  source={googleIcon} 
+                  source={googleIcon}
                 />
               )}
               buttonText="Login with Google"
