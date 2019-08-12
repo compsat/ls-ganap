@@ -37,6 +37,7 @@ class EventSerializer(serializers.ModelSerializer):
                 'poster_url', 
                 'event_url',
                 'tags',
+                'audience',
                 'event_logistics']
 
 class CreateEventSerializer(serializers.ModelSerializer):
@@ -150,4 +151,5 @@ class CreateEventSerializer(serializers.ModelSerializer):
                 'poster_url', 
                 'event_url',
                 'tags',
+                'audience',
                 'event_logistics']

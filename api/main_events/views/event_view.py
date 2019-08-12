@@ -427,6 +427,13 @@ class EventList(APIView):
             description='Specify a date in YYYY-MM-DD as the end of the range of dates, inclusive.',
             schema=coreschema.String()
         ),
+        coreapi.Field(
+            "audience",
+            required=False,
+            location="query",
+            description='Specify the audience of the event',
+            schema=coreschema.String()
+        ),
     ])
 
     def get(self, request, format=None):
@@ -445,6 +452,7 @@ class EventList(APIView):
         start_date = self.request.GET.get("start_date")
         end_date = self.request.GET.get("end_date")
         host = self.request.GET.get("host")
+        audience = self.request.GET.get("audience")
 
         if host_query:
             if int(host_query) > len(host_map) or int(host_query) <= 0:
@@ -520,6 +528,9 @@ class EventList(APIView):
                     return Response(status=status.HTTP_204_NO_CONTENT)
             except ValueError:
                 pass
+
+        if audience:
+            events = events.filter(audience=audience)
 
         if request.method == 'GET' and 'page' in request.GET:
             page = paginator.paginate_queryset(events, request)
