@@ -42,7 +42,7 @@ const DesktopLink = styled(NavLink)`
   `}
 `;
 
-const AuthButton = ({ isAuthenticated, handleLogOut }) => {
+const AuthButton = ({ isAuthenticated, handleLogOut, history }) => {
   if (isAuthenticated) {
     return (
       <React.Fragment>
@@ -56,10 +56,10 @@ const AuthButton = ({ isAuthenticated, handleLogOut }) => {
   	return (
   		<React.Fragment>
 	  		<MobileLink route="">
-          <GoogleLoginButtonContainer />
+          <GoogleLoginButtonContainer history={history} />
 	  		</MobileLink>
         <DesktopLink route="">
-          <GoogleLoginButtonContainer />
+          <GoogleLoginButtonContainer history={history}/>
         </DesktopLink>
   		</React.Fragment>
   	);

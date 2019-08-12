@@ -70,7 +70,7 @@ class App extends Component {
         <JssProvider jss={jss} generateClassName={generateClassName}>
           <ThemeProvider theme={theme}>
             <React.Fragment>
-              <MainNav isAuthenticated={this.props.isAuthenticated}/>
+              <MainNav isAuthenticated={this.props.isAuthenticated} userId={this.props.userId}/>
               <MainContent>
                 <Switch>
                   <Route exact path="/" component={Home} />

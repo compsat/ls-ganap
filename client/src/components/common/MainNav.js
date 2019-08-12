@@ -38,13 +38,18 @@ const Nav = FullWidthContainer.extend`
 
 const NavList = styled.ul`
   display: grid;
-  grid-template-columns: ${props => (props.isAuthenticated ? "2fr 1fr 1fr 1fr 1fr;" : "2fr 1fr 1fr 1fr")};
+  grid-template-columns: ${props => (props.isAuthenticated && props.userId ? "2fr 1fr 1fr 1fr 1fr;" : "2fr 1fr 1fr 1fr")};
   height: 100%;
   margin: 0;
   padding: 0;
 
   ${media.mdScreen`
-    grid-template-columns: ${props => (props.isAuthenticated ? "1fr 130px 130px 160px 130px" : "1fr 150px 140px 210px")};
+    grid-template-columns: ${props => (
+      props.isAuthenticated ? 
+        props.userId != null ? "1fr 130px 130px 160px 130px" 
+        : "1fr 150px 140px 130px"
+          : "1fr 150px 140px 210px"
+    )};
     width: 100%
   `}
 `;
@@ -102,7 +107,7 @@ class MainNav extends Component {
     return (
       <Nav>
         <PageContent>
-          <NavList isAuthenticated={this.props.isAuthenticated}>
+          <NavList isAuthenticated={this.props.isAuthenticated} userId={this.props.userId}>
             <NavListItem>
               <MobileLink route="/">
                 <Logo source={logo} alt="LS Ganap Logo" />

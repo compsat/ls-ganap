@@ -5,8 +5,10 @@ import { googleLogoutAction } from "actions/authGoogle";
 // import { clearAuthToken } from "actions/auth";
 import AuthButton from "components/common/AuthButton";
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+const mapStateToProps = (state, ownProps) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+  userId: state.auth.userId,
+  history: ownProps.history
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

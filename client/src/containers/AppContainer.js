@@ -5,7 +5,8 @@ import App from "App";
 import { verifyAuthToken } from "actions/authGoogle";
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated
+  isAuthenticated: state.auth.isAuthenticated,
+  userId: state.auth.userId
 });
 
 const mapDispatchToProps = dispatch => ({
