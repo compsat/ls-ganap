@@ -25,6 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 # Application definition
@@ -96,7 +97,6 @@ SWAGGER_SETTINGS = {
     "is_superuser": False,  # Set to True to enforce admin only access
 }
 
-
 LOGIN_URL = 'login'
 LOGOUT_URL = 'rest_framework:logout'
 
@@ -131,7 +131,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 ROOT_URLCONF = 'ls_ganap.urls'
 
@@ -245,8 +244,8 @@ CLOUDINARY_STORAGE = {
 
 CORS_ALLOW_CREDENTIALS = True
 
-# CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST')
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST')
+#CORS_ORIGIN_ALLOW_ALL = True
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
