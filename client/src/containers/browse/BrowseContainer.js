@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchEventsBrowse: ({ host, tags, dateRange, query, page }) => {
+  fetchEventsBrowse: ({ host, tags, audience, dateRange, query, page }) => {
     let params = {};
 
     params = withParam(host, params, newParams => {
@@ -43,6 +43,10 @@ const mapDispatchToProps = dispatch => ({
 
       return newParams;
     });
+    params = withParam(audience, params, newParams => ({
+      ...newParams,
+      audience
+    }));
     params = withParam(query, params, newParams => ({
       ...newParams,
       search: query
