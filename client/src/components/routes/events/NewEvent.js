@@ -94,6 +94,7 @@ class NewEvent extends Component {
     this.state = {
       isUploading: false,
       name: "",
+      audience: "",
       posterUrl: "",
       hosts: [],
       date: "",
@@ -201,6 +202,13 @@ class NewEvent extends Component {
               label="Event Name"
               onChange={e => handleInputChange("name", e.target.value)}
               required
+            />
+            <NewEventFormAppInputAutocomplete
+              label="Audience"
+              placeholder=""
+              isSearchable={true}
+              options={this.props.audiences}
+              onChange={value => handleInputChange("audience", value)}
             />
             <NewEventFormAppInputAutocomplete
               label="Hosts"

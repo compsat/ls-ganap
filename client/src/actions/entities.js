@@ -45,3 +45,9 @@ export const addEntityVenues = venues => ({
   type: ADD_ENTITY_VENUES,
   venues
 });
+
+export const ADD_ENTITY_AUDIENCE = "ADD_ENTITY_AUDIENCE";
+export const addEntityAudience = audiences => ({
+  type: ADD_ENTITY_AUDIENCE,
+  audiences
+});
