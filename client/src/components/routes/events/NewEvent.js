@@ -209,6 +209,7 @@ class NewEvent extends Component {
               isSearchable={true}
               options={this.props.audiences}
               onChange={value => handleInputChange("audience", value)}
+              required
             />
             <NewEventFormAppInputAutocomplete
               label="Hosts"

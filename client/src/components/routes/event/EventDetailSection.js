@@ -5,6 +5,7 @@ import EventCardContainer from "containers/EventCardContainer";
 
 class EventDetailSection extends Component {
   componentDidMount() {
+    this.props.fetchAudiences();
     this.props.fetchEventsSingle();
   }
 
@@ -15,6 +16,7 @@ class EventDetailSection extends Component {
           <EventCardContainer
             component={EventDetailSlide}
             id={this.props.eventsSingle}
+            audiences={this.props.audiences}
           />
         )}
       </main>

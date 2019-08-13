@@ -8,6 +8,8 @@ const mapStateToProps = (state, ownProps) => {
   const denormalizeEvent = makeDenormalizeEvent(ownProps.id);
   const event = denormalizeEvent(state, ownProps);
 
+  // console.log(ownProps.audiences);
+
   return {
     eventId: ownProps.id,
     name: event.name,
@@ -40,12 +42,20 @@ const mapStateToProps = (state, ownProps) => {
       logistic.venue ? logistic.venue.name : logistic.outside_venue_name
     ),
     poster_url: event.poster_url,
+    audience: formatAudience(ownProps.audiences, event),
     description: event.description
   };
 };
 
 export default props => {
   return React.createElement(connect(mapStateToProps)(props.component), props);
+};
+
+const formatAudience = (audiences, event) => {
+  if(audiences) {
+    const eventAudience = audiences.find(audience => audience.value == event.audience);
+    return `${eventAudience.value != "PUB" ? "For " : ""}${eventAudience.label}`;
+  }
 };
 
 const formatHosts = hosts => {

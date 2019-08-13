@@ -9,6 +9,7 @@ const SlideSection = FullWidthContainer.withComponent("section");
 
 class EventsSection extends Component {
   componentDidMount() {
+    this.props.fetchAudiences();
     this.props.fetchEventsFeatured();
   }
 
@@ -21,6 +22,7 @@ class EventsSection extends Component {
               component={FeaturedSectionSlide}
               id={id}
               key={id}
+              audiences={this.props.audiences}
             />
           ))}
         </HorizontalScroller>

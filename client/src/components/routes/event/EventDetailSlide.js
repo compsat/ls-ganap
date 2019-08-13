@@ -7,6 +7,7 @@ import AppHeading from "components/common/AppHeading";
 import AppSubheading from "components/common/AppSubheading";
 import AppText from "components/common/AppText";
 import { media } from "style/style-utils";
+import { Link } from "react-router-dom";
 
 const SlideArticle = styled.article`
   display: flex;
@@ -46,15 +47,17 @@ const EventDetailSlide = ({
   formattedAllTimes,
   allVenues,
   poster_url,
+  audience,
   description
 }) => (
   <SlideArticle>
     <SlidePoster src={poster_url} aspectRatio={4 / 3} />
     <TextBox>
       <SlideHeadingH2 size={4}>{name}</SlideHeadingH2>
-      <SlideSubheadingP size={2} style={{ marginBottom: "1rem" }}>
+      <SlideSubheadingP size={2}>
         {allHosts}
       </SlideSubheadingP>
+      <SlideTextP size={2} style={{ marginBottom: "1rem" }}>{audience}</SlideTextP>
       {formattedAllDates.map((detail, index) => (
         <div>
           <SlideTextP>{formattedAllDates[index]}</SlideTextP>
@@ -64,6 +67,9 @@ const EventDetailSlide = ({
       ))}
       <SlideDescription>{description}</SlideDescription>
       <a href={`${process.env.REACT_APP_API_URL}/gcal/events/${eventId}`}><AppButton>Add to My Calendar</AppButton></a>
+      <Link to={`/events/edit/${eventId}`}>
+        <AppButton empty>Edit</AppButton>
+      </Link>
     </TextBox>
   </SlideArticle>
 );

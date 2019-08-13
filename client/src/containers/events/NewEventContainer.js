@@ -5,7 +5,6 @@ import { fetchHosts } from "actions/hosts";
 import { fetchVenues } from "actions/venues";
 import { fetchTags } from "actions/tags";
 import NewEvent from "components/routes/events/NewEvent";
-import axios from "axios";
 
 const mapStateToProps = state => ({
   // TODO: Rewrite with selectors

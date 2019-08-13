@@ -48,15 +48,17 @@ const FeaturedSectionSlide = ({
   formattedTime,
   venue,
   poster_url,
+  audience,
   description
 }) => (
   <SlideArticle>
     <SlidePoster src={poster_url} aspectRatio={4 / 3} />
     <TextBox>
       <SlideHeadingH2 size={4}>{name}</SlideHeadingH2>
-      <SlideSubheadingP size={2} style={{ marginBottom: "1rem" }}>
+      <SlideSubheadingP size={2}>
         {formattedHosts}
       </SlideSubheadingP>
+      <SlideTextP size={2} style={{ marginBottom: "1rem" }}>{audience}</SlideTextP>
       <SlideTextP>{formattedDate}</SlideTextP>
       <SlideTextP>{formattedTime}</SlideTextP>
       <SlideTextP style={{ marginBottom: "1rem" }}>{venue}</SlideTextP>
