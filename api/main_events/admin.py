@@ -315,7 +315,7 @@ class EventAdmin(admin.ModelAdmin):
 	filter_horizontal = ('tags', 'org_hosts', 'office_hosts', 'sanggu_hosts')
 	list_display = ('name', 'hosts', 'event_dates', 'is_approved')
 	list_filter = ('is_approved', HasHappenedListFilter, 'org_hosts', 'office_hosts', 'sanggu_hosts')
-	fields = ('deleted_at', 'created_at', 'updated_at', 'name', 'description', 'is_approved', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
+	fields = ('deleted_at', 'created_at', 'updated_at', 'name', 'audience' , 'description', 'is_approved', 'poster_url', 'is_premium', 'event_url', 'tags', 'sanggu_hosts', 'office_hosts', 'org_hosts')
 	readonly_fields = ('deleted_at', 'created_at', 'updated_at',)
 	search_fields = ('name', 'org_hosts__name', 'office_hosts__name', 'sanggu_hosts__name', 'org_hosts__abbreviation', 'office_hosts__abbreviation', 'sanggu_hosts__abbreviation')
 	actions = ['accept_events']
