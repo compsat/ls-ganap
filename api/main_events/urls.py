@@ -3,7 +3,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.urlpatterns import format_suffix_patterns
-from main_events.views import event_view, event_auth_view, cluster_view, host_view, org_type_view, tag_view, venue_view, user_view, org_view, sanggu_view, office_view, oauth_login_view
+from main_events.views import event_view, event_auth_view, cluster_view, host_view, org_type_view, tag_view, venue_view, user_view, org_view, sanggu_view, office_view
 
 urlpatterns = [
     path('events/', event_view.EventList.as_view(), name='event-list'),
