@@ -1,42 +1,61 @@
 import axios from "axios";
 
-export const POST_AUTH_TOKEN_REQUEST = "POST_AUTH_TOKEN_REQUEST";
-export const postAuthTokenRequest = () => ({
-  type: POST_AUTH_TOKEN_REQUEST
+export const GOOG_IS_AUTHENTICATING = "GOOG_IS_AUTHENTICATING";
+export const isAuthenticating = () => ({
+  type: GOOG_IS_AUTHENTICATING
 });
 
-export const POST_AUTH_TOKEN_SUCCESS = "POST_AUTH_TOKEN_SUCCESS";
-export const postAuthTokenSuccess = (email, userId) => ({
-  type: POST_AUTH_TOKEN_SUCCESS,
-  email,
-  userId
+export const CONVERT_GOOG_TOKEN_SUCCESS = "CONVERT_GOOG_TOKEN_SUCCESS";
+export const convertGoogTokenSuccess = (email, userId) => {
+  return {
+    type: CONVERT_GOOG_TOKEN_SUCCESS,
+    email,
+    userId
+  };
+}
+
+export const GOOGLE_LOGOUT = "GOOGLE_LOGOUT";
+export const googleLogoutAction = () => {
+  return (dispatch, getState) => {
+    const { auth } = getState();
+
+    if (auth.isAuthenticated) {
+      localStorage.removeItem("authToken");
+      axios.defaults.headers.common["Authorization"] = "";
+      dispatch({ type: GOOGLE_LOGOUT });
+    }
+  };
+}
+
+export const CONVERT_GOOG_TOKEN_FAILURE = "CONVERT_GOOG_TOKEN_FAILURE";
+export const convertGoogTokenFailure = err => ({
+  type: CONVERT_GOOG_TOKEN_FAILURE,
+  err
 });
 
-export const POST_AUTH_TOKEN_FAILURE = "POST_AUTH_TOKEN_FAILURE";
-export const postAuthTokenFailure = () => ({
-  type: POST_AUTH_TOKEN_FAILURE
-});
+export const GOOG_AUTHENTICATE_ACTION = "GOOG_AUTHENTICATE_ACTION";
 
-export const postAuthToken = (email, password) => {
+export const convertGoogleToken = access_token => {
   return dispatch => {
-    dispatch(postAuthTokenRequest());
+    dispatch(isAuthenticating());
+    const provider = "google-oauth2";
 
     return axios
-      .post("/auth/token/", {
-        email,
-        password
+      .post("/oauth/login/", {
+        provider,
+        access_token
       })
       .then(response => {
         const authToken = response.data.token;
         localStorage.setItem("authToken", authToken);
         axios.defaults.headers.common["Authorization"] = "JWT " + authToken;
-        dispatch(postAuthTokenSuccess(email, response.data.id));
+        dispatch(convertGoogTokenSuccess(response.data.email, response.data.userId));
       })
       .catch(error => {
-        dispatch(postAuthTokenFailure());
-      });
+        dispatch(convertGoogTokenFailure(error));
+      })
   };
-};
+}
 
 export const VERIFY_AUTH_TOKEN_REQUEST = "VERIFY_AUTH_TOKEN_REQUEST";
 export const verifyAuthTokenRequest = () => ({
@@ -75,19 +94,6 @@ export const verifyAuthToken = token => {
           axios.defaults.headers.common["Authorization"] = "";
           dispatch(verifyAuthTokenFailure());
         });
-    }
-  };
-};
-
-export const CLEAR_AUTH_TOKEN = "CLEAR_AUTH_TOKEN";
-export const clearAuthToken = () => {
-  return (dispatch, getState) => {
-    const { auth } = getState();
-
-    if (auth.isAuthenticated) {
-      localStorage.removeItem("authToken");
-      axios.defaults.headers.common["Authorization"] = "";
-      dispatch({ type: CLEAR_AUTH_TOKEN });
     }
   };
 };

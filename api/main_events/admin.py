@@ -387,7 +387,7 @@ class EventHostAdmin(admin.ModelAdmin):
 class SangguHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation')
 	search_fields = ['name', 'abbreviation']
-	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
+	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host', 'user')
 	inlines = [EventForSangguInline]
 
 	def has_add_permission(self, request, obj=None):
@@ -397,7 +397,7 @@ class OfficeHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation')
 	# list_filter = ('event_host',)
 	search_fields = ['name', 'abbreviation']
-	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host')
+	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host', 'user')
 	inlines = [EventForOfficeInline]
 
 	def has_add_permission(self, request, obj=None):
@@ -407,7 +407,7 @@ class OrgHostAdmin(admin.ModelAdmin):
 	list_display = ('name', 'abbreviation', 'cluster')
 	list_filter = ('event_host', 'org_type', 'cluster')
 	search_fields = ['name', 'abbreviation']
-	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host', 'org_type', 'cluster')
+	fields = ('name', 'abbreviation', 'description', 'color', 'logo_url', 'event_host', 'org_type', 'cluster', 'user')
 	inlines = [EventForOrgInline]
 
 	def has_add_permission(self, request, obj=None):
