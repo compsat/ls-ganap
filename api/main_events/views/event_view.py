@@ -368,6 +368,7 @@ class EventList(APIView):
     # specifies which pagination settings to follow
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
     # search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
+    # permission_classes = [IsAuthenticatedOrReadOnly, IsCreatorOrReadOnly]
     authentication_classes = [MyJWTAuthentication,]
 
     schema = AutoSchema(manual_fields=[
@@ -548,7 +549,15 @@ class EventList(APIView):
     def post(self, request, format=None):
         serializer = event_serializer.CreateEventSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(created_by=request.user.pk)
+            created_by = 1
+            if hasattr(request.user, 'org_host'):
+                created_by = request.user.org_host.pk
+            elif hasattr(request.user, 'office_host'):
+                created_by = request.user.office_host.pk
+            elif hasattr(request.user, 'sanggu_host'):
+                created_by = request.user.sanggu_host.pk
+
+            serializer.save(created_by=created_by)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -566,7 +575,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     delete:
     Deletes an event given its id
     """
-    serializer_class = event_serializer.EventSerializer
+    # serializer_class = event_serializer.EventSerializer
     authentication_classes = [MyJWTAuthentication,]
     permission_classes = [IsAuthenticatedOrReadOnly, IsCreatorOrReadOnly]
 
@@ -580,6 +589,12 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
             queryset = queryset.filter(is_approved=True)
 
         return queryset
+
+    def get_serializer_class(self):
+        if self.request.method == 'PUT':
+            return event_serializer.CreateEventSerializer
+        return event_serializer.EventSerializer
+
 
 class UnapprovedEventList(generics.ListAPIView):
     """

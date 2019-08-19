@@ -8,8 +8,6 @@ const mapStateToProps = (state, ownProps) => {
   const denormalizeEvent = makeDenormalizeEvent(ownProps.id);
   const event = denormalizeEvent(state, ownProps);
 
-  // console.log(ownProps.audiences);
-
   return {
     eventId: ownProps.id,
     name: event.name,
