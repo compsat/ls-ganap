@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 
 import clusters from "reducers/domainData/clusters";
 import eventsBrowse from "reducers/domainData/eventsBrowse";
+import eventsCreateEdit from "reducers/domainData/eventsCreateEdit";
 import eventsFeatured from "reducers/domainData/eventsFeatured";
 import eventsUpcoming from "reducers/domainData/eventsUpcoming";
 import eventsSingle from "reducers/domainData/eventsSingle";
@@ -16,6 +17,7 @@ import venues from "reducers/domainData/venues";
 const domainData = combineReducers({
   clusters,
   eventsBrowse,
+  eventsCreateEdit,
   eventsFeatured,
   eventsUpcoming,
   eventsSingle,

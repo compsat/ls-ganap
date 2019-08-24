@@ -595,7 +595,6 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
             return event_serializer.CreateEventSerializer
         return event_serializer.EventSerializer
 
-
 class UnapprovedEventList(generics.ListAPIView):
     """
     get: Gets all the unapproved events of the authenticated user.

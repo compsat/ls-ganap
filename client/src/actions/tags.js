@@ -62,27 +62,33 @@ export const postTagFailure = () => ({
 });
 
 export const postTag = (tag) => {
-  return dispatch => {
-    dispatch(postTagRequest());
+  return (dispatch, getState) => {
+    const {
+      domainData: { tags }
+    } = getState();
 
-    return axios
-      .post("/tags/", {
-        name: tag
-      })
-      .then(response => {
-        const tagId = response.data.id;
-        const currentTags = localStorage.getItem("tags");
-        if(currentTags != null) {
-          localStorage.setItem("tags", [...currentTags, tagId]);
-        }
-        else {
-          localStorage.setItem("tags", [tagId]);
-        }
+    if (!tags.hasInitiatedPost || tags.failedToPost) {
+      dispatch(postTagRequest());
 
-        dispatch(postTagSuccess(tagId));
-      })
-      .catch(error => {
-        dispatch(postTagFailure());
-      });
+      return axios
+        .post("/tags/", {
+          name: tag
+        })
+        .then(response => {
+          const tagId = response.data.id;
+          const currentTags = localStorage.getItem("tags");
+          if(currentTags != null) {
+            localStorage.setItem("tags", [...currentTags, tagId]);
+          }
+          else {
+            localStorage.setItem("tags", [tagId]);
+          }
+
+          dispatch(postTagSuccess(tagId));
+        })
+        .catch(error => {
+          dispatch(postTagFailure());
+        });
+    }
   };
 };
