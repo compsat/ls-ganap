@@ -5,6 +5,7 @@ import { fetchHosts } from "actions/hosts";
 import { fetchVenues } from "actions/venues";
 import { fetchTags } from "actions/tags";
 import NewEvent from "components/routes/events/NewEvent";
+import { postEvent } from "actions/eventsCreateEdit";
 
 const mapStateToProps = state => ({
   // TODO: Rewrite with selectors
@@ -36,7 +37,29 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchHosts());
     dispatch(fetchVenues());
     dispatch(fetchTags());
-  }
+  },
+  postEvent: (
+    name,
+    audience,
+    description,
+    tags,
+    poster_url,
+    hosts,
+    event_logistics,
+    history
+  ) =>
+    dispatch(
+      postEvent(
+        name,
+        audience,
+        description,
+        tags,
+        poster_url,
+        hosts,
+        event_logistics,
+        history
+      )
+    )
 });
 
 export default connectWithLifecycle(mapStateToProps, mapDispatchToProps)(
