@@ -112,7 +112,7 @@ class EventEdit extends Component {
       audience: this.props.audience,
       description: this.props.description,
       tags: this.props.tags,
-      posterUrl: this.props.posterUrl,
+      posterUrl: this.props.poster_url,
       hosts: this.props.hosts,
       date: this.props.date,
       startTime: this.props.start_time,
@@ -184,42 +184,55 @@ class EventEdit extends Component {
         end_time: `${this.state.endTime}:00`,
         venue: this.state.venue.value
       }
-    ]
+    ];
 
-    const newTags = this.state.tags.filter(tag => tag.__isNew__);
-    const oldTags = this.state.tags.filter(tag => !tag.__isNew__);
+    // const newTags = this.state.tags.filter(tag => tag.__isNew__);
+    // const oldTags = this.state.tags.filter(tag => !tag.__isNew__);
 
-    localStorage.removeItem("tags");
-    newTags.forEach(async tag => await this.props.postTag(tag.value));
+    // localStorage.removeItem("tags");
+    // newTags.forEach(tag => this.props.postTag(tag.value));
 
-    try {
-      const tagsStorage = localStorage.getItem("tags");
-      console.log(tagsStorage);
+    // try {
+      // const tagsStorage = localStorage.getItem("tags");
 
-      const editedDetails = {
-        name: this.state.name,
-        audience: this.state.audience.value,
-        description: this.state.description,
-        tags: oldTags.map(tag => tag.value).concat(tagsStorage == null ? [] : tagsStorage.map(Number)),
-        poster_url: this.state.posterUrl,
-        hosts: this.state.hosts.map(host => host.value),
-        event_logistics: logistics
-      };
-      console.log(editedDetails.tags);
-      // TODO: Convert into action
-      axios
-        .put(`${process.env.REACT_APP_API_URL}/events/${this.props.eventId}/`, editedDetails)
-        .then(response => {
-          localStorage.removeItem("tags");
-          // this.props.history.push("/dashboard");
-        })
-        .catch(error => {
-          console.log(error);
-          localStorage.removeItem("tags");
-        });
-    } catch(e) {
-      console.log(e);
-    }
+      // const editedDetails = {
+      //   name: this.state.name,
+      //   audience: this.state.audience.value,
+      //   description: this.state.description,
+      //   tags: this.state.tags.map(tag => tag.value),
+      //   // tags: oldTags.map(tag => tag.value).concat(tagsStorage == null ? [] : tagsStorage.map(Number)),
+      //   poster_url: this.state.posterUrl,
+      //   hosts: this.state.hosts.map(host => host.value),
+      //   event_logistics: logistics
+      // };
+
+      this.props.putEvent(
+        this.props.eventId,
+        this.state.name,
+        this.state.audience.value,
+        this.state.description,
+        this.state.tags.map(tag => tag.value),
+        this.state.posterUrl,
+        this.state.hosts.map(host => host.value),
+        logistics,
+        this.props.history
+      );
+
+      // console.log(editedDetails.tags);
+      // // TODO: Convert into action
+      // axios
+      //   .put(`${process.env.REACT_APP_API_URL}/events/${this.props.eventId}/`, editedDetails)
+      //   .then(response => {
+      //     localStorage.removeItem("tags");
+      //     // this.props.history.push("/dashboard");
+      //   })
+      //   .catch(error => {
+      //     console.log(error);
+      //     localStorage.removeItem("tags");
+      //   });
+    // } catch(e) {
+    //   console.log(e);
+    // }
   };
 
   render() {
@@ -317,7 +330,7 @@ class EventEdit extends Component {
               placeholder=""
               isMulti={true}
               isSearchable={true}
-              isCreatable={true}
+              // isCreatable={true}
               options={this.props.all_tags}
               onChange={value => handleInputChange("tags", value)}
               defaultValue={this.props.tags}

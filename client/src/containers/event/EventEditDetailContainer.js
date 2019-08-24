@@ -4,10 +4,13 @@ import { format } from "date-fns";
 
 import { makeDenormalizeEvent } from "selectors/eventsSelectors";
 import { postTag } from "actions/tags";
+import { putEvent } from "actions/eventsCreateEdit";
 
 const mapStateToProps = (state, ownProps) => {
   const denormalizeEvent = makeDenormalizeEvent(ownProps.id);
   const event = denormalizeEvent(state, ownProps);
+
+  const logistic = event.event_logistics[0];
 
   return {
     eventId: ownProps.id,
@@ -17,10 +20,10 @@ const mapStateToProps = (state, ownProps) => {
       ...event.org_hosts,
       ...event.sanggu_hosts
     ]),
-    date: format(new Date(event.event_logistics[0].date), "YYYY-MM-DD"),
-    start_time: formatTime(event.event_logistics[0].start_time),
-    end_time: formatTime(event.event_logistics[0].end_time),
-    venue: formatVenue(event.event_logistics[0]),
+    date: format(new Date(logistic.date), "YYYY-MM-DD"),
+    start_time: formatTime(logistic.start_time),
+    end_time: formatTime(logistic.end_time),
+    venue: formatVenue(logistic),
     poster_url: event.poster_url,
     audience: formatAudience(ownProps.audiences, event),
     description: event.description,
@@ -33,7 +36,31 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  postTag: tag => dispatch(postTag(tag))
+  postTag: tag => dispatch(postTag(tag)),
+  putEvent: (
+    eventId,
+    name,
+    audience,
+    description,
+    tags,
+    poster_url,
+    hosts,
+    event_logistics,
+    history
+  ) =>
+    dispatch(
+      putEvent(
+        eventId,
+        name,
+        audience,
+        description,
+        tags,
+        poster_url,
+        hosts,
+        event_logistics,
+        history
+      )
+    )
 });
 
 export default props => {
@@ -59,10 +86,14 @@ const formatAudience = (audiences, event) => {
 };
 
 const formatTags = tags => {
-  return tags.map(tag => (typeof tag !== "undefined" ? {
-    value: tag.id,
-    label: tag.name
-  } : null));
+  return tags.map(tag =>
+    typeof tag !== "undefined"
+      ? {
+          value: tag.id,
+          label: tag.name
+        }
+      : null
+  );
 };
 
 const formatVenue = logistic => {
