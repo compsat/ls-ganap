@@ -10,6 +10,7 @@ import AppButton from "components/common/AppButton";
 import AppInputAutocomplete from "../../common/AppInputAutocomplete";
 import AppText from "components/common/AppText";
 import { media } from "style/style-utils";
+import { Redirect } from "react-router-dom";
 
 const NewEventForm = styled.form`
   display: flex;
@@ -170,21 +171,23 @@ class EventEdit extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    const logistics = isNaN(this.state.venue.value) ? [
-      {
-        date: this.state.date,
-        start_time: `${this.state.startTime}:00`,
-        end_time: `${this.state.endTime}:00`,
-        outside_venue_name: this.state.venue.value
-      }
-    ] : [
-      {
-        date: this.state.date,
-        start_time: `${this.state.startTime}:00`,
-        end_time: `${this.state.endTime}:00`,
-        venue: this.state.venue.value
-      }
-    ];
+    const logistics = isNaN(this.state.venue.value)
+      ? [
+          {
+            date: this.state.date,
+            start_time: `${this.state.startTime}:00`,
+            end_time: `${this.state.endTime}:00`,
+            outside_venue_name: this.state.venue.value
+          }
+        ]
+      : [
+          {
+            date: this.state.date,
+            start_time: `${this.state.startTime}:00`,
+            end_time: `${this.state.endTime}:00`,
+            venue: this.state.venue.value
+          }
+        ];
 
     // const newTags = this.state.tags.filter(tag => tag.__isNew__);
     // const oldTags = this.state.tags.filter(tag => !tag.__isNew__);
@@ -193,43 +196,43 @@ class EventEdit extends Component {
     // newTags.forEach(tag => this.props.postTag(tag.value));
 
     // try {
-      // const tagsStorage = localStorage.getItem("tags");
+    // const tagsStorage = localStorage.getItem("tags");
 
-      // const editedDetails = {
-      //   name: this.state.name,
-      //   audience: this.state.audience.value,
-      //   description: this.state.description,
-      //   tags: this.state.tags.map(tag => tag.value),
-      //   // tags: oldTags.map(tag => tag.value).concat(tagsStorage == null ? [] : tagsStorage.map(Number)),
-      //   poster_url: this.state.posterUrl,
-      //   hosts: this.state.hosts.map(host => host.value),
-      //   event_logistics: logistics
-      // };
+    // const editedDetails = {
+    //   name: this.state.name,
+    //   audience: this.state.audience.value,
+    //   description: this.state.description,
+    //   tags: this.state.tags.map(tag => tag.value),
+    //   // tags: oldTags.map(tag => tag.value).concat(tagsStorage == null ? [] : tagsStorage.map(Number)),
+    //   poster_url: this.state.posterUrl,
+    //   hosts: this.state.hosts.map(host => host.value),
+    //   event_logistics: logistics
+    // };
 
-      this.props.putEvent(
-        this.props.eventId,
-        this.state.name,
-        this.state.audience.value,
-        this.state.description,
-        this.state.tags.map(tag => tag.value),
-        this.state.posterUrl,
-        this.state.hosts.map(host => host.value),
-        logistics,
-        this.props.history
-      );
+    this.props.putEvent(
+      this.props.eventId,
+      this.state.name,
+      this.state.audience.value,
+      this.state.description,
+      this.state.tags.map(tag => tag.value),
+      this.state.posterUrl,
+      this.state.hosts.map(host => host.value),
+      logistics,
+      this.props.history
+    );
 
-      // console.log(editedDetails.tags);
-      // // TODO: Convert into action
-      // axios
-      //   .put(`${process.env.REACT_APP_API_URL}/events/${this.props.eventId}/`, editedDetails)
-      //   .then(response => {
-      //     localStorage.removeItem("tags");
-      //     // this.props.history.push("/dashboard");
-      //   })
-      //   .catch(error => {
-      //     console.log(error);
-      //     localStorage.removeItem("tags");
-      //   });
+    // console.log(editedDetails.tags);
+    // // TODO: Convert into action
+    // axios
+    //   .put(`${process.env.REACT_APP_API_URL}/events/${this.props.eventId}/`, editedDetails)
+    //   .then(response => {
+    //     localStorage.removeItem("tags");
+    //     // this.props.history.push("/dashboard");
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     localStorage.removeItem("tags");
+    //   });
     // } catch(e) {
     //   console.log(e);
     // }
@@ -237,108 +240,117 @@ class EventEdit extends Component {
 
   render() {
     const handleInputChange = this.handleInputChange;
+    const isCreatedBy = this.props.isCreatedBy;
 
     return (
       <main>
-        <NewEventForm onSubmit={this.handleSubmit}>
-          <UploadArea>
-            <label>
-              <AppTextP>Upload an Image</AppTextP>
-              <FileInputHidden
-                type="file"
-                accept="image/png, image/jpeg"
-                onChange={this.handleFileUpload}
+        {isCreatedBy ? (
+          <NewEventForm onSubmit={this.handleSubmit}>
+            <UploadArea>
+              <label>
+                <AppTextP>Upload an Image</AppTextP>
+                <FileInputHidden
+                  type="file"
+                  accept="image/png, image/jpeg"
+                  onChange={this.handleFileUpload}
+                />
+                <UploadButton img={this.state.posterUrl}>
+                  <CameraIcon src={require("assets/camera.svg")} />
+                </UploadButton>
+              </label>
+            </UploadArea>
+            <TextInputArea>
+              <NewEventFormTextInput
+                label="Event Name"
+                onChange={e => handleInputChange("name", e.target.value)}
+                defaultValue={this.props.name}
+                required
               />
-              <UploadButton img={this.state.posterUrl}>
-                <CameraIcon src={require("assets/camera.svg")} />
-              </UploadButton>
-            </label>
-          </UploadArea>
-          <TextInputArea>
-            <NewEventFormTextInput
-              label="Event Name"
-              onChange={e => handleInputChange("name", e.target.value)}
-              defaultValue={this.props.name}
-              required
-            />
-            <NewEventFormAppInputAutocomplete
-              label="Audience"
-              placeholder=""
-              isSearchable={true}
-              options={this.props.audiences}
-              onChange={value => handleInputChange("audience", value)}
-              defaultValue={this.props.audience}
-              required
-            />
-            <NewEventFormAppInputAutocomplete
-              label="Hosts"
-              placeholder=""
-              isMulti={true}
-              isSearchable={true}
-              options={this.props.all_hosts}
-              onChange={value => handleInputChange("hosts", value)}
-              defaultValue={this.props.hosts}
-            />
-            <NewEventFormTextInput
-              label="Date"
-              type="date"
-              min={format(new Date(), "YYYY-MM-DD")}
-              onChange={e => handleInputChange("date", e.target.value)}
-              defaultValue={this.props.date}
-              required
-            />
-            <NewEventFormTextInput
-              label="Start Time"
-              type="time"
-              onChange={e => handleInputChange("startTime", e.target.value)}
-              required
-              style={{
-                width: "50%"
-              }}
-              defaultValue={this.props.start_time}
-            />
-            <NewEventFormTextInput
-              label="End Time"
-              type="time"
-              onChange={e => handleInputChange("endTime", e.target.value)}
-              required
-              style={{
-                width: "50%"
-              }}
-              defaultValue={this.props.end_time}
-            />
-            {/* TODO: Make field required */}
-            <NewEventFormAppInputAutocomplete
-              label="Venue"
-              placeholder=""
-              isCreatable={true}
-              isSearchable={true}
-              options={this.props.venues}
-              onChange={value => handleInputChange("venue", value)}
-              defaultValue={this.props.venue}
-              required
-            />
-            <NewEventFormTextInput
-              label="Event Description"
-              onChange={e => handleInputChange("description", e.target.value)}
-              multiline
-              rows="4"
-              defaultValue={this.props.description}
-            />
-            <NewEventFormAppInputAutocomplete
-              label="Tags"
-              placeholder=""
-              isMulti={true}
-              isSearchable={true}
-              // isCreatable={true}
-              options={this.props.all_tags}
-              onChange={value => handleInputChange("tags", value)}
-              defaultValue={this.props.tags}
-            />
-            <AppButtonInput type="submit" value="Submit" />
-            <AppButton empty>Cancel</AppButton>
-          </TextInputArea>
-        </NewEventForm>
+              <NewEventFormAppInputAutocomplete
+                label="Audience"
+                placeholder=""
+                isSearchable={true}
+                options={this.props.audiences}
+                onChange={value => handleInputChange("audience", value)}
+                defaultValue={this.props.audience}
+                required
+              />
+              <NewEventFormAppInputAutocomplete
+                label="Hosts"
+                placeholder=""
+                isMulti={true}
+                isSearchable={true}
+                options={this.props.all_hosts}
+                onChange={value => handleInputChange("hosts", value)}
+                defaultValue={this.props.hosts}
+              />
+              <NewEventFormTextInput
+                label="Date"
+                type="date"
+                min={format(new Date(), "YYYY-MM-DD")}
+                onChange={e => handleInputChange("date", e.target.value)}
+                defaultValue={this.props.date}
+                required
+              />
+              <NewEventFormTextInput
+                label="Start Time"
+                type="time"
+                onChange={e => handleInputChange("startTime", e.target.value)}
+                required
+                style={{
+                  width: "50%"
+                }}
+                defaultValue={this.props.start_time}
+              />
+              <NewEventFormTextInput
+                label="End Time"
+                type="time"
+                onChange={e => handleInputChange("endTime", e.target.value)}
+                required
+                style={{
+                  width: "50%"
+                }}
+                defaultValue={this.props.end_time}
+              />
+              {/* TODO: Make field required */}
+              <NewEventFormAppInputAutocomplete
+                label="Venue"
+                placeholder=""
+                isCreatable={true}
+                isSearchable={true}
+                options={this.props.venues}
+                onChange={value => handleInputChange("venue", value)}
+                defaultValue={this.props.venue}
+                required
+              />
+              <NewEventFormTextInput
+                label="Event Description"
+                onChange={e => handleInputChange("description", e.target.value)}
+                multiline
+                rows="4"
+                defaultValue={this.props.description}
+              />
+              <NewEventFormAppInputAutocomplete
+                label="Tags"
+                placeholder=""
+                isMulti={true}
+                isSearchable={true}
+                // isCreatable={true}
+                options={this.props.all_tags}
+                onChange={value => handleInputChange("tags", value)}
+                defaultValue={this.props.tags}
+              />
+              <AppButtonInput type="submit" value="Submit" />
+              <AppButton empty>Cancel</AppButton>
+            </TextInputArea>
+          </NewEventForm>
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/"
+            }}
+          />
+        )}
       </main>
     );
   }

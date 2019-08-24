@@ -9,12 +9,14 @@ import { putEvent } from "actions/eventsCreateEdit";
 const mapStateToProps = (state, ownProps) => {
   const denormalizeEvent = makeDenormalizeEvent(ownProps.id);
   const event = denormalizeEvent(state, ownProps);
+  const userId = state.auth.userId || 0;
 
   const logistic = event.event_logistics[0];
 
   return {
     eventId: ownProps.id,
     name: event.name,
+    isCreatedBy: userId == event.created_by,
     hosts: formatHosts([
       ...event.office_hosts,
       ...event.org_hosts,

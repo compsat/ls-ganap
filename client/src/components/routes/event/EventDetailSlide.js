@@ -42,6 +42,7 @@ const SlideDescription = AppText.withComponent("p").extend`
 const EventDetailSlide = ({
   eventId,
   name,
+  isCreatedBy,
   allHosts,
   formattedAllDates,
   formattedAllTimes,
@@ -67,9 +68,11 @@ const EventDetailSlide = ({
       ))}
       <SlideDescription>{description}</SlideDescription>
       <a href={`${process.env.REACT_APP_API_URL}/gcal/events/${eventId}`}><AppButton>Add to My Calendar</AppButton></a>
-      <Link to={`/events/edit/${eventId}`}>
-        <AppButton empty>Edit</AppButton>
-      </Link>
+      { isCreatedBy ?
+        <Link to={`/events/edit/${eventId}`}>
+          <AppButton empty>Edit</AppButton>
+        </Link> : null
+      }
     </TextBox>
   </SlideArticle>
 );
