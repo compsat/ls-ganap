@@ -171,8 +171,8 @@ def add_event_logistics(event_logistics, event):
 
         if 'venue' in logistic and logistic['venue']:
             venue = logistic['venue']
-            logistic = EventLogistic.objects.create(event=event, date=date, start_time=start_time, end_time=end_time, venue=Venue.objects.get(pk=int(venue)))
+            logistic = event.event_logistics.create(date=date, start_time=start_time, end_time=end_time, venue=Venue.objects.get(pk=int(venue)))
 
         else:
             outside_venue_name = logistic['outside_venue_name']
-            logistic = EventLogistic.objects.create(event=event, date=date, start_time=start_time, end_time=end_time, outside_venue_name=outside_venue_name)
+            logistic = event.event_logistics.create(date=date, start_time=start_time, end_time=end_time, outside_venue_name=outside_venue_name)
