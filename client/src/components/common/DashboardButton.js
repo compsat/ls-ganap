@@ -52,8 +52,9 @@ const DesktopLink = styled(NavLink)`
   `}
 `;
 
-const DashboardButton = ({ isAuthenticated }) => {
-  if (isAuthenticated) {
+const DashboardButton = ({ isAuthenticated, userId }) => {
+  if (isAuthenticated && userId != null) {
+    console.log("TESTED DASHBOARD BUTTON")
     return (
       <NavListItem>
         <MobileLink route="/dashboard">

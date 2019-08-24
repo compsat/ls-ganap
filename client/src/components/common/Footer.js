@@ -3,7 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import ateneoLogo from "assets/ateneo-logo.png";
-import lsGanapLogo from "assets/ls-ganap-logo.svg";
+import lsGanapLogo from "assets/ls-ganap-logo.png";
+import compsatLogo from "assets/compsat-logo.svg";
 import PageContent from "components/common/PageContent";
 import { media } from "style/style-utils";
 
@@ -48,10 +49,10 @@ const StyledFooterLink = styled(FooterLink)`
 `;
 
 const Logo = styled(Image)`
-  max-height: 2.5em;
+  max-height: 3em;
   max-width: 11em;
   width: auto;
-  margin-top: 1em;
+  margin-top: 2em;
   text-align: center;
 
   ${media.mdScreen`
@@ -64,6 +65,11 @@ const Logo = styled(Image)`
 const LSGanapLogo = styled(Logo)``;
 const AteneoLogo = styled(Logo)`
   order: 1;
+`;
+const CompSAtLogo = styled(Logo)`
+  max-height: 3em;
+  max-width: 11em;
+  margin-left: 2em;
 `;
 
 const LinksContainer = styled.div`
@@ -114,6 +120,7 @@ class Footer extends Component {
           <LogosContainer>
             <AteneoLogo source={ateneoLogo} alt="Ateneo Logo" />
             <LSGanapLogo source={lsGanapLogo} alt="LS Ganap Logo" />
+            <CompSAtLogo source={compsatLogo} alt="CompSAt Logo" />
           </LogosContainer>
           <LinksContainer>
             <StyledFooterLink route="/">About</StyledFooterLink>

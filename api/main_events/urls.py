@@ -43,7 +43,8 @@ urlpatterns = [
     path('clusters/<int:pk>/', cluster_view.ClusterDetail.as_view()),
     path('venues/', venue_view.VenueList.as_view(), name='venue-list'),
     path('venues/<int:pk>/', venue_view.VenueDetail.as_view()),
-    path('user/password_reset/', user_view.UpdatePassword.as_view())
+    path('user/password_reset/', user_view.UpdatePassword.as_view()),
+    path('oauth/login/', user_view.SocialLoginView.as_view(), name='social-login')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns = format_suffix_patterns(urlpatterns)
