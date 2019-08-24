@@ -28,7 +28,12 @@ const EventDetail = Loadable({
   loading: Loading
 });
 
-const Login = Loadable({
+const EventEdit = Loadable({
+  loader: () => import("containers/event/EventEditSectionContainer"),
+  loading: Loading
+});
+
+const Login = Loadable({  
   loader: () => import("containers/login/LoginContainer"),
   loading: Loading
 });
@@ -85,6 +90,11 @@ class App extends Component {
                     exact
                     path="/events/new"
                     component={NewEvent}
+                    isAuthenticated={this.props.isAuthenticated}
+                  />
+                  <PrivateRoute 
+                    path="/events/edit/:id" 
+                    component={EventEdit} 
                     isAuthenticated={this.props.isAuthenticated}
                   />
                   <Route path="/events/:id" component={EventDetail} />

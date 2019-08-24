@@ -41,7 +41,8 @@ const auth = (
         isPosting: false,
         failedToPost: true,
         isAuthenticated: false,
-        email: ""
+        email: "",
+        userId: null,
       });
     default:
       return state;

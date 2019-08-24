@@ -1,5 +1,6 @@
 import {
   SELECT_HOST,
+  SELECT_AUDIENCE,
   TOGGLE_TAG,
   SET_DATE_RANGE,
   UPDATE_QUERY
@@ -9,6 +10,7 @@ const filters = (
   state = {
     host: { id: null, hostGroupId: null, name: "", abbreviation: "" },
     tags: [],
+    audience: "",
     dateRange: {
       key: "All",
       startDate: null,
@@ -22,6 +24,10 @@ const filters = (
     case SELECT_HOST:
       return Object.assign({}, state, {
         host: action.host
+      });
+    case SELECT_AUDIENCE:
+      return Object.assign({}, state, {
+        audience: action.audience
       });
     case TOGGLE_TAG:
       return Object.assign({}, state, {

@@ -7,6 +7,7 @@ import WidgetToggle from "components/routes/browse/WidgetToggle";
 import HostWidgetContainer from "containers/browse/HostWidgetContainer";
 import TagsWidgetContainer from "containers/browse/TagsWidgetContainer";
 import DateWidgetContainer from "containers/browse/DateWidgetContainer";
+import AudienceWidgetContainer from "containers/browse/AudienceWidgetContainer";
 
 const FilterBarContainer = AppBorder.extend`
   position: relative;
@@ -52,6 +53,14 @@ class FilterBar extends Component {
   render() {
     return (
       <FilterBarContainer className={this.props.className}>
+        <FilterBarWidgetToggle
+          checked={this.state.activeFilter === "Audience"}
+          toggleHandler={e => this.handleWidgetToggle(e, "Audience")}
+          label="Audience"
+          value={this.props.audience}
+        >
+          <AudienceWidgetContainer />
+        </FilterBarWidgetToggle>
         <FilterBarWidgetToggle
           checked={this.state.activeFilter === "Host"}
           toggleHandler={e => this.handleWidgetToggle(e, "Host")}

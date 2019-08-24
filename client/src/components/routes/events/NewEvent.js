@@ -94,6 +94,7 @@ class NewEvent extends Component {
     this.state = {
       isUploading: false,
       name: "",
+      audience: "",
       posterUrl: "",
       hosts: [],
       date: "",
@@ -152,29 +153,33 @@ class NewEvent extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    // TODO: Convert into action
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/events/`, {
-        name: this.state.name,
-        description: this.state.description,
-        tags: this.state.tags.map(tag => tag.value),
-        poster_url: this.state.posterUrl,
-        hosts: this.state.hosts.map(host => host.value),
-        event_logistics: [
-          {
-            date: this.state.date,
-            start_time: `${this.state.startTime}:00`,
-            end_time: `${this.state.endTime}:00`,
-            venue: this.state.venue.value
-          }
-        ]
-      })
-      .then(_response => {
-        this.props.history.push("/dashboard");
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    const logistics = isNaN(this.state.venue.value) ? [
+      {
+        date: this.state.date,
+        start_time: `${this.state.startTime}:00`,
+        end_time: `${this.state.endTime}:00`,
+        outside_venue_name: this.state.venue.value
+      }
+    ] : [
+      {
+        date: this.state.date,
+        start_time: `${this.state.startTime}:00`,
+        end_time: `${this.state.endTime}:00`,
+        venue: this.state.venue.value
+      }
+    ];
+
+    this.props.postEvent(
+      this.state.name,
+      this.state.audience.value,
+      this.state.description,
+      this.state.tags.map(tag => tag.value),
+      this.state.posterUrl,
+      this.state.hosts.map(host => host.value),
+      logistics,
+      this.props.history
+    );
+
   };
 
   render() {
@@ -200,6 +205,14 @@ class NewEvent extends Component {
             <NewEventFormTextInput
               label="Event Name"
               onChange={e => handleInputChange("name", e.target.value)}
+              required
+            />
+            <NewEventFormAppInputAutocomplete
+              label="Audience"
+              placeholder=""
+              isSearchable={true}
+              options={this.props.audiences}
+              onChange={value => handleInputChange("audience", value)}
               required
             />
             <NewEventFormAppInputAutocomplete

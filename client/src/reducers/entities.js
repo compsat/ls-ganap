@@ -1,4 +1,5 @@
 import {
+  ADD_ENTITY_AUDIENCE,
   ADD_ENTITY_CLUSTERS,
   ADD_ENTITY_EVENTS,
   ADD_ENTITY_ORGS,
@@ -11,6 +12,7 @@ import {
 
 const entities = (
   state = {
+    audiences: {},
     clusters: {},
     events: {},
     offices: {},
@@ -23,6 +25,13 @@ const entities = (
   action
 ) => {
   switch (action.type) {
+    case ADD_ENTITY_AUDIENCE:
+      return Object.assign({}, state, {
+        audiences: {
+          ...state.audiences,
+          ...action.audiences
+        }
+      });
     case ADD_ENTITY_CLUSTERS:
       return Object.assign({}, state, {
         clusters: {
