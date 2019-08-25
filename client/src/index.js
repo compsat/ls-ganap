@@ -14,9 +14,13 @@ import registerServiceWorker from "registerServiceWorker";
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
+const logger = createLogger({
+  predicate: (getState, action) => process.env.NODE_ENV !== 'production'
+});
+
 const store = createStore(
   rootReducer,
-  applyMiddleware(thunkMiddleware, createLogger())
+  applyMiddleware(thunkMiddleware, logger)
 );
 
 ReactDOM.render(
