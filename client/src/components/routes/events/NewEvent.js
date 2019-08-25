@@ -111,7 +111,7 @@ class NewEvent extends Component {
       [input]: value
     });
 
-    setTimeout(() => console.log(this.state), 0);
+    // setTimeout(() => console.log(this.state), 0);
   };
 
   handleFileUpload = event => {
