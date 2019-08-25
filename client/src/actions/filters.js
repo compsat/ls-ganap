@@ -4,6 +4,12 @@ export const selectHost = host => ({
   host: buildHostObject(host)
 });
 
+export const SELECT_AUDIENCE = "SELECT_AUDIENCE";
+export const selectAudience = audience => ({
+  type: SELECT_AUDIENCE,
+  audience
+});
+
 export const TOGGLE_TAG = "TOGGLE_TAG";
 export const toggleTag = tagId => ({
   type: TOGGLE_TAG,

@@ -46,13 +46,16 @@ const styles = theme => ({
   },
   paper: {
     position: "absolute",
-    zIndex: 1,
+    zIndex: 1001,
     marginTop: theme.spacing.unit,
     left: 0,
     right: 0
   },
   divider: {
     height: theme.spacing.unit * 2
+  },
+  menuContainerStyle: {
+    zIndex: 1006
   }
 });
 

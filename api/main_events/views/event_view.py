@@ -368,6 +368,7 @@ class EventList(APIView):
     # specifies which pagination settings to follow
     filter_backends = [SearchFilter, OrderingFilter, SimpleFilterBackend]
     # search_fields = ['name', 'venue__name', 'org_hosts__name', 'sanggu_hosts__name', 'office_hosts__name']
+    # permission_classes = [IsAuthenticatedOrReadOnly, IsCreatorOrReadOnly]
     authentication_classes = [MyJWTAuthentication,]
 
     schema = AutoSchema(manual_fields=[
@@ -427,6 +428,13 @@ class EventList(APIView):
             description='Specify a date in YYYY-MM-DD as the end of the range of dates, inclusive.',
             schema=coreschema.String()
         ),
+        coreapi.Field(
+            "audience",
+            required=False,
+            location="query",
+            description='Specify the audience of the event',
+            schema=coreschema.String()
+        ),
     ])
 
     def get(self, request, format=None):
@@ -445,6 +453,7 @@ class EventList(APIView):
         start_date = self.request.GET.get("start_date")
         end_date = self.request.GET.get("end_date")
         host = self.request.GET.get("host")
+        audience = self.request.GET.get("audience")
 
         if host_query:
             if int(host_query) > len(host_map) or int(host_query) <= 0:
@@ -521,6 +530,9 @@ class EventList(APIView):
             except ValueError:
                 pass
 
+        if audience:
+            events = events.filter(audience=audience)
+
         if request.method == 'GET' and 'page' in request.GET:
             page = paginator.paginate_queryset(events, request)
             if page is None:
@@ -544,7 +556,7 @@ class EventList(APIView):
                 created_by = request.user.office_host.pk
             elif hasattr(request.user, 'sanggu_host'):
                 created_by = request.user.sanggu_host.pk
-                
+
             serializer.save(created_by=created_by)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -563,7 +575,7 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     delete:
     Deletes an event given its id
     """
-    serializer_class = event_serializer.EventSerializer
+    # serializer_class = event_serializer.EventSerializer
     authentication_classes = [MyJWTAuthentication,]
     permission_classes = [IsAuthenticatedOrReadOnly, IsCreatorOrReadOnly]
 
@@ -577,6 +589,11 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
             queryset = queryset.filter(is_approved=True)
 
         return queryset
+
+    def get_serializer_class(self):
+        if self.request.method == 'PUT':
+            return event_serializer.CreateEventSerializer
+        return event_serializer.EventSerializer
 
 class UnapprovedEventList(generics.ListAPIView):
     """

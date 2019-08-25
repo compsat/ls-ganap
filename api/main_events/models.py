@@ -86,7 +86,7 @@ class EventHost(models.Model):
 		ordering = ('name',)
 
 class SangguHost(models.Model):	
-	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='sanggu_host')
+	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='sanggu_host', blank=True, null=True)
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
@@ -101,7 +101,7 @@ class SangguHost(models.Model):
 		ordering = ('name',)
 
 class OfficeHost(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='office_host')
+	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='office_host', blank=True, null=True)
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
@@ -116,7 +116,7 @@ class OfficeHost(models.Model):
 		ordering = ('name',)
 
 class OrgHost(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='org_host')
+	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='org_host', blank=True, null=True)
 	name = models.CharField(max_length=200)
 	abbreviation = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
@@ -174,12 +174,32 @@ class EventManager(SoftDeletionManager):
 
 class Event(SoftDeletionModel):
 	objects = EventManager()
+	MEMBERS = 'MEM'
+	UNDERGRADS = 'UND'
+	GRADUATES = 'GRAD'
+	LS = 'LS'
+	ADMU = 'ADMU'
+	PUBLIC = 'PUB'
+
+	AUDIENCE_CHOICES = [
+		(MEMBERS, 'Members Only'),
+		(UNDERGRADS, 'LS Undergraduate Students'),
+		(GRADUATES, 'LS Graduate Students'),
+		(LS, 'LS Community (Undergraduate + Graduate)'),
+		(ADMU, 'ADMU Community (LS, GS, HS)'),
+		(PUBLIC, 'Open to the Public')
+	]
 
 	name = models.CharField(max_length=200)
 	description = models.TextField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	is_approved = models.BooleanField(default=False)
+	audience = models.CharField(
+		max_length=200,
+		choices=AUDIENCE_CHOICES,
+		default=UNDERGRADS
+	)
 	poster_url = models.URLField(blank=True)
 	is_premium = models.BooleanField(default=False)
 	event_url = models.URLField(blank=True)

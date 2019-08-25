@@ -1,0 +1,108 @@
+- model: main_events.sangguhost
+  pk: 58
+  fields:
+    name: Sanggunian ng mga Paaralang Loyola ng Ateneo de Manila
+    abbreviation: Sanggu
+    description: "The Sanggunian ng mga Mag-aaral ng mga Paaralang Loyola is the sole student government of the undergraduates of the Ateneo de Manila Loyola Schools that protects and advances the rights, interests, and welfare of the entire student body. This RecWeek, we invite you to go beyond and serve your friends, blockmates, and thousands of fellow Ateneans you may never even meet. As we advocate for campus sustainability, mental health, gender equality and socio-political issues, we strive for a more loving Loyola Schools and a better Philippines. Grow with the vision of community. Go beyond and join Sanggu: your student government, our community."
+    color: '#000EE'
+    logo_url: ../sanggu
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 59
+  fields:
+    name: Ateneo Commission on Elections
+    abbreviation: COMELEC
+    description: "The Ateneo Commission on Elections is an organization that promotes fair and honest elections within the Ateneo de Manila University. The organization does this by allowing all members of the student body to run for open positions, and vote for their chosen candidates. With this, the organization stays true to the motto of having integrity at heart by having honest elections through the impartiality the members practice, and by implementing rules that would prevent any form of dishonesty during the elections."
+    logo_url: ../comelec
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 60
+  fields:
+    name: Department of Student Welfare and Services
+    abbreviation: DSWS
+    description: "The Department of Student Welfare and Services, the main service arm of the Sanggunian, is an office run by students for students. It provides services such as free loaning out of items for emergency situations, organizing carpool groups, facilitating the locker registration, handling lost and found items, monitoring and documenting promotional materials for student and office activities, and offering sales and rentals of textbooks. With a motto of “Doing Service with a Smile,” DSWS fosters the spirit of servant-leadership and the sense of being men-and-women-for-others. At the same time, DSWS provides several opportunities for membership formation and serves as a home for its members. Join now and be one with the people behind the smiles!"
+    logo_url: ../dsws
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 61
+  fields:
+    name: JGSOM School Board
+    abbreviation: JGSOM
+    description: JGSOM
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 62
+  fields:
+    name: Loyola Schools Office of the Ombudsman
+    abbreviation: Ombudsman
+    description: "The Loyola Schools Office of the Ombudsman is the investigative arm of the Sanggunian. With its task to facilitate the checks and balances of the student government, the Office is able to ensure accountability for the welfare of the student body. While we strive to maintain a professional workspace, we also understand the need for downtime and the concern we place on one another extends beyond workmates and to trusted friends. The Office is a home for everyone – from those who want to serve the student body to those who want to learn the basics of the prosecutorial and legal field, especially in the Loyola Schools setting."
+    logo_url: ../omb
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 63
+  fields:
+    name: School of Humanities
+    abbreviation: SOH
+    description: SOH
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 64
+  fields:
+    name: School of Science and Engineering
+    abbreviation: SOSE
+    description: SOSE
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 65
+  fields:
+    name: School of Social Sciences
+    abbreviation: SOSS
+    description: SOSS
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 66
+  fields:
+    name: Student Judicial Court
+    abbreviation: SJC
+    description: SJC
+    logo_url: ../ads
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 67
+  fields:
+    name: Registration Committee
+    abbreviation: RegCom
+    description: RegCom
+    logo_url: ../regcom
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 136
+  fields:
+    name: Union of Students for the Advancement of Democracy
+    abbreviation: USAD
+    description: "Aligned with the principles of the party, the Union of Students for the Advancement of Democracy - USAD aims to provide an outlet for the students to interact with the different sectors of society. Through the various efforts, initiatives and programs provided by the organization, USAD is not only able to merely create an avenue for the students to help these different sectors, but is also able to engage and help in providing a voice for these sectors in society. In this way, USAD aims to create and deepen the discourses about political issues not only surrounding the Ateneo community, but also surrounding the entire country."
+    logo_url: ../usad
+    color: '#000EE'
+    event_host: 1
+- model: main_events.sangguhost
+  pk: 137
+  fields:
+    name: Loyola Schools Office of Placement and Career Services
+    abbreviation: LSOPCS
+    description: "The Loyola Schools Office of Placement and Career Services (LSOPCS) is a school-arm organization dedicated to providing an avenue for career exposure to Loyola School students through career counseling and various other initiatives like the Career Fair, Ateneo Placement Exposure (APEX) Series, and GOT Work. These events guide the students in choosing the career path they are going to take and the kind of work they want to do in the future. The members of the LSOPCS spearhead these events with the assistance of the office counselors. Aside from helping the students of the school, the employment sector partners in these events are given the opportunity to meet the students of Ateneo, orient, and target potential applicants as well as recruit them."
+    logo_url: ../lsopcs
+    color: '#000EE'
+    event_host: 1
