@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import AppRadio from "components/common/AppRadio";
 import WidgetContainer from "components/routes/browse/WidgetContainer";
-import InvisibleToggle from "components/routes/browse/InvisibleToggle";
 
 const AudienceWidgetChoice = AppRadio.extend`
   display: block;
