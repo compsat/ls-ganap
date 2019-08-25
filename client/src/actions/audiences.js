@@ -37,7 +37,6 @@ export const fetchAudiences = () => {
           dispatch(fetchAudienceSuccess(payload));
         })
         .catch(error => {
-          console.log(error);
           dispatch(fetchAudienceFailure());
         });
     }
