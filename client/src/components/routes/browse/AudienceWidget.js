@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import AppRadio from "components/common/AppRadio";
 import WidgetContainer from "components/routes/browse/WidgetContainer";
+import InvisibleToggle from "components/routes/browse/InvisibleToggle";
 
 const AudienceWidgetChoice = AppRadio.extend`
   display: block;
@@ -27,11 +28,11 @@ class AudienceWidget extends Component {
   }
 
   render() {
-    const audiences = this.props.audiences;
+    const audiences = [{value: "", name: "All"}].concat(Object.values(this.props.audiences));
 
     return (
       <WidgetContainer>
-        {Object.values(audiences).map(audience => (
+        {audiences.map(audience => (
           <AudienceWidgetChoice
             key={audience.value}
             checked={this.props.activeAudience === audience.value}
