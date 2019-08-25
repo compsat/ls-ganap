@@ -72,7 +72,6 @@ class ScrollerSection extends Component {
     if (this.props.name === 'events'){
       var events = this.props.events
       var items = this.formatEvents(events, this.props.orgs, this.props.sanggu, this.props.offices, this.props.venues)
-      console.log('ITEMS', items);
       this.setState({ items });
     }
 
