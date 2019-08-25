@@ -1,0 +1,656 @@
+- model: main_events.orghost
+  pk: 1
+  fields:
+    name: 'Ateneo Debate Society'
+    abbreviation: 'ADS'
+    description: The Ateneo Debate Society is grounded on the belief that discourse and critical thinking are pivotal tools of nation building. Since its conception in 1992, the ADS has been exercising debate excellence and promoting debate education. As one of the premier debate institutions in the Philippines and in Asia, the debaters and adjudicators of the ADS are considered as some of the best. Currently, the ADS is the reigning national and Asian champions, and has won the most national debating championships in the country. In the ADS, you also find a family of friends, people that you will love to cheer for and with. What are you waiting for? Come join the ADS and feel the speed of thought!
+    color: '#0000EE'
+    logo_url: ../ads
+    event_host: 1
+    org_type: 1
+    cluster: 1
+- model: main_events.orghost
+  pk: 2
+  fields:
+    name: 'Ateneo Economics Association'
+    abbreviation: 'AEA'
+    description: The Ateneo Economics Association is the premier economics organization of the Ateneo de Manila University. As an organization that is geared towards economic consciousness, AEA forms its members to be versed in the theory and practice of economics and to serve as active catalysts for socioeconomic development. The organization strives to create an atmosphere that is conducive to forming agents of social change and gives importance to the formation of its members and the development of future leaders.
+    color: '#0000EE'
+    logo_url: ../aea
+    event_host: 1
+    org_type: 1
+    cluster: 1
+- model: main_events.orghost
+  pk: 3
+  fields:
+    name: 'Ateneo Statistics Circle'
+    abbreviation: 'A-Stat'
+    description: The Ateneo Statistics Circle is the premier research organization of the Ateneo. We utilize statistical tools and methods in our pursuit of raising a community that is critically informed of social issues. In facing these issues, we aspire to spark discourse that eventually leads them to initiate action geared towards nation-building. We aim to properly equip our stakeholders with statistical knowledge to aid them in their decision-making process. If you are interested in what we do, or if you see statistics beyond the data crunching, this is the place to be! We guarantee your 100% STATisfaction.
+    color: '#0000EE'
+    logo_url: ../astat
+    event_host: 1
+    org_type: 1
+    cluster: 1
+- model: main_events.orghost
+  pk: 4
+  fields:
+    name: 'Ateneo Association of European Studies Students'
+    abbreviation: 'AEuSS'
+    description: The Association of European Studies Students is the home organization of the European Studies Program while also being open to all Loyola Schools students. AEuSS is the premier organization for the training and development of students in the intersectional disciplines of business, politics, and culture by using a multidisciplinary approach aligned with the goals and values of the European Union. With a strong emphasis on international relations and business, and in the creation of a global community, the organization aims to mold students into future leaders who are globally competent in various fields for the further development of the country as a formidable player in the international community.
+    color: '#0000EE'
+    logo_url: ../aeuss
+    event_host: 1
+    org_type: 1
+    cluster: 1
+- model: main_events.orghost
+  pk: 5
+  fields:
+    name: 'Ateneo Project for Asian & International Relations'
+    abbreviation: 'APAIR'
+    description: The Ateneo Project for Asian and International Relations is the home organization of diplomacy and international relations majors. As the premiere international relations organization of the Ateneo de Manila University, APAIR is dedicated to raising awareness and prompting initiative regarding all issues related to international relations through discourse and dialogue. APAIR hopes to do so by giving its members opportunities wherein they can experience first-hand international culture and the fascinating world of diplomacy. More than just an organization, APAIR is a family. APAIR makes sure that all its members feel at home by creating an environment where everyone can thrive and grow together.
+    color: '#0000EE'
+    logo_url: ../apair
+    event_host: 1
+    org_type: 1
+    cluster: 1
+- model: main_events.orghost
+  pk: 6
+  fields:
+    name: 'The Ateneo Assembly'
+    abbreviation: 'Assembly'
+    description: The Ateneo Assembly is the premier political organization of the Ateneo de Manila University, and the home organization for students of the institution’s the Department of Political Science. Committed to the socio-political formations of its members and the Ateneo institution as a whole, it strives to be an intellectual bulwark of social awareness and involvement- reaching out to and connecting with civil society groups- in its efforts to engage Ateneans and bring them “down the hill” and present a broader, more nuanced view of society. In its capacity as an organization, it aims to form its members into critical thinkers and skilled practitioners, prepared for the daunting task of nation building.
+    color: '#0000EE'
+    logo_url: ../assembly
+    event_host: 1
+    org_type: 1
+    cluster: 1
+- model: main_events.orghost
+  pk: 7
+  fields:
+    name: 'Development Society of the Ateneo de Manila University'
+    abbreviation: 'DevSoc'
+    description: DevSoc envisions development that includes all sectors of society, especially the poor and marginalized. Welcoming development-minded youth who want to contribute positive change to Philippine society, the organization aims to allow members to gain deeper insight on the world’s multidimensional challenges through interdisciplinary solution seeking. The organization aspires to tap into the growing interest in development by 1) complimenting the development theories and frameworks learned in class with opportunities to actualize and impart knowledge of the field; and 2) building the members’ capacities to better adapt to changes in the local and global settings through dialogues, lectures, and workshops. 
+    color: '#0000EE'
+    logo_url: ../devsoc
+    event_host: 1
+    org_type: 1
+    cluster: 1
+- model: main_events.orghost
+  pk: 8
+  fields:
+    name: "Ateneo ENTABLADO (ENterteynment para sa Tao, Bayan, LAnsangan, at DiyOs)"
+    abbreviation: 'ENTABLADO'
+    description: "Ang Ateneo ENTABLADO (ENterteynment para sa Tao, Bayan, LAnsangan, at DiyOs) ang una na sosyo-pulitikal na organisasyong panteatro ng Pamantasang Ateneo de Manila. Ito ay sining para sa bayan – ginagamit namin ang sining ng teatro upang mamulat ang aming mga miyembro, ang mga kasapi ng Ateneo, at ang lipunan sa kalagayang pampulitikal, pangkabuhayan, at pangkultura ng ating bansa. Mula 1983, nang itinatag ang organisasyon, hindi lamang gumaganap sa loob ng mga lehitimong teatro ang ENTABLADO kundi pati na rin sa iba't ibang di-tradisyonal na puwang tulad ng: mga lansangan, mga footbridge, mga cafeteria, at mga komunidad."
+    color: '#0000EE'
+    logo_url: ../entablado
+    event_host: 1
+    org_type: 1
+    cluster: 1
+- model: main_events.orghost
+  pk: 9
+  fields:
+    name: 'Association for Communications Technology Management'
+    abbreviation: 'ACTM'
+    description: Ateneo ACTM is the only home and business organization for BS Communications Technology Management majors. Powered by its members, ACTM builds a community of Integrated Marketing Communications experts who advocate strategic planning and creativity in the business setting. In ACTM, not only do its members find a home—they are also constantly driven to move beyond ideas in everything that they do.
+    color: '#0000EE'
+    logo_url: ../actm
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 10
+  fields:
+    name: 'AIESEC in AdMU'
+    abbreviation: 'AIESEC'
+    description: AIESEC is the world’s largest youth-run organization present in over 124 countries with more than 88,000 members worldwide. This unique organization allows its members to become exposed to a multicultural environment that will not only expand their global network, but will also develop their leadership skills. Beyond its established platform, AIESECers are fueled with passion, driven by ambition and grounded in a common vision to do more and be more. Given these points, AIESEC is unlike any other organization in the Ateneo because it offers its members endless opportunities for self-development that will inspire them to make a change in the world.
+    color: '#0000EE'
+    logo_url: ../aiesec
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 11
+  fields:
+    name: 'Ateneo Junior Marketing Association'
+    abbreviation: 'AJMA'
+    description: The Ateneo Junior Marketing Association (AJMA) is the Ateneo de Manila University's premiere marketing organization. Since its foundation in 1990, AJMA has successfully reached greater heights through its groundbreaking and highly anticipated events. Its core competencies - marketing education and marketing practice - have been recognized and accredited by esteemed organizations around the Philippines, including the Philippine Marketing Association, which has also recognized AJMA as one of the Three Outstanding Student Marketing Association of the Philippines (TOSMA). AJMA holds the record-breaking number of over 1,500 applicants during Recweek and continues to welcome more members with events like TEDxADMU, which is the biggest TED event in the Philippines.
+    color: '#0000EE'
+    logo_url: ../ajma
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 12
+  fields:
+    name: 'Ateneo Management Association'
+    abbreviation: 'AMA'
+    description: The Ateneo Management Association is the premier entrepreneurship organization of the Ateneo de Manila University. It also serves as the home organization of BS Management and BS Management-Honors students, and is one of the biggest organizations under the Council of the Organizations' Business Cluster. AMA aims to create socially aware entrepreneurs, and encourage purposeful and value-driven endeavors for the benefit of its members and of the Ateneo community. Ultimately, it is dedicated to the promotion of entrepreneurial values by providing projects, systems, and initiatives for holistic learning and practice.
+    color: '#0000EE'
+    logo_url: ../ama
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 13
+  fields:
+    name: 'Ateneo Lex'
+    abbreviation: 'Lex'
+    description: The Ateneo Lex, which is the home organization of students taking up BS Management, Major in Legal Management, is a duly recognized student organization of the Ateneo de Manila University's John Gokongwei School of Management. Lex upholds a distinct dynamic of business law and business ethics that are incorporated in its mission. It not only provides members with avenues to hone their business-related skills and legal knowledge, but also molds them to become socially responsible individuals geared towards nation building.
+    color: '#0000EE'
+    logo_url: ../alex
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 14
+  fields:
+    name: 'Ateneo Management of Applied Chemistry Association'
+    abbreviation: 'MACA'
+    description: The Ateneo Management of Applied Chemistry Association (MACA) was originally formed back in 1999. It is comprised of members from BS MAC and other students that also share an interest in innovation. With Innovative Consumer Product Development as its core competency, Ateneo MACA serves as a training ground for young entrepreneurs to explore the ideas they come up with to create solutions that benefit the others. Ateneo MACA also aims to become the organization that best cultivates student entrepreneurs to start developing innovative ideas by creating projects, events, and opportunities that help enrich innovation to execute great business ideas. Come celebrate with us our 20th anniversary with brighter things ahead!
+    color: '#0000EE'
+    logo_url: ../maca
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 15
+  fields:
+    name: 'Ateneo Management Engineering Association'
+    abbreviation: 'MEA'
+    description: The Ateneo Management Engineering Association (MEA) is the home organization of Management Engineering students. Showcasing members with unique talents and skills that are developed through impactful and fun initiatives, the organization cultivates the holistic growth and development of its members. Housing almost 700 members and celebrating its 51st year this year, the organization remains to be one of the oldest and largest accredited organizations of the Ateneo. Embodying Systems Thinking and Corporate Sustainability, MEA houses some of the most well-rounded and brilliant future business leaders of the Ateneo.
+    color: '#0000EE'
+    logo_url: ../mea
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 16
+  fields:
+    name: 'Ateneo Management Economics Organization'
+    abbreviation: 'MEcO'
+    description: The Ateneo MEcO is the non-exclusive home organization of AB Management Economics students and is considered the premier investing organization of the Ateneo. MEcO is also the Business Cluster organization "with a heart" due to the fact that the organization has an arm for Community Development. The organization provides focus on creating shared impact through learning and teaching financial literacy as well as simple and basic investing, not just for the betterment of its stakeholders, but also for the development of Philippine society. Furthermore, MEcO also gives importance to its members most especially in ensuring that members are constantly growing and learning through the organization.
+    color: '#0000EE'
+    logo_url: ../meco
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 17
+  fields:
+    name: 'Ateneo Catechetical Instruction League'
+    abbreviation: 'ACIL'
+    description: Established in 1905, the Ateneo Catechetical Instruction League (ACIL) has been Making Christ a Living Reality for its members, partner communities, and stakeholders. We continuously share the Word of God to our kids in the community with our primary goal - Ite et Docete, which means go forth and teach. We strive to be holistically formed with our three core competencies -Catechetical Formation, Spiritual Formation, and Social Awareness through our weekly formation sessions, special workshops, talks, camps, and retreats. Through these, we develop our own talents and skills as catechists and gain a deeper understanding of ourselves as passionate individuals bound by a shared love for service that is centered on Christ. We are one family. One ACIL.
+    color: '#0000EE'
+    logo_url: ../acil
+    event_host: 1
+    org_type: 1
+    cluster: 3
+- model: main_events.orghost
+  pk: 18
+  fields:
+    name: 'Ateneo Christian Life Community'
+    abbreviation: 'ACLC'
+    description: The Ateneo Christian Life Community (ACLC) is an organization of lay men and women of the Ateneo De Manila University aspiring to live out the "CLC Way of Life" by consciously integrating its three core pillars– spirituality, community, and apostolate– into everyday life. Members are called to be contemplatives-in-action primarily driven by the inspiration of Saint Ignatius of Loyola. Rooted in God and bonded by friendship, the organization commits to the mission of being formed by the CLC way of life and granting others access to this formation as well. Ultimately, the CLC Way of Life is a way of life which is missionary. CLC members are called to live for and with others.
+    color: '#0000EE'
+    logo_url: ../aclc
+    event_host: 1
+    org_type: 1
+    cluster: 3
+- model: main_events.orghost
+  pk: 19
+  fields:
+    name: 'Ateneo College Ministry Group'
+    abbreviation: 'ACMG'
+    description: The Ateneo College Ministry Group is an organization composed of liturgical ministers devoted to serving in celebration of the Holy Eucharist. Aside from regular Mass Service Training and Music Rehearsals, ACMG offers a Eucharistic-centered Formation Program aimed to nurture members spiritually through Prayer Sessions, fellowships, and retreats within and outside of the Loyola Schools. Moreover, ACMG offers opportunities for leadership through its departments and projects geared towards bringing the Eucharist in light of the relevant social issues we experience as a community. On its 38th year, ACMG welcomes you to be a “Kabarkada kay Kristo,” to a family that unconditionally sings and serves together and seeks to enrich a faith experience as embodied by Christ and the Holy Eucharist.
+    color: '#0000EE'
+    logo_url: ../acmg
+    event_host: 1
+    org_type: 1
+    cluster: 3
+- model: main_events.orghost
+  pk: 20
+  fields:
+    name: 'Ateneo Student Catholic Action'
+    abbreviation: 'AtSCA'
+    description: The Ateneo Student Catholic Action (AtSCA) aims to provide socio-spiritual formation to its members and to serve communities through sustainable and responsive social action. Through the integration of its three pillars, Ignatian Spirituality, Community Apostolate, and Social Action, it seeks to form Christ-centered individuals who possess a compassionate heart for the marginalized, live a life of prayer and discernment, and respond to the urgent call for social justice. To achieve this holistic formation, AtSCA holds formation sessions to guide its members in their reflections and prayers, and community babads in its apostolate communities to immerse and be one with our brothers and sisters in the peripheries.
+    color: '#0000EE'
+    logo_url: ../atsca
+    event_host: 1
+    org_type: 1
+    cluster: 3
+- model: main_events.orghost
+  pk: 21
+  fields:
+    name: 'Youth for Christ – Ateneo'
+    abbreviation: 'YFC-A'
+    description: YFC-A is a community that harnesses the youth’s unique energy to exhibit our love for God and establish strong relationships with Him. It is a home that tends to the growth of each of our members. We provide means of renewing and practicing your faith in ways that appeal to your interests. Through different activities such as Prayer Meetings, Youth Camps, Household Meetings, and much more, we aim to develop the talents and interests of our members so that in everything that they do, they may be and bring Christ by helping and inspiring others through the gifts that our loving God has given each and every one. We are not just an organization, but a family— a family of unique individuals with unique stories and personalities, brought together by their faith and desire to be with God.
+    color: '#0000EE'
+    logo_url: ../yfc-a
+    event_host: 1
+    org_type: 1
+    cluster: 3
+- model: main_events.orghost
+  pk: 22
+  fields:
+    name: 'Ateneo Lingua Arts Cultura'
+    abbreviation: 'ALAC'
+    description: The Ateneo Lingua Ars Cultura (ALAC) is the Ateneo’s premier student organization that celebrates the world’s cultures, and what each culture has to offer. With projects and events geared around languages, arts, and culture, we invite students to feel the importance of diversity and inclusivity no matter where they come from. In ALAC, we believe that everyone can join in the festivities of bridging, experiencing, and celebrating the world, its peoples, and the unique differences that tie us together.
+    color: '#0000EE'
+    logo_url: ../alac
+    event_host: 1
+    org_type: 1
+    cluster: 5
+- model: main_events.orghost
+  pk: 23
+  fields:
+    name: 'Ateneo Student Exchange Council'
+    abbreviation: 'ASEC'
+    description: Together with the Office of International Relations (OIR), the Ateneo Student Exchange Council (ASEC) takes pride in catering to the needs of both local and international students in the Ateneo de Manila University. We aim to encourage our members to celebrate diversity and actively practice cultural sensitivity in order to create a flourishing multicultural space within the Ateneo community. All in all, we want to form members who have developed a sense of global citizenship through our projects and events that initiate cultural exchange. For the past few years, ASEC has been an avenue for international opportunities and interaction. We have been bridging cultures with you, this year we invite you to take ASEC to greater heights with #ASECEvolve!
+    color: '#0000EE'
+    logo_url: ../asec
+    event_host: 1
+    org_type: 1
+    cluster: 5
+- model: main_events.orghost
+  pk: 24
+  fields:
+    name: 'Ateneo Celadon'
+    abbreviation: 'Celadon'
+    description: Established in 1985, Ateneo Celadon is the premier Chinese-Filipino organization of the Ateneo de Manila University. Through our vision of social change with the Chinese-Filipino tradition, we aspire to develop members that become the game changers in society. We too develop our members’ potential of becoming globally competitive leaders based on strong Chinese-Filipino principles by showcasing our events--cultural festivals, financial summits, and leadership programs--that have both won awards and brought the best out of our members thus, paving the way for them to become the leaders and visionaries of a “Greater Philippine Society.” Ateneo Celadon has stayed and will stay true to its promise of being the forefront in creating Chinese-Filipino game-changers for the country.
+    color: '#0000EE'
+    logo_url: ../celadon
+    event_host: 1
+    org_type: 1
+    cluster: 5
+- model: main_events.orghost
+  pk: 25
+  fields:
+    name: 'Baybayin Ateneo'
+    abbreviation: 'Baybayin'
+    description: ng Baybayin Ateneo ay isang samahan ng mga mag-aaral na naglalayong manguna sa pagtataguyod ng kulturang Filipino sa loob at labas ng pamantasan. Ang core competencies ng Baybayin ay ang Edukasyong Pangkultura o "cultural education", at ang Bábad-Kultura o "cultural immersion". Upang tugunan ang mga layunin ng samahán, nagsasagawa ang Baybayin ng samu't saring aktibidad katulad na lamang ng mga panayam, palihan, paglalakbay, at marami lang iba
+    color: '#0000EE'
+    logo_url: ../baybayin
+    event_host: 1
+    org_type: 1
+    cluster: 5
+- model: main_events.orghost
+  pk: 26
+  fields:
+    name: 'Loyola Mountaineers'
+    abbreviation: 'LM'
+    description: It is hard to express what it means to climb in words, and if anyone is to be honest even pictures pale in comparison. Climbing inspires in you a oneness with nature that reminds you how beautiful and amazing our world can be, and how much it is at stake and is worth protecting; something we can forget living in our little cities and monotonous routines. We are committed to uphold responsible mountaineering as well as form environmentally aware individuals who will appreciate, protect, preserve and conserve the environment. A weekend deprived of daily comforts will seem difficult but you will figure out for yourself--in the sunsets, sunrises, stars in the sky, maybe even the long treks, and most definitely in the lifelong friends turned family you will make, exactly why.
+    color: '#0000EE'
+    logo_url: ../lm
+    event_host: 1
+    org_type: 1
+    cluster: 4
+- model: main_events.orghost
+  pk: 27
+  fields:
+    name: 'Ateneo Environmental Science Society'
+    abbreviation: 'AESS'
+    description: The Ateneo Environmental Science Society (AESS) is the premier environmental organization of the Ateneo. Despite starting off as the home org of ES majors, we welcome students from all courses because we believe that everyone holds the same responsibility in taking care of our common home. Our environmentalism is grounded on science, but dependent on interdisciplinarity with other fields. We implement projects such as educational talks and forums, online awareness campaigns, waste management initiatives, coastal clean-ups, our annual visit to the Pawikan Conservation Center in Bataan, and more! This year, AESS aims to give more focus on action that emphasizes the connection between people and the environment.
+    color: '#0000EE'
+    logo_url: ../aess
+    event_host: 1
+    org_type: 1
+    cluster: 4
+- model: main_events.orghost
+  pk: 28
+  fields:
+    name: 'Ateneo Peers'
+    abbreviation: 'Peers'
+    description: Ateneo Peers is about self-discovery; to push past our limits and truly create ourselves. We're about understanding our feelings, the things that keep us up at night, and doing something about them. We could all use a helping hand. Why not be one for others? Helping others help themselves. There are countless ways. Let’s find yours.
+    color: '#0000EE'
+    logo_url: ../peers
+    event_host: 1
+    org_type: 1
+    cluster: 4
+- model: main_events.orghost
+  pk: 29
+  fields:
+    name: 'Pre-Medical Society of the Ateneo'
+    abbreviation: 'PMSA'
+    description: The Pre-Medical Society of the Ateneo is the premier pre-medical organization of the Loyola Schools and home to a community of individuals that advocate for development in the context of health and medicine. It seeks to form outstanding Atenean leaders by nurturing leadership and providing platforms for experiences such as medical school tours and medical skills training. It also designs and implements social programs for its partner communities to foster social solidarity and to improve health outcomes. Furthermore, it campaigns for health awareness to nurture an advocacy for health beyond its clinical aspect. Through 40 years of these efforts, the PMSA has been home for individuals to find themselves and others — and where they are called to be — in loving service to health and medicine.
+    color: '#0000EE'
+    logo_url: ../pmsa
+    event_host: 1
+    org_type: 1
+    cluster: 4
+- model: main_events.orghost
+  pk: 30
+  fields:
+    name: 'Ateneo Association of Communication Majors'
+    abbreviation: 'ACOMM'
+    description: The Ateneo Association of Communication Majors is Ateneo's home organization of all things media, and for all Communication Majors and media enthusiasts. We provide an avenue to develop competent and socially responsible media practitioners ready for today's dynamic media landscape. We develop the skills of our members through projects and efforts in different fields such as Advertising, Public Relations, Journalism, Production, and Media Studies. We aspire to help our members find purpose in properly communicating messages to the public that can spark movement and conversation, and for change to occur. ACOMM is also partnered with MIRLab, a production unit under the Eugenio Lopez Jr. Center for Multimedia Communication (ELJ-CMC), and Ateneo's first student-run internet radio, MAGIS Radio.
+    color: '#0000EE'
+    logo_url: ../acomm
+    event_host: 1
+    org_type: 1
+    cluster: 6
+- model: main_events.orghost
+  pk: 31
+  fields:
+    name: 'Ateneo Musicians’ Pool'
+    abbreviation: 'AMP'
+    description: "The Ateneo Musicians’ Pool is the premiere music organization of the Ateneo de Manila University. Originally formed for the fair treatment of Atenean artists, it has blossomed into the organization that it is today: an avenue for musicians and music-lovers to interact and share their passion for music. In AMP’s twenty years, it has proudly produced artists such as Itchyworms, Spongecola, She’s Only Sixteen, Over October, Perkywasted, and Devices. To this day, AMP continues to nurture and develop the many talents of its members not only in music, but also in design, photography, sound engineering, and writing."
+    color: '#0000EE'
+    logo_url: ../amp
+    event_host: 1
+    org_type: 1
+    cluster: 6
+- model: main_events.orghost
+  pk: 32
+  fields:
+    name: 'Ateneo Collegiate Society of Advertising'
+    abbreviation: 'CoSA'
+    description: CoSA is the premier advertising organization in the Ateneo that serves as an avenue for aspiring creative professionals to hone their skills in account management, project management, strategic conceptualization, and creative execution. In CoSA, we train our members to become competent individuals in the advertising industry, and challenge them to live creative by learning how to communicate ideas effectively from ideation to execution, with an end goal of inspiring real world action.
+    color: '#0000EE'
+    logo_url: ../cosa
+    event_host: 1
+    org_type: 1
+    cluster: 6
+- model: main_events.orghost
+  pk: 33
+  fields:
+    name: 'Loyola Film Circle'
+    abbreviation: 'LFC'
+    description: "The Loyola Film Circle (LFC) is the premier film organization of Ateneo de Manila University​. LFC strives to advocate in the Ateneo artistic excellence and social discourse through film. With three core competencies: appreciation, production, and critique, we aim to establish and strengthen film culture. LFC provides their members with various opportunities to pursue and hone their particular competencies. Events and projects include: Under the Stars, Orsem Film, and Isapelikula. Through these, LFC develops passionate members who will contribute to the film community in the future, aiding in the formation of culture and identity."
+    color: '#0000EE'
+    logo_url: ../lfc
+    event_host: 1
+    org_type: 1
+    cluster: 6
+- model: main_events.orghost
+  pk: 34
+  fields:
+    name: 'Ateneo de Manila College Glee Club'
+    abbreviation: 'ACGC'
+    description: Founded in 1921, the Ateneo de Manila College Glee Club (ACGC) is the oldest university chorale in the Philippines. It is committed to the highest standards of choral music. The organization provides an avenue for artistic expression and has been an ambassador of culture, sharing music with audiences locally and internationally for the past 98 years. It has garnered some of the world’s most prestigious awards and is considered to be an institution of the national choral movement. The ACGC covers a multitude of genres, from classical and sacred to secular and folk music. The ACGC is currently conducted by Dr. Beverly Shangkuan-Cheng and Mr. Christopher Ong Arceo.
+    color: '#0000EE'
+    logo_url: ../acgc
+    event_host: 1
+    org_type: 1
+    cluster: 7
+- model: main_events.orghost
+  pk: 35
+  fields:
+    name: 'Ateneo Blue Repertory'
+    abbreviation: 'blueREP'
+    description: Ateneo Blue Repertory (blueREP) is the premier musical theatre organization of the Ateneo de Manila University. Ateneo blueREP has always breathed and lived for one thing – passion. For the past years, blueREP has been selecting materials that are new, fresh and challenging, consistently searching for new innovations, and making a significant impact in theatre. In the fields of theater performance, technical theater arts, and theater management, blueREP carries everything out with that never-ending passion. It is known as a home where members share immense joy, creativity, and imagination for musical theatre.
+    color: '#0000EE'
+    logo_url: ../bluerep
+    event_host: 1
+    org_type: 1
+    cluster: 7
+- model: main_events.orghost
+  pk: 37
+  fields:
+    name: 'Company of Ateneo Dancers'
+    abbreviation: 'CADs'
+    description: The Company of Ateneo Dancers is the premier dance production organization of the Ateneo De Manila University. We strive for dance production excellence while maintaining their responsibilities as students. You can apply to be a member of the performing, production or even for both divisions of the organization. As CADsters, we are exposed to different communities and opportunities within and outside the Ateneo community. Being a member also entails dedication in everything we do. If you think you're ready to make that commitment, head on over to the CADs booth and apply now. Check out our official website and social media accounts to find out more about us!
+    color: '#0000EE'
+    logo_url: ../cads
+    event_host: 1
+    org_type: 1
+    cluster: 7
+- model: main_events.orghost
+  pk: 38
+  fields:
+    name: 'Tanghalang Ateneo'
+    abbreviation: 'TA'
+    description: "Tanghalang Ateneo is the longest-running theatre company of the Loyola Schools — a student-led company performing on par with the professionals. It sees itself as a theatre company in the service of student formation, and by extension – given the Jesuit ideal of magis – a theatre in service of the nation. The company's productions have been noted by several award-giving bodies for their thought, complexity, and aesthetic. In its 41st season, 'Écriture Féminine | Sulat-Babae: The Women's Season,' Tanghalang Atene celebrates the woman's voice and perspective by offering plays focused on the feminine in all its incarnations. The season seeks to champion the feminine as the ultimate counter-discourse to the shamelessly chauvinistic, toxic-masculinist ideology of our time."
+    color: '#0000EE'
+    logo_url: ../ta
+    event_host: 1
+    org_type: 1
+    cluster: 7
+- model: main_events.orghost
+  pk: 39
+  fields:
+    name: 'Kythe-Ateneo'
+    abbreviation: 'Kythe'
+    description: Kythe-Ateneo is the student arm of Kythe Foundation Inc., a non-profit organization dedicated to providing support to pediatric patients with chronic illnesses such as cancer, kidney diseases and blood disorders, and their families from its affiliate hospitals. As Kythers, we aim to provide psychosocial support to the children and their families through our regular interactions with them in the hospital and in our advocacy events. Our encounters with the kids work toward alleviating the stress brought onto them by their condition and hospitalization through therapeutic play and meaningful interactions. We invite all to become advocates of the Child Life Program, and encounter our sector as not just a recipient of a but a manifestation of hope.
+    color: '#0000EE'
+    logo_url: ../kythe
+    event_host: 1
+    org_type: 1
+    cluster: 8
+- model: main_events.orghost
+  pk: 40
+  fields:
+    name: 'Ateneo Consultants for Organization Development and Empowerment'
+    abbreviation: 'CODE'
+    description: Ateneo CODE is a non-profit consulting organization that believes that the youth, regardless of their background, can create meaningful change. Through the practice of Organization Development (OD) in our engagements, CODE equips youth organizations with the mindsets, knowledge, and skills to effectively lead sustainable efforts towards the pursuit of their advocacy. Internally, CODE invests in training its members to become high-quality OD consultants who can create positive change with clients hailing from public schools, colleges, and notable institutions like the National Youth Commission and Asian Development Bank. By cultivating a love of learning and creativity from the ground up, CODE ignites the rest of the youth to build the nation, one organization at a time.
+    color: '#0000EE'
+    logo_url: ../code
+    event_host: 1
+    org_type: 1
+    cluster: 8
+- model: main_events.orghost
+  pk: 41
+  fields:
+    name: 'Ateneo Education Geared towards Empowerment'
+    abbreviation: 'EDGE'
+    description: Ateneo EDGE is a sector based organization that advocates for social justice through promoting education as a tool for empowerment. As an organization, we reach out to children from the Marikina Heights community and teach them supplementary English lessons. It is our common goal to help them academically, through the use of fun and interactive modules, to help empower them and boost their confidence in their everyday lives. We believe that learning is not limited to the classroom; hence, creating different opportunities for the kids to learn from other activities, like field trips and alternative class programs. The organization advocates for the awareness of the power of education not only for the children in our partner communities, but also to the Loyola Schools community.
+    color: '#0000EE'
+    logo_url: ../edge
+    event_host: 1
+    org_type: 1
+    cluster: 8
+- model: main_events.orghost
+  pk: 42
+  fields:
+    name: 'TUGON Ateneo'
+    abbreviation: 'TUGON'
+    description: TUGON Ateneo aims to be the forefront of the transformation towards a country free from child sexual abuse and abandonment. As advocates against child sexual abuse and abandonment, we organize and facilitate structured area activities that aid the developmental needs and recovery of the children through empathy. TUGON also serves as the voices of these children in and outside of the Ateneo through the several awareness projects against these realities, one of which is Pinwheels for Change. The pinwheel, TUGON’s icon, symbolizes change and turning one’s luck around. Despite the adversities they faced, we help them remember that they are indeed children, so that in the future, they may be able to treasure their childhood memories- because every child deserves a childhood worth remembering.
+    color: '#0000EE'
+    logo_url: ../tugon
+    event_host: 1
+    org_type: 1
+    cluster: 8
+- model: main_events.orghost
+  pk: 43
+  fields:
+    name: 'Ateneo Gabay'
+    abbreviation: 'Gabay'
+    description: "For forty three years, Ateneo Gabay has been furthering its advocacy for its two sectors: Ateneo scholars and Erya kids. We provide opportunities for scholars to grow through community building efforts and academic assistance, and we nurture public school kids in the hopes of imbibing them the importance of pursuing their education through our flagship Erya Program."
+    color: '#0000EE'
+    logo_url: ../gabay
+    event_host: 1
+    org_type: 1
+    cluster: 8
+- model: main_events.orghost
+  pk: 44
+  fields:
+    name: 'Musmos Ateneo'
+    abbreviation: 'Musmos'
+    description: Musmos Ateneo continues to share the magical Saturday Areas with the urban poor children of Katipunan and Cubao. Saturday area, play does not only bring in the sweat and fun, but also inspires the kids to dream big-- bigger than what the world’s pains are trying to limit them from doing. Childhood dreams were always magical-- from playtime to moments of authentic belief in their dreams. In Musmos, with the aspiration of forming their inner leadership qualities and uplifting their spirits to thread life with utmost confidence. We take part in kids’ realization of the good they want to do and the service they want to impart to their respective communities. Be part of the Musmos family! Together let’s continue being Ateneans for and with urban poor children.
+    color: '#0000EE'
+    logo_url: ../musmos
+    event_host: 1
+    org_type: 1
+    cluster: 8
+- model: main_events.orghost
+  pk: 45
+  fields:
+    name: 'Ateneo Special Education Society'
+    abbreviation: 'SPEED'
+    description: Ateneo Special Education Society (SPEED) is a Sector-based Cluster Organization of the Ateneo de Manila University. As an organization, we aim to provide an inclusive society for persons with special needs (PWSNs), as well as embrace their value as human beings. In order to do so, SPEED collaborates with various institutions for the organization of projects that promote the advocacy inside and outside the Ateneo community, while holistically forming our members and raising awareness in the LS community.
+    color: '#0000EE'
+    logo_url: ../speed
+    event_host: 1
+    org_type: 1
+    cluster: 8
+- model: main_events.orghost
+  pk: 46
+  fields:
+    name: 'Ateneo Chemistry Society'
+    abbreviation: 'ACheS'
+    description: The Ateneo Chemistry Society, also known as ACheS, is a community that promotes the social application and appreciation of Chemistry–the central science. On its 56th year, ACheS plans to innovate and redesign its projects to serve as avenues for character formation and skills development with the ultimate goal of bringing about social change. The organization will focus on honing members’ leadership, project management and interpersonal skills through interactive workshops and seminars, and organizing projects where members can be creative and innovative. ACheS breaks the stereotype of a chemistry community as it transforms the challenging world of science into a whole new dimension geared towards social change.
+    color: '#0000EE'
+    logo_url: ../aches
+    event_host: 1
+    org_type: 1
+    cluster: 9
+- model: main_events.orghost
+  pk: 47
+  fields:
+    name: 'Ateneo Electronics & Computer Engineering Society'
+    abbreviation: 'AECES'
+    description: AECES is the sole and premier engineering organization of the Ateneo. Although it is indeed the home organization for the students under ECCE Department, Electronics and Computer Engineering students, all people who identifies with technology are welcomed in the organization. AECES promotes Membership Development through Academic Support and Social Service through Engineering achieved through workshops and various events such as Spark Summit and Pitch Deck which both advocate for appreciation for technology and idea generation in the hopes of directing the members to innovate, not only for improving ones skills, but also for the betterment of the society. AECES has been getting its name out there in the past year or two and we continue to do so.
+    color: '#0000EE'
+    logo_url: ../aeces
+    event_host: 1
+    org_type: 1
+    cluster: 9
+- model: main_events.orghost
+  pk: 48
+  fields:
+    name: 'Ateneo Mathematics Society'
+    abbreviation: 'AMS'
+    description: The Ateneo Mathematics Society (AMS) envisions itself as a community of math enthusiasts, holistically formed to be men and women for and with others, that uses mathematics as a tool/instrument in building a culture of appreciation, excellence, and service in the Ateneo and in the greater society. This organization has the mission to build a community of math enthusiasts by establishing relationships among members of the organization, the Ateneo community, and the greater society, becoming involved in addressing the needs and concerns of the community formed, promoting math appreciation by engaging people in relevant mathematical ideas and concepts, and achieving math excellence by striving to advance the mathematical proficiency of math enthusiasts within and outside of the LS community.
+    color: '#0000EE'
+    logo_url: ../ams
+    event_host: 1
+    org_type: 1
+    cluster: 9
+- model: main_events.orghost
+  pk: 49
+  fields:
+    name: 'Ateneo Biological Organization – eXplore. eXperience. eXcel.'
+    abbreviation: 'BOx'
+    description: Ateneo Biological Organization - eXplore. eXperience. eXcel. or Ateneo BOx has always strived to serve as a home, welcoming everyone and anyone with open arms in appreciating life in all forms. Although BOx is recognized as the home organization for the biology and life sciences majors, the management, social sciences, humanities or any other discipline are very welcome to join. With the expertise in your respective field, we will ensure that BOx endlessly fulfils to benefit society by advocating for biodiversity, bioeducation, and animal welfare. What sets its members apart is their mutual passion for life and seeing the world through a different lens – one that enables them to join together in igniting greater appreciation for the world and the organisms thriving on it.
+    color: '#0000EE'
+    logo_url: ../box
+    event_host: 1
+    org_type: 1
+    cluster: 9
+- model: main_events.orghost
+  pk: 50
+  fields:
+    name: 'Computer Society of the Ateneo'
+    abbreviation: 'CompSAt'
+    description: The Computer Society of the Ateneo (CompSAt) is an organization that aims to spread awareness of Information Technology (I.T.) and instill in its members a passion for technology. It is our mission to learn, use, and share I.T. with our members. Our initiatives, development projects, and workshops are all geared towards giving our members opportunities to learn, hone, and apply their technical skills. Our events and tutorial services allow us to share this knowledge with those outside the field of technology. More than a group of coders, however, CompSAt is a community of people driven to serve others through technology.
+    color: '#0000EE'
+    logo_url: ../compsat
+    event_host: 1
+    org_type: 1
+    cluster: 9
+- model: main_events.orghost
+  pk: 51
+  fields:
+    name: 'Ateneo League of Physicists'
+    abbreviation: 'LeaPs'
+    description: The Ateneo League of Physicists, aptly known as LeaPs, is the Ateneo's premiere destination for all things Physics. With strong ties to the Physics department as well as conncetions to prominent organizations across the Philippines such as the Manila Observatory, LeaPs takes pride in striving for its core competencies, Physics excellence and Physics appreciation. The organization demonstrates these competencies in its projects such as Stargazing, Path Independent, and the Physics Quiz Bee.
+    color: '#0000EE'
+    logo_url: ../leaps
+    event_host: 1
+    org_type: 1
+    cluster: 9
+- model: main_events.orghost
+  pk: 52
+  fields:
+    name: 'Ateneo Management Information Systems Association'
+    abbreviation: 'MISA'
+    description: The Ateneo Management Information Systems Association better known as MISA is the Ateneo Loyola Schools’ premier information management organization. It essentially serves as the home for MIS majors and like-minded IT enthusiasts. Founded in 1994, it is now on its 25th year of pursuing its main advocacy, which is social transformation through information management. Guided by the core values of excellence, servant leadership and professionalism, MISA aims to inform, to form and to transform the society through proactive engagement in projects utilizing information technology as a tool towards effective information management.
+    color: '#0000EE'
+    logo_url: ../misa
+    event_host: 1
+    org_type: 1
+    cluster: 9
+- model: main_events.orghost
+  pk: 53
+  fields:
+    name: 'Ateneo Psyche'
+    abbreviation: 'Psyche'
+    description: Ateneo Psyche is the premier psychology-centered organization in the Loyola Schools. It envisions a community that highlights the human condition in the lens of psychology, as well as an organization that advocates towards positive mental health. Committed to the Ignatian formation of holistic development, Ateneo Psyche believes that awareness of the psychological self must take its place as an integral element in an individual’s development and growth.
+    color: '#0000EE'
+    logo_url: ../psyche
+    event_host: 1
+    org_type: 1
+    cluster: 9
+- model: main_events.orghost
+  pk: 54
+  fields:
+    name: 'Council of Organizations of the Ateneo'
+    abbreviation: 'COA'
+    description: The Council of Organizations of the Ateneo or COA is the representative, administrative, formative, collaborative, and unitive body of all 56 accredited organizations of the university. For this year, we aim in "Celebrating passions, facilitating change, and empowering the community". We would like to promote and celebrate the advocacies and core competencies of each organization to people within and outside the university. We would also like to challenge the vision and trends in the community to promote innovation and adapt to the changing times. Lastly, we would like to empower everyone, not just the organization heads, but even the members and other officers towards leadership formation and development. Through our tools and strategies, together with our partner organizations and institutions, we would equip each organization in order for them to be prepared and be able to respond to different challenges. COA is your voice. We are your partner in responding towards the challenges of your organization through formation and development.
+    color: '#0000EE'
+    logo_url: ../coa
+    event_host: 1
+    org_type: 1
+- model: main_events.orghost
+  pk: 55
+  fields:
+    name: 'The GUIDON'
+    abbreviation: 'GUIDON'
+    description: The GUIDON is the official student publication of Ateneo de Manila University. It is a training ground for writers, artists, and managers who are committed to fighting for the Truth in service of communities within and beyond the Loyola Schools. For 90 years, the publication has served as a chronicler of Atenean history in the making and as an organ of journalistic expression and excellence. As it steps into an era where multimedia prevails and where press freedom is threatened, it must not only hold the line in defending the Truth but also innovate and expand its avenues for storytelling.
+    color: '#0000EE'
+    logo_url: ../Guidon
+    event_host: 1
+    org_type: 2
+- model: main_events.orghost
+  pk: 56
+  fields:
+    name: 'HEIGHTS Ateneo'
+    abbreviation: 'HEIGHTS'
+    description: HEIGHTS is the official literary and artistic publication and organization of the Ateneo de Manila University. Now on its 67th year, Heights continues its mission to uphold literary and artistic excellence of the Ateneo community by providing a platform for Atenean writers and artists to showcase their work through its published material. In today’s tumultuous sociopolitical climate, it becomes necessary for literary and artistic works to engage with and confront the issues that plague our nation. Heights aims to not only publish excellent works through our folios, but to foster a community of writers and artists who approach our social realities with a critical and compassionate lens.
+    color: '#0000EE'
+    logo_url: ../Heights
+    event_host: 1
+    org_type: 2
+- model: main_events.orghost
+  pk: 57
+  fields:
+    name: 'Matanglawin'
+    abbreviation: 'Matanglawin'
+    description: Mapanghamon ang ating panahon. Kailangan ang mga MATANG nangangahas, tumititig at sumusuri sa paligid. Kailangan ang isang TANGLAW ng katotohanan sa gitna ng dilim na laganap na pambubulag at pagbubulag-bulagan. Kailangan ang mga kuko ng LAWING daragit sa mga dagang ngumangatngat sa yaman ng bansa at ahas na lumilingkis sa dangal at karapatan ng mga maralita. Kaya’t ang Matanglawin ay bumabangon upang tumugon. Bilang Opisyal na Pahayagang Pangmag-aaral ng Pamantasang Ateneo, hangad nito ang malaya at mapagpalayang pagpapalitan ng kuro-kuro tungkol sa mahahalagang usaping pampaaralan at panlipunang may diwang kinakakasangkutan ang mga Atenistang kumikilos palabas ng paaralan.
+    color: '#0000EE'
+    logo_url: ../Matanglawin
+    event_host: 1
+    org_type: 2
+- model: main_events.orghost
+  pk: 132
+  fields:
+    name: 'Ateneo Hinomoto'
+    abbreviation: 'Hinomoto'
+    description: Ateneo Hinomoto is a student organization that specializes in learning the practice of the Japanese language and culture, while appreciating and learning significant values from the Japanese culture, as well as promoting cultural exchange between the Filipino and Japanese students. As the official student arm of the Japanese Studies Program of the university, Hinomoto hosts various projects appreciating and reenacting some of the iconic Japanese cultural activities and provides an avenue for students to affordably learn the Japanese language. Hinomoto aims to help the formation of its members to be better citizens of our country by integrating Japanese values to the Ignatian and Filipino virtues taught and valued by the university programs.
+    color: '#0000EE'
+    logo_url: ../hinomoto
+    event_host: 1
+    org_type: 1
+    cluster: 5
+- model: main_events.orghost
+  pk: 133
+  fields:
+    name: 'Ateneo Blue Consulting Group'
+    abbreviation: 'Ateneo BCG'
+    description: Ateneo Blue Consulting Group (Ateneo BCG) is the premier non-profit management consulting organization of the Ateneo de Manila University. It is composed of students with a passion for business and a dedication to improving practical life skills. Ateneo BCG strives to create the best avenue for learning about business in the real world, producing aspiring student consultants through business consultancy trainings, and contributing to our goal of nation-building by engaging with local small-medium enterprises and social enterprises.
+    color: '#0000EE'
+    logo_url: ../ateneobcg
+    event_host: 1
+    org_type: 1
+    cluster: 2
+- model: main_events.orghost
+  pk: 134
+  fields:
+    name: 'Institute of Skin Divers of Ateneo'
+    abbreviation: 'ISDA'
+    description: The Institute of Skin Divers of Ateneo is a group of passionate individuals who share the same love for the ocean and especially the marine life that sustains it. We envision a Filipino community that appreciates its marine environment, is aware of its prevailing issues and its role as interconnected with the whole ecosystem. We also aim to form individuals who are skilled and responsible skin divers instilled with the spirit of environmentalism as a means to lead the Filipino community in the pursuit of marine life protection and conservation.
+    color: '#0000EE'
+    logo_url: ../isda
+    event_host: 1
+    org_type: 1
+    cluster: 4
+- model: main_events.orghost
+  pk: 135
+  fields:
+    name: 'Barefoot Philippines Ateneo'
+    abbreviation: 'Barefoot'
+    description: In support of UNICEF Philippines, Barefoot Philippines is a group of young Ateneans who envision a country where children enjoy their rights, and have a bright future within caring and protective communities. As an organization of purpose-driven individuals, we envision a nation where children in rural communities flourish in empowering environments. Together with our partner community, we hope for every child to live a dignified life. As Champions for Children, we provide sustainable, contextualized assistance — both structural and formative — for children in rural communities. Through community empowerment, we aim to form environments that promote every child’s holistic development.
+    color: '#0000EE'
+    logo_url: ../barefoot
+    event_host: 1
+    org_type: 1
+    cluster: 8
