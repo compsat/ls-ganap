@@ -14,12 +14,12 @@ python3 manage.py loaddata clusters.yaml
 python3 manage.py loaddata tags.yaml
 python3 manage.py loaddata org_type.yaml
 python3 manage.py loaddata event_hosts.yaml
-python3 manage.py loaddata org_users.yaml
-python3 manage.py loaddata office_users.yaml
-python3 manage.py loaddata sanggu_users.yaml
-python3 manage.py loaddata organizations.yaml
-python3 manage.py loaddata offices.yaml
-python3 manage.py loaddata sanggu.yaml
+# python3 manage.py loaddata org_users.yaml
+# python3 manage.py loaddata office_users.yaml
+# python3 manage.py loaddata sanggu_users.yaml
+python3 manage.py loaddata organizations_NEW.yaml
+python3 manage.py loaddata offices_NEW.yaml
+python3 manage.py loaddata sanggu_NEW.yaml
 # python3 manage.py loaddata test.yaml
 python3 manage.py loaddata venues.yaml
 # python3 manage.py loaddata new_mock_events.yaml
