@@ -7,6 +7,8 @@ import os
 
 DEBUG = config('DEBUG', cast=bool)
 
+DEFAULT_DOMAIN = 'http://ganap.ateneo.edu'
+
 ALLOWED_HOSTS = [
     '121.58.232.235',
     'ganap.ateneo.edu',
