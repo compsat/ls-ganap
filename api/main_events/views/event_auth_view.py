@@ -20,7 +20,7 @@ CLIENT_SECRETS_FILE = 'client_secrets.json'
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 
 # ------------------ REMOVE IN PRODUCTION ----------------------
-# os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 client_secrets = {
 	"web": {"client_id" : config('CLIENT_ID'),
@@ -49,7 +49,7 @@ def create_events(request, pk):
 		"""
 		request.session['pk'] = pk
 		request.session['endpoint'] = 'create_events'
-		return redirect('authorize')
+		return redirect('authorize_google')
 	
 	  # Load credentials from the session.
 	credentials = google.oauth2.credentials.Credentials(
@@ -61,7 +61,7 @@ def create_events(request, pk):
 		except:
 			request.session['credentials'] = None
 			request.session['pk'] = pk
-			return redirect('authorize')
+			return redirect('authorize_google')
 
 	service = build('calendar', 'v3', credentials=credentials)
 
@@ -98,10 +98,12 @@ def create_events(request, pk):
 		request.session['credentials'] = credentials_to_dict(credentials)
 	except RefreshError:
 		request.session['pk'] = pk
-		return redirect('authorize')
+		return redirect('authorize_google')
 
 	request.session['pk'] = None
-	del request.session['endpoint']
+	if 'endpoint' in request.session:
+		del request.session['endpoint']
+		
 	if auth_user:
 		return redirect('https://calendar.google.com/calendar/r/day/{}/{}/{}?authuser={}'.format(first_date.year, first_date.month, first_date.day, auth_user))
 	else:
@@ -173,7 +175,7 @@ def add_calendar_to_list(request, pk):
 		"""
 		request.session['pk'] = pk
 		request.session['endpoint'] = 'add_calendar_to_list'
-		return redirect('authorize')
+		return redirect('authorize_google')
 	
 	  # Load credentials from the session.
 	credentials = google.oauth2.credentials.Credentials(
@@ -185,7 +187,7 @@ def add_calendar_to_list(request, pk):
 		except:
 			request.session['credentials'] = None
 			request.session['pk'] = pk
-			return redirect('authorize')
+			return redirect('authorize_google')
 
 	service = build('calendar', 'v3', credentials=credentials)
 
@@ -218,7 +220,7 @@ def add_calendar_to_list(request, pk):
 		request.session['credentials'] = credentials_to_dict(credentials)
 	except RefreshError:
 		request.session['pk'] = pk
-		return redirect('authorize')
+		return redirect('authorize_google')
 
 	request.session['pk'] = None
 	if auth_user:
@@ -484,7 +486,7 @@ def oauth2callback(request):
 	try:
 		flow.fetch_token(authorization_response=authorization_response)
 	except:
-		return redirect('/events')
+		return redirect(settings.DEFAULT_DOMAIN)
 
 	# Store credentials in the session.
 	# ACTION ITEM: In a production app, you likely want to save these
@@ -505,7 +507,7 @@ def oauth2callback(request):
 		elif request.session['endpoint'] == 'add_calendar_to_list':
 			return redirect(reverse('add_calendar_to_list', args=[request.session['add_calendar_to_list'], request.session['pk']]))
 
-	return redirect('/events')
+	return redirect(settings.DEFAULT_DOMAIN)
 
 def credentials_to_dict(credentials):
 	return {'token': credentials.token,
