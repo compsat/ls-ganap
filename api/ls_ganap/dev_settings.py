@@ -6,3 +6,5 @@ except ImportError:
 ALLOWED_HOSTS = [
     '*'
 ]
+
+DEFAULT_DOMAIN = 'http://localhost:3000'
