@@ -244,7 +244,7 @@ CLOUDINARY_STORAGE = {
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST')
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
 #CORS_ORIGIN_ALLOW_ALL = True
 
 # Extra places for collectstatic to find static files.
