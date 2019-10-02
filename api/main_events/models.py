@@ -180,14 +180,19 @@ class Event(SoftDeletionModel):
 	LS = 'LS'
 	ADMU = 'ADMU'
 	PUBLIC = 'PUB'
+	EMPLOYEES = 'EMP'
+	UNDERGRADS_GRADS = 'UND_GRAD'
+
 
 	AUDIENCE_CHOICES = [
 		(MEMBERS, 'Members Only'),
-		(UNDERGRADS, 'LS Undergraduate Students'),
-		(GRADUATES, 'LS Graduate Students'),
-		(LS, 'LS Community (Undergraduate + Graduate)'),
+		(UNDERGRADS, 'LS Undergraduate Students only'),
+		(GRADUATES, 'LS Graduate Students only'),
+		(LS, 'LS Community (Undergraduate + Graduate + Employees)'),
 		(ADMU, 'ADMU Community (LS, GS, HS)'),
-		(PUBLIC, 'Open to the Public')
+		(PUBLIC, 'Open to the Public'),
+		(EMPLOYEES, 'LS Employees only'),
+		(UNDERGRADS_GRADS, 'LS Students (Undergraduate and Graduate)')
 	]
 
 	name = models.CharField(max_length=200)
