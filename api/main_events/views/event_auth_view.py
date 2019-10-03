@@ -463,6 +463,7 @@ def authorize(request):
 
 	# Store the state so the callback can verify the auth server response.
 	request.session['state'] = state
+	request.session['code_verifier'] = flow.code_verifier
 
 	return redirect(authorization_url)
 
@@ -474,6 +475,7 @@ def oauth2callback(request):
 	flow = google_auth_oauthlib.flow.Flow.from_client_config(
 	  client_secrets, scopes=SCOPES, state=state)
 	flow.redirect_uri = request.build_absolute_uri(reverse('oauth2callback'))
+	flow.code_verifier = request.session['code_verifier']
 
 	# Use the authorization server's response to fetch the OAuth 2.0 tokens.
 	authorization_response = request.build_absolute_uri()

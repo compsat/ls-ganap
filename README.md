@@ -50,7 +50,8 @@ python -m venv ~/.virtualenvs/lsganap_venv
 This creates a virtual environment named lsganap_venv in a folder entitled .virtualenvs. If you use Anaconda for your Python commands, please run `conda create -n lsganap_venv python=x.x anaconda` instead (where x.x is your Python version). 
 
 ```
-source ~/.virtualenvs/lsganap_venv/bin/activate
+source ~/.virtualenvs/lsganap_venv/bin/activate // (on Mac)
+~\.virtualenvs\lsganap_venv\Scripts\activate // (on Windows)
 ```
 This activates your virtualenv in your Terminal window, which means you can now use the dependencies installed in your venv.
 
