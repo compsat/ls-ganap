@@ -191,7 +191,7 @@ class NewEvent extends Component {
           <UploadArea>
             <label>
               <AppTextP>Upload an Image</AppTextP>
-              <AppTextP size="0.05">NOTE: The image must be an 11 x 11 inch .png file.</AppTextP>
+              <AppTextP size="0.05">NOTE: The image must be an 11 inches by 17 inches .png file.</AppTextP>
               <FileInputHidden
                 type="file"
                 accept="image/png, image/jpeg"
