@@ -1,22 +1,22 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React, { Component } from "react"
+import styled from "styled-components"
+import { Link } from "react-router-dom"
 
-import ateneoLogo from "assets/ateneo-logo.png";
-import lsGanapLogo from "assets/ls-ganap-logo.png";
-import compsatLogo from "assets/compsat-logo.svg";
-import PageContent from "components/common/PageContent";
-import { media } from "style/style-utils";
+import ateneoLogo from "assets/ateneo-logo.png"
+import cemWhiteLogo from "assets/cem-logo-white.png"
+import compsatLogo from "assets/compsat-logo.svg"
+import PageContent from "components/common/PageContent"
+import { media } from "style/style-utils"
 
 const FooterLink = ({ className, route, children }) => (
   <Link className={className} to={route}>
     {children}
   </Link>
-);
+)
 
 const Image = ({ className, source, alt }) => (
   <img className={className} src={source} alt={alt} />
-);
+)
 
 const StyledFooter = styled.footer`
   min-height: 8em;
@@ -32,7 +32,7 @@ const StyledFooter = styled.footer`
   ${media.mdScreen`
     padding: 4em 0;
   `}
-`;
+`
 
 const StyledPageContent = styled(PageContent)`
   display: grid;
@@ -41,12 +41,12 @@ const StyledPageContent = styled(PageContent)`
   ${media.mdScreen`
     grid-template-columns: 1fr 7em;
   `}
-`;
+`
 
 const StyledFooterLink = styled(FooterLink)`
   text-decoration: none;
   color: black;
-`;
+`
 
 const Logo = styled(Image)`
   max-height: 3em;
@@ -60,17 +60,19 @@ const Logo = styled(Image)`
     max-height: 2.4em;
     align-self: flex-start;
   `}
-`;
+`
 
-const LSGanapLogo = styled(Logo)``;
+const CEMLogo = styled(Logo)`
+  margin-left: 0.5em;
+`
 const AteneoLogo = styled(Logo)`
   order: 1;
-`;
+`
 const CompSAtLogo = styled(Logo)`
   max-height: 3em;
   max-width: 11em;
   margin-left: 2em;
-`;
+`
 
 const LinksContainer = styled.div`
   display: grid;
@@ -93,7 +95,7 @@ const LinksContainer = styled.div`
     text-align: right
     grid-gap: .2em;
   `}
-`;
+`
 
 const LogosContainer = styled.div`
   display: flex;
@@ -110,7 +112,7 @@ const LogosContainer = styled.div`
     grid-row-start: 1;
     grid-row-end: 1;
   `}
-`;
+`
 
 class Footer extends Component {
   render() {
@@ -119,7 +121,7 @@ class Footer extends Component {
         <StyledPageContent>
           <LogosContainer>
             <AteneoLogo source={ateneoLogo} alt="Ateneo Logo" />
-            <LSGanapLogo source={lsGanapLogo} alt="LS Ganap Logo" />
+            <CEMLogo source={cemWhiteLogo} alt="LS Ganap Logo" />
             <CompSAtLogo source={compsatLogo} alt="CompSAt Logo" />
           </LogosContainer>
           <LinksContainer>
@@ -128,8 +130,8 @@ class Footer extends Component {
           </LinksContainer>
         </StyledPageContent>
       </StyledFooter>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer
