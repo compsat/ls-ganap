@@ -61,6 +61,7 @@ def create_events(request, pk):
 		except:
 			request.session['credentials'] = None
 			request.session['pk'] = pk
+			request.session['endpoint'] = 'create_events'
 			return redirect('authorize_google')
 
 	service = build('calendar', 'v3', credentials=credentials)
@@ -98,6 +99,7 @@ def create_events(request, pk):
 		request.session['credentials'] = credentials_to_dict(credentials)
 	except RefreshError:
 		request.session['pk'] = pk
+		request.session['endpoint'] = 'create_events'
 		return redirect('authorize_google')
 
 	request.session['pk'] = None
