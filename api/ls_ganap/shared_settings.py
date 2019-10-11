@@ -122,6 +122,7 @@ JWT_AUTH = {
      
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -244,8 +245,8 @@ CLOUDINARY_STORAGE = {
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST')
-#CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
+# CORS_ORIGIN_ALLOW_ALL = True
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
