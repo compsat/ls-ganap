@@ -4,6 +4,7 @@ except ImportError:
     pass
 
 import os
+from decouple import config
 
 DEBUG = config('DEBUG', cast=bool)
 
