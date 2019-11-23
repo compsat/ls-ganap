@@ -63,7 +63,12 @@ const Logo = styled(Image)`
 `
 
 const CEMLogo = styled(Logo)`
-  margin-left: 0.5em;
+  margin-left: 1em;
+  mix-blend-mode: multiply;
+  max-height: 4em;
+  align-self: center;
+  position: relative;
+  top: 15px;
 `
 const AteneoLogo = styled(Logo)`
   order: 1;
