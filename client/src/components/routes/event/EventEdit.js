@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import axios from "axios";
-import TextField from "@material-ui/core/TextField";
-import { format } from "date-fns";
-import SVG from "react-inlinesvg";
+import React, { Component } from "react"
+import styled from "styled-components"
+import axios from "axios"
+import TextField from "@material-ui/core/TextField"
+import { format } from "date-fns"
+import SVG from "react-inlinesvg"
 
-import AppBorder from "components/common/AppBorder";
-import AppButton from "components/common/AppButton";
-import AppInputAutocomplete from "../../common/AppInputAutocomplete";
-import AppText from "components/common/AppText";
-import { media } from "style/style-utils";
-import { Redirect } from "react-router-dom";
+import AppBorder from "components/common/AppBorder"
+import AppButton from "components/common/AppButton"
+import AppInputAutocomplete from "../../common/AppInputAutocomplete"
+import AppText from "components/common/AppText"
+import { media } from "style/style-utils"
+import { Redirect } from "react-router-dom"
 
 const NewEventForm = styled.form`
   display: flex;
-`;
+`
 
 const UploadArea = styled.div`
   width: 100%;
@@ -23,7 +23,7 @@ const UploadArea = styled.div`
     width: 30%;
     margin-right: 5rem;
   `}
-`;
+`
 
 const TextInputArea = styled.div`
   width: 100%;
@@ -31,11 +31,11 @@ const TextInputArea = styled.div`
   ${media.mdScreen`
     width: 40%;
   `}
-`;
+`
 
 const AppTextP = AppText.withComponent("p").extend`
   margin-bottom: 1rem;
-`;
+`
 
 const FileInputHidden = styled.input`
   width: 0.1px;
@@ -44,7 +44,7 @@ const FileInputHidden = styled.input`
   overflow: hidden;
   position: absolute;
   z-index: -1;
-`;
+`
 
 const UploadButton = styled(AppBorder)`
   position: relative;
@@ -60,7 +60,7 @@ const UploadButton = styled(AppBorder)`
   background-position-x: center;
   background-position-y: center;
   background-size: cover;
-`;
+`
 
 const NewEventFormTextInput = styled(TextField).attrs({
   InputLabelProps: {
@@ -69,11 +69,11 @@ const NewEventFormTextInput = styled(TextField).attrs({
 })`
   width: 100%;
   margin-bottom: 2rem;
-`;
+`
 
 const NewEventFormAppInputAutocomplete = NewEventFormTextInput.withComponent(
   AppInputAutocomplete
-);
+)
 
 const CameraIcon = styled(SVG)`
   position: absolute;
@@ -84,13 +84,13 @@ const CameraIcon = styled(SVG)`
   margin: auto;
   transform: translateY(-50%);
   opacity: 0.75;
-`;
+`
 
-const AppButtonInput = AppButton.withComponent("input");
+const AppButtonInput = AppButton.withComponent("input")
 
 class EventEdit extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isUploading: false,
@@ -104,7 +104,7 @@ class EventEdit extends Component {
       venue: "",
       description: "",
       tags: []
-    };
+    }
   }
 
   componentDidMount = () => {
@@ -119,31 +119,31 @@ class EventEdit extends Component {
       startTime: this.props.start_time,
       endTime: this.props.end_time,
       venue: this.props.venue
-    };
+    }
 
-    this.setState(nextState);
-  };
+    this.setState(nextState)
+  }
 
   handleInputChange = (input, value) => {
     this.setState({
       [input]: value
-    });
+    })
 
     // setTimeout(() => console.log(this.state), 0);
-  };
+  }
 
   handleFileUpload = event => {
-    const formData = new FormData();
-    const imageFile = event.target.files[0];
-    formData.append("file", imageFile);
+    const formData = new FormData()
+    const imageFile = event.target.files[0]
+    formData.append("file", imageFile)
     formData.append(
       "upload_preset",
       process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
-    );
+    )
 
     this.setState({
       isUploading: true
-    });
+    })
 
     // TODO: Convert into action
     axios
@@ -153,8 +153,8 @@ class EventEdit extends Component {
         {
           transformRequest: [
             (data, headers) => {
-              delete headers.common.Authorization;
-              return data;
+              delete headers.common.Authorization
+              return data
             }
           ],
           headers: { "Content-Type": "multipart/form-data" }
@@ -164,12 +164,12 @@ class EventEdit extends Component {
         this.setState({
           isUploading: false,
           posterUrl: response.data.secure_url
-        });
-      });
-  };
+        })
+      })
+  }
 
   handleSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
 
     const logistics = isNaN(this.state.venue.value)
       ? [
@@ -187,7 +187,7 @@ class EventEdit extends Component {
             end_time: `${this.state.endTime}:00`,
             venue: this.state.venue.value
           }
-        ];
+        ]
 
     // const newTags = this.state.tags.filter(tag => tag.__isNew__);
     // const oldTags = this.state.tags.filter(tag => !tag.__isNew__);
@@ -219,7 +219,7 @@ class EventEdit extends Component {
       this.state.hosts.map(host => host.value),
       logistics,
       this.props.history
-    );
+    )
 
     // console.log(editedDetails.tags);
     // // TODO: Convert into action
@@ -236,11 +236,15 @@ class EventEdit extends Component {
     // } catch(e) {
     //   console.log(e);
     // }
-  };
+  }
+
+  redirectToEventDetailsPage = () => {
+    this.props.history.push(`/events/${this.props.eventId}`)
+  }
 
   render() {
-    const handleInputChange = this.handleInputChange;
-    const isCreatedBy = this.props.isCreatedBy;
+    const handleInputChange = this.handleInputChange
+    const isCreatedBy = this.props.isCreatedBy
 
     return (
       <main>
@@ -249,7 +253,9 @@ class EventEdit extends Component {
             <UploadArea>
               <label>
                 <AppTextP>Upload an Image</AppTextP>
-                <AppTextP size="0.05">NOTE: The image must be an 11 inches by 17 inches .png file.</AppTextP>
+                <AppTextP size="0.05">
+                  NOTE: The image must be an 11 inches by 17 inches .png file.
+                </AppTextP>
                 <FileInputHidden
                   type="file"
                   accept="image/png, image/jpeg"
@@ -342,7 +348,9 @@ class EventEdit extends Component {
                 defaultValue={this.props.tags}
               />
               <AppButtonInput type="submit" value="Submit" />
-              <AppButton empty>Cancel</AppButton>
+              <AppButton empty onClick={this.redirectToEventDetailsPage}>
+                Cancel
+              </AppButton>
             </TextInputArea>
           </NewEventForm>
         ) : (
@@ -353,8 +361,8 @@ class EventEdit extends Component {
           />
         )}
       </main>
-    );
+    )
   }
 }
 
-export default EventEdit;
+export default EventEdit
