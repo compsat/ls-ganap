@@ -80,16 +80,22 @@ const CompSAtLogo = styled(Logo)`
 `
 
 const LinksContainer = styled.div`
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 1em;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
+  > :first-child {
+    margin-bottom: 0.5em;
+  }
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.8em;
 
   ${media.mdScreen`
+   > :first-child {
+    margin-bottom: 0.2em;
+  }
     font-family: 'Quatro Sans';
     font-weight: 600;
     font-size: .8em;
@@ -98,7 +104,6 @@ const LinksContainer = styled.div`
     letter-spacing: 0;
 
     text-align: right
-    grid-gap: .2em;
   `}
 `
 
