@@ -69,7 +69,7 @@ def create_events(request, pk):
 	first_date = None
 	auth_user = None
 	try:
-		if pk not in globals() or Event.objects.get(pk=pk).is_approved == False:
+		if not Event.objects.filter(pk=pk).exists() or Event.objects.get(pk=pk).is_approved == False:
 			return redirect(settings.DEFAULT_DOMAIN)
 		else:
 			event = Event.objects.filter(is_approved=True).get(pk=pk)
