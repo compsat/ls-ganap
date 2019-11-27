@@ -68,13 +68,11 @@ def create_events(request, pk):
 
 	first_date = None
 	auth_user = None
-
 	try:
-		if Event.objects.get(pk=pk).is_approved == False:
-			return redirect('http://localhost:3000')
+		if pk not in globals() or Event.objects.get(pk=pk).is_approved == False:
+			return redirect(settings.DEFAULT_DOMAIN)
 		else:
 			event = Event.objects.filter(is_approved=True).get(pk=pk)
-			
 			event_logistics = EventLogistic.objects.filter(event=pk)
 			for logistic in event_logistics:
 				start_time = datetime.combine(logistic.date, logistic.start_time)
