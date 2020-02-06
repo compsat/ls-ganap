@@ -8,11 +8,11 @@ from decouple import config
 
 DEBUG = config('DEBUG', cast=bool)
 
-DEFAULT_DOMAIN = 'http://ganap.ateneo.edu'
+DEFAULT_DOMAIN = 'http://lsganap.ateneo.edu'
 
 ALLOWED_HOSTS = [
     '121.58.232.235',
-    'ganap.ateneo.edu',
+    'lsganap.ateneo.edu',
 ]
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
