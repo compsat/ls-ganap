@@ -218,19 +218,19 @@ class Event(SoftDeletionModel):
 	def __str__(self):
 		return self.name
 
-	def save(self, *args, **kwargs):
-		from main_events.views.event_auth_view import sync_calendar, change_logistics, change_details
-		old_approved = False
-		if self.pk:
-			old_name = Event.objects.get(pk=self.pk).name
-			old_description = Event.objects.get(pk=self.pk).description
-			old_approved = Event.objects.get(pk=self.pk).is_approved
-		super(Event, self).save(*args, **kwargs)
-		if self.pk and not old_approved and self.is_approved:
-			sync_calendar(self)
-		elif self.pk and self.event_calendars.exists():
-			if (old_name != self.name) or (old_description != self.description):
-				change_details(self)
+	# def save(self, *args, **kwargs):
+	# 	from main_events.views.event_auth_view import sync_calendar, change_logistics, change_details
+	# 	old_approved = False
+	# 	if self.pk:
+	# 		old_name = Event.objects.get(pk=self.pk).name
+	# 		old_description = Event.objects.get(pk=self.pk).description
+	# 		old_approved = Event.objects.get(pk=self.pk).is_approved
+	# 	super(Event, self).save(*args, **kwargs)
+	# 	if self.pk and not old_approved and self.is_approved:
+	# 		sync_calendar(self)
+	# 	elif self.pk and self.event_calendars.exists():
+	# 		if (old_name != self.name) or (old_description != self.description):
+	# 			change_details(self)
 
 	# @property
 	# def has_happened(self):
@@ -258,14 +258,14 @@ def hosts_added(sender, instance, **kwargs):
 	from main_events.views.event_auth_view import add_hosts, remove_hosts
 	action = kwargs.pop('action', None)
 	pk_set = kwargs.pop('pk_set', None)    
-	if action == "post_add" and instance.event_calendars.exists():
-		add_hosts(instance, pk_set)
-	elif action == "post_remove" and instance.event_calendars.exists():
-		remove_hosts(instance, pk_set)
+# 	if action == "post_add" and instance.event_calendars.exists():
+# 		add_hosts(instance, pk_set)
+# 	elif action == "post_remove" and instance.event_calendars.exists():
+# 		remove_hosts(instance, pk_set)
 
-m2m_changed.connect(hosts_added, sender=Event.org_hosts.through)
-m2m_changed.connect(hosts_added, sender=Event.sanggu_hosts.through)
-m2m_changed.connect(hosts_added, sender=Event.office_hosts.through)
+# m2m_changed.connect(hosts_added, sender=Event.org_hosts.through)
+# m2m_changed.connect(hosts_added, sender=Event.sanggu_hosts.through)
+# m2m_changed.connect(hosts_added, sender=Event.office_hosts.through)
 
 class EventLogisticManager(models.Manager):
 	def get_queryset(self):
@@ -281,19 +281,19 @@ class EventLogistic(models.Model):
 	venue = models.ForeignKey(Venue, null=True, blank=True, on_delete=models.SET_NULL)
 	outside_venue_name = models.CharField(max_length=200, blank=True)
 
-	def save(self, *args, **kwargs):
-		from main_events.views.event_auth_view import change_logistics, new_logistic
-		if self.pk:
-			super(EventLogistic, self).save(*args, **kwargs)
-			if self.event.is_approved and self.event_calendar_links:
-				change_logistics(self)
-		else:
-			super(EventLogistic, self).save(*args, **kwargs)
-			if self.event.is_approved:
-				new_logistic(self)
+	# def save(self, *args, **kwargs):
+	# 	from main_events.views.event_auth_view import change_logistics, new_logistic
+	# 	if self.pk:
+	# 		super(EventLogistic, self).save(*args, **kwargs)
+	# 		if self.event.is_approved and self.event_calendar_links:
+	# 			change_logistics(self)
+	# 	else:
+	# 		super(EventLogistic, self).save(*args, **kwargs)
+	# 		if self.event.is_approved:
+	# 			new_logistic(self)
 
-	def delete(self, *args, **kwargs):
-		from main_events.views.event_auth_view import delete_logistics
-		if self.event_calendar_links:
-			delete_logistics(self)
-		super(EventLogistic, self).delete(*args, **kwargs)
+	# def delete(self, *args, **kwargs):
+	# 	from main_events.views.event_auth_view import delete_logistics
+	# 	if self.event_calendar_links:
+	# 		delete_logistics(self)
+	# 	super(EventLogistic, self).delete(*args, **kwargs)
