@@ -56,11 +56,11 @@ class GoogleLoginButton extends Component {
   }
 
   responseGoogleSuccess = response => {
-    this.props.convertGoogleToken(response.Zi.access_token);
+    console.log(response);
+    this.props.convertGoogleToken(response.accessToken);
   };
 
-  responseGoogleFailure = response => {
-  };
+  responseGoogleFailure = response => {};
 
   render() {
     const props = this.props;
