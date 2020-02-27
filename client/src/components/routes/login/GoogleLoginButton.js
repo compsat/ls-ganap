@@ -1,37 +1,35 @@
-import React, { Component } from "react"
-import styled from "styled-components"
-import { media } from "style/style-utils"
-import { GoogleLogin } from "react-google-login"
-import googleIcon from "assets/google-logo.svg"
-import { Redirect, Link } from "react-router-dom"
+import React, { Component } from "react";
+import styled from "styled-components";
+import { media } from "style/style-utils";
+import { GoogleLogin } from "react-google-login";
+import googleIcon from "assets/google-logo.svg";
+import { Redirect, Link } from "react-router-dom";
 
 const NavLink = ({ className, route, children, onClick }) => (
   <Link className={className} to={route} onClick={onClick}>
     {children}
   </Link>
-)
+);
 
 const MobileLink = styled(NavLink)`
   display: block;
   color: #e07b24;
   text-decoration: none;
-
   ${media.mdScreen`
     display: none;
   `}
-`
+`;
 
 const DesktopLink = styled(NavLink)`
   display: none;
   color: #e07b24;
   text-decoration: none;
-
   ${media.mdScreen`
     display: block;
     width: 100%;
     text-align: right;
   `}
-`
+`;
 
 const Image = ({ className, source, alt, onclick, disabled }) => (
   <input
@@ -42,27 +40,27 @@ const Image = ({ className, source, alt, onclick, disabled }) => (
     onClick={onclick}
     disabled={disabled}
   />
-)
+);
 
 const Icon = styled(Image)`
   min-height: 25px;
   min-width: 25px;
   max-height: 55px;
-`
+`;
 
 class GoogleLoginButton extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   responseGoogleSuccess = response => {
-    this.props.convertGoogleToken(response.accessToken)
-  }
+    this.props.convertGoogleToken(response.accessToken);
+  };
 
-  responseGoogleFailure = response => {}
+  responseGoogleFailure = response => {};
 
   render() {
-    const props = this.props
+    const props = this.props;
 
     if (!props.isAuthenticated) {
       return (
@@ -97,7 +95,7 @@ class GoogleLoginButton extends Component {
             />
           </MobileLink>
         </React.Fragment>
-      )
+      );
     } else {
       return (
         <Redirect
@@ -106,9 +104,9 @@ class GoogleLoginButton extends Component {
             "/dashboard"
           }
         />
-      )
+      );
     }
   }
 }
 
-export default GoogleLoginButton
+export default GoogleLoginButton;
