@@ -267,6 +267,7 @@ def hosts_added(sender, instance, **kwargs):
 # m2m_changed.connect(hosts_added, sender=Event.sanggu_hosts.through)
 # m2m_changed.connect(hosts_added, sender=Event.office_hosts.through)
 
+
 class EventLogisticManager(models.Manager):
 	def get_queryset(self):
 		return super(EventLogisticManager, self).get_queryset().annotate(is_done=Count(Case(When(date__gte=timezone.now(), then=1)))).order_by('-is_done', 'date', 'start_time')
