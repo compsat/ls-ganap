@@ -46,6 +46,7 @@ injectGlobal`
 
   *, *:before, *:after {
     box-sizing: inherit;
+    white-space: pre-line;
   }
 
   html,
