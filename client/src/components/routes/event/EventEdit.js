@@ -315,7 +315,7 @@ class EventEdit extends Component {
               />
               {/* TODO: Make field required */}
               <NewEventFormAppInputAutocomplete
-                label="Venue"
+                label="Venue*"
                 placeholder=""
                 isCreatable={true}
                 isSearchable={true}
@@ -325,14 +325,14 @@ class EventEdit extends Component {
                 required
               />
               <NewEventFormTextInput
-                label="Event Description"
+                label="Event Description*"
                 onChange={e => handleInputChange("description", e.target.value)}
                 multiline
                 rows="4"
                 defaultValue={this.props.description}
               />
               <NewEventFormAppInputAutocomplete
-                label="Tags"
+                label="Tags*"
                 placeholder=""
                 isMulti={true}
                 isSearchable={true}

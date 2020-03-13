@@ -15,7 +15,6 @@ const MobileLink = styled(NavLink)`
   display: block;
   color: #e07b24;
   text-decoration: none;
-
   ${media.mdScreen`
     display: none;
   `}
@@ -25,7 +24,6 @@ const DesktopLink = styled(NavLink)`
   display: none;
   color: #e07b24;
   text-decoration: none;
-
   ${media.mdScreen`
     display: block;
     width: 100%;
@@ -56,11 +54,10 @@ class GoogleLoginButton extends Component {
   }
 
   responseGoogleSuccess = response => {
-    this.props.convertGoogleToken(response.Zi.access_token);
+    this.props.convertGoogleToken(response.accessToken);
   };
 
-  responseGoogleFailure = response => {
-  };
+  responseGoogleFailure = response => {};
 
   render() {
     const props = this.props;
