@@ -68,35 +68,37 @@ def create_events(request, pk):
 
 	first_date = None
 	auth_user = None
-
 	try:
-		event = Event.objects.filter(is_approved=True).get(pk=pk)
-		event_logistics = EventLogistic.objects.filter(event=pk)
-		for logistic in event_logistics:
-			start_time = datetime.combine(logistic.date, logistic.start_time)
-			if first_date is None:
-				first_date = logistic.date
-			end_time = datetime.combine(logistic.date, logistic.end_time)
-			location = None
-			if logistic.venue:
-				location = logistic.venue.name
-			else:
-				location = logistic.outside_venue_name
-				
-			EVENT = {
-				"summary": event.name,
-				"location": location,
-				"description": event.description,
-				"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
-				"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
-			}
-			eventTest = service.events().insert(calendarId='primary', body=EVENT).execute()
-			auth_user = eventTest['creator']['email']
+		if not Event.objects.filter(pk=pk).exists() or Event.objects.get(pk=pk).is_approved == False:
+			return redirect(settings.DEFAULT_DOMAIN)
+		else:
+			event = Event.objects.filter(is_approved=True).get(pk=pk)
+			event_logistics = EventLogistic.objects.filter(event=pk)
+			for logistic in event_logistics:
+				start_time = datetime.combine(logistic.date, logistic.start_time)
+				if first_date is None:
+					first_date = logistic.date
+				end_time = datetime.combine(logistic.date, logistic.end_time)
+				location = None
+				if logistic.venue:
+					location = logistic.venue.name
+				else:
+					location = logistic.outside_venue_name
+					
+				EVENT = {
+					"summary": event.name,
+					"location": location,
+					"description": event.description,
+					"start": {'dateTime': start_time.isoformat(), 'timeZone': 'Asia/Manila'},
+					"end": {'dateTime': end_time.isoformat(), 'timeZone': 'Asia/Manila'}
+				}
+				eventTest = service.events().insert(calendarId='primary', body=EVENT).execute()
+				auth_user = eventTest['creator']['email']
 
-		# Save credentials back to session in case access token was refreshed.
-		# ACTION ITEM: In a production app, you likely want to save these
-		#              credentials in a persistent database instead.
-		request.session['credentials'] = credentials_to_dict(credentials)
+			# Save credentials back to session in case access token was refreshed.
+			# ACTION ITEM: In a production app, you likely want to save these
+			#              credentials in a persistent database instead.
+			request.session['credentials'] = credentials_to_dict(credentials)
 	except RefreshError:
 		request.session['pk'] = pk
 		request.session['endpoint'] = 'create_events'

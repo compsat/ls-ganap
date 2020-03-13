@@ -251,7 +251,7 @@ class NewEvent extends Component {
             />
             {/* TODO: Make field required */}
             <NewEventFormAppInputAutocomplete
-              label="Venue"
+              label="Venue*"
               placeholder=""
               isCreatable={true}
               isSearchable={true}
@@ -260,18 +260,20 @@ class NewEvent extends Component {
               required
             />
             <NewEventFormTextInput
-              label="Event Description"
+              label="Event Description*"
               onChange={e => handleInputChange("description", e.target.value)}
               multiline
               rows="4"
+              required
             />
             <NewEventFormAppInputAutocomplete
-              label="Tags"
+              label="Tags*"
               placeholder=""
               isMulti={true}
               isSearchable={true}
               options={this.props.tags}
               onChange={value => handleInputChange("tags", value)}
+              required
             />
             <AppButtonInput type="submit" value="Submit for Approval" />
             <AppButton empty>Cancel</AppButton>
