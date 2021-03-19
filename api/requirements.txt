@@ -1,7 +1,7 @@
 Django==2.2.5
 psycopg2-binary==2.8.3
 pytz==2019.2
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 django-rest-swagger==2.2.0
 PyYAML===5.1.2
 djangorestframework-jwt-custom-user==1.11.1
